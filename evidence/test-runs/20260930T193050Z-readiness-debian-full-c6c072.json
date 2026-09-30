@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T193050Z-readiness-debian-full-c6c072",
+  "started_at_utc": "2026-09-30T19:30:50.093766+00:00",
+  "purpose": "Complete Debian VMware source suite after verified readiness overlay, including real Chromium Vite delayed HTTP and failure cases",
+  "git_revision": "43c6f57",
+  "working_tree_dirty": null,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "862ae6b4ff0585c1f3d3f7e696ee0bdb3a79bbcebed3220c3d207648836daf46",
+  "environment": {
+    "system": "Linux",
+    "release": "6.1.0-53-amd64",
+    "python": "3.11.2"
+  },
+  "duration_seconds": 21.38,
+  "status": "pass",
+  "tests_run": 30,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "pass",
+      "duration_seconds": 1.9136,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "pass",
+      "duration_seconds": 4.5598,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch",
+      "status": "pass",
+      "duration_seconds": 1.1289,
+      "detail": null
+    },
+    {
+      "test": "test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher",
+      "status": "pass",
+      "duration_seconds": 0.0763,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 0.2823,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit",
+      "status": "pass",
+      "duration_seconds": 0.384,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_changed_request_discards_pending_response",
+      "status": "pass",
+      "duration_seconds": 0.6871,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_delayed_worker_survives_read_slices_within_scenario_budget",
+      "status": "pass",
+      "duration_seconds": 1.3162,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected",
+      "status": "pass",
+      "duration_seconds": 0.5746,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_slow_headers_can_complete_within_scenario_budget",
+      "status": "pass",
+      "duration_seconds": 1.7473,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline",
+      "status": "pass",
+      "duration_seconds": 0.575,
+      "detail": null
+    },
+    {
+      "test": "test_linux_setup.LinuxSetupTests.test_archive_member_and_link_escapes_are_rejected",
+      "status": "pass",
+      "duration_seconds": 0.0021,
+      "detail": null
+    },
+    {
+      "test": "test_linux_setup.LinuxSetupTests.test_old_python_extraction_supports_regular_archive",
+      "status": "pass",
+      "duration_seconds": 0.0012,
+      "detail": null
+    },
+    {
+      "test": "test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives",
+      "status": "pass",
+      "duration_seconds": 0.008,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished",
+      "status": "pass",
+      "duration_seconds": 0.5005,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded",
+      "status": "pass",
+      "duration_seconds": 0.7694,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive",
+      "status": "pass",
+      "duration_seconds": 0.0003,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0006,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_pending_response_after_match_cannot_pass_deadline",
+      "status": "pass",
+      "duration_seconds": 0.0008,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output",
+      "status": "pass",
+      "duration_seconds": 0.0009,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios",
+      "status": "pass",
+      "duration_seconds": 0.0011,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_missing_git_returns_unknown_metadata",
+      "status": "pass",
+      "duration_seconds": 0.0002,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_example_passes_all_mutation_modes",
+      "status": "pass",
+      "duration_seconds": 1.387,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_http_oracle_checks_response_bytes",
+      "status": "pass",
+      "duration_seconds": 0.2122,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace",
+      "status": "pass",
+      "duration_seconds": 0.0008,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_nonfinite_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0004,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_stale_output_is_reported",
+      "status": "pass",
+      "duration_seconds": 0.3965,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_templated_source_and_extracted_file_output",
+      "status": "pass",
+      "duration_seconds": 0.2513,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale",
+      "status": "pass",
+      "duration_seconds": 3.6449,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_native_module_response",
+      "status": "pass",
+      "duration_seconds": 0.9495,
+      "detail": null
+    }
+  ]
+}

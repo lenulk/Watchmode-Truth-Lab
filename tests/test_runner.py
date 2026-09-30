@@ -30,6 +30,7 @@ class RunnerTests(unittest.TestCase):
             worker.write_text("import pathlib,sys,time\npathlib.Path(sys.argv[2]).write_bytes(pathlib.Path(sys.argv[1]).read_bytes())\ntime.sleep(10)\n", encoding="utf-8")
             config = {"fixture_dir": "fixture", "command": ["{python}", str(worker), "{workspace}/input.txt", "{workspace}/output.txt"],
                       "mutation_target": "input.txt", "oracle": {"type": "file", "path": "output.txt"},
+                      "startup_timeout_seconds": 3,
                       "timeout_seconds": 0.35, "probe_interval_seconds": 0.02, "stable_seconds": 0.02}
             path = root / "scenario.json"
             path.write_text(json.dumps(config), encoding="utf-8")

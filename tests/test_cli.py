@@ -10,6 +10,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class CLIBoundaryTests(unittest.TestCase):
+    def test_report_directory_uses_controlled_error_exit(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            result = subprocess.run([sys.executable, "-m", "watchmode_truth_lab", str(ROOT / "example.json"),
+                                     "--report", temporary], cwd=ROOT, capture_output=True, text=True, timeout=20)
+            self.assertEqual(result.returncode, 2, result.stderr)
+            self.assertIn("Cannot write report", result.stderr)
+            self.assertNotIn("Traceback", result.stderr)
+
     def test_invalid_scenarios_use_configuration_exit_code(self):
         changes = [("missing_command", lambda c: c.pop("command")),
                    ("mutation_list", lambda c: c.update(mutation=[])),

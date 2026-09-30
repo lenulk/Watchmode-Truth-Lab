@@ -19,8 +19,11 @@ def main(argv=None):
         parser.error(str(exc))
     encoded = json.dumps(result, ensure_ascii=False, indent=2)
     if args.report:
-        args.report.parent.mkdir(parents=True, exist_ok=True)
-        args.report.write_text(encoded + "\n", encoding="utf-8")
+        try:
+            args.report.parent.mkdir(parents=True, exist_ok=True)
+            args.report.write_text(encoded + "\n", encoding="utf-8")
+        except OSError as exc:
+            parser.error(f"Cannot write report: {exc}")
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
     print(encoded)

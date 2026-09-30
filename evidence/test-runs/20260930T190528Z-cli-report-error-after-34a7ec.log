@@ -1,0 +1,7 @@
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 3.570s
+
+OK

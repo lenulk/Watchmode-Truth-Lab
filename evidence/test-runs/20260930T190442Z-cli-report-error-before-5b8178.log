@@ -1,0 +1,29 @@
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... FAIL
+
+======================================================================
+FAIL: test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_cli.py", line 17, in test_report_directory_uses_controlled_error_exit
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 1 != 2 : Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\cli.py", line 23, in main
+    args.report.write_text(encoded + "\n", encoding="utf-8")
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1047, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '<home>\\AppData\\Local\\Temp\\tmp0vv6o3ru'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.047s
+
+FAILED (failures=1)

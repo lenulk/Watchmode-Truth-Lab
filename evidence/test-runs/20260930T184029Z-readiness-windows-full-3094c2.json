@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T184029Z-readiness-windows-full-3094c2",
+  "started_at_utc": "2026-09-30T18:40:29.730792+00:00",
+  "purpose": "Readiness assessment of current complete suite including engine boundary, Chrome, Vite, and failure cases at commit 43c6f57",
+  "git_revision": "43c6f577c5965c30d5be220cbb72cccda62b02fa",
+  "working_tree_dirty": false,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "7715469f48b38c698e7bd72c0c56b08505149397fc2641582f8ce9bb28f0f804",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 36.688,
+  "status": "fail",
+  "tests_run": 25,
+  "failures": 3,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "pass",
+      "duration_seconds": 5.75,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "pass",
+      "duration_seconds": 7.438,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch",
+      "status": "pass",
+      "duration_seconds": 3.25,
+      "detail": null
+    },
+    {
+      "test": "test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher",
+      "status": "pass",
+      "duration_seconds": 0.453,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 1.266,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected",
+      "status": "pass",
+      "duration_seconds": 1.187,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline",
+      "status": "pass",
+      "duration_seconds": 0.516,
+      "detail": null
+    },
+    {
+      "test": "test_linux_setup.LinuxSetupTests.test_archive_member_and_link_escapes_are_rejected",
+      "status": "pass",
+      "duration_seconds": 0.015,
+      "detail": null
+    },
+    {
+      "test": "test_linux_setup.LinuxSetupTests.test_old_python_extraction_supports_regular_archive",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished",
+      "status": "pass",
+      "duration_seconds": 1.39,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded",
+      "status": "pass",
+      "duration_seconds": 1.547,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_missing_git_returns_unknown_metadata",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_example_passes_all_mutation_modes",
+      "status": "pass",
+      "duration_seconds": 2.281,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_http_oracle_checks_response_bytes",
+      "status": "fail",
+      "duration_seconds": 2.172,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_runner.py\", line 71, in test_http_oracle_checks_response_bytes\n    self.assertEqual(result[\"status\"], \"pass\", result)\nAssertionError: 'inconclusive' != 'pass'\n- inconclusive\n+ pass\n : {'schema_version': 1, 'started_at_utc': '2026-09-30T18:40:56.184710+00:00', 'status': 'inconclusive', 'config': 'scenario.json', 'config_sha256': '7856ef78974fbd81b9ecc906c3eb7d922bfe8f4c8545602cac1272909ffc60d9', 'command': ['{python}', '<home>\\\\AppData\\\\Local\\\\Temp\\\\tmpyoyz4mj7\\\\http_worker.py', '{workspace}/input.txt', '44558'], 'mutation_command': None, 'tool_version': None, 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'http', 'url': 'http://127.0.0.1:44558/'}, 'startup': {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 2063.0, 'samples': 4, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'probe_deadline_exceeded'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': [], 'reproduction': {'config': 'scenario.json', 'rounds': 1, 'mutation': 'overwrite', 'cli': 'python -m watchmode_truth_lab scenario.json --rounds 1 --mutation overwrite'}}\n"
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace",
+      "status": "pass",
+      "duration_seconds": 0.031,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_nonfinite_timeout",
+      "status": "pass",
+      "duration_seconds": 0.047,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_stale_output_is_reported",
+      "status": "fail",
+      "duration_seconds": 0.672,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_runner.py\", line 37, in test_stale_output_is_reported\n    self.assertEqual(result[\"status\"], \"stale\", result)\nAssertionError: 'inconclusive' != 'stale'\n- inconclusive\n+ stale\n : {'schema_version': 1, 'started_at_utc': '2026-09-30T18:40:58.440111+00:00', 'status': 'inconclusive', 'config': 'scenario.json', 'config_sha256': '2aa0504f5f9070a7dff7c1866a9af725daceb894bb9ab8ecc8703906ed27e4e4', 'command': ['{python}', '<home>\\\\AppData\\\\Local\\\\Temp\\\\tmpo91vcbjd\\\\once.py', '{workspace}/input.txt', '{workspace}/output.txt'], 'mutation_command': None, 'tool_version': None, 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'file', 'path': 'output.txt'}, 'startup': {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 359.0, 'samples': 15, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'file_not_found_or_not_regular'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': [], 'reproduction': {'config': 'scenario.json', 'rounds': 1, 'mutation': 'overwrite', 'cli': 'python -m watchmode_truth_lab scenario.json --rounds 1 --mutation overwrite'}}\n"
+    },
+    {
+      "test": "test_runner.RunnerTests.test_templated_source_and_extracted_file_output",
+      "status": "pass",
+      "duration_seconds": 1.344,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale",
+      "status": "fail",
+      "duration_seconds": 3.921,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_runner.py\", line 115, in test_vite_disabled_watcher_reports_stale\n    self.assertEqual(result[\"startup\"][\"status\"], \"pass\", result)\nAssertionError: 'timeout' != 'pass'\n- timeout\n+ pass\n : {'schema_version': 1, 'started_at_utc': '2026-09-30T18:41:00.457666+00:00', 'status': 'inconclusive', 'config': 'vite.disabled.json', 'config_sha256': '9fec42d663b4e0bbf426b476315665f1272f5d6b3c7968e5b4f3635fcb68f741', 'command': ['{node}', '{config_dir}/node_modules/vite/bin/vite.js', '{workspace}', '--host', '127.0.0.1', '--port', '{port}', '--strictPort'], 'mutation_command': None, 'tool_version': 'vite/8.3.1 win32-x64 node-v24.18.0', 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'http', 'url': 'http://127.0.0.1:21812/src/token.js', 'extract_regex': 'export const token = \\\\\"([^\\\\\"]+)\\\\\"'}, 'startup': {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 3000.0, 'samples': 6, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'probe_deadline_exceeded'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': ['', '  VITE v8.3.1  ready in 842 ms', '', '  ➜  Local:   http://127.0.0.1:21812/'], 'reproduction': {'config': 'vite.disabled.json', 'rounds': 1, 'mutation': 'overwrite', 'cli': 'python -m watchmode_truth_lab vite.disabled.json --rounds 1 --mutation overwrite'}}\n"
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_native_module_response",
+      "status": "pass",
+      "duration_seconds": 3.188,
+      "detail": null
+    }
+  ]
+}

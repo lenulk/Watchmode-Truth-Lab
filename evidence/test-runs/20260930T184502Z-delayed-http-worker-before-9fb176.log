@@ -1,0 +1,17 @@
+test_delayed_worker_survives_read_slices_within_scenario_budget (test_http_probe.HTTPDeadlineTests.test_delayed_worker_survives_read_slices_within_scenario_budget) ... FAIL
+
+======================================================================
+FAIL: test_delayed_worker_survives_read_slices_within_scenario_budget (test_http_probe.HTTPDeadlineTests.test_delayed_worker_survives_read_slices_within_scenario_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_http_probe.py", line 52, in test_delayed_worker_survives_read_slices_within_scenario_budget
+    self.assertEqual(result["status"], "pass", result)
+AssertionError: 'timeout' != 'pass'
+- timeout
++ pass
+ : {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 3016.0, 'samples': 6, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'probe_deadline_exceeded'}
+
+----------------------------------------------------------------------
+Ran 1 test in 3.064s
+
+FAILED (failures=1)

@@ -9,6 +9,15 @@ from watchmode_truth_lab.runner import _wait
 
 
 class OracleDecisionTests(unittest.TestCase):
+    def test_pending_response_after_match_cannot_pass_deadline(self):
+        process = SimpleNamespace(poll=lambda: None)
+        with patch("watchmode_truth_lab.runner._read_output", side_effect=[(b"new", None), (None, "probe_pending")]), \
+                patch("watchmode_truth_lab.runner.time.monotonic", side_effect=[0, 0, 0.01, 0.01, 0.2, 0.2]), \
+                patch("watchmode_truth_lab.runner.time.sleep"):
+            result = _wait(b"new", {}, Path("."), process, 0.1, 0.01, 0.05)
+        self.assertEqual(result["status"], "timeout")
+        self.assertEqual(result["reason"], "observation_deadline_exceeded")
+
     def test_matching_output_from_exited_process_is_inconclusive(self):
         process = SimpleNamespace(poll=lambda: 0, returncode=0)
         with patch("watchmode_truth_lab.runner._read_output", return_value=(b"new", None)):

@@ -1,0 +1,63 @@
+test_browser_hmr_updates_dom_without_reload (test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload) ... ok
+test_disabled_watcher_keeps_browser_dom_stale (test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale) ... ok
+test_unknown_engine_is_rejected_before_launch (test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch) ... ok
+test_child_does_not_survive_exited_launcher (test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_oversized_body_is_rejected (test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected) ... ok
+test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline) ... ok
+test_archive_member_and_link_escapes_are_rejected (test_linux_setup.LinuxSetupTests.test_archive_member_and_link_escapes_are_rejected) ... ok
+test_old_python_extraction_supports_regular_archive (test_linux_setup.LinuxSetupTests.test_old_python_extraction_supports_regular_archive) ... ok
+test_long_line_is_drained_in_bounded_reads_and_next_line_survives (test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives) ... ok
+test_external_mutation_success_and_failure_are_distinguished (test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished) ... ok
+test_noisy_mutator_and_timeout_are_bounded (test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded) ... ok
+test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive) ... ok
+test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout) ... ok
+test_transient_match_does_not_hide_final_stale_output (test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output) ... ok
+test_existing_matrix_directory_is_rejected_before_scenarios (test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios) ... ok
+test_missing_git_returns_unknown_metadata (test_recording.RecordingTests.test_missing_git_returns_unknown_metadata) ... ok
+test_example_passes_all_mutation_modes (test_runner.RunnerTests.test_example_passes_all_mutation_modes) ... ok
+test_http_oracle_checks_response_bytes (test_runner.RunnerTests.test_http_oracle_checks_response_bytes) ... FAIL
+test_rejects_mutation_outside_temporary_workspace (test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace) ... ok
+test_rejects_nonfinite_timeout (test_runner.RunnerTests.test_rejects_nonfinite_timeout) ... ok
+test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported) ... FAIL
+test_templated_source_and_extracted_file_output (test_runner.RunnerTests.test_templated_source_and_extracted_file_output) ... ok
+test_vite_disabled_watcher_reports_stale (test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale) ... FAIL
+test_vite_native_module_response (test_runner.RunnerTests.test_vite_native_module_response) ... ok
+
+======================================================================
+FAIL: test_http_oracle_checks_response_bytes (test_runner.RunnerTests.test_http_oracle_checks_response_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_runner.py", line 71, in test_http_oracle_checks_response_bytes
+    self.assertEqual(result["status"], "pass", result)
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+ : {'schema_version': 1, 'started_at_utc': '2026-09-30T18:40:56.184710+00:00', 'status': 'inconclusive', 'config': 'scenario.json', 'config_sha256': '7856ef78974fbd81b9ecc906c3eb7d922bfe8f4c8545602cac1272909ffc60d9', 'command': ['{python}', '<home>\\AppData\\Local\\Temp\\tmpyoyz4mj7\\http_worker.py', '{workspace}/input.txt', '44558'], 'mutation_command': None, 'tool_version': None, 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'http', 'url': 'http://127.0.0.1:44558/'}, 'startup': {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 2063.0, 'samples': 4, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'probe_deadline_exceeded'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': [], 'reproduction': {'config': 'scenario.json', 'rounds': 1, 'mutation': 'overwrite', 'cli': 'python -m watchmode_truth_lab scenario.json --rounds 1 --mutation overwrite'}}
+
+======================================================================
+FAIL: test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_runner.py", line 37, in test_stale_output_is_reported
+    self.assertEqual(result["status"], "stale", result)
+AssertionError: 'inconclusive' != 'stale'
+- inconclusive
++ stale
+ : {'schema_version': 1, 'started_at_utc': '2026-09-30T18:40:58.440111+00:00', 'status': 'inconclusive', 'config': 'scenario.json', 'config_sha256': '2aa0504f5f9070a7dff7c1866a9af725daceb894bb9ab8ecc8703906ed27e4e4', 'command': ['{python}', '<home>\\AppData\\Local\\Temp\\tmpo91vcbjd\\once.py', '{workspace}/input.txt', '{workspace}/output.txt'], 'mutation_command': None, 'tool_version': None, 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'file', 'path': 'output.txt'}, 'startup': {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 359.0, 'samples': 15, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'file_not_found_or_not_regular'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': [], 'reproduction': {'config': 'scenario.json', 'rounds': 1, 'mutation': 'overwrite', 'cli': 'python -m watchmode_truth_lab scenario.json --rounds 1 --mutation overwrite'}}
+
+======================================================================
+FAIL: test_vite_disabled_watcher_reports_stale (test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_runner.py", line 115, in test_vite_disabled_watcher_reports_stale
+    self.assertEqual(result["startup"]["status"], "pass", result)
+AssertionError: 'timeout' != 'pass'
+- timeout
++ pass
+ : {'schema_version': 1, 'started_at_utc': '2026-09-30T18:41:00.457666+00:00', 'status': 'inconclusive', 'config': 'vite.disabled.json', 'config_sha256': '9fec42d663b4e0bbf426b476315665f1272f5d6b3c7968e5b4f3635fcb68f741', 'command': ['{node}', '{config_dir}/node_modules/vite/bin/vite.js', '{workspace}', '--host', '127.0.0.1', '--port', '{port}', '--strictPort'], 'mutation_command': None, 'tool_version': 'vite/8.3.1 win32-x64 node-v24.18.0', 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'http', 'url': 'http://127.0.0.1:21812/src/token.js', 'extract_regex': 'export const token = \\"([^\\"]+)\\"'}, 'startup': {'status': 'timeout', 'reason': 'output_unavailable', 'elapsed_ms': 3000.0, 'samples': 6, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'probe_deadline_exceeded'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': ['', '  VITE v8.3.1  ready in 842 ms', '', '  ➜  Local:   http://127.0.0.1:21812/'], 'reproduction': {'config': 'vite.disabled.json', 'rounds': 1, 'mutation': 'overwrite', 'cli': 'python -m watchmode_truth_lab vite.disabled.json --rounds 1 --mutation overwrite'}}
+
+----------------------------------------------------------------------
+Ran 25 tests in 36.520s
+
+FAILED (failures=3)

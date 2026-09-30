@@ -1,0 +1,14 @@
+test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout) ... FAIL
+
+======================================================================
+FAIL: test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\package_checks.py", line 96, in test_wheel_and_installed_console_without_source_checkout
+    self.assertEqual(run.returncode, 0, run.stderr)
+AssertionError: 1 != 0 : 
+
+----------------------------------------------------------------------
+Ran 1 test in 11.620s
+
+FAILED (failures=1)

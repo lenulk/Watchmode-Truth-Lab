@@ -501,3 +501,107 @@ The initial project committed in `35ee9f1` passed seven tests on Windows and six
 - Result: all three audit checks passed without skips, failures, or errors: JSON and matrix-summary consistency, document links, and user-home redaction. A targeted scan found no supplied credential, private connection address, or literal guest user-home path in evidence.
 - Analysis: 39 guest artifacts were imported after verifying the archive SHA-256; existing differing evidence would stop import. Original installation failures and the selector failure are retained alongside successful repairs. Edge, Firefox, and WebKit each passed 120 real DOM observations plus their correctly stale control; affected Chrome/Chromium integration and all-engine cleanup passed.
 - Completion and limits: browser-engine coverage available on the Windows host and Debian VM is complete for this dependency-accept fixture. Physical Linux hardware and Safari on Apple devices require separate machines; application-specific fixtures require the actual application. No novelty or maintainer usefulness claim is established by these passes. Final source/document diff and whitespace checks are reviewed before local commit.
+
+## Cycle 69 Current Windows readiness suite exposed startup failures
+
+- Evidence: [JSON](../evidence/test-runs/20260930T184029Z-readiness-windows-full-3094c2.json), [console log](../evidence/test-runs/20260930T184029Z-readiness-windows-full-3094c2.log).
+- Result: 25 tests ran; 22 passed and three failed, with no errors or skips. HTTP and disabled-watcher Vite checks never completed baseline readiness; the short stale-file fixture also failed baseline startup. Existing browser, cleanup, bounded-output, and decision tests passed.
+- Analysis: HTTP workers are currently terminated on every 500 ms read-slice timeout, including process startup. Under slower startup this can repeatedly discard a worker before it returns anything. Confirm with a deliberately delayed worker before changing the probe. The stale-file fixture's 350 ms observation budget also doubles as its startup budget; queue that separate fixture issue after the HTTP repair.
+- Readiness finding queued separately: `license = "MIT"` uses SPDX-expression metadata but the build requirement permits setuptools 61. Official setuptools documentation introduces that support at 77. Packaging/build and installed-CLI verification are missing release checks; address them after startup behavior is verified.
+
+## Cycle 70 Delayed HTTP worker reproduces startup starvation
+
+- Evidence: [JSON](../evidence/test-runs/20260930T184502Z-delayed-http-worker-before-9fb176.json), [console log](../evidence/test-runs/20260930T184502Z-delayed-http-worker-before-9fb176.log).
+- Result: a real worker deliberately delayed by 650 ms failed to return within a 3-second scenario budget because every 500 ms slice restarted it.
+- Analysis and repair: retain an outstanding request across read slices, use the enclosing observation deadline to cancel unfinished work, and reset on URL/body-limit changes. A worker's socket read must not impose a shorter hidden budget than the scenario. Add slow-header and changed-request checks alongside the existing slow-body/oversize cases; preserve process cleanup at the observation boundary.
+
+## Cycle 71 HTTP repair exposed pending-sample stability handling
+
+- Evidence: [JSON](../evidence/test-runs/20260930T185526Z-http-slice-budget-after-4f81df.json), [console log](../evidence/test-runs/20260930T185526Z-http-slice-budget-after-4f81df.log).
+- Result: seven of eight targeted tests passed. Delayed startup, body limits, hard slow-body deadline, changed request, and decision checks passed; repeated slow-header responses still failed stability despite returning matching bytes.
+- Analysis and follow-up: a pending read is not a completed unreadable observation. Distinguish `probe_pending` from request/deadline failures and preserve the previous match across pending slices, requiring another actual matching response before success. Add a controlled deadline check so a pending response can never pass merely from elapsed stable time. This completes the same HTTP slice/budget repair; other queued issues remain separate.
+
+## Cycle 72 HTTP pending observations verified
+
+- Evidence: [JSON](../evidence/test-runs/20260930T185828Z-http-pending-observation-after-30b2dd.json), [console log](../evidence/test-runs/20260930T185828Z-http-pending-observation-after-30b2dd.log).
+- Result: all nine targeted checks passed, including deliberately delayed worker startup, slow headers, pending response after an earlier match, changed URL/body limit, oversized output, slow-body hard deadline, late match, exited process, and transient stale output.
+- Analysis: pending slices retain the request without pretending to be new observations. A subsequent actual matching response is still required for success, and pending work is canceled at the overall observation boundary. The recorded starvation failure is resolved without relaxing the overall deadline or body limit.
+- Next repair: give the stale-file test a separate startup budget while retaining its short observation budget, then check CLI report-write errors and package builds before final full suites.
+
+## Cycle 73 Stale fixture startup policy repaired
+
+- Evidence: [JSON](../evidence/test-runs/20260930T190349Z-stale-fixture-startup-after-58895e.json), [console log](../evidence/test-runs/20260930T190349Z-stale-fixture-startup-after-58895e.log).
+- Result: the real stale-file integration passed after assigning a 3-second startup budget. Its mutation observation budget remains 350 ms.
+- Analysis: the original failure occurred before baseline readiness, so it did not evaluate stale detection. Separating startup policy uses the already supported scenario field and preserves the original short mutation check; runner deadlines are unchanged.
+
+## Cycle 74 CLI report destination failure confirmed
+
+- Evidence: [JSON](../evidence/test-runs/20260930T190442Z-cli-report-error-before-5b8178.json), [console log](../evidence/test-runs/20260930T190442Z-cli-report-error-before-5b8178.log).
+- Result: the CLI report-directory integration failed: an existing directory supplied as `--report` raised an uncaught write exception instead of a controlled CLI error.
+- Analysis and repair: handle report creation/write OSError with a concise error and exit 2, consistent with invalid CLI input. This is a separate output-export issue; preserve the failed test and verify both configuration errors and report-write errors.
+
+## Cycle 75 CLI error handling verified
+
+- Evidence: [JSON](../evidence/test-runs/20260930T190528Z-cli-report-error-after-34a7ec.json), [console log](../evidence/test-runs/20260930T190528Z-cli-report-error-after-34a7ec.log).
+- Result: both CLI boundary tests passed, covering report-directory errors and four invalid scenario cases, with exit 2 and no traceback.
+- Analysis: report creation/write failures now produce a controlled error. Successful report export and installed console-entrypoint behavior are checked by the next package smoke integration; no blanket filesystem-write success is claimed.
+
+## Cycle 76 Permitted build backend rejects license metadata
+
+- Evidence: [JSON](../evidence/test-runs/20260930T190915Z-permitted-backend-build-before-7faa94.json), [console log](../evidence/test-runs/20260930T190915Z-permitted-backend-build-before-7faa94.log), [verified backend provenance](../evidence/build-backend-provenance.json).
+- Result: setuptools 76.1.0, permitted by the current `>=61` requirement, failed the actual wheel build because `project.license = "MIT"` was not accepted by its schema.
+- Analysis and repair: raise the build requirement to `setuptools>=77.0.3`, matching the SPDX support floor and [official packaging example](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/). Verify a build using precisely that minimum, inspect wheel license/module contents, install into a fresh venv, and run the installed console from outside the checkout, including slow HTTP and invalid input. No publication is part of this test.
+
+## Cycle 77 Minimum backend build reached a test-capture encoding error
+
+- Evidence: [JSON](../evidence/test-runs/20260930T191014Z-minimum-backend-wheel-after-3ba38c.json), [console log](../evidence/test-runs/20260930T191014Z-minimum-backend-wheel-after-3ba38c.log).
+- Result: the minimum-backend wheel built, license/module checks passed, and installation completed, but the smoke check errored while decoding the installed module's Unicode path. Child UTF-8 output was read using the controller's Windows CP1252 default; no end-to-end package pass is claimed.
+- Analysis and repair: explicitly use UTF-8 for all package-check child output and enable UTF-8 for the build child too. This is test-harness capture repair, separate from the verified metadata schema issue. Re-run the complete isolated packaging check before final suites.
+
+## Cycle 78 Installed console HTTP check failed
+
+- Evidence: [JSON](../evidence/test-runs/20260930T191233Z-isolated-wheel-console-after-f0b771.json), [console log](../evidence/test-runs/20260930T191233Z-isolated-wheel-console-after-f0b771.log).
+- Result: wheel build, license/module inspection, isolated installation, module location, atomic file updates, and file report export passed. The installed HTTP console returned exit 1. Its stderr was empty; the initial assertion did not retain the JSON diagnostics emitted on stdout.
+- Analysis and next action: include both child stdout and stderr in package-check failure details, then reproduce to retain the actual HTTP report before selecting a repair. No installed-HTTP success or root cause is claimed yet.
+
+## Cycle 79 Installed HTTP diagnostics identify fixture shadowing
+
+- Evidence: [JSON](../evidence/test-runs/20260930T191658Z-installed-http-console-diagnostic-4084f5.json), [console log](../evidence/test-runs/20260930T191658Z-installed-http-console-diagnostic-4084f5.log).
+- Result: the retained report shows `process_exited_1` and `ModuleNotFoundError`: the smoke fixture was named `http.py`, shadowing Python's standard-library `http` package. The installed runner correctly marked the failed worker inconclusive and exited 1.
+- Analysis and repair: rename only the fixture to `server_worker.py`; do not change the runner for a fixture import error. Repeat the complete isolated package check with its stdout diagnostics retained on any failure.
+
+## Cycle 80 Installed package complete smoke check
+
+- Evidence: [JSON](../evidence/test-runs/20260930T191902Z-installed-package-complete-df4c90.json), [console log](../evidence/test-runs/20260930T191902Z-installed-package-complete-df4c90.log).
+- Result: the complete packaging integration passed with setuptools 77.0.3: wheel contents and MIT metadata, fresh venv installation, import from the installed package, console file mutations/report export, slow HTTP responses, and invalid input handling.
+- Analysis: UTF-8 capture and the fixture import name are corrected. The installed console works outside the source checkout on Windows Python 3.12. This verifies the minimum build backend; it does not establish every supported Python version or Linux wheel installation. Next, verify the full source suites on Windows and Debian using a recorded source overlay.
+
+## Cycle 81 Current Windows complete suite
+
+- Evidence: [JSON](../evidence/test-runs/20260930T192901Z-readiness-windows-repaired-78db90.json), [console log](../evidence/test-runs/20260930T192901Z-readiness-windows-repaired-78db90.log).
+- Result: all 30 tests passed, zero failures, errors or skips, on Windows Python 3.12.14. This includes real Vite/Chrome, stale controls, delayed HTTP startup/headers, deadline decisions, body bounds, CLI errors and ordinary process-descendant cleanup.
+- Analysis: the three baseline failures from Cycle 69 no longer reproduce with the recorded fixes and explicit fixture startup policy. This full suite is current-source verification; prior matrices remain historical. Next verify the same source overlay on Debian and repeat a 20-round HTTP matrix to exercise request reuse across mutations.
+
+## Cycle 82 Current Debian VMware complete suite
+
+- Evidence: [JSON](../evidence/test-runs/20260930T193050Z-readiness-debian-full-c6c072.json), [console log](../evidence/test-runs/20260930T193050Z-readiness-debian-full-c6c072.log), [source overlay](../evidence/readiness-source-provenance.json).
+- Result: all 30 tests passed, zero failures, errors or skips, on actual Debian 12.15 VMware Python 3.11.2, including provisioned Chromium, Vite and the new HTTP/CLI boundaries.
+- Analysis: the nine overlay files were SHA-256 verified and previous files backed up under ignored `reports/readiness-before/` before deployment. The archive base is 43c6f57 plus the recorded overlay, not a claim of a clean Git checkout. No system provisioning changed this round. Next inspect live project-local runtime cleanup and repeated Windows HTTP requests across mutations. Linux installed-wheel behavior remains untested.
+
+## Cycle 83 Debian readiness process cleanup
+
+- Evidence: [JSON](../evidence/test-runs/20260930T193151Z-readiness-debian-cleanup-151fc2.json), [console log](../evidence/test-runs/20260930T193151Z-readiness-debian-cleanup-151fc2.log).
+- Result: the actual post-suite process inspector passed; no live executable remained under the project's runtime/browser storage.
+- Analysis: this is guest process inspection after all tests completed, separate from simulated containment and ordinary-descendant integration. It does not establish containment for deliberately detached or cross-OS processes. Next exercise repeated HTTP observations against the real Vite matrix.
+
+## Cycle 84 Repeated real Vite HTTP observations after repair
+
+- Evidence: [matrix summary](../evidence/matrices/windows-readiness-http-2026-10-01/summary.json) and its seven scenario reports.
+- Result: Windows Vite native and polling each passed overwrite, atomic replace and burst for 20 rounds per combination: 120 positive freshness checks. The disabled-watcher control correctly returned stale.
+- Analysis: this exercises the repaired HTTP worker across repeated mutation observations on Windows, where startup starvation was first observed. Results confirm the configured sampled freshness policy; they are not performance benchmarks or proof of continuous correctness. Debian's current full suite passed independently; historical WSL2 and additional-engine matrices were not rerun for this HTTP repair. Next audit evidence and readiness documentation, then preserve the reviewed source and results in Git.
+
+## Cycle 85 Readiness artifact audit
+
+- Evidence: [JSON](../evidence/test-runs/20260930T193842Z-readiness-artifact-audit-4d2039.json), [console log](../evidence/test-runs/20260930T193842Z-readiness-artifact-audit-4d2039.log).
+- Result: all three checks passed for saved JSON/matrix summary consistency, local documentation links and literal user-home path redaction, including the imported Debian readiness results.
+- Analysis: full suites, installed package smoke, repeated HTTP matrix and guest cleanup meet this review's completion checks. Actual source diffs and source-transfer hashes were reviewed; failed evidence is preserved. The readiness assessment qualifies a local experimental pilot and explicitly retains unverified runtime/platform/application and research limits. No publication or system provisioning was performed during this round.

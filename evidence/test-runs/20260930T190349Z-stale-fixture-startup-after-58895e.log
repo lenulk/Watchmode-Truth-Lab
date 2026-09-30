@@ -1,0 +1,6 @@
+test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.972s
+
+OK

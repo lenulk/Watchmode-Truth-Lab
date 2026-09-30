@@ -92,6 +92,8 @@ def _wait(expected, oracle, workspace, process, timeout, interval, stable, extra
     finally:
         if owned_probe is not None:
             owned_probe.close()
+        elif http_probe is not None:
+            http_probe.cancel_pending()
 
 
 def _wait_observations(expected, oracle, workspace, process, timeout, interval, stable, extractor, http_probe):
@@ -118,7 +120,7 @@ def _wait_observations(expected, oracle, workspace, process, timeout, interval, 
             reason = f"process_exited_{process.returncode}"
             break
         if now >= deadline:
-            if data == expected:
+            if data == expected or (error == "probe_pending" and last_data == expected):
                 status, reason = "timeout", "observation_deadline_exceeded"
             elif last_error in {"extract_regex_no_match", "body_too_large"}:
                 status, reason = "inconclusive", last_error
@@ -133,7 +135,7 @@ def _wait_observations(expected, oracle, workspace, process, timeout, interval, 
             if now - matched_since >= stable:
                 return {"status": "pass", "latency_ms": round((matched_since - start) * 1000, 1), "samples": samples,
                         "observed_hash": _hash(data), "observed_bytes": len(data)}
-        else:
+        elif error != "probe_pending":
             matched_since = None
         time.sleep(min(interval, max(0, deadline - now)))
     return {"status": status, "reason": reason, "elapsed_ms": round((time.monotonic() - start) * 1000, 1),

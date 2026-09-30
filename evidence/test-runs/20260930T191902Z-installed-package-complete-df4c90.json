@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T191902Z-installed-package-complete-df4c90",
+  "started_at_utc": "2026-09-30T19:19:02.932485+00:00",
+  "purpose": "Verify exact-minimum wheel build, license, isolated console install, atomic file/report, slow HTTP with spawned probe, and invalid input after fixture repair",
+  "git_revision": "43c6f577c5965c30d5be220cbb72cccda62b02fa",
+  "working_tree_dirty": true,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "862ae6b4ff0585c1f3d3f7e696ee0bdb3a79bbcebed3220c3d207648836daf46",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 11.875,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout",
+      "status": "pass",
+      "duration_seconds": 11.469,
+      "detail": null
+    }
+  ]
+}

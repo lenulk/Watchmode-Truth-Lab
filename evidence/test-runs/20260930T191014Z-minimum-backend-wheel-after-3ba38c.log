@@ -1,0 +1,15 @@
+test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout) ... ERROR
+
+======================================================================
+ERROR: test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\package_checks.py", line 64, in test_wheel_and_installed_console_without_source_checkout
+    self.assertTrue(Path(location.stdout.strip()).is_relative_to(environment))
+                         ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+----------------------------------------------------------------------
+Ran 1 test in 7.460s
+
+FAILED (errors=1)

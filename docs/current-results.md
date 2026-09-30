@@ -2,13 +2,15 @@
 
 This is an experimental pilot with recorded repairs and real-tool evidence. It has not established a new Vite defect, a gap in Vite's existing tests, or the research go/no-go criterion. [Every cycle, including failures](test-log.md), records its analysis and follow-up.
 
+The latest [readiness assessment](readiness.md) records current complete suites on Windows and Debian, isolated installed-package checks and a repeated HTTP matrix after the HTTP worker repair. Earlier platform/browser matrices below remain historical evidence.
+
 ## Completed 20-round matrices
 
 Each watcher column contains three mutation modes × 20 rounds. Each scenario uses a fresh isolated fixture. These observations are freshness checks, not comparable performance benchmarks.
 
 | Execution and mutation origin | Native watcher | Polling watcher | Evidence |
 | --- | --- | --- | --- |
-| Windows Vite, Windows-local writes on NTFS | 60/60 passed | 60/60 passed | [Endpoint matrix](../evidence/matrices/windows-repaired-2026-09-30/summary.json) |
+| Windows Vite, Windows-local writes on NTFS, after readiness HTTP repair | 60/60 passed | 60/60 passed | [Latest endpoint matrix](../evidence/matrices/windows-readiness-http-2026-10-01/summary.json) |
 | Linux Vite in WSL2, Linux-local writes | 60/60 passed | 60/60 passed | [Endpoint matrix](../evidence/matrices/wsl2-linux-side-2026-09-30/summary.json) |
 | Linux Vite in WSL2, Windows PowerShell writes through UNC to Linux storage | 60/60 passed | 60/60 passed | [UNC matrix](../evidence/matrices/windows-to-wsl2-unc-20260930T120225Z/summary.json) |
 | Linux Vite in WSL2, Windows PowerShell writes to mounted Windows NTFS | 60/60 stale | 60/60 passed | [Mounted-NTFS matrix](../evidence/matrices/windows-to-wsl2-mounted-ntfs-20260930T125228Z/summary.json) |
@@ -25,14 +27,16 @@ The mounted-NTFS native result reproduces the [documented Windows-origin WSL2 wa
 
 ## Regression checks
 
-- [Latest Windows complete-suite repeat](../evidence/test-runs/20260930T150202Z-requested-windows-repeat-b0c0ae.json): 24 tests passed, zero skips, before the new engine-selection boundary test was added.
-- [Debian VM complete suite](../evidence/test-runs/20260930T143705Z-debian-vm-browser-full-bd4997.json): 24 tests passed, zero skips, including real Linux Chromium.
+- [Current Windows complete suite](../evidence/test-runs/20260930T192901Z-readiness-windows-repaired-78db90.json): 30 tests passed, zero skips, after HTTP polling, CLI report and fixture startup repairs, including real Chrome/Vite and stale controls.
+- [Current Debian VM complete suite](../evidence/test-runs/20260930T193050Z-readiness-debian-full-c6c072.json): 30 tests passed, zero skips, including real Linux Chromium and new HTTP/CLI boundaries. [Post-suite process inspection](../evidence/test-runs/20260930T193151Z-readiness-debian-cleanup-151fc2.json) passed without live project-local runtime/browser executables.
+- [Installed Windows package integration](../evidence/test-runs/20260930T191902Z-installed-package-complete-df4c90.json): exact minimum setuptools 77.0.3 wheel build, MIT metadata and module contents, isolated venv installation, import/console outside checkout, file updates/report export, slow HTTP responses and invalid-input handling passed. [The earlier permitted backend failure](../evidence/test-runs/20260930T190915Z-permitted-backend-build-before-7faa94.json) remains recorded.
+- [Initial readiness review](../evidence/test-runs/20260930T184029Z-readiness-windows-full-3094c2.json) failed three baseline checks. Controlled regressions identified HTTP worker starvation and a too-short stale-fixture startup policy. Independent CLI export and build-floor faults were also found and repaired. Every intermediate result remains in cycles 69–84 of [the test log](test-log.md).
 - After engine selection changed, [Chrome](../evidence/test-runs/20260930T175643Z-browser-selector-chrome-repaired-5be44c.json), [Debian Firefox](../evidence/test-runs/20260930T180027Z-debian-firefox-integration-b544f6.json), and [Debian WebKit](../evidence/test-runs/20260930T180231Z-debian-webkit-integration-cf85dd.json) each passed all three targeted integration tests without skips, including real DOM/HMR, stale control, and invalid selection. [Edge's initial integration](../evidence/test-runs/20260930T150402Z-windows-edge-integration-db3ad6.json) passed both real-browser tests before the boundary test was added.
 - After installing Firefox/WebKit libraries, [existing Linux Chromium integration](../evidence/test-runs/20260930T180801Z-debian-chromium-after-engines-a7fc41.json) passed all three tests without skips. [Expanded process cleanup](../evidence/test-runs/20260930T181025Z-debian-all-engine-cleanup-2f3562.json) found no live executable under project-local runtime/browser storage after all guest engine experiments.
 - [Earlier WSL2 complete suite](../evidence/test-runs/20260930T130852Z-final-linux-wsl2-f136bd.json): 19 tests passed, two browser tests explicitly skipped. This historical run predates the three Debian support tests; WSL2 browser provisioning was not performed.
 - Actual guest process inspection passed [after the suite](../evidence/test-runs/20260930T144622Z-debian-vm-browser-cleanup-f001d9.json) and [after both matrices](../evidence/test-runs/20260930T144950Z-debian-vm-matrix-cleanup-15ddc7.json): no live project-local Node/Chromium/crash-handler executable remained.
 - After bounded command capture changed, targeted cross-origin repeats retained the same results: [UNC](../evidence/matrices/windows-to-wsl2-unc-20260930T131405Z/summary.json), [mounted NTFS](../evidence/matrices/windows-to-wsl2-mounted-ntfs-20260930T131542Z/summary.json), two rounds per combination on each path.
-- [Latest artifact audit including added browser engines](../evidence/test-runs/20260930T181438Z-remaining-browser-artifact-audit-9127c7.json): three checks passed for saved JSON, matrix summary agreement, document links, and user-home path redaction.
+- [Current readiness artifact audit](../evidence/test-runs/20260930T193842Z-readiness-artifact-audit-4d2039.json): three checks passed for saved JSON, matrix summary agreement, document links and user-home path redaction, including imported Debian results.
 - Controlled simulations test deadline decisions, process-exit decisions, invalid CLI input, log-read bounds, and evidence preservation.
 - Real integrations test generated files, HTTP output, slow and oversized HTTP bodies, launcher descendants, noisy or failed/timed-out mutation commands, Vite, Windows-origin writes, Windows Chrome/Edge, and Debian Chromium/Firefox/WebKit DOM updates.
 
@@ -46,6 +50,8 @@ Provisioning failures on the installation-CD APT source and network/browser down
 
 Additional coverage uses installed Edge 154.0.4258.37 on Windows and pinned Playwright Firefox 153.0 revision 1538 / WebKit 26.5 revision 2336 in the same Debian guest. [Archive provenance](../evidence/remaining-browser-download-provenance.json) records transfer hashes, and [adapter provenance](../evidence/remaining-browser-adapter-provenance.json) identifies the c73827a base plus source overlays. Additional libraries added 228 packages without changing existing package versions. The command-scoped HTTPS source override preserves system source content, [verified by SHA-256](../evidence/remaining-browser-source-verification.json); [final package changes](../evidence/remaining-browser-dependencies-cache.json) and failed attempts remain recorded. Playwright WebKit on Debian is not Safari verification.
 
+The latest Debian full suite used a 43c6f57 source base plus the [readiness source overlay](../evidence/readiness-source-provenance.json), verified and backed up before applying nine files. Its recorder and runner hashes agree with the current Windows suite. No system package or browser provisioning changed during this readiness round.
+
 ## Remaining limits
 
-Physical Linux hardware remains unverified. Safari on macOS/iOS, additional browser/platform combinations, and application-specific HMR behavior have not been tested. The browser results cover one dependency-accept fixture. Timing budgets and extraction rules are scenario policies; stable samples cannot prove indefinitely correct output. Process containment covers ordinary descendants, with deliberately detached or cross-OS escape outside the contract. Novelty and maintainer usefulness still need external validation.
+Physical Linux hardware remains unverified. Safari on macOS/iOS, additional browser/platform combinations, and application-specific HMR behavior have not been tested. The browser results cover one dependency-accept fixture. Linux installed-wheel execution and an actual Python 3.10 runtime remain unverified. Timing budgets and extraction rules are scenario policies; stable samples cannot prove indefinitely correct output. Process containment covers ordinary descendants, with deliberately detached or cross-OS escape outside the contract. Novelty and maintainer usefulness still need external validation.

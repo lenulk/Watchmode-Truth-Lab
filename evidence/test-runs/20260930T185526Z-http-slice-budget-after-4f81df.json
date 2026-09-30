@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T185526Z-http-slice-budget-after-4f81df",
+  "started_at_utc": "2026-09-30T18:55:26.521438+00:00",
+  "purpose": "Verify delayed workers, slow headers, changed requests, oversized bodies, slow-body deadlines, and oracle exit/deadline decisions",
+  "git_revision": "43c6f577c5965c30d5be220cbb72cccda62b02fa",
+  "working_tree_dirty": true,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "a937c8e45559f54df4b0bc3d0d3d73132849a03b1bff99a19f14eb35cea06a26",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 8.203,
+  "status": "fail",
+  "tests_run": 8,
+  "failures": 1,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_changed_request_discards_pending_response",
+      "status": "pass",
+      "duration_seconds": 1.344,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_delayed_worker_survives_read_slices_within_scenario_budget",
+      "status": "pass",
+      "duration_seconds": 1.984,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected",
+      "status": "pass",
+      "duration_seconds": 1.032,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_slow_headers_can_complete_within_scenario_budget",
+      "status": "fail",
+      "duration_seconds": 3.031,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_http_probe.py\", line 56, in test_slow_headers_can_complete_within_scenario_budget\n    self.assertEqual(result[\"status\"], \"pass\", result)\nAssertionError: 'stale' != 'pass'\n- stale\n+ pass\n : {'status': 'stale', 'reason': 'output_mismatch', 'elapsed_ms': 3015.0, 'samples': 8, 'observed_hash': '09ecb6ebc8bcefc733f6f2ec44f791abeed6a99edf0cc31519637898aebd52d8', 'observed_bytes': 100, 'raw_output_hash': '09ecb6ebc8bcefc733f6f2ec44f791abeed6a99edf0cc31519637898aebd52d8', 'probe_error': 'probe_deadline_exceeded'}\n"
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline",
+      "status": "pass",
+      "duration_seconds": 0.5,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    }
+  ]
+}

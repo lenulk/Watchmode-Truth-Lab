@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T191658Z-installed-http-console-diagnostic-4084f5",
+  "started_at_utc": "2026-09-30T19:16:58.368565+00:00",
+  "purpose": "Reproduce isolated console HTTP failure while retaining its JSON stdout diagnostics",
+  "git_revision": "43c6f577c5965c30d5be220cbb72cccda62b02fa",
+  "working_tree_dirty": true,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "862ae6b4ff0585c1f3d3f7e696ee0bdb3a79bbcebed3220c3d207648836daf46",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 10.172,
+  "status": "fail",
+  "tests_run": 1,
+  "failures": 1,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout",
+      "status": "fail",
+      "duration_seconds": 9.781,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\scripts\\package_checks.py\", line 96, in test_wheel_and_installed_console_without_source_checkout\n    self.assertEqual(run.returncode, 0, run.stdout + run.stderr)\nAssertionError: 1 != 0 : {\n  \"schema_version\": 1,\n  \"started_at_utc\": \"2026-09-30T19:17:07.296250+00:00\",\n  \"status\": \"inconclusive\",\n  \"config\": \"http.json\",\n  \"config_sha256\": \"f17a765d4a85bf76b13b0d32199e5cde638a5fa4cc43d349db86abd90a3c5610\",\n  \"command\": [\n    \"{python}\",\n    \"{config_dir}/http.py\",\n    \"{workspace}/input.txt\",\n    \"{port}\"\n  ],\n  \"mutation_command\": null,\n  \"tool_version\": null,\n  \"environment\": {\n    \"system\": \"Windows\",\n    \"release\": \"11\",\n    \"python\": \"3.12.14\",\n    \"platform\": \"Windows-11-10.0.26200-SP0\",\n    \"workspace_device\": \"C:\\\\\",\n    \"filesystem_type\": \"NTFS\"\n  },\n  \"oracle\": {\n    \"type\": \"http\",\n    \"url\": \"http://127.0.0.1:24677/\"\n  },\n  \"startup\": {\n    \"status\": \"inconclusive\",\n    \"reason\": \"process_exited_1\",\n    \"elapsed_ms\": 578.0,\n    \"samples\": 1,\n    \"observed_hash\": null,\n    \"observed_bytes\": null,\n    \"raw_output_hash\": null,\n    \"probe_error\": \"probe_pending\"\n  },\n  \"attempts\": [],\n  \"failure_rate\": null,\n  \"pass_latency\": null,\n  \"logs\": [\n    \"Traceback (most recent call last):\",\n    \"  File \\\"<project>\\\\reports\\\\package-check-95oo81oj\\\\cases/http.py\\\", line 1, in <module>\",\n    \"    from http.server import BaseHTTPRequestHandler,HTTPServer\",\n    \"  File \\\"<project>\\\\reports\\\\package-check-95oo81oj\\\\cases\\\\http.py\\\", line 1, in <module>\",\n    \"    from http.server import BaseHTTPRequestHandler,HTTPServer\",\n    \"ModuleNotFoundError: No module named 'http.server'; 'http' is not a package\"\n  ],\n  \"reproduction\": {\n    \"config\": \"http.json\",\n    \"rounds\": 1,\n    \"mutation\": \"overwrite\",\n    \"cli\": \"python -m watchmode_truth_lab http.json --rounds 1 --mutation overwrite\"\n  }\n}\n\n"
+    }
+  ]
+}

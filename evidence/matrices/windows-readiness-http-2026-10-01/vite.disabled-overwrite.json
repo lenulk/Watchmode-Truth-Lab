@@ -1,0 +1,78 @@
+{
+  "label": "Windows readiness HTTP worker reuse after repair",
+  "scenario": "vite.disabled.json",
+  "mutation": "overwrite",
+  "expected_status": "stale",
+  "assessment": "pass",
+  "analysis": "Deliberately disabled watcher was correctly detected as stale; this is a control, not a tool bug.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T19:33:28.435490+00:00",
+    "status": "stale",
+    "config": "vite.disabled.json",
+    "config_sha256": "9fec42d663b4e0bbf426b476315665f1272f5d6b3c7968e5b4f3635fcb68f741",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "11",
+      "python": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:20908/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1141.0,
+      "samples": 7,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "aec2db7a5e5e69fafaaab1818b823ab253c0173e2800dc7b26e5458e0f0aac1f",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 3000.0,
+        "samples": 59,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 465 ms",
+      "",
+      "  ➜  Local:   http://127.0.0.1:20908/"
+    ],
+    "reproduction": {
+      "config": "vite.disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.disabled.json --rounds 1 --mutation overwrite"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+test_changed_request_discards_pending_response (test_http_probe.HTTPDeadlineTests.test_changed_request_discards_pending_response) ... ok
+test_delayed_worker_survives_read_slices_within_scenario_budget (test_http_probe.HTTPDeadlineTests.test_delayed_worker_survives_read_slices_within_scenario_budget) ... ok
+test_oversized_body_is_rejected (test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected) ... ok
+test_slow_headers_can_complete_within_scenario_budget (test_http_probe.HTTPDeadlineTests.test_slow_headers_can_complete_within_scenario_budget) ... FAIL
+test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline) ... ok
+test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive) ... ok
+test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout) ... ok
+test_transient_match_does_not_hide_final_stale_output (test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output) ... ok
+
+======================================================================
+FAIL: test_slow_headers_can_complete_within_scenario_budget (test_http_probe.HTTPDeadlineTests.test_slow_headers_can_complete_within_scenario_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_http_probe.py", line 56, in test_slow_headers_can_complete_within_scenario_budget
+    self.assertEqual(result["status"], "pass", result)
+AssertionError: 'stale' != 'pass'
+- stale
++ pass
+ : {'status': 'stale', 'reason': 'output_mismatch', 'elapsed_ms': 3015.0, 'samples': 8, 'observed_hash': '09ecb6ebc8bcefc733f6f2ec44f791abeed6a99edf0cc31519637898aebd52d8', 'observed_bytes': 100, 'raw_output_hash': '09ecb6ebc8bcefc733f6f2ec44f791abeed6a99edf0cc31519637898aebd52d8', 'probe_error': 'probe_deadline_exceeded'}
+
+----------------------------------------------------------------------
+Ran 8 tests in 7.905s
+
+FAILED (failures=1)

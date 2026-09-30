@@ -1,0 +1,68 @@
+test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout) ... FAIL
+
+======================================================================
+FAIL: test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\package_checks.py", line 96, in test_wheel_and_installed_console_without_source_checkout
+    self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+AssertionError: 1 != 0 : {
+  "schema_version": 1,
+  "started_at_utc": "2026-09-30T19:17:07.296250+00:00",
+  "status": "inconclusive",
+  "config": "http.json",
+  "config_sha256": "f17a765d4a85bf76b13b0d32199e5cde638a5fa4cc43d349db86abd90a3c5610",
+  "command": [
+    "{python}",
+    "{config_dir}/http.py",
+    "{workspace}/input.txt",
+    "{port}"
+  ],
+  "mutation_command": null,
+  "tool_version": null,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "workspace_device": "C:\\",
+    "filesystem_type": "NTFS"
+  },
+  "oracle": {
+    "type": "http",
+    "url": "http://127.0.0.1:24677/"
+  },
+  "startup": {
+    "status": "inconclusive",
+    "reason": "process_exited_1",
+    "elapsed_ms": 578.0,
+    "samples": 1,
+    "observed_hash": null,
+    "observed_bytes": null,
+    "raw_output_hash": null,
+    "probe_error": "probe_pending"
+  },
+  "attempts": [],
+  "failure_rate": null,
+  "pass_latency": null,
+  "logs": [
+    "Traceback (most recent call last):",
+    "  File \"<project>\\reports\\package-check-95oo81oj\\cases/http.py\", line 1, in <module>",
+    "    from http.server import BaseHTTPRequestHandler,HTTPServer",
+    "  File \"<project>\\reports\\package-check-95oo81oj\\cases\\http.py\", line 1, in <module>",
+    "    from http.server import BaseHTTPRequestHandler,HTTPServer",
+    "ModuleNotFoundError: No module named 'http.server'; 'http' is not a package"
+  ],
+  "reproduction": {
+    "config": "http.json",
+    "rounds": 1,
+    "mutation": "overwrite",
+    "cli": "python -m watchmode_truth_lab http.json --rounds 1 --mutation overwrite"
+  }
+}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 9.781s
+
+FAILED (failures=1)

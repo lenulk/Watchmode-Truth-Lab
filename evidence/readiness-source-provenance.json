@@ -1,0 +1,53 @@
+{
+  "source_base": "43c6f57",
+  "deployment": "Debian VMware archive plus readiness source overlay",
+  "overlay_sha256": "ee7efb0ae2356e6751c611a2e8c33e4ac5c99dcecfbd620d08b5766179be4244",
+  "backup": "reports/readiness-before",
+  "files": [
+    {
+      "file": "watchmode_truth_lab/runner.py",
+      "previous_sha256": "7715469f48b38c698e7bd72c0c56b08505149397fc2641582f8ce9bb28f0f804",
+      "sha256": "862ae6b4ff0585c1f3d3f7e696ee0bdb3a79bbcebed3220c3d207648836daf46"
+    },
+    {
+      "file": "watchmode_truth_lab/http_probe.py",
+      "previous_sha256": "53f6452071d05c3a10547f40c272d2e61f44a284aaf3d6d078c7d45661600bf5",
+      "sha256": "7868b565983608f3587dd97c00b8e50cf9e07e47fc508fa8f4a0d3bdcf398f09"
+    },
+    {
+      "file": "watchmode_truth_lab/cli.py",
+      "previous_sha256": "2d698bf13984bddd0fecf6d4ca75ad9dea382fc51370a5a1c8e75bb68ed49a54",
+      "sha256": "462ebf6be5dfc5035bb880205245e95ed8df2ae90840725ab0b38ecdbf20bb56"
+    },
+    {
+      "file": "tests/test_http_probe.py",
+      "previous_sha256": "dd6baefb1556d4968ae8bdd6e82ec0908b93e3b013ba57985df61fa98becca3e",
+      "sha256": "e123adbc8e4a25931c03e668798f3fc204be44faf405964a1c2ad40c301aa4f0"
+    },
+    {
+      "file": "tests/test_oracle.py",
+      "previous_sha256": "b8d2ba4dc5592c4d3fc19ba7b172146c72952d38ac62767e754a7f2ac2bff4fe",
+      "sha256": "2766414abab83914e23487502ec0db8fe2f182887f5737e3fa8d711db210761f"
+    },
+    {
+      "file": "tests/test_runner.py",
+      "previous_sha256": "c659d85a8cd9f143342702d309a4dbfef3c8bbb9afbac706327fd4d8868a7f1e",
+      "sha256": "715c16a15cc4cb98fd00126c1945b68e513665674b9dbec5d98c7e83e8ce3e57"
+    },
+    {
+      "file": "tests/test_cli.py",
+      "previous_sha256": "e01b49a7a5790d8163e605a006d53958c78d89ab49ba360dbc5a7242368e728f",
+      "sha256": "568728deb8e0b367754289ed2701ddcf4f60e6282ff4810f43b72e5f4d0ae8c0"
+    },
+    {
+      "file": "pyproject.toml",
+      "previous_sha256": "2bf6e7474c240a75966c019379f524eabfa23bdea1179c70cf1a56461351d49a",
+      "sha256": "05fd87c4c2e8d194debbaa88785e627d194e23b4d90296cc50f680f1bef8e34d"
+    },
+    {
+      "file": "scripts/package_checks.py",
+      "previous_sha256": null,
+      "sha256": "a2f413643ace370fb7ddcd0243f23d85f0b2b50f831f0e2c27750cb123aeb532"
+    }
+  ]
+}

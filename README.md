@@ -11,7 +11,17 @@ python -m watchmode_truth_lab example.json --rounds 3 --mutation atomic_replace 
 python scripts/test_cycle.py --label local-regression --purpose "Verify local integrations"
 ```
 
-`example.json` starts a tiny polling generator in a copied temporary fixture. The CLI waits for its baseline output, mutates `input.txt`, and waits for exact output bytes to match the final mutation for a short stable window. Exit code 0 means all rounds passed; 1 means a freshness check failed or was inconclusive; 2 means CLI input was invalid. The JSON includes hashes, latency to the first stable match, sample counts, environment, logs, and a reproduction command/config. Scenario metadata uses a filename and SHA-256 instead of an absolute config path. Child-process logs may still contain local paths or other sensitive data, so review reports before publishing. Run reproduction commands from the directory containing the scenario.
+`example.json` starts a tiny polling generator in a copied temporary fixture. The CLI waits for its baseline output, mutates `input.txt`, and waits for exact output bytes to match the final mutation for a short stable window. Exit code 0 means all rounds passed; 1 means a freshness check failed or was inconclusive; 2 means CLI input was invalid or the requested report could not be written. The JSON includes hashes, latency to the first stable match, sample counts, environment, logs, and a reproduction command/config. Scenario metadata uses a filename and SHA-256 instead of an absolute config path. Child-process logs may still contain local paths or other sensitive data, so review reports before publishing. Run reproduction commands from the directory containing the scenario.
+
+### Package verification
+
+The package uses the MIT license and requires setuptools 77.0.3 or newer to build its SPDX license metadata. The installed console command is `watchmode-truth-lab`. The following optional integration requires pip, venv and a compatible setuptools already available to the test Python; it builds a wheel in temporary project-local storage, inspects its contents/license, installs it into a fresh venv without network access, and runs the console outside the checkout:
+
+```sh
+python scripts/test_cycle.py --label installed-package --purpose "Verify isolated wheel and installed console" --test package_checks
+```
+
+`WTL_BUILD_BACKEND` can select a directory containing a specific setuptools backend. The recorded minimum-version test used exactly 77.0.3 on Windows. See [readiness](docs/readiness.md) for current verification and remaining limits.
 
 ## Test, record, analyze, improve
 
