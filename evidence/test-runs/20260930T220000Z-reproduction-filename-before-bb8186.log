@@ -1,0 +1,15 @@
+test_special_filename_reproduction_executes_with_original_arguments (test_reproduction.ReproductionTests.test_special_filename_reproduction_executes_with_original_arguments) ... ERROR
+
+======================================================================
+ERROR: test_special_filename_reproduction_executes_with_original_arguments (test_reproduction.ReproductionTests.test_special_filename_reproduction_executes_with_original_arguments)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_reproduction.py", line 25, in test_special_filename_reproduction_executes_with_original_arguments
+    self.assertEqual(reproduction["argv"], argv)
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'argv'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.629s
+
+FAILED (errors=1)

@@ -8,6 +8,7 @@ import os
 import platform
 import re
 import shutil
+import shlex
 import signal
 import socket
 import subprocess
@@ -458,6 +459,10 @@ def run(config_path, rounds=1, mutation=None):
             latencies = sorted(a["latency_ms"] for a in attempts if a["status"] == "pass")
             latency_summary = ({"median_ms": median(latencies), "p95_ms": latencies[max(0, (95 * len(latencies) + 99) // 100 - 1)]}
                                if latencies else None)
+            reproduction_argv = [sys.executable, "-m", "watchmode_truth_lab", config_path.name,
+                                 "--rounds", str(rounds), "--mutation", mode]
+            reproduction_cli = ("& " + " ".join("'" + part.replace("'", "''") + "'" for part in reproduction_argv)
+                                if os.name == "nt" else shlex.join(reproduction_argv))
             report = {"schema_version": 1, "started_at_utc": started_at, "status": status,
                     "config": config_path.name, "config_sha256": _hash(config_path.read_bytes()),
                     "command": command, "mutation_command": mutation_command, "tool_version": version,
@@ -469,7 +474,8 @@ def run(config_path, rounds=1, mutation=None):
                     "failure_rate": round(sum(a["status"] != "pass" for a in attempts) / len(attempts), 4) if attempts else None,
                     "pass_latency": latency_summary,
                     "logs": [], "reproduction": {"config": config_path.name, "rounds": rounds, "mutation": mode,
-                                                  "cli": f"python -m watchmode_truth_lab {config_path.name} --rounds {rounds} --mutation {mode}"}}
+                                                  "argv": reproduction_argv, "cli_shell": "powershell" if os.name == "nt" else "posix",
+                                                  "cli": reproduction_cli}}
         finally:
             if http_probe is not None:
                 http_probe.close()

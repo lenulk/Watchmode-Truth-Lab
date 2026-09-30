@@ -21,6 +21,8 @@ The default console output is UTF-8 JSON. `--format summary` changes only consol
 
 Record `--version` with artifacts used for reproduction. This report is diagnostic evidence, not a standalone archive of dependencies or arbitrary configuration secrets. The original scenario matching `config_sha256` is required. Capture the artifact checksum to identify installed code.
 
+`reproduction.argv` preserves literal arguments and the current interpreter for subprocess execution without a shell. `reproduction.cli` quotes those arguments for `cli_shell` (`powershell` on Windows, `posix` elsewhere). Run from the scenario directory; keep the original environment/dependencies. These additive schema 1 fields avoid interpreting spaces, apostrophes or dollar signs in a filename. A quoted invocation alone does not preserve arbitrary environment variables.
+
 ## Decision semantics
 
 - `pass`: matching observations met the configured stable-window policy before the deadline while the watched process was alive.

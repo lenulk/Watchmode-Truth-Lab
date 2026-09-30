@@ -118,7 +118,7 @@ class PackageChecks(unittest.TestCase):
             config = {"fixture_dir": "fixture", "command": ["{python}", "{config_dir}/worker.py", "{workspace}/input.txt", "{workspace}/output.txt"],
                       "mutation_target": "input.txt", "oracle": {"type": "file", "path": "output.txt"},
                       "startup_timeout_seconds": 5, "timeout_seconds": 3, "stable_seconds": 0.05}
-            path = cases / "file.json"
+            path = cases / "file scenario's $token ü.json"
             path.write_text(json.dumps(config))
             report = cases / "file-report.json"
             run = subprocess.run([str(entrypoint), str(path), "--rounds", "2", "--mutation", "atomic_replace", "--report", str(report)],
@@ -128,6 +128,11 @@ class PackageChecks(unittest.TestCase):
             self.assertEqual(saved["status"], "pass")
             self.assertEqual(len(saved["attempts"]), 2)
             self.assertTrue(all(row["expected_hash"] == row["observed_hash"] for row in saved["attempts"]))
+            self.assertEqual(saved["reproduction"]["argv"][0], str(executable))
+            repeated = subprocess.run(saved["reproduction"]["argv"], cwd=cases, env=clean_env,
+                                      capture_output=True, text=True, encoding="utf-8", timeout=20)
+            self.assertEqual(repeated.returncode, 0, repeated.stdout + repeated.stderr)
+            self.assertEqual(json.loads(repeated.stdout)["status"], "pass")
             (cases / "server_worker.py").write_text(
                 "from http.server import BaseHTTPRequestHandler,HTTPServer\nfrom pathlib import Path\nimport sys,time\n"
                 "class Handler(BaseHTTPRequestHandler):\n"

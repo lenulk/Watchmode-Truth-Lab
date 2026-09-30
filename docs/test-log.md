@@ -871,3 +871,39 @@ The first pnpm setup failed with EPERM when approved host-account commands tried
 - Evidence: [JSON](../evidence/test-runs/20260930T215430Z-installed-browser-cancel-windows-993007.json), [console log](../evidence/test-runs/20260930T215430Z-installed-browser-cancel-windows-993007.log).
 - Result: actual browser DOM observation became available, then controlled SIGINT returned 130 without a traceback; all observed adapter/Vite/browser descendant PIDs stopped.
 - Analysis: the test records only process IDs/parent IDs from the installed CLI's own tree and verifies they are gone after normal cancellation. It deliberately keeps baseline observation pending after browser readiness to exercise live browser teardown. This is genuine installed browser/process integration with a self-delivered signal, not physical keyboard verification. Add it to required CI alongside mutation cancellation.
+
+## Cycle 129 Complete revised Windows source regression
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215533Z-release-r2-source-windows-84113d.json), [console log](../evidence/test-runs/20260930T215533Z-release-r2-source-windows-84113d.log).
+- Result: all 46 tests passed with no skips/failures/errors after the captured-command polling repair, including real Chrome/Vite and command timeout/noisy/failure cases.
+- Analysis: the principal runner change retains bounded timeout and output behavior and passed the new installed mutation/browser interruption gates. Deploy revision bd3116c with backup/checksums to Debian, verify its source and installed cancellation, then upload the reviewed project to the existing private GitHub repository and observe required CI.
+
+## Cycle 130 Complete revised Debian source regression
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215740Z-release-r2-source-debian-6cfaf8.json), [console log](../evidence/test-runs/20260930T215740Z-release-r2-source-debian-6cfaf8.log), [overlay provenance](../evidence/release-r2-debian-provenance.json).
+- Result: all 46 tests passed without skips/failures/errors after the backed-up lifecycle overlay and exact r2 wheel installation.
+- Analysis: current source behavior is verified on both operating systems, including timed-out version/mutator capture and real Chromium. Installed cancellation and browser matrix follow separately. No guest system packages changed.
+
+## Cycle 131 Revised wheel Windows HTTP matrix
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215746Z-release-r2-windows-http-626286.json), [console log](../evidence/test-runs/20260930T215746Z-release-r2-windows-http-626286.log), [matrix](../evidence/matrices/release-r2-windows-http-1.0.0/summary.json).
+- Result: all 120 HTTP updates passed after captured-wait repair; diagnostics, fixture preservation and expected-stale control passed.
+- Analysis: verifies repeated installed HTTP behavior for r2. Browser adapter bytes are unchanged, while the new source and cancellation checks verify runner lifecycle effects. An independently observed report-reproduction quoting gap for special scenario filenames is queued for its own repair round before final CI.
+
+## Cycle 132 Reproduction argument metadata boundary
+
+- Evidence: [JSON](../evidence/test-runs/20260930T220000Z-reproduction-filename-before-bb8186.json), [console log](../evidence/test-runs/20260930T220000Z-reproduction-filename-before-bb8186.log).
+- Result: a real successful scenario with spaces, apostrophe, dollar sign and Unicode in its filename produced a report, but the regression errored because structured reproduction argv was absent. The test did not yet execute the legacy shell string.
+- Analysis and repair: code inspection shows the legacy cli interpolates the filename without quoting and assumes a python alias. Add structured argv using the current interpreter and a shell-labeled, quoted presentation for PowerShell/POSIX. Preserve schema 1 and existing fields. Verify actual shell execution from the scenario cwd after the repair rather than claiming the old string was experimentally executed.
+
+## Cycle 133 Revised installed Debian cancellation gates
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215955Z-release-r2-debian-cancel-a61a5a.json), [console log](../evidence/test-runs/20260930T215955Z-release-r2-debian-cancel-a61a5a.log).
+- Result: both tests passed without skips: startup/pending-HTTP/external-mutation controlled SIGINT with ordinary descendants, and actual live-browser cancellation with observed tree cleanup.
+- Analysis: r2's lifecycle repair is verified on Windows and Debian; the report quoting repair is separate and does not change those process mechanisms. Guest signal evidence remains controlled in-process delivery, not keyboard input or detached process containment.
+
+## Cycle 134 Special-filename reproduction and report compatibility
+
+- Evidence: [JSON](../evidence/test-runs/20260930T220119Z-reproduction-filename-after-ac56b2.json), [console log](../evidence/test-runs/20260930T220119Z-reproduction-filename-after-ac56b2.log).
+- Result: all six checks passed, including actually executing the report's PowerShell invocation with spaces/apostrophe/dollar sign/Unicode in the filename, preserving the selected interpreter and scenario arguments. Existing CLI/export checks passed.
+- Analysis: structured argv and shell labels are additive schema 1 fields. Quoted presentation is platform-specific and still requires original cwd/dependencies/environment. Add installed argv execution to package verification and POSIX reproduction to Debian/required CI; preserve earlier failed metadata evidence.

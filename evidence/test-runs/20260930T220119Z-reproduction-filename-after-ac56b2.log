@@ -1,0 +1,11 @@
+test_special_filename_reproduction_executes_with_original_arguments (test_reproduction.ReproductionTests.test_special_filename_reproduction_executes_with_original_arguments) ... ok
+test_interrupted_report_write_preserves_previous_report (test_report_export.ReportExportTests.test_interrupted_report_write_preserves_previous_report) ... ok
+test_replace_failure_preserves_original_and_removes_temporary (test_report_export.ReportExportTests.test_replace_failure_preserves_original_and_removes_temporary) ... ok
+test_successful_summary_keeps_json_export_and_existing_default (test_report_export.ReportExportTests.test_successful_summary_keeps_json_export_and_existing_default) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.611s
+
+OK

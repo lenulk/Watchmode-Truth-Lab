@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T220119Z-reproduction-filename-after-ac56b2",
+  "started_at_utc": "2026-09-30T22:01:19.836432+00:00",
+  "purpose": "Actual PowerShell reproduction preserves interpreter and special filename; report and CLI compatibility",
+  "git_revision": "bd3116c4cf062b223acfbf7dc45e09260489148b",
+  "working_tree_dirty": true,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "add5fb6e7a21aaa88d1a8a1d711dbb03a0a79b92273470ebd2c4ee0f33d5d5de",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 3.75,
+  "status": "pass",
+  "tests_run": 6,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_reproduction.ReproductionTests.test_special_filename_reproduction_executes_with_original_arguments",
+      "status": "pass",
+      "duration_seconds": 1.906,
+      "detail": null
+    },
+    {
+      "test": "test_report_export.ReportExportTests.test_interrupted_report_write_preserves_previous_report",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_report_export.ReportExportTests.test_replace_failure_preserves_original_and_removes_temporary",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_report_export.ReportExportTests.test_successful_summary_keeps_json_export_and_existing_default",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 0.875,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit",
+      "status": "pass",
+      "duration_seconds": 0.813,
+      "detail": null
+    }
+  ]
+}
