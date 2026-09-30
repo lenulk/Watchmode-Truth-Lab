@@ -1,6 +1,6 @@
 # แผนพัฒนาสู่การใช้งานจริง — 2026-10-01
 
-สถานะ: ผู้ใช้อนุญาตให้พัฒนา ทดสอบ และอัปโหลด GitHub เมื่อสำเร็จ กำลังเริ่มงานติดตั้งและ preflight
+สถานะ: ผู้ใช้อนุญาตให้พัฒนา ทดสอบ และอัปโหลด GitHub เมื่อสำเร็จ พัฒนา CLI/starter/diagnostics/report และ installed workflow แล้ว กำลังตรวจรับเวอร์ชัน 1.0.0 และ CI ก่อนส่งมอบ
 
 ## เป้าหมาย
 
@@ -73,7 +73,7 @@
 
 Build release artifacts ครั้งเดียวแล้วทดสอบ artifacts เหล่านั้นใน environment สะอาด ตรวจ metadata, LICENSE, installed assets และ console จัด checksum, changelog, troubleshooting และวิธีย้อนกลับ version การเปิดใช้ remote CI, upload, publication และการติดต่อผู้อื่นทำตามขอบเขตที่ผู้ใช้อนุญาตในตอนนั้น
 
-### ระยะ 5 — Checklist ปล่อย 0.2.0
+### ระยะ 5 — Checklist ปล่อย 1.0.0
 
 - [ ] ผู้ใช้ใหม่ติดตั้งและทำ first run ตามคู่มือจากเครื่องหรือ venv สะอาดได้
 - [ ] Windows/Debian installed-package end-to-end ผ่านจาก artifact ที่จะส่งมอบ

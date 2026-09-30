@@ -1,0 +1,15 @@
+test_installed_vite_watchers_mutations_and_disabled_control (installed_workflow_checks.InstalledWorkflowChecks.test_installed_vite_watchers_mutations_and_disabled_control) ... FAIL
+
+======================================================================
+FAIL: test_installed_vite_watchers_mutations_and_disabled_control (installed_workflow_checks.InstalledWorkflowChecks.test_installed_vite_watchers_mutations_and_disabled_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>/scripts/installed_workflow_checks.py", line 29, in test_installed_vite_watchers_mutations_and_disabled_control
+    self.assertEqual(doctor.returncode, 0, doctor.stdout + doctor.stderr)
+AssertionError: 1 != 0 : /usr/bin/python3.11: No module named watchmode_truth_lab
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+FAILED (failures=1)

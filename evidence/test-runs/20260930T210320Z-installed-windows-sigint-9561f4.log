@@ -1,0 +1,6 @@
+test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks.test_installed_sigint_stops_watch_descendants_and_pending_http) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.707s
+
+OK

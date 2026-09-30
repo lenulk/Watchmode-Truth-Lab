@@ -1,0 +1,70 @@
+test_dependency_range_is_not_mistaken_for_an_exact_pin (test_diagnostics.DiagnosticTests.test_dependency_range_is_not_mistaken_for_an_exact_pin) ... FAIL
+test_file_ready_without_running_watch_or_version_command (test_diagnostics.DiagnosticTests.test_file_ready_without_running_watch_or_version_command) ... ok
+test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) ... 
+  test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) (metadata=[]) ... ERROR
+  test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) (metadata={'devDependencies': []}) ... ERROR
+  test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) (metadata={'devDependencies': {'vite': None}}) ... FAIL
+test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) ... ERROR
+test_missing_executable_and_node_assets_are_actionable (test_diagnostics.DiagnosticTests.test_missing_executable_and_node_assets_are_actionable) ... ok
+test_complete_required_gate_keeps_observation_limits (test_ci_gates.CIGateTests.test_complete_required_gate_keeps_observation_limits) ... ok
+test_required_gate_rejects_skip_empty_failure_and_wrong_revision (test_ci_gates.CIGateTests.test_required_gate_rejects_skip_empty_failure_and_wrong_revision) ... ok
+
+======================================================================
+ERROR: test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) (metadata=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_diagnostics.py", line 20, in test_malformed_dependency_metadata_is_not_ready_without_crashing
+    result = diagnose(project / "scenario.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\watchmode_truth_lab\diagnostics.py", line 49, in diagnose
+    for name, expected in package.get("devDependencies", {}).items():
+                          ^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+ERROR: test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) (metadata={'devDependencies': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_diagnostics.py", line 20, in test_malformed_dependency_metadata_is_not_ready_without_crashing
+    result = diagnose(project / "scenario.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\watchmode_truth_lab\diagnostics.py", line 49, in diagnose
+    for name, expected in package.get("devDependencies", {}).items():
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+======================================================================
+ERROR: test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_diagnostics.py", line 28, in test_malformed_dependency_metadata_is_not_ready_without_crashing
+    result = diagnose(project / "scenario.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\watchmode_truth_lab\diagnostics.py", line 51, in diagnose
+    actual = json.loads(target.read_text(encoding="utf-8")).get("version") if target.is_file() else None
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+FAIL: test_dependency_range_is_not_mistaken_for_an_exact_pin (test_diagnostics.DiagnosticTests.test_dependency_range_is_not_mistaken_for_an_exact_pin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_diagnostics.py", line 43, in test_dependency_range_is_not_mistaken_for_an_exact_pin
+    self.assertEqual(dependency["status"], "pass")
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) (metadata={'devDependencies': {'vite': None}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_diagnostics.py", line 22, in test_malformed_dependency_metadata_is_not_ready_without_crashing
+    self.assertTrue(any(check["name"].startswith("manifest") and check["status"] == "fail"
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.357s
+
+FAILED (failures=2, errors=3)

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T211715Z-installed-windows-http-clean-init-6a32c7",
+  "started_at_utc": "2026-09-30T21:17:15.314618+00:00",
+  "purpose": "Clean-cwd installed starter creation with real Vite HTTP 20-round native polling matrices stale control and preserved fixtures",
+  "git_revision": "1898e8e5248dd6dca41553ba84ddf7b8956bfbfc",
+  "working_tree_dirty": true,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 44.484,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "installed_workflow_checks.InstalledWorkflowChecks.test_installed_vite_watchers_mutations_and_disabled_control",
+      "status": "pass",
+      "duration_seconds": 44.296,
+      "detail": null
+    }
+  ]
+}

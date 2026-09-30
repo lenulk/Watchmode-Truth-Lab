@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T214034Z-release-artifacts-precommit-64262f",
+  "started_at_utc": "2026-09-30T21:40:34.060912+00:00",
+  "purpose": "Retained evidence consistency documentation links and home-path redaction before source commit",
+  "git_revision": "1898e8e5248dd6dca41553ba84ddf7b8956bfbfc",
+  "working_tree_dirty": true,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 4.016,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "artifact_checks.ArtifactChecks.test_document_local_links_resolve",
+      "status": "pass",
+      "duration_seconds": 0.203,
+      "detail": null
+    },
+    {
+      "test": "artifact_checks.ArtifactChecks.test_evidence_has_no_literal_user_home_paths",
+      "status": "pass",
+      "duration_seconds": 3.406,
+      "detail": null
+    },
+    {
+      "test": "artifact_checks.ArtifactChecks.test_evidence_json_and_matrix_summaries_are_consistent",
+      "status": "pass",
+      "duration_seconds": 0.188,
+      "detail": null
+    }
+  ]
+}

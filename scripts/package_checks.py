@@ -88,6 +88,12 @@ class PackageChecks(unittest.TestCase):
                                       cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
             self.assertEqual(location.returncode, 0, location.stderr)
             self.assertTrue(Path(location.stdout.strip()).is_relative_to(environment))
+            version = subprocess.run([str(executable), "-c", "import importlib.metadata,watchmode_truth_lab;assert importlib.metadata.version('watchmode-truth-lab')==watchmode_truth_lab.__version__;print(watchmode_truth_lab.__version__)"],
+                                     cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
+            self.assertEqual(version.returncode, 0, version.stderr)
+            cli_version = subprocess.run([str(entrypoint), "--version"], cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
+            self.assertEqual(cli_version.returncode, 0, cli_version.stderr)
+            self.assertEqual(cli_version.stdout.strip(), "watchmode-truth-lab " + version.stdout.strip())
             for template in ("file", "vite-http", "vite-browser"):
                 starter = root / ("installed-" + template)
                 created = subprocess.run([str(entrypoint), "--init", str(starter), "--template", template],

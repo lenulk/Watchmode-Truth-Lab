@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "watchmode-truth-lab"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Black-box freshness checks for watch-mode tools"
 requires-python = ">=3.10"
 license = "MIT"
@@ -15,6 +15,9 @@ watchmode-truth-lab = "watchmode_truth_lab.cli:main"
 [tool.setuptools.packages.find]
 include = ["watchmode_truth_lab*"]
 namespaces = false
+
+[tool.setuptools.dynamic]
+version = {attr = "watchmode_truth_lab.__version__"}
 
 [tool.setuptools.package-data]
 watchmode_truth_lab = ["assets/common/*", "assets/file/*", "assets/vite/*", "assets/vite/fixture/*", "assets/vite/fixture/src/*"]

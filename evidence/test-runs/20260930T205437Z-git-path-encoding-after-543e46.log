@@ -1,0 +1,8 @@
+test_existing_matrix_directory_is_rejected_before_scenarios (test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios) ... ok
+test_git_unicode_checkout_path_is_captured (test_recording.RecordingTests.test_git_unicode_checkout_path_is_captured) ... ok
+test_missing_git_returns_unknown_metadata (test_recording.RecordingTests.test_missing_git_returns_unknown_metadata) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.179s
+
+OK

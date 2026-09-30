@@ -1,0 +1,8 @@
+test_document_local_links_resolve (artifact_checks.ArtifactChecks.test_document_local_links_resolve) ... ok
+test_evidence_has_no_literal_user_home_paths (artifact_checks.ArtifactChecks.test_evidence_has_no_literal_user_home_paths) ... ok
+test_evidence_json_and_matrix_summaries_are_consistent (artifact_checks.ArtifactChecks.test_evidence_json_and_matrix_summaries_are_consistent) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.800s
+
+OK

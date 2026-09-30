@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -46,12 +47,27 @@ def diagnose(config_path, rounds=1, mutation=None):
     packages_ready = True
     if manifest.is_file() and any("node_modules" in part for part in scenario["command"]):
         package = json.loads(manifest.read_text(encoding="utf-8"))
-        for name, expected in package.get("devDependencies", {}).items():
+        dependencies = package.get("devDependencies", {}) if isinstance(package, dict) else None
+        if not isinstance(dependencies, dict):
+            packages_ready = False
+            record("manifest", False, "package.json and devDependencies must be JSON objects; correct the manifest")
+            dependencies = {}
+        for name, expected in dependencies.items():
+            if not re.fullmatch(r"(?:@[A-Za-z0-9_.-]+/)?[A-Za-z0-9_-][A-Za-z0-9_.-]*", name) or not isinstance(expected, str) or not expected.strip():
+                packages_ready = False
+                record("manifest.dependency", False, "Dependency names and version specifications must be valid nonempty strings; correct the manifest")
+                continue
             target = root / "node_modules" / name / "package.json"
-            actual = json.loads(target.read_text(encoding="utf-8")).get("version") if target.is_file() else None
-            passed = bool(actual) and (actual == expected if isinstance(expected, str) and expected[:1].isdigit() else True)
+            try:
+                installed = json.loads(target.read_text(encoding="utf-8")) if target.is_file() else None
+            except (OSError, ValueError):
+                installed = None
+            actual = installed.get("version") if isinstance(installed, dict) else None
+            exact = bool(re.fullmatch(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?", expected))
+            passed = isinstance(actual, str) and bool(actual) and (actual == expected if exact else True)
             packages_ready &= passed
-            record("dependency." + name, passed, f"Installed {actual}" if passed else "Dependency missing or differs from pinned manifest; run pnpm install --frozen-lockfile")
+            message = f"Installed {actual}" + ("; range compatibility not verified" if not exact else "")
+            record("dependency." + name, passed, message if passed else "Dependency metadata missing, invalid or differs from pinned manifest; run pnpm install --frozen-lockfile")
     if any(part.endswith("browser_probe.mjs") for part in scenario["command"]):
         engine = environment.get("WTL_BROWSER_ENGINE", "chromium")
         if engine not in {"chromium", "firefox", "webkit"}:

@@ -5,6 +5,9 @@ import { chromium, firefox, webkit } from 'playwright-core';
 
 const [viteCLI, workspace, port, output] = process.argv.slice(2);
 const engine = process.env.WTL_BROWSER_ENGINE || 'chromium';
+const selector = process.env.WTL_DOM_SELECTOR || '#token';
+const stateSelector = process.env.WTL_STATE_SELECTOR;
+const clickSelector = process.env.WTL_CLICK_SELECTOR;
 const browserType = new Map([['chromium', chromium], ['firefox', firefox], ['webkit', webkit]]).get(engine);
 if (!browserType) throw new Error(`Unsupported browser engine: ${engine}`);
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -34,13 +37,14 @@ try {
   console.log('WTL_BROWSER_ENGINE ' + engine);
   console.log('WTL_BROWSER_VERSION ' + browser.version());
   const page = await browser.newPage();
+  await page.addInitScript(() => { window.__wtl_probe_session = crypto.randomUUID(); });
   page.on('pageerror', (error) => console.error('WTL_PAGE_ERROR ' + error.message));
   const deadline = Date.now() + 10000;
   while (true) {
     if (viteExited) throw new Error('Vite exited before browser readiness');
     try {
       await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'domcontentloaded', timeout: 1000 });
-      await page.waitForFunction(() => Boolean(window.__wtl_session), { timeout: 1000 });
+      await page.waitForFunction((selector) => typeof document.querySelector(selector)?.textContent === 'string', selector, { timeout: 1000 });
       break;
     } catch (error) {
       if (Date.now() >= deadline) throw error;
@@ -48,16 +52,30 @@ try {
     }
   }
   let session;
+  if (clickSelector) await page.click(clickSelector, { timeout: 1000 });
   let previous;
+  let previousToken;
+  let observedChanges = 0;
+  let retainedState;
   while (browser.isConnected() && !viteExited) {
-    const state = await page.evaluate(() => ({
-      token: document.querySelector('#token')?.textContent,
-      session: window.__wtl_session,
-      updates: window.__wtl_updates,
-    }));
+    const state = await page.evaluate(({ selector, stateSelector }) => ({
+      token: document.querySelector(selector)?.textContent,
+      session: window.__wtl_probe_session,
+      applicationUpdates: typeof window.__wtl_updates === 'number' ? window.__wtl_updates : null,
+      retainedState: stateSelector ? document.querySelector(stateSelector)?.textContent : null,
+    }), { selector, stateSelector });
     if (!state.session || typeof state.token !== 'string') throw new Error('DOM fixture is unavailable');
     session ??= state.session;
     if (state.session !== session) throw new Error('Page reloaded; HMR continuity was lost');
+    if (stateSelector) {
+      if (typeof state.retainedState !== 'string') throw new Error('State selector is unavailable');
+      retainedState ??= state.retainedState;
+      if (state.retainedState !== retainedState) throw new Error('Application state changed during update');
+    }
+    if (previousToken !== undefined && state.token !== previousToken) observedChanges += 1;
+    previousToken = state.token;
+    state.updates = state.applicationUpdates ?? observedChanges;
+    state.updateMetric = state.applicationUpdates === null ? 'observed_dom_changes' : 'application_hmr_callbacks';
     const serialized = JSON.stringify(state);
     if (serialized !== previous) {
       await publish(serialized);

@@ -2,6 +2,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from . import __version__
 
 from .runner import ConfigError, prepare_scenario, run
 from .starter import TEMPLATES, create_starter
@@ -14,6 +15,7 @@ def main(argv=None):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="backslashreplace")
     parser = argparse.ArgumentParser(description="Check watch-mode output freshness")
+    parser.add_argument("--version", action="version", version="watchmode-truth-lab " + __version__)
     parser.add_argument("config", type=Path, nargs="?", help="JSON scenario configuration")
     parser.add_argument("--report", type=Path, help="Write JSON report to this path")
     parser.add_argument("--rounds", type=int, default=1)

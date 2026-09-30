@@ -1,0 +1,14 @@
+test_dependency_range_is_not_mistaken_for_an_exact_pin (test_diagnostics.DiagnosticTests.test_dependency_range_is_not_mistaken_for_an_exact_pin) ... ok
+test_file_ready_without_running_watch_or_version_command (test_diagnostics.DiagnosticTests.test_file_ready_without_running_watch_or_version_command) ... ok
+test_malformed_dependency_metadata_is_not_ready_without_crashing (test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing) ... ok
+test_missing_executable_and_node_assets_are_actionable (test_diagnostics.DiagnosticTests.test_missing_executable_and_node_assets_are_actionable) ... ok
+test_complete_required_gate_keeps_observation_limits (test_ci_gates.CIGateTests.test_complete_required_gate_keeps_observation_limits) ... ok
+test_required_gate_rejects_skip_empty_failure_and_wrong_revision (test_ci_gates.CIGateTests.test_required_gate_rejects_skip_empty_failure_and_wrong_revision) ... ok
+test_all_templates_include_valid_config_and_required_assets (test_starter.StarterTests.test_all_templates_include_valid_config_and_required_assets) ... ok
+test_existing_work_is_retained_and_failed_stage_is_cleaned (test_starter.StarterTests.test_existing_work_is_retained_and_failed_stage_is_cleaned) ... ok
+test_file_starter_runs_without_source_checkout_assets (test_starter.StarterTests.test_file_starter_runs_without_source_checkout_assets) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 2.485s
+
+OK

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T213651Z-doctor-metadata-after-9188b0",
+  "started_at_utc": "2026-09-30T21:36:51.113856+00:00",
+  "purpose": "Malformed dependency diagnostics recovery plus required CI gate analysis and starter checks",
+  "git_revision": "1898e8e5248dd6dca41553ba84ddf7b8956bfbfc",
+  "working_tree_dirty": true,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 2.625,
+  "status": "pass",
+  "tests_run": 9,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_diagnostics.DiagnosticTests.test_dependency_range_is_not_mistaken_for_an_exact_pin",
+      "status": "pass",
+      "duration_seconds": 0.063,
+      "detail": null
+    },
+    {
+      "test": "test_diagnostics.DiagnosticTests.test_file_ready_without_running_watch_or_version_command",
+      "status": "pass",
+      "duration_seconds": 0.031,
+      "detail": null
+    },
+    {
+      "test": "test_diagnostics.DiagnosticTests.test_malformed_dependency_metadata_is_not_ready_without_crashing",
+      "status": "pass",
+      "duration_seconds": 0.11,
+      "detail": null
+    },
+    {
+      "test": "test_diagnostics.DiagnosticTests.test_missing_executable_and_node_assets_are_actionable",
+      "status": "pass",
+      "duration_seconds": 0.093,
+      "detail": null
+    },
+    {
+      "test": "test_ci_gates.CIGateTests.test_complete_required_gate_keeps_observation_limits",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_ci_gates.CIGateTests.test_required_gate_rejects_skip_empty_failure_and_wrong_revision",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_all_templates_include_valid_config_and_required_assets",
+      "status": "pass",
+      "duration_seconds": 0.094,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_existing_work_is_retained_and_failed_stage_is_cleaned",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_file_starter_runs_without_source_checkout_assets",
+      "status": "pass",
+      "duration_seconds": 2.094,
+      "detail": null
+    }
+  ]
+}

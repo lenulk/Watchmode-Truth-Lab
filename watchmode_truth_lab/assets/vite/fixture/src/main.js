@@ -1,12 +1,11 @@
 import { token } from './token.js';
 
-window.__wtl_session = crypto.randomUUID();
-window.__wtl_updates = 0;
-document.querySelector('#token').textContent = token;
+import { renderToken, initCounter } from './view.js';
+initCounter();
+renderToken(token);
 
 if (import.meta.hot) {
   import.meta.hot.accept('./token.js', (updated) => {
-    document.querySelector('#token').textContent = updated.token;
-    window.__wtl_updates += 1;
+    renderToken(updated.token);
   });
 }

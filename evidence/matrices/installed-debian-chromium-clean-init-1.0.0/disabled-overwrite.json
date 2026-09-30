@@ -1,0 +1,88 @@
+{
+  "expected_status": "stale",
+  "assessment": "pass",
+  "installed_python": "isolated venv outside source checkout",
+  "browser_engine": "chromium",
+  "session_continuity": true,
+  "application_state_retained": true,
+  "observed_updates": 0,
+  "update_metric": "observed_dom_changes",
+  "analysis": "Installed starter with real Vite, isolated fixture mutation and disabled watcher control; DOM counts are sampled changes, not framework callback counts.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T21:17:41.353774+00:00",
+    "status": "stale",
+    "config": "disabled.json",
+    "config_sha256": "25e627831a2c08c764aaf0df85362b8e8b838280ecdff11cb912767c36bcd112",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.1.0-53-amd64",
+      "python": "3.11.2",
+      "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1275.8,
+      "samples": 47,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "2e5c7666d203da8f7c9e679917e307ab40a3f660e6e52688d5163f49d8c56554",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.5,
+        "samples": 264,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "62ba1462ec4b2b17b97a8c15e80bbdb534f0fcd54647eb190daa9b1a9a3c463a",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "WTL_PAGE_ERROR crypto.randomUUID is not a function",
+      "",
+      "  VITE v8.3.1  ready in 525 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:47549/",
+      "WTL_PAGE_ERROR crypto.randomUUID is not a function",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"5c221624-943a-421a-af2d-7d7e5dfc6bd9\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "    at <project>/reports/installed-projects/browser-from-wheel/browser_probe.mjs:61:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab disabled.json --rounds 1 --mutation overwrite"
+    }
+  }
+}

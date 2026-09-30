@@ -651,3 +651,157 @@ The committed README, documentation and evidence archive from 2c1b99c was transf
 - Evidence: [JSON](../evidence/test-runs/20260930T202854Z-installed-wheel-sdist-starters-476058.json), [console log](../evidence/test-runs/20260930T202854Z-installed-wheel-sdist-starters-476058.log), [portable build provenance](../evidence/portable-build-toolchain.json).
 - Result: the expanded installed-package integration passed with exact minimum setuptools 77.0.3. Wheel assets/license were inspected, sdist rebuilt to a wheel with identical package bytes, that wheel installed into a fresh venv, and all three starters created/validated outside checkout. Installed file diagnostics, summary, mutation/report and slow HTTP checks passed.
 - Analysis: installed resources now have real distribution coverage on Windows. Verified pip/setuptools/wheel were also extracted into ignored guest project storage because system pip/setuptools were absent; system Python/packages were not changed. Their import versions were checked separately from software tests. Debian installed-package and full Vite/browser starter workflows remain next gates.
+
+## Cycle 93 Debian installed wheel, sdist and starter workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T203413Z-debian-installed-wheel-sdist-e09bc7.json), [console log](../evidence/test-runs/20260930T203413Z-debian-installed-wheel-sdist-e09bc7.log), [deployed source hashes](../evidence/delivery-source-1898e8e.json).
+- Result: the complete isolated package test passed on actual Debian Python 3.11.2: exact minimum backend, wheel/sdist rebuild, installed resources, all starter validations, file diagnostics/summary/report and slow HTTP console behavior.
+- Analysis: the 69 source files from commit 1898e8e were checked against their transferred archive and changed files backed up before applying. Guest pip/build tools remained project-local and the fresh venv did not use checkout imports. This closes the previous Linux installed-package gap. Actual installed Vite/browser matrices and signal cancellation remain to be verified.
+
+## Cycle 94 Configurable DOM and independent navigation identity
+
+- Evidence: [JSON](../evidence/test-runs/20260930T203833Z-browser-selector-compatible-043659.json), [console log](../evidence/test-runs/20260930T203833Z-browser-selector-compatible-043659.log).
+- Result: all three real Chrome/selector boundary integrations passed, including DOM updates and disabled-watcher control.
+- Analysis: the browser adapter now accepts a DOM selector and creates its own per-document session, so normal applications need not expose the fixture's session marker. It distinguishes application callback metrics from sampled DOM-change counts. Existing fixture callback verification remains compatible. Next exercise the installed multi-module application with retained user state on each provisioned engine; this three-test run does not establish those new workflows.
+
+## Cycle 95 Versioned package and multi-module starter distribution
+
+- Evidence: [JSON](../evidence/test-runs/20260930T204359Z-release-package-generic-browser-b31826.json), [console log](../evidence/test-runs/20260930T204359Z-release-package-generic-browser-b31826.log).
+- Result: all four package/starter checks passed after adding generic DOM selectors, optional interaction/retained-state checks and a multi-module application starter. Distribution rebuild and isolated file/HTTP checks still pass with version 1.0.0.
+- Analysis: version now comes from one package constant; release artifacts were built once into ignored `reports/release-candidate-1.0.0` with package-source hashes and checksums. This is a candidate, not a published or accepted release. The installed application matrix must now prove DOM/session/state behavior with actual Vite and browsers before acceptance.
+
+### Windows starter dependency setup (operational)
+
+The first pnpm setup failed with EPERM when approved host-account commands tried to read files staged by the sandbox account. ACL inspection found non-inherited creator permissions on those staged files. Creating and installing new starter projects under one consistent Windows account succeeded, reusing all 16 pinned packages from the pnpm store. No global ACL or system package changes were made; the original failed setup directories remain in ignored reports. This setup failure is separate from watch freshness.
+
+## Cycle 96 Installed Windows Vite HTTP application matrix
+
+- Evidence: [JSON](../evidence/test-runs/20260930T204955Z-installed-windows-vite-http-64478d.json), [console log](../evidence/test-runs/20260930T204955Z-installed-windows-vite-http-64478d.log), [matrix](../evidence/matrices/installed-windows-vite-http-1.0.0/summary.json), [candidate identity](../evidence/release-candidate-1.0.0-manifest.json).
+- Result: the installed candidate passed all 120 real Vite endpoint updates across native/polling and three mutation modes; the disabled watcher correctly returned stale/exit 1. Dependency diagnostics passed and original fixture bytes were retained.
+- Analysis: actual installed code and generated starter assets were used; these are endpoint observations, not browser HMR evidence. After test completion, Git metadata capture emitted CP1252 reader-thread decode errors on the Thai checkout path; the recorder still saved the matrix/test result with unavailable metadata. Preserve this result and repair UTF-8 Git capture through a controlled real Git-path check before subsequent gates.
+
+## Cycle 97 Git-path encoding failure confirmed
+
+- Evidence: [JSON](../evidence/test-runs/20260930T205314Z-git-path-encoding-before-a81f63.json), [console log](../evidence/test-runs/20260930T205314Z-git-path-encoding-before-a81f63.log).
+- Result: the actual Unicode checkout-path capture errored: UTF-8 Git output could not be decoded by CP1252, leaving stdout unavailable.
+- Analysis and repair: decode Git output as UTF-8, bound metadata capture time and trust only the known recorder project through a per-command safe.directory. The regression will use its own temporary Unicode Git repository, so archive-based guest execution does not depend on the source directory having .git. Preserve this controller failure separately from installed CLI freshness results.
+
+## Cycle 98 UTF-8 Git recording verified
+
+- Evidence: [JSON](../evidence/test-runs/20260930T205437Z-git-path-encoding-after-543e46.json), [console log](../evidence/test-runs/20260930T205437Z-git-path-encoding-after-543e46.log).
+- Result: all three recorder checks passed, including real Git output from a temporary Unicode repository and missing-Git handling; metadata capture completed without reader-thread decoding errors.
+- Analysis: Git capture now uses explicit UTF-8, a five-second bound, and project-scoped per-command trust. No global Git configuration changed. The installed candidate's package bytes are unaffected by this test-controller repair. Continue real installed browser/guest matrices and cancellation verification before release gates.
+
+## Cycle 99 Installed Windows Chrome application and retained state
+
+- Evidence: [JSON](../evidence/test-runs/20260930T205540Z-installed-windows-chrome-d08ca5.json), [console log](../evidence/test-runs/20260930T205540Z-installed-windows-chrome-d08ca5.log), [matrix](../evidence/matrices/installed-windows-chrome-1.0.0/summary.json).
+- Result: installed candidate diagnostics and all 120 DOM updates passed across native/polling and three mutation modes. Each scenario retained its independent page session and the counter state set by a real button click; disabled watching correctly produced stale with zero updates.
+- Analysis: this multi-module vanilla Vite application uses a configurable DOM selector and no fixture-owned session/HMR globals. Its update metric is sampled DOM changes, not framework callback counts. Original fixture bytes stayed unchanged. This verifies the selected installed application workflow on Chrome; other frameworks and engines require their own evidence.
+
+## Cycle 100 Debian installed workflow harness dereferenced the venv
+
+- Evidence: [JSON](../evidence/test-runs/20260930T205746Z-installed-debian-vite-http-fce658.json), [console log](../evidence/test-runs/20260930T205746Z-installed-debian-vite-http-fce658.log), [doctor diagnostic](../evidence/matrices/installed-debian-vite-http-1.0.0/doctor.json).
+- Result: the installed matrix stopped before Vite launch: the harness resolved the venv Python symlink to the system interpreter, which correctly had no installed package.
+- Analysis and repair: preserve the venv launcher path with absolute(), without resolving its target. The product wheel and earlier genuine venv package integration are unchanged; this is a test-controller error, not a Linux package import failure. Retain the failed directory, back up the guest harness and rerun into a new evidence directory.
+
+## Cycle 101 Installed Debian Vite HTTP matrix after harness repair
+
+- Evidence: [JSON](../evidence/test-runs/20260930T205925Z-installed-debian-vite-http-repaired-4b3a93.json), [console log](../evidence/test-runs/20260930T205925Z-installed-debian-vite-http-repaired-4b3a93.log), [matrix](../evidence/matrices/installed-debian-vite-http-repaired-1.0.0/summary.json), [harness repair hashes](../evidence/delivery-harness-repair.json).
+- Result: the same verified candidate wheel passed dependency diagnostics, all 120 endpoint updates across watcher/mutation combinations, and the expected-stale disabled control. Original fixture bytes were retained.
+- Analysis: preserving the venv executable path resolved the controller error. Guest and host repaired harness SHA-256 values agree; the wheel bytes were unchanged. This is actual installed Debian/Vite verification. Continue the installed browser engines and real-process cancellation checks.
+
+## Cycle 102 Installed Windows cancellation and cleanup
+
+- Evidence: [JSON](../evidence/test-runs/20260930T210320Z-installed-windows-sigint-9561f4.json), [console log](../evidence/test-runs/20260930T210320Z-installed-windows-sigint-9561f4.log).
+- Result: both file-baseline and pending-HTTP subcases passed in a real installed CLI subprocess: a controlled in-process SIGINT returned 130, produced no traceback and stopped the watched process, its ordinary descendant and the pending HTTP worker.
+- Analysis: this exercises real signal handling and process cleanup, with a controlled self-delivered SIGINT rather than a physical console keypress. No product bytes changed. Next verify guest cancellation and all installed browser engines, then validate release CI and user documentation.
+
+## Cycle 103 Installed Debian cancellation and cleanup
+
+- Evidence: [JSON](../evidence/test-runs/20260930T210538Z-installed-debian-sigint-af2488.json), [console log](../evidence/test-runs/20260930T210538Z-installed-debian-sigint-af2488.log).
+- Result: both real-process file-baseline and pending-HTTP SIGINT subcases passed on the installed candidate, with exit 130, no traceback and no surviving watch/descendant/probe process.
+- Analysis: host and guest now have verified controlled signal teardown for installed code. The Linux harness retains the venv symlink path; no product bytes were changed. Next run installed Chromium/Firefox/WebKit and Edge stateful workflows, then final source and artifact gates.
+
+## Cycle 104 Debian browser state gate caught source-shadowed starter creation
+
+- Evidence: [JSON](../evidence/test-runs/20260930T211013Z-installed-debian-chromium-b7650a.json), [console log](../evidence/test-runs/20260930T211013Z-installed-debian-chromium-b7650a.log), [first scenario](../evidence/matrices/installed-debian-chromium-1.0.0/scenario-overwrite.json).
+- Result: dependency diagnostics and 20 DOM token updates passed, but the application-state gate correctly failed: the generated project had the older fixture/adapter and no retained-state metric.
+- Analysis and correction: setup invoked the venv with cwd at the source checkout, allowing `-m watchmode_truth_lab --init` to import checkout code. The actual matrix subprocess used installed code from the generated directory, but starter creation was not isolated. Earlier Windows checkout code matched candidate bytes, while Debian's older checkout exposed the setup error. Preserve those results as installed-runtime checks with source-created assets; they do not prove end-to-end installed starter creation. Create fresh projects from an independent cwd, assert installed module location, and fix CI setup before repeating the affected matrices. Product wheel bytes remain unchanged.
+
+## Cycle 105 Installed Windows Edge with source-created matching assets
+
+- Evidence: [JSON](../evidence/test-runs/20260930T211020Z-installed-windows-edge-db1d8c.json), [console log](../evidence/test-runs/20260930T211020Z-installed-windows-edge-db1d8c.log), [matrix](../evidence/matrices/installed-windows-edge-1.0.0/summary.json).
+- Result: all 120 DOM updates passed, with independent page session, retained counter state and the expected-stale disabled control.
+- Analysis: actual runtime was the installed candidate. Cycle 104 identified that setup generated its matching assets through the checkout rather than the installed package, so this matrix is retained but not used as the final installed-creation acceptance gate. Repeat from starters created under a clean cwd and verified installed module location. No watch/HMR defect was observed.
+
+## Cycle 106 Clean-cwd installed Debian Chromium workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T211707Z-installed-debian-chromium-clean-init-eff214.json), [console log](../evidence/test-runs/20260930T211707Z-installed-debian-chromium-clean-init-eff214.log), [matrix](../evidence/matrices/installed-debian-chromium-clean-init-1.0.0/summary.json).
+- Result: all 120 DOM updates passed, preserving per-document session and clicked counter state; disabled watching correctly stayed stale with zero updates. Diagnostics and fixture preservation passed.
+- Analysis: new projects were created from the installed wheel under an independent cwd after asserting imported module location within the venv. Pinned dependencies were installed offline from cache. This resolves the setup-shadowing failure; source-shadowed project directories and failed evidence remain intact. These are real Debian Chromium observations of sampled DOM changes, not application callback counts.
+
+## Cycle 107 Clean-cwd installed Windows HTTP workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T211715Z-installed-windows-http-clean-init-6a32c7.json), [console log](../evidence/test-runs/20260930T211715Z-installed-windows-http-clean-init-6a32c7.log), [matrix](../evidence/matrices/installed-windows-http-clean-init-1.0.0/summary.json).
+- Result: all 120 real Vite HTTP updates passed across native/polling and three mutation modes; stale control/exit 1, diagnostics and original fixture retention passed.
+- Analysis: creation and execution now both use installed package code, with the import location checked before setup. This replaces the earlier source-created-assets result as the installed HTTP acceptance gate. Same-account setup avoids Windows ACL context changes. Continue the other browser engines and release gates.
+
+## Cycle 108 Clean-cwd installed Debian Firefox workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T212117Z-installed-debian-firefox-clean-init-af7c47.json), [console log](../evidence/test-runs/20260930T212117Z-installed-debian-firefox-clean-init-af7c47.log), [matrix](../evidence/matrices/installed-debian-firefox-clean-init-1.0.0/summary.json).
+- Result: all 120 native/polling DOM updates passed with retained clicked state and independent page session; disabled watching correctly stayed stale with zero updates.
+- Analysis: this is the actual provisioned Firefox engine with installed starter creation/execution and pinned dependencies, not an inference from Chromium. Diagnostics and original fixture preservation also passed. Continue WebKit and the remaining clean-creation host/guest gates.
+
+## Cycle 109 Clean-cwd installed Windows Chrome workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T212124Z-installed-windows-chrome-clean-init-f015f2.json), [console log](../evidence/test-runs/20260930T212124Z-installed-windows-chrome-clean-init-f015f2.log), [matrix](../evidence/matrices/installed-windows-chrome-clean-init-1.0.0/summary.json).
+- Result: all 120 DOM updates passed with retained clicked state and page session; the disabled watcher correctly returned stale/exit 1. Diagnostics and fixture preservation passed.
+- Analysis: this repeat resolves the setup-shadowing risk identified in Cycle 104: creation and execution both used the installed package from independent cwd locations. The source-created-assets matrix remains historical and is not substituted for this acceptance evidence.
+
+## Cycle 110 Clean-cwd installed Debian WebKit workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T212520Z-installed-debian-webkit-clean-init-0ff4cc.json), [console log](../evidence/test-runs/20260930T212520Z-installed-debian-webkit-clean-init-0ff4cc.log), [matrix](../evidence/matrices/installed-debian-webkit-clean-init-1.0.0/summary.json).
+- Result: all 120 DOM updates passed with independent document identity and retained clicked counter state. Diagnostics, original fixture preservation and the expected-stale disabled control passed.
+- Analysis: this is installed-package creation and execution on the provisioned Debian WebKit engine, not Safari or physical hardware. The earlier source-created assets are not used as this acceptance gate. No product changes were needed.
+
+## Cycle 111 Clean-cwd installed Windows Edge workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T212526Z-installed-windows-edge-clean-init-62be3d.json), [console log](../evidence/test-runs/20260930T212526Z-installed-windows-edge-clean-init-62be3d.log), [matrix](../evidence/matrices/installed-windows-edge-clean-init-1.0.0/summary.json).
+- Result: all 120 DOM updates passed, preserving document identity and clicked application state; diagnostics, fixture retention and expected-stale/exit 1 passed.
+- Analysis: clean-cwd installed creation closes the Windows setup-shadowing qualification. The selected Chrome, Edge, Debian Chromium, Firefox and WebKit engines now have installed stateful application evidence. Complete the clean Debian HTTP repeat and final source/package/CI gates before publication.
+
+## Cycle 112 Clean-cwd installed Debian HTTP workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T213503Z-installed-debian-http-clean-init-a08560.json), [console log](../evidence/test-runs/20260930T213503Z-installed-debian-http-clean-init-a08560.log), [matrix](../evidence/matrices/installed-debian-http-clean-init-1.0.0/summary.json).
+- Result: all 120 HTTP updates and the expected-stale control passed with installed creation and execution, ready diagnostics and unchanged original fixture bytes.
+- Analysis: this closes the earlier source-created-assets qualification for Debian HTTP. The candidate has actual installed HTTP and stateful DOM verification on Windows and Debian. These are the provisioned VM and selected applications; final source/CI gates remain.
+
+## Cycle 113 Dependency diagnostic boundary failures reproduced
+
+- Evidence: [JSON](../evidence/test-runs/20260930T213545Z-doctor-metadata-before-d648cb.json), [console log](../evidence/test-runs/20260930T213545Z-doctor-metadata-before-d648cb.log).
+- Result: six tests ran; new controlled metadata cases produced two failed assertions and three AttributeErrors. Both new CI analysis gate tests passed, rejecting skipped/empty/failed/wrong-revision records.
+- Analysis and repair: doctor assumes package.json and devDependencies are objects, assumes installed package metadata is an object, and mistakes digit-leading ranges for exact pins. Validate these shapes and dependency names/specifications; produce actionable not_ready checks on malformed metadata and explicitly qualify unverified range compatibility. The principal repair is dependency diagnosis. Previously accepted runner/browser behavior and artifacts remain unchanged until a new package is built.
+
+## Cycle 114 Dependency diagnostics recovery and CI gate analysis
+
+- Evidence: [JSON](../evidence/test-runs/20260930T213651Z-doctor-metadata-after-9188b0.json), [console log](../evidence/test-runs/20260930T213651Z-doctor-metadata-after-9188b0.log).
+- Result: all nine diagnostics, starter and CI gate tests passed without skips. Invalid metadata returns structured not_ready checks; digit-leading ranges are explicitly labeled as unverified compatibility rather than exact-pin mismatches.
+- Analysis: this repairs the confirmed dependency-diagnosis boundary while retaining strict equality for the pinned starter dependencies. Range presence is not dependency resolution. Product diagnostics changed, so build a new candidate and verify its installed diagnostics/package workflows; earlier engine evidence still describes the unchanged runner and adapter bytes.
+
+## Cycle 115 Complete Windows release-source regression
+
+- Evidence: [JSON](../evidence/test-runs/20260930T213742Z-release-source-windows-8e0ef0.json), [console log](../evidence/test-runs/20260930T213742Z-release-source-windows-8e0ef0.log).
+- Result: all 46 tests passed, zero failures/errors/skips, including actual Chrome/Vite, stale controls and the repaired diagnostic boundary.
+- Analysis: source regression covers current CLI, starters, report recovery, HTTP scheduling and browser adapter compatibility. This is source execution, distinct from installed candidate acceptance. Next verify the minimum-backend rebuilt sdist/installed version contract and deploy this current source to Debian with provenance and backups.
+
+## Cycle 116 Final package rebuild and installed version contract
+
+- Evidence: [JSON](../evidence/test-runs/20260930T213904Z-release-package-final-a28050.json), [console log](../evidence/test-runs/20260930T213904Z-release-package-final-a28050.log), [final artifact manifest](../evidence/release-final-1.0.0-manifest.json).
+- Result: minimum-backend wheel/sdist rebuild integration passed, including clean installed imports, all three starters, CLI/module/distribution version agreement, file/report, slow HTTP and invalid-input handling.
+- Analysis: the final candidate contains the corrected dependency diagnostics. Its runner/browser assets match the previously tested candidate; final installed Windows/Debian verification and remote CI are still required. Build outputs have immutable SHA-256 identities; keep earlier candidate and failed evidence.
+
+## Cycle 117 Precommit artifact audit
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214034Z-release-artifacts-precommit-64262f.json), [console log](../evidence/test-runs/20260930T214034Z-release-artifacts-precommit-64262f.log).
+- Result: all three checks passed for retained JSON/matrix agreement, local documentation links and literal home-path redaction, including the imported Debian installed matrices and their failures.
+- Analysis: evidence import verified the archive SHA-256 and retained identical existing files without overwriting history. This audit checks retained content, not runtime correctness. Commit the reviewed source before the final backed-up guest deployment and actual remote CI.

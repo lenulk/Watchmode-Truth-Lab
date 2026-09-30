@@ -1,0 +1,9 @@
+test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout) ... ok
+test_all_templates_include_valid_config_and_required_assets (test_starter.StarterTests.test_all_templates_include_valid_config_and_required_assets) ... ok
+test_existing_work_is_retained_and_failed_stage_is_cleaned (test_starter.StarterTests.test_existing_work_is_retained_and_failed_stage_is_cleaned) ... ok
+test_file_starter_runs_without_source_checkout_assets (test_starter.StarterTests.test_file_starter_runs_without_source_checkout_assets) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 17.491s
+
+OK

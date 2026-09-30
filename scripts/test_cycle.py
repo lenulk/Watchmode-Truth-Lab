@@ -68,8 +68,9 @@ class RecordedResult(unittest.TextTestResult):
 
 def git_value(*args):
     try:
-        result = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
-    except OSError:
+        result = subprocess.run(["git", "-c", f"safe.directory={ROOT}", *args], cwd=ROOT,
+                                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=5)
+    except (OSError, subprocess.SubprocessError):
         return None
     return result.stdout.strip() if result.returncode == 0 else None
 

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T205437Z-git-path-encoding-after-543e46",
+  "started_at_utc": "2026-09-30T20:54:37.162187+00:00",
+  "purpose": "Verify real temporary Unicode Git path and optional missing Git metadata while preserving previous evidence",
+  "git_revision": "1898e8e5248dd6dca41553ba84ddf7b8956bfbfc",
+  "working_tree_dirty": true,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.375,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_git_unicode_checkout_path_is_captured",
+      "status": "pass",
+      "duration_seconds": 0.172,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_missing_git_returns_unknown_metadata",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    }
+  ]
+}

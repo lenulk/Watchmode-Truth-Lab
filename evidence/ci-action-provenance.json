@@ -1,0 +1,9 @@
+{
+  "verification": "Official action repositories: git ls-remote HTTPS tag lookup before workflow creation",
+  "actions": [
+    {"repository": "actions/checkout", "tag": "v7", "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1"},
+    {"repository": "actions/setup-python", "tag": "v6", "sha": "ece7cb06caefa5fff74198d8649806c4678c61a1"},
+    {"repository": "actions/setup-node", "tag": "v6", "sha": "249970729cb0ef3589644e2896645e5dc5ba9c38"},
+    {"repository": "actions/upload-artifact", "tag": "v5", "sha": "330a01c490aca151604b8cf639adc76d48f6c5d4"}
+  ]
+}

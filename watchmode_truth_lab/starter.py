@@ -56,11 +56,13 @@ def create_starter(destination, template="file"):
             if template == "vite-browser":
                 config["command"] = ["{node}", "{config_dir}/browser_probe.mjs", cli, "{workspace}", "{port}", "{workspace}/.wtl-browser-state.json"]
                 config["oracle"] = {"type": "file", "path": ".wtl-browser-state.json", "extract_regex": r'"token":"([^"]+)"'}
+                config["env"] = {"WTL_DOM_SELECTOR": "#build-token", "WTL_STATE_SELECTOR": "#count", "WTL_CLICK_SELECTOR": "#increment"}
                 setup += "\nInstall a browser with `pnpm exec playwright-core install chromium` (Linux also needs its system libraries), then set `WTL_BROWSER_CHANNEL=chromium`. Alternatively use installed Chrome or Edge (`WTL_BROWSER_CHANNEL=msedge`)."
         for filename, environment in (("scenario.json", {}), ("polling.json", {"WTL_USE_POLLING": "1"}),
                                       ("disabled.json", {"WTL_DISABLE_WATCH": "1"})):
             if template == "file" and filename != "scenario.json":
                 continue
+            environment = {**config.get("env", {}), **environment}
             (staged / filename).write_text(json.dumps({**config, **({"env": environment} if environment else {})}, indent=2) + "\n", encoding="utf-8")
         guide = f"# Watchmode Truth Lab: {template}\n\n{setup}\n\n" \
                 "From this directory:\n\n```sh\nwatchmode-truth-lab scenario.json --validate\n" \

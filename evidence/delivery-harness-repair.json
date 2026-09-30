@@ -1,0 +1,7 @@
+{
+  "file": "scripts/installed_workflow_checks.py",
+  "previous_sha256": "ce2f884f26b77b1881998ef8428763fa805858b98828cbb9946c3a0d18acd6e2",
+  "sha256": "852db036b57ee6c9d2d58910cb81f0ff89ada7310af05654515117d8eaefc3a7",
+  "backup": "reports/installed-workflow-checks.before-resolve.py",
+  "change": "Preserve venv executable symlink path"
+}

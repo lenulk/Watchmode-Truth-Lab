@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T203833Z-browser-selector-compatible-043659",
+  "started_at_utc": "2026-09-30T20:38:33.190360+00:00",
+  "purpose": "Verify configurable DOM observation with independent page-session identity preserves real Chrome HMR stale-control and selector boundaries",
+  "git_revision": "1898e8e5248dd6dca41553ba84ddf7b8956bfbfc",
+  "working_tree_dirty": true,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 12.171,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "pass",
+      "duration_seconds": 4.687,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "pass",
+      "duration_seconds": 5.344,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch",
+      "status": "pass",
+      "duration_seconds": 2.015,
+      "detail": null
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 # Watchmode Truth Lab
 
-An experimental, black-box CLI that checks whether a watch process produces the latest **observable bytes** after a source file changes. It does not count filesystem events or infer their cause.
+A black-box CLI that checks whether a watch process produces the latest **observable output** after a source file changes. It supports file/HTTP checks and a Vite DOM adapter with page/state continuity. It does not infer the cause of filesystem events.
+
+Use the [installation and application guide](docs/user-guide.md) for the installed tool, [CLI/report contract](docs/report-format.md) for automation, and [release notes](CHANGELOG.md) for compatibility. The 1.0.0 candidate is undergoing final acceptance; [current evidence](docs/current-results.md) distinguishes installed workflows from historical research fixtures.
 
 ## Try it
 

@@ -1,0 +1,96 @@
+name: Verify installed watch workflows
+
+on:
+  push:
+    paths-ignore: ['docs/**', 'evidence/**', 'README.md', 'CHANGELOG.md']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+      WTL_TEST_BROWSER: '1'
+      WTL_BROWSER_CHANNEL: chromium
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/reports/playwright-browsers
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.18.0'
+      - name: Provision pinned dependencies
+        run: |
+          python -m pip install 'setuptools==77.0.3' 'wheel==0.48.0' 'pip==26.2.1'
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm exec playwright-core install --with-deps chromium
+      - name: Full regression and required-result analysis
+        run: |
+          python scripts/test_cycle.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --purpose 'Required complete source suite with real Vite Chromium and failure cases'
+          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 46
+      - name: Wheel and sdist rebuild integration
+        run: |
+          python scripts/test_cycle.py --label ci-package-${{ matrix.os }}-${{ matrix.python }} --purpose 'Minimum-backend wheel sdist rebuild and installed starter integration' --test package_checks
+          python scripts/ci_verify.py --label ci-package-${{ matrix.os }}-${{ matrix.python }}
+      - name: Build candidate once and install independent projects
+        run: |
+          python scripts/build_release.py --output reports/ci-release
+          python -m venv reports/ci-venv
+          INSTALLED_PYTHON="$(python -c "import os;from pathlib import Path;print((Path('reports/ci-venv')/('Scripts/python.exe' if os.name=='nt' else 'bin/python')).absolute())")"
+          echo "WTL_INSTALLED_PYTHON=$INSTALLED_PYTHON" >> "$GITHUB_ENV"
+          python -m pip --python "$INSTALLED_PYTHON" install --no-index --no-deps reports/ci-release/*.whl
+          mkdir -p reports/ci-projects
+          (cd reports/ci-projects && "$INSTALLED_PYTHON" -c "import watchmode_truth_lab,sys;from pathlib import Path;assert Path(watchmode_truth_lab.__file__).is_relative_to(Path(sys.prefix));print(watchmode_truth_lab.__version__)")
+          (cd reports/ci-projects && "$INSTALLED_PYTHON" -m watchmode_truth_lab --init http --template vite-http)
+          (cd reports/ci-projects && "$INSTALLED_PYTHON" -m watchmode_truth_lab --init browser --template vite-browser)
+          pnpm --dir reports/ci-projects/http install --frozen-lockfile --ignore-scripts
+          pnpm --dir reports/ci-projects/browser install --frozen-lockfile --ignore-scripts
+      - name: Installed HTTP and stateful DOM matrices
+        run: |
+          export WTL_WORKFLOW_PROJECT="$(python -c "from pathlib import Path;print(Path('reports/ci-projects/http').absolute())")"
+          export WTL_WORKFLOW_EVIDENCE=evidence/matrices/ci-http-${{ matrix.os }}-${{ matrix.python }}
+          python scripts/test_cycle.py --label ci-http-${{ matrix.os }}-${{ matrix.python }} --purpose 'Installed HTTP 20-round native polling matrices and stale control' --test installed_workflow_checks
+          python scripts/ci_verify.py --label ci-http-${{ matrix.os }}-${{ matrix.python }}
+          export WTL_WORKFLOW_PROJECT="$(python -c "from pathlib import Path;print(Path('reports/ci-projects/browser').absolute())")"
+          export WTL_WORKFLOW_EVIDENCE=evidence/matrices/ci-browser-${{ matrix.os }}-${{ matrix.python }}
+          python scripts/test_cycle.py --label ci-browser-${{ matrix.os }}-${{ matrix.python }} --purpose 'Installed stateful DOM 20-round native polling matrices and stale control' --test installed_workflow_checks
+          python scripts/ci_verify.py --label ci-browser-${{ matrix.os }}-${{ matrix.python }}
+      - name: Installed cancellation
+        run: |
+          python scripts/test_cycle.py --label ci-cancel-${{ matrix.os }}-${{ matrix.python }} --purpose 'Installed controlled SIGINT and ordinary descendant/pending probe cleanup' --test cancellation_checks
+          python scripts/ci_verify.py --label ci-cancel-${{ matrix.os }}-${{ matrix.python }}
+      - name: Retain failed and successful evidence and distributions
+        if: always()
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        with:
+          name: verification-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            evidence/test-runs/*ci-*-${{ matrix.os }}-${{ matrix.python }}-*
+            evidence/matrices/ci-*-${{ matrix.os }}-${{ matrix.python }}/
+            reports/ci-release/
+          retention-days: 14
+          if-no-files-found: error

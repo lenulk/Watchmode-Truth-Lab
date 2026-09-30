@@ -9,6 +9,40 @@ from watchmode_truth_lab.starter import create_starter
 
 
 class DiagnosticTests(unittest.TestCase):
+    def test_malformed_dependency_metadata_is_not_ready_without_crashing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            project = Path(temporary) / "demo"
+            create_starter(project, "vite-http")
+            manifest = project / "package.json"
+            for metadata in ([], {"devDependencies": []}, {"devDependencies": {"vite": None}}):
+                with self.subTest(metadata=metadata):
+                    manifest.write_text(json.dumps(metadata), encoding="utf-8")
+                    result = diagnose(project / "scenario.json")
+                    self.assertEqual(result["status"], "not_ready")
+                    self.assertTrue(any(check["name"].startswith("manifest") and check["status"] == "fail"
+                                        for check in result["checks"]))
+            manifest.write_text(json.dumps({"devDependencies": {"vite": "8.3.1"}}), encoding="utf-8")
+            installed = project / "node_modules/vite/package.json"
+            installed.parent.mkdir(parents=True)
+            installed.write_text("[]", encoding="utf-8")
+            result = diagnose(project / "scenario.json")
+            self.assertEqual(result["status"], "not_ready")
+            self.assertTrue(any(check["name"] == "dependency.vite" and check["status"] == "fail"
+                                for check in result["checks"]))
+
+    def test_dependency_range_is_not_mistaken_for_an_exact_pin(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            project = Path(temporary) / "demo"
+            create_starter(project, "vite-http")
+            (project / "package.json").write_text(json.dumps({"devDependencies": {"vite": "8.x"}}), encoding="utf-8")
+            installed = project / "node_modules/vite/package.json"
+            installed.parent.mkdir(parents=True)
+            installed.write_text(json.dumps({"version": "8.3.1"}), encoding="utf-8")
+            result = diagnose(project / "scenario.json")
+            dependency = next(check for check in result["checks"] if check["name"] == "dependency.vite")
+            self.assertEqual(dependency["status"], "pass")
+            self.assertIn("range compatibility not verified", dependency["message"])
+
     def test_file_ready_without_running_watch_or_version_command(self):
         with tempfile.TemporaryDirectory() as temporary:
             project = Path(temporary) / "demo"
