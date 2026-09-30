@@ -1,0 +1,18 @@
+[
+  {
+    "package": "timgm6mb-soundfont",
+    "version": "1.3-5",
+    "filename": "pool/main/t/timgm6mb-soundfont/timgm6mb-soundfont_1.3-5_all.deb",
+    "sha256": "034abdfb296d9353433513dad5dbdcab46425ee6008fc02fe7039b46e75edc54",
+    "bytes": 5426644,
+    "url": "https://deb.debian.org/debian/pool/main/t/timgm6mb-soundfont/timgm6mb-soundfont_1.3-5_all.deb"
+  },
+  {
+    "package": "libsoup-3.0-common",
+    "version": "3.2.3-0+deb12u2",
+    "filename": "pool/main/libs/libsoup3/libsoup-3.0-common_3.2.3-0+deb12u2_all.deb",
+    "sha256": "65a5737655f3d751287db4d8ad204efda8c1aba529a60b6c8bad9fccf8e7540f",
+    "bytes": 62452,
+    "url": "https://deb.debian.org/debian/pool/main/libs/libsoup3/libsoup-3.0-common_3.2.3-0+deb12u2_all.deb"
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "watcher": "disabled",
+  "mutation": "overwrite",
+  "expected_status": "stale",
+  "browser_engine": "webkit",
+  "browser_channel": null,
+  "assessment": "pass",
+  "browser_version": [
+    "26.5"
+  ],
+  "session_continuity": true,
+  "observed_hmr_updates": 0,
+  "scenario_base": "vite.browser.json",
+  "scenario_env": {
+    "WTL_DISABLE_WATCH": "1"
+  },
+  "analysis": "Actual DOM token and a retained page session were observed. A disabled watcher is an expected stale control, not a newly discovered tool failure.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T18:06:34.231760+00:00",
+    "status": "stale",
+    "config": "vite.browser.disabled.json",
+    "config_sha256": "d0f237ec4bfe1e97ec286cd8cda65760f638256ce016b42faac51c195c85e8d8",
+    "command": [
+      "{node}",
+      "<project>/examples/vite/browser_probe.mjs",
+      "<project>/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.1.0-53-amd64",
+      "python": "3.11.2",
+      "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1661.2,
+      "samples": 60,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "3ff27f2850beceafc5479f2eb324010fe8c46d18592001aada902c988e7740ad",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 3000.4,
+        "samples": 100,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "bf200e07700223e2214c8c87ce4d7a241ca5573e2dfb40d443040cd0086f4763",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "WTL_BROWSER_ENGINE webkit",
+      "WTL_BROWSER_VERSION 26.5",
+      "",
+      "  VITE v8.3.1  ready in 352 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:48799/",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"83368ba2-e1c3-41c5-83b6-b6fb069ee245\",\"updates\":0}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "    at <project>/examples/vite/browser_probe.mjs:53:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "vite.browser.disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.browser.disabled.json --rounds 1 --mutation overwrite"
+    }
+  }
+}

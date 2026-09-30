@@ -49,8 +49,10 @@ def main():
         updates = states[-1]["updates"] if states else None
         assessment = "pass" if report["status"] == expected and continuity and (
             updates >= rounds if expected == "pass" else updates == 0) else "fail"
+        engine = os.environ.get("WTL_BROWSER_ENGINE", "chromium")
         record = {"watcher": watcher, "mutation": mode, "expected_status": expected,
-                  "browser_channel": os.environ.get("WTL_BROWSER_CHANNEL", "chrome"),
+                  "browser_engine": engine,
+                  "browser_channel": os.environ.get("WTL_BROWSER_CHANNEL", "chrome") if engine == "chromium" else None,
                   "assessment": assessment, "browser_version": versions, "session_continuity": continuity,
                   "observed_hmr_updates": updates, "scenario_base": "vite.browser.json", "scenario_env": config["env"],
                   "analysis": "Actual DOM token and a retained page session were observed. A disabled watcher is an expected stale control, not a newly discovered tool failure.",

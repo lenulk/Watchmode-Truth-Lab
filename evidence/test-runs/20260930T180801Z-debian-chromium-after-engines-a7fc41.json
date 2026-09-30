@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T180801Z-debian-chromium-after-engines-a7fc41",
+  "started_at_utc": "2026-09-30T18:08:01.982004+00:00",
+  "purpose": "Verify existing Linux Chromium DOM HMR and controls after engine selection and additional system libraries",
+  "git_revision": "c73827a",
+  "working_tree_dirty": null,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "7715469f48b38c698e7bd72c0c56b08505149397fc2641582f8ce9bb28f0f804",
+  "environment": {
+    "system": "Linux",
+    "release": "6.1.0-53-amd64",
+    "python": "3.11.2"
+  },
+  "duration_seconds": 10.06,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "pass",
+      "duration_seconds": 3.4254,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "pass",
+      "duration_seconds": 5.0065,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch",
+      "status": "pass",
+      "duration_seconds": 1.6219,
+      "detail": null
+    }
+  ]
+}

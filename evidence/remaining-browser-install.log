@@ -1,0 +1,44 @@
+Downloading Firefox 153.0 (playwright firefox v1538) from http://127.0.0.1:36835/builds/firefox/1538/firefox-debian-12.zip
+|                                                                                |   0% of 108.2 MiB
+|■■■■■■■■                                                                        |  10% of 108.2 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 108.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 108.2 MiB
+Firefox 153.0 (playwright firefox v1538) downloaded to <project>/reports/playwright-browsers/firefox-1538
+Downloading WebKit 26.5 (playwright webkit v2336) from http://127.0.0.1:36835/builds/webkit/2336/webkit-debian-12.zip
+|                                                                                |   0% of 102.2 MiB
+|■■■■■■■■                                                                        |  10% of 102.2 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 102.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 102.2 MiB
+WebKit 26.5 (playwright webkit v2336) downloaded to <project>/reports/playwright-browsers/webkit-2336
+Playwright Host validation warning: 
+╔══════════════════════════════════════════════════════╗
+║ Host system is missing dependencies to run browsers. ║
+║ Missing libraries:                                   ║
+║     libXcursor.so.1                                  ║
+║     libgtk-3.so.0                                    ║
+║     libgdk-3.so.0                                    ║
+║     libpangocairo-1.0.so.0                           ║
+║     libcairo-gobject.so.2                            ║
+║     libgdk_pixbuf-2.0.so.0                           ║
+╚══════════════════════════════════════════════════════╝
+    at validateDependenciesLinux (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:31846:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Registry._validateHostRequirements (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:33280:18)
+    at async Registry._validateHostRequirementsForExecutableIfNeeded (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:33402:11)
+    at async Registry.validateHostRequirementsForExecutablesIfNeeded (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:33391:11)
+    at async installBrowsers (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:69417:5)
+    at async _Command.<anonymous> (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:72930:7)

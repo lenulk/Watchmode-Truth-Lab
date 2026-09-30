@@ -1,0 +1,295 @@
+Installing dependencies...
+Ign:1 https://security.debian.org/debian-security bookworm-security InRelease
+Ign:2 https://deb.debian.org/debian bookworm InRelease
+Hit:3 https://deb.debian.org/debian bookworm-updates InRelease
+Hit:2 https://deb.debian.org/debian bookworm InRelease
+Hit:1 https://security.debian.org/debian-security bookworm-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libasound2 is already the newest version (1.2.8-1+b1).
+libatk1.0-0 is already the newest version (2.46.0-5).
+libcairo2 is already the newest version (1.16.0-7).
+libdbus-1-3 is already the newest version (1.14.10-1~deb12u1).
+libfontconfig1 is already the newest version (2.14.1-4).
+libfreetype6 is already the newest version (2.12.1+dfsg-5+deb12u4).
+libglib2.0-0 is already the newest version (2.74.6-2+deb12u9).
+libharfbuzz0b is already the newest version (6.0.0+dfsg-3).
+libharfbuzz0b set to manually installed.
+libpango-1.0-0 is already the newest version (1.50.12+ds-1).
+libx11-6 is already the newest version (2:1.8.4-2+deb12u2).
+libx11-xcb1 is already the newest version (2:1.8.4-2+deb12u2).
+libx11-xcb1 set to manually installed.
+libxcb-shm0 is already the newest version (1.15-1).
+libxcb-shm0 set to manually installed.
+libxcb1 is already the newest version (1.15-1).
+libxcomposite1 is already the newest version (1:0.4.5-1).
+libxdamage1 is already the newest version (1:1.1.6-1).
+libxext6 is already the newest version (2:1.3.4-1+b1).
+libxfixes3 is already the newest version (1:6.0.0-2).
+libxi6 is already the newest version (2:1.8-1+b1).
+libxi6 set to manually installed.
+libxrandr2 is already the newest version (2:1.5.2-2+b1).
+libxrender1 is already the newest version (1:0.9.10-1.1).
+libxrender1 set to manually installed.
+xvfb is already the newest version (2:21.1.7-3+deb12u13).
+fonts-noto-color-emoji is already the newest version (2.042-0+deb12u1).
+fonts-unifont is already the newest version (1:15.0.01-2).
+xfonts-scalable is already the newest version (1:1.0.3-1.3).
+fonts-liberation is already the newest version (1:1.07.4-11).
+fonts-ipafont-gothic is already the newest version (00303-23).
+fonts-wqy-zenhei is already the newest version (0.9.45-8).
+fonts-tlwg-loma-otf is already the newest version (1:0.7.3-1).
+fonts-freefont-ttf is already the newest version (20120503-10).
+libatk-bridge2.0-0 is already the newest version (2.46.0-5).
+libdrm2 is already the newest version (2.4.114-1+b1).
+libgbm1 is already the newest version (22.3.6-1+deb12u2).
+libglx0 is already the newest version (1.6.0-1).
+libglx0 set to manually installed.
+libicu72 is already the newest version (72.1-3+deb12u1).
+libicu72 set to manually installed.
+libpng16-16 is already the newest version (1.6.39-2+deb12u5).
+libpng16-16 set to manually installed.
+libwayland-server0 is already the newest version (1.21.0-1).
+libwayland-server0 set to manually installed.
+libxkbcommon0 is already the newest version (1.5.0-1).
+libxml2 is already the newest version (2.9.14+dfsg-1.3~deb12u6).
+libxml2 set to manually installed.
+libxslt1.1 is already the newest version (1.1.35-1+deb12u4).
+libxslt1.1 set to manually installed.
+The following additional packages will be installed:
+  adwaita-icon-theme dconf-gsettings-backend dconf-service glib-networking
+  glib-networking-common glib-networking-services gsettings-desktop-schemas
+  gtk-update-icon-cache hicolor-icon-theme libaa1 libabsl20220623 libaom3
+  libaspell15 libass9 libasyncns0 libavc1394-0 libavfilter8 libavformat59
+  libavutil57 libblas3 libbluray2 libbs2b0 libcaca0
+  libcairo-script-interpreter2 libcdparanoia0 libchromaprint1 libcjson1
+  libcloudproviders0 libcodec2-1.0 libcolord2 libdav1d6 libdc1394-25 libdca0
+  libdconf1 libde265-0 libdecor-0-0 libdeflate0 libdirectfb-1.7-7 libdv4
+  libdvdnav4 libdvdread8 libdw1 libegl-mesa0 libfaad2 libflac12 libflite1
+  libfluidsynth3 libfreeaptx0 libgav1-1 libgdk-pixbuf2.0-common libgfortran5
+  libgme0 libgomp1 libgpm2 libgraphene-1.0-0 libgsm1 libgssdp-1.6-0
+  libgstreamer-plugins-bad1.0-0 libgtk-3-common libgtk-4-common libgupnp-1.6-0
+  libgupnp-igd-1.0-4 libhunspell-1.7-0 libhwy1 libiec61883-0 libimath-3-1-29
+  libinstpatch-1.0-2 libjack-jackd2-0 libjbig0 libjson-glib-1.0-0
+  libjson-glib-1.0-common libjxl0.7 libkate1 liblapack3 libldacbt-enc2
+  liblerc4 liblilv-0-0 liblrdf0 libltc11 liblzo2-2 libmbedcrypto7 libmfx1
+  libmjpegutils-2.1-0 libmodplug1 libmp3lame0 libmpcdec6 libmpeg2encpp-2.1-0
+  libmpg123-0 libmplex2-2.1-0 libmysofa1 libncurses6 libneon27 libnice10
+  libnorm1 libnuma1 libogg0 libopenal-data libopenal1 libopenexr-3-1-30
+  libopenh264-7 libopenmpt0 libopenni2-0 liborc-0.4-0 libpangoft2-1.0-0
+  libpgm-5.3-0 libplacebo208 libpocketsphinx3 libpostproc56 libpulse0
+  libqrencode4 libquadmath0 librabbitmq4 libraptor2-0 librav1e0 libraw1394-11
+  librist4 librsvg2-2 librubberband2 libsamplerate0 libsbc1 libsdl2-2.0-0
+  libsecret-common libserd-0-0 libshine3 libshout3 libsnappy1v5 libsndfile1
+  libsndio7.0 libsodium23 libsord-0-0 libsoundtouch1 libsoup-3.0-common
+  libsoxr0 libspandsp2 libspeex1 libsphinxbase3 libsratom-0-0 libsrt1.5-gnutls
+  libsrtp2-1 libssh-gcrypt-4 libsvtav1enc1 libswresample4 libswscale6
+  libtag1v5 libtag1v5-vanilla libtheora0 libtiff6 libtwolame0 libudfread0
+  libv4l-0 libv4lconvert0 libva-drm2 libva-x11-2 libva2 libvdpau1
+  libvidstab1.1 libvisual-0.4-0 libvo-aacenc0 libvo-amrwbenc0 libvorbis0a
+  libvorbisenc2 libvorbisfile3 libvpx7 libvulkan1 libwavpack1
+  libwayland-cursor0 libwebpmux3 libwebrtc-audio-processing1 libwildmidi2
+  libx264-164 libx265-199 libxcb-xkb1 libxinerama1 libxkbcommon-x11-0 libxss1
+  libxvidcore4 libyajl2 libyuv0 libzbar0 libzimg2 libzmq5 libzvbi-common
+  libzvbi0 libzxing2 ocl-icd-libopencl1 timgm6mb-soundfont
+Suggested packages:
+  frei0r-plugins gvfs aspell libcuda1 libnvcuvid1 libnvidia-encode1
+  libbluray-bdj colord libdirectfb-extra libdv-bin oss-compat libdvdcss2
+  libenchant-2-voikko gpm libvisual-0.4-plugins gstreamer1.0-tools
+  libgtk-4-media-gstreamer | libgtk-4-media-ffmpeg jackd2 liblcms2-utils
+  liblrdf0-dev notification-daemon libportaudio2 opus-tools pulseaudio
+  raptor2-utils libraw1394-doc librsvg2-bin xdg-utils serdi sndiod sordi speex
+  libwildmidi-config opencl-icd fluid-soundfont-gm
+Recommended packages:
+  librsvg2-common gstreamer1.0-x aspell-en | aspell-dictionary
+  | aspell6a-dictionary libaacs0 libdecor-0-plugin-1-cairo
+  | libdecor-0-plugin-1 enchant-2 libgdk-pixbuf2.0-bin gstreamer1.0-gl
+  libgtk-3-bin libgtk-4-bin hunspell-en-us | hunspell-dictionary
+  | myspell-dictionary pocketsphinx-en-us va-driver-all | va-driver
+  vdpau-driver-all | vdpau-driver mesa-vulkan-drivers | vulkan-icd
+  libmagickcore-6.q16-6-extra
+The following NEW packages will be installed:
+  adwaita-icon-theme dconf-gsettings-backend dconf-service glib-networking
+  glib-networking-common glib-networking-services gsettings-desktop-schemas
+  gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-base
+  gstreamer1.0-plugins-good gtk-update-icon-cache hicolor-icon-theme libaa1
+  libabsl20220623 libaom3 libaspell15 libass9 libasyncns0 libatomic1
+  libavc1394-0 libavcodec59 libavfilter8 libavformat59 libavif15 libavutil57
+  libblas3 libbluray2 libbs2b0 libcaca0 libcairo-gobject2
+  libcairo-script-interpreter2 libcdparanoia0 libchromaprint1 libcjson1
+  libcloudproviders0 libcodec2-1.0 libcolord2 libdav1d6 libdbus-glib-1-2
+  libdc1394-25 libdca0 libdconf1 libde265-0 libdecor-0-0 libdeflate0
+  libdirectfb-1.7-7 libdv4 libdvdnav4 libdvdread8 libdw1 libegl-mesa0 libegl1
+  libenchant-2-2 libepoxy0 libevdev2 libevent-2.1-7 libfaad2 libflac12
+  libflite1 libfluidsynth3 libfreeaptx0 libgav1-1 libgdk-pixbuf-2.0-0
+  libgdk-pixbuf2.0-common libgfortran5 libgles2 libgme0 libgomp1 libgpm2
+  libgraphene-1.0-0 libgsm1 libgssdp-1.6-0 libgstreamer-gl1.0-0
+  libgstreamer-plugins-bad1.0-0 libgstreamer-plugins-base1.0-0
+  libgstreamer1.0-0 libgtk-3-0 libgtk-3-common libgtk-4-1 libgtk-4-common
+  libgudev-1.0-0 libgupnp-1.6-0 libgupnp-igd-1.0-4 libharfbuzz-icu0
+  libhunspell-1.7-0 libhwy1 libhyphen0 libiec61883-0 libimath-3-1-29
+  libinstpatch-1.0-2 libjack-jackd2-0 libjbig0 libjpeg62-turbo
+  libjson-glib-1.0-0 libjson-glib-1.0-common libjxl0.7 libkate1 liblapack3
+  liblcms2-2 libldacbt-enc2 liblerc4 liblilv-0-0 liblrdf0 libltc11 liblzo2-2
+  libmanette-0.2-0 libmbedcrypto7 libmfx1 libmjpegutils-2.1-0 libmodplug1
+  libmp3lame0 libmpcdec6 libmpeg2encpp-2.1-0 libmpg123-0 libmplex2-2.1-0
+  libmysofa1 libncurses6 libneon27 libnice10 libnorm1 libnotify4 libnuma1
+  libogg0 libopenal-data libopenal1 libopenexr-3-1-30 libopengl0 libopenh264-7
+  libopenjp2-7 libopenmpt0 libopenni2-0 libopus0 liborc-0.4-0
+  libpangocairo-1.0-0 libpangoft2-1.0-0 libpgm-5.3-0 libplacebo208
+  libpocketsphinx3 libpostproc56 libproxy1v5 libpulse0 libqrencode4
+  libquadmath0 librabbitmq4 libraptor2-0 librav1e0 libraw1394-11 librist4
+  librsvg2-2 librubberband2 libsamplerate0 libsbc1 libsdl2-2.0-0 libsecret-1-0
+  libsecret-common libserd-0-0 libshine3 libshout3 libsnappy1v5 libsndfile1
+  libsndio7.0 libsodium23 libsord-0-0 libsoundtouch1 libsoup-3.0-0
+  libsoup-3.0-common libsoxr0 libspandsp2 libspeex1 libsphinxbase3
+  libsratom-0-0 libsrt1.5-gnutls libsrtp2-1 libssh-gcrypt-4 libsvtav1enc1
+  libswresample4 libswscale6 libtag1v5 libtag1v5-vanilla libtheora0 libtiff6
+  libtwolame0 libudfread0 libv4l-0 libv4lconvert0 libva-drm2 libva-x11-2
+  libva2 libvdpau1 libvidstab1.1 libvisual-0.4-0 libvo-aacenc0 libvo-amrwbenc0
+  libvorbis0a libvorbisenc2 libvorbisfile3 libvpx7 libvulkan1 libwavpack1
+  libwayland-client0 libwayland-cursor0 libwayland-egl1 libwebp7 libwebpdemux2
+  libwebpmux3 libwebrtc-audio-processing1 libwildmidi2 libwoff1 libx264-164
+  libx265-199 libxcb-xkb1 libxcursor1 libxinerama1 libxkbcommon-x11-0 libxss1
+  libxtst6 libxvidcore4 libyajl2 libyuv0 libzbar0 libzimg2 libzmq5
+  libzvbi-common libzvbi0 libzxing2 ocl-icd-libopencl1 timgm6mb-soundfont
+0 upgraded, 228 newly installed, 0 to remove and 0 not upgraded.
+Need to get 62.0 MB/111 MB of archives.
+After this operation, 384 MB of additional disk space will be used.
+Get:1 https://deb.debian.org/debian bookworm/main amd64 libcodec2-1.0 amd64 1.0.5-1 [8,171 kB]
+Get:2 https://deb.debian.org/debian bookworm/main amd64 libflite1 amd64 2.2-5 [12.8 MB]
+Get:3 https://deb.debian.org/debian bookworm/main amd64 libplacebo208 amd64 4.208.0-3 [2,239 kB]
+Get:4 https://deb.debian.org/debian bookworm/main amd64 libsndfile1 amd64 1.2.0-1+deb12u1 [197 kB]
+Get:5 https://deb.debian.org/debian bookworm/main amd64 libpulse0 amd64 16.1+dfsg1-2+b1 [274 kB]
+Get:6 https://deb.debian.org/debian bookworm/main amd64 libsphinxbase3 amd64 0.8+5prealpha+1-16 [118 kB]
+Get:7 https://deb.debian.org/debian bookworm/main amd64 libpocketsphinx3 amd64 0.8+5prealpha+1-15 [125 kB]
+Get:8 https://deb.debian.org/debian bookworm/main amd64 librubberband2 amd64 3.1.2+dfsg0-1 [137 kB]
+Get:9 https://deb.debian.org/debian bookworm/main amd64 libvidstab1.1 amd64 1.1.0-2+b1 [37.8 kB]
+Get:10 https://deb.debian.org/debian bookworm/main amd64 libzimg2 amd64 3.0.4+ds1-1 [227 kB]
+Get:11 https://deb.debian.org/debian bookworm/main amd64 libdw1 amd64 0.188-2.1 [235 kB]
+Get:12 https://deb.debian.org/debian bookworm/main amd64 liborc-0.4-0 amd64 1:0.4.33-2 [164 kB]
+Get:13 https://deb.debian.org/debian bookworm/main amd64 gstreamer1.0-libav amd64 1.22.0-2 [104 kB]
+Get:14 https://deb.debian.org/debian bookworm/main amd64 libraw1394-11 amd64 2.1.2-2 [41.1 kB]
+Get:15 https://deb.debian.org/debian bookworm/main amd64 libdc1394-25 amd64 2.2.6-4 [109 kB]
+Get:16 https://deb.debian.org/debian bookworm/main amd64 libdca0 amd64 0.0.7-2 [89.8 kB]
+Get:17 https://deb.debian.org/debian bookworm/main amd64 libgles2 amd64 1.6.0-1 [16.8 kB]
+Get:18 https://deb.debian.org/debian bookworm/main amd64 libdirectfb-1.7-7 amd64 1.7.7-11 [1,046 kB]
+Get:19 https://deb.debian.org/debian bookworm/main amd64 libdvdread8 amd64 6.1.3-1 [91.9 kB]
+Get:20 https://deb.debian.org/debian bookworm/main amd64 libdvdnav4 amd64 6.1.1-1 [47.5 kB]
+Get:21 https://deb.debian.org/debian bookworm/main amd64 libfaad2 amd64 2.10.1-1 [160 kB]
+Get:22 https://deb.debian.org/debian bookworm/main amd64 libinstpatch-1.0-2 amd64 1.1.6-1 [259 kB]
+Get:23 https://deb.debian.org/debian bookworm/main amd64 libsamplerate0 amd64 0.2.2-3 [952 kB]
+Get:24 https://deb.debian.org/debian bookworm/main amd64 libjack-jackd2-0 amd64 1.9.21~dfsg-3 [281 kB]
+Get:25 https://deb.debian.org/debian bookworm/main amd64 libwayland-client0 amd64 1.21.0-1 [28.3 kB]
+Get:26 https://deb.debian.org/debian bookworm/main amd64 libdecor-0-0 amd64 0.1.1-2 [14.6 kB]
+Get:27 https://deb.debian.org/debian bookworm/main amd64 libwayland-cursor0 amd64 1.21.0-1 [14.4 kB]
+Get:28 https://deb.debian.org/debian bookworm/main amd64 libwayland-egl1 amd64 1.21.0-1 [8,640 B]
+Get:29 https://deb.debian.org/debian bookworm/main amd64 libxcursor1 amd64 1:1.2.1-1 [40.9 kB]
+Get:30 https://deb.debian.org/debian bookworm/main amd64 libxss1 amd64 1:1.2.3-1 [17.8 kB]
+Get:31 https://deb.debian.org/debian bookworm/main amd64 libsdl2-2.0-0 amd64 2.26.5+dfsg-1 [629 kB]
+Get:32 https://deb.debian.org/debian bookworm/main amd64 timgm6mb-soundfont all 1.3-5 [5,427 kB]
+Ign:32 https://deb.debian.org/debian bookworm/main amd64 timgm6mb-soundfont all 1.3-5
+Get:33 https://deb.debian.org/debian bookworm/main amd64 libfluidsynth3 amd64 2.3.1-2 [241 kB]
+Get:34 https://deb.debian.org/debian bookworm/main amd64 libfreeaptx0 amd64 0.1.1-2 [11.7 kB]
+Get:35 https://deb.debian.org/debian bookworm/main amd64 libegl-mesa0 amd64 22.3.6-1+deb12u2 [114 kB]
+Get:36 https://deb.debian.org/debian bookworm/main amd64 libegl1 amd64 1.6.0-1 [33.7 kB]
+Get:37 https://deb.debian.org/debian bookworm/main amd64 libgudev-1.0-0 amd64 237-2 [15.1 kB]
+Get:38 https://deb.debian.org/debian bookworm/main amd64 libsoup-3.0-common all 3.2.3-0+deb12u2 [62.5 kB]
+Ign:38 https://deb.debian.org/debian bookworm/main amd64 libsoup-3.0-common all 3.2.3-0+deb12u2
+Get:39 https://deb.debian.org/debian bookworm/main amd64 libsoup-3.0-0 amd64 3.2.3-0+deb12u2 [272 kB]
+Get:40 https://deb.debian.org/debian bookworm/main amd64 libgssdp-1.6-0 amd64 1.6.2-2 [38.8 kB]
+Get:41 https://deb.debian.org/debian bookworm/main amd64 libgupnp-1.6-0 amd64 1.6.3-1 [87.1 kB]
+Get:42 https://deb.debian.org/debian bookworm/main amd64 libgupnp-igd-1.0-4 amd64 1.2.0-3 [14.6 kB]
+Get:43 https://deb.debian.org/debian bookworm/main amd64 libnice10 amd64 0.1.21-1 [154 kB]
+Get:44 https://deb.debian.org/debian bookworm/main amd64 libxcb-xkb1 amd64 1.15-1 [129 kB]
+Get:45 https://deb.debian.org/debian bookworm/main amd64 libxkbcommon-x11-0 amd64 1.5.0-1 [15.6 kB]
+Get:46 https://deb.debian.org/debian bookworm/main amd64 libcolord2 amd64 1.4.6-2.2 [137 kB]
+Get:47 https://deb.debian.org/debian bookworm/main amd64 libxinerama1 amd64 2:1.1.4-3 [17.8 kB]
+Get:48 https://deb.debian.org/debian bookworm/main amd64 libgtk-3-common all 3.24.38-2~deb12u3 [3,895 kB]
+Get:49 https://deb.debian.org/debian bookworm/main amd64 libgtk-3-0 amd64 3.24.38-2~deb12u3 [2,847 kB]
+Get:50 https://deb.debian.org/debian bookworm/main amd64 libimath-3-1-29 amd64 3.1.6-1 [47.4 kB]
+Get:51 https://deb.debian.org/debian bookworm/main amd64 libjson-glib-1.0-common all 1.6.6-1 [57.1 kB]
+Get:52 https://deb.debian.org/debian bookworm/main amd64 libjson-glib-1.0-0 amd64 1.6.6-1 [65.6 kB]
+Get:53 https://deb.debian.org/debian bookworm/main amd64 libkate1 amd64 0.4.1-11 [44.3 kB]
+Get:54 https://deb.debian.org/debian bookworm/main amd64 libldacbt-enc2 amd64 2.0.2.3+git20200429+ed310a0-4 [24.6 kB]
+Get:55 https://deb.debian.org/debian bookworm/main amd64 libyajl2 amd64 2.1.0-3+deb12u2 [23.0 kB]
+Get:56 https://deb.debian.org/debian bookworm/main amd64 libraptor2-0 amd64 2.0.15-4+deb12u1 [160 kB]
+Get:57 https://deb.debian.org/debian bookworm/main amd64 liblrdf0 amd64 0.6.1-4 [21.8 kB]
+Get:58 https://deb.debian.org/debian bookworm/main amd64 libltc11 amd64 1.3.2-1 [14.1 kB]
+Get:59 https://deb.debian.org/debian bookworm/main amd64 libmjpegutils-2.1-0 amd64 1:2.1.0+debian-7 [27.8 kB]
+Get:60 https://deb.debian.org/debian bookworm/main amd64 libmodplug1 amd64 1:0.8.9.0-3 [164 kB]
+Get:61 https://deb.debian.org/debian bookworm/main amd64 libmpcdec6 amd64 2:0.1~r495-2 [32.9 kB]
+Get:62 https://deb.debian.org/debian bookworm/main amd64 libmpeg2encpp-2.1-0 amd64 1:2.1.0+debian-7 [76.6 kB]
+Get:63 https://deb.debian.org/debian bookworm/main amd64 libmplex2-2.1-0 amd64 1:2.1.0+debian-7 [50.7 kB]
+Get:64 https://deb.debian.org/debian bookworm/main amd64 libneon27 amd64 0.32.5-1 [97.2 kB]
+Get:65 https://deb.debian.org/debian bookworm/main amd64 libopenal-data all 1:1.19.1-2 [170 kB]
+Get:66 https://deb.debian.org/debian bookworm/main amd64 libsndio7.0 amd64 1.9.0-0.3+b2 [27.3 kB]
+Get:67 https://deb.debian.org/debian bookworm/main amd64 libopenal1 amd64 1:1.19.1-2 [501 kB]
+Get:68 https://deb.debian.org/debian bookworm/main amd64 libopenexr-3-1-30 amd64 3.1.5-5 [923 kB]
+Get:69 https://deb.debian.org/debian bookworm/main amd64 libopenh264-7 amd64 2.3.1+dfsg-3+deb12u2 [393 kB]
+Get:70 https://deb.debian.org/debian bookworm/main amd64 libopenni2-0 amd64 2.2.0.33+dfsg-15+b1 [388 kB]
+Get:71 https://deb.debian.org/debian bookworm/main amd64 libqrencode4 amd64 4.1.1-1 [40.4 kB]
+Get:72 https://deb.debian.org/debian bookworm/main amd64 libsbc1 amd64 2.0-1 [32.0 kB]
+Get:73 https://deb.debian.org/debian bookworm/main amd64 libsoundtouch1 amd64 2.3.2+ds1-1 [51.8 kB]
+Get:74 https://deb.debian.org/debian bookworm/main amd64 libspandsp2 amd64 0.0.6+dfsg-2+b1 [282 kB]
+Get:75 https://deb.debian.org/debian bookworm/main amd64 libsrtp2-1 amd64 2.5.0-3 [43.9 kB]
+Get:76 https://deb.debian.org/debian bookworm/main amd64 libvo-aacenc0 amd64 0.1.3-2 [69.2 kB]
+Get:77 https://deb.debian.org/debian bookworm/main amd64 libvo-amrwbenc0 amd64 0.1.3-2 [68.4 kB]
+Get:78 https://deb.debian.org/debian bookworm/main amd64 libwebrtc-audio-processing1 amd64 0.3-1+b1 [264 kB]
+Get:79 https://deb.debian.org/debian bookworm/main amd64 libwildmidi2 amd64 0.4.3-1 [65.3 kB]
+Get:80 https://deb.debian.org/debian bookworm/main amd64 libv4lconvert0 amd64 1.22.1-5+b2 [143 kB]
+Get:81 https://deb.debian.org/debian bookworm/main amd64 libv4l-0 amd64 1.22.1-5+b2 [109 kB]
+Get:82 https://deb.debian.org/debian bookworm/main amd64 libzxing2 amd64 1.4.0-3+b1 [601 kB]
+Get:83 https://deb.debian.org/debian bookworm/main amd64 libcdparanoia0 amd64 3.10.2+debian-14 [48.8 kB]
+Get:84 https://deb.debian.org/debian bookworm/main amd64 libvisual-0.4-0 amd64 0.4.0-19 [132 kB]
+Get:85 https://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+Get:86 https://deb.debian.org/debian bookworm/main amd64 libncurses6 amd64 6.4-4 [103 kB]
+Get:87 https://deb.debian.org/debian bookworm/main amd64 libaa1 amd64 1.4p5-50 [55.7 kB]
+Get:88 https://deb.debian.org/debian bookworm/main amd64 libavc1394-0 amd64 0.5.4-5 [19.9 kB]
+Get:89 https://deb.debian.org/debian bookworm/main amd64 libcaca0 amd64 0.99.beta20-3+deb12u1 [201 kB]
+Get:90 https://deb.debian.org/debian bookworm/main amd64 libdv4 amd64 1.0.0-15 [74.4 kB]
+Get:91 https://deb.debian.org/debian bookworm/main amd64 libiec61883-0 amd64 1.2.0-6+b1 [30.5 kB]
+Get:92 https://deb.debian.org/debian bookworm/main amd64 libshout3 amd64 2.4.6-1+b1 [56.4 kB]
+Get:93 https://deb.debian.org/debian bookworm/main amd64 libtag1v5-vanilla amd64 1.13-2+deb12u1 [298 kB]
+Get:94 https://deb.debian.org/debian bookworm/main amd64 libtag1v5 amd64 1.13-2+deb12u1 [18.8 kB]
+Get:95 https://deb.debian.org/debian bookworm/main amd64 libwavpack1 amd64 5.6.0-1 [85.7 kB]
+Get:96 https://deb.debian.org/debian bookworm/main amd64 gstreamer1.0-plugins-good amd64 1.22.0-5+deb12u3 [2,222 kB]
+Get:97 https://deb.debian.org/debian bookworm/main amd64 gstreamer1.0-plugins-bad amd64 1.22.0-4+deb12u7 [2,993 kB]
+Get:98 https://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+Get:99 https://deb.debian.org/debian bookworm/main amd64 libaspell15 amd64 0.60.8-4+b1 [344 kB]
+Get:100 https://deb.debian.org/debian bookworm/main amd64 libatomic1 amd64 12.2.0-14+deb12u1 [9,376 B]
+Get:101 https://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+Get:102 https://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+Get:103 https://deb.debian.org/debian bookworm/main amd64 liblzo2-2 amd64 2.10-2 [56.9 kB]
+Get:104 https://deb.debian.org/debian bookworm/main amd64 libcairo-script-interpreter2 amd64 1.16.0-7 [149 kB]
+Get:105 https://deb.debian.org/debian bookworm/main amd64 libcloudproviders0 amd64 0.3.1-2 [27.8 kB]
+Get:106 https://deb.debian.org/debian bookworm/main amd64 libdbus-glib-1-2 amd64 0.112-3 [58.8 kB]
+Get:107 https://deb.debian.org/debian bookworm/main amd64 libhunspell-1.7-0 amd64 1.7.1-1 [193 kB]
+Get:108 https://deb.debian.org/debian bookworm/main amd64 libenchant-2-2 amd64 2.3.3-2 [47.0 kB]
+Get:109 https://deb.debian.org/debian bookworm/main amd64 libevdev2 amd64 1.13.0+dfsg-1 [34.0 kB]
+Get:110 https://deb.debian.org/debian bookworm/main amd64 libgraphene-1.0-0 amd64 1.10.8-1 [43.2 kB]
+Get:111 https://deb.debian.org/debian bookworm/main amd64 libgtk-4-common all 4.8.3+ds-2+deb12u1 [1,854 kB]
+Get:112 https://deb.debian.org/debian bookworm/main amd64 libgtk-4-1 amd64 4.8.3+ds-2+deb12u1 [2,767 kB]
+Get:113 https://deb.debian.org/debian bookworm/main amd64 libharfbuzz-icu0 amd64 6.0.0+dfsg-3 [1,557 kB]
+Get:114 https://deb.debian.org/debian bookworm/main amd64 libhyphen0 amd64 2.8.8-7 [32.5 kB]
+Get:115 https://deb.debian.org/debian bookworm/main amd64 libmanette-0.2-0 amd64 0.2.6-3+b1 [28.4 kB]
+Get:116 https://deb.debian.org/debian bookworm/main amd64 libnotify4 amd64 0.8.1-1 [30.1 kB]
+Get:117 https://deb.debian.org/debian bookworm/main amd64 libsecret-common all 0.20.5-3 [28.5 kB]
+Get:118 https://deb.debian.org/debian bookworm/main amd64 libsecret-1-0 amd64 0.20.5-3 [115 kB]
+Get:119 https://deb.debian.org/debian bookworm/main amd64 libwoff1 amd64 1.0.2-2 [43.0 kB]
+Get:120 https://deb.debian.org/debian bookworm/main amd64 libxtst6 amd64 2:1.2.3-1.1 [28.0 kB]
+Get:121 https://deb.debian.org/debian bookworm/main amd64 libopengl0 amd64 1.6.0-1 [30.6 kB]
+Ign:32 https://deb.debian.org/debian bookworm/main amd64 timgm6mb-soundfont all 1.3-5
+Ign:38 https://deb.debian.org/debian bookworm/main amd64 libsoup-3.0-common all 3.2.3-0+deb12u2
+Err:32 https://deb.debian.org/debian bookworm/main amd64 timgm6mb-soundfont all 1.3-5
+  Connection timed out [IP: 199.232.166.132 443]
+Err:38 https://deb.debian.org/debian bookworm/main amd64 libsoup-3.0-common all 3.2.3-0+deb12u2
+  Error reading from server - read (5: Input/output error) [IP: 199.232.166.132 443]
+Fetched 36.9 MB in 2min 45s (223 kB/s)
+Failed to install browser dependencies
+Error: Installation process exited with code: 100
+E: Failed to fetch https://deb.debian.org/debian/pool/main/t/timgm6mb-soundfont/timgm6mb-soundfont_1.3-5_all.deb  Connection timed out [IP: 199.232.166.132 443]
+E: Failed to fetch https://deb.debian.org/debian/pool/main/libs/libsoup3/libsoup-3.0-common_3.2.3-0%2bdeb12u2_all.deb  Error reading from server - read (5: Input/output error) [IP: 199.232.166.132 443]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?

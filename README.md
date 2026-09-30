@@ -39,7 +39,7 @@ The fixture serves `/src/token.js` through Vite. The oracle extracts the exporte
 
 ### Browser HMR
 
-The separate browser adapter uses pinned Playwright Core with installed Chrome or provisioned Chromium. It reads the actual DOM, records HMR callback counts, and rejects a changed page session. It launches an isolated headless browser profile. Windows Chrome and Linux Chromium in the Debian VMware guest are verified. `WTL_BROWSER_CHANNEL=msedge` may select installed Edge; Edge remains unverified.
+The separate browser adapter uses pinned Playwright Core with installed Chrome/Edge or provisioned browsers. It reads the actual DOM, records HMR callback counts, and rejects a changed page session. It launches an isolated headless browser profile. Windows Chrome/Edge and Debian VM Chromium/Firefox/WebKit are verified. `WTL_BROWSER_CHANNEL=msedge` selects installed Edge. `WTL_BROWSER_ENGINE=firefox` or `webkit` selects a provisioned Playwright engine; channels apply only to Chromium. Engine verification status is recorded in [current results](docs/current-results.md).
 
 ```sh
 python -m watchmode_truth_lab vite.browser.json --rounds 3 --mutation atomic_replace --report reports/browser.json
@@ -68,6 +68,18 @@ python3 scripts/linux_vite_lab.py -- '{python}' scripts/browser_cycle.py --outpu
 ```
 
 The wrapper selects the project-local Chromium channel and browser cache. Linux browser tests require explicit `WTL_TEST_BROWSER=1`; missing browser provision must remain a reported skip or failure. VM results are identified by the observed guest OS and virtualization, separately from WSL2 and physical Linux machines.
+
+For additional engines, install the matching dependencies and pinned browser builds, then select the engine explicitly:
+
+```sh
+su -c 'python3 scripts/linux_vite_lab.py -- "{node}" node_modules/playwright-core/cli.js install-deps firefox webkit'
+python3 scripts/linux_vite_lab.py -- '{node}' node_modules/playwright-core/cli.js install firefox webkit
+WTL_TEST_BROWSER=1 WTL_BROWSER_ENGINE=firefox python3 scripts/linux_vite_lab.py -- '{python}' scripts/test_cycle.py --label linux-firefox --purpose "Verify Firefox DOM HMR and stale control" --test test_browser
+WTL_BROWSER_ENGINE=webkit python3 scripts/linux_vite_lab.py -- '{python}' scripts/browser_cycle.py --output evidence/matrices/linux-webkit-001 --rounds 20
+python3 scripts/linux_vite_lab.py -- '{python}' scripts/test_cycle.py --label browser-cleanup --purpose "Inspect completed browser process cleanup" --test linux_process_checks
+```
+
+Playwright WebKit coverage describes that build and platform; it does not establish Safari behavior. The cleanup check inspects live executable paths under project-local runtime/browser storage, including all selected engines.
 
 ### WSL2 and Windows-origin writes
 
@@ -123,7 +135,7 @@ Latency measurement begins after mutation returns. An external mutator's duratio
 
 Vite already has browser-level HMR integration tests and runs its test watcher in polling mode. Watchwoman already has a black-box harness for Watchman protocol parity. This pilot tests a narrower reusable question: can one external command's final file or HTTP bytes be checked after controlled mutations, independent of its watcher implementation? It has not demonstrated a gap in either project's test suite yet.
 
-The [experiment plan](docs/experiment-plan.md) sets the matrix and decision rule. [Current results](docs/current-results.md) include Windows, Linux within WSL2, Windows-origin writes on both filesystem paths, Windows Chrome HMR, and Debian VMware endpoint/Chromium HMR matrices. Physical Linux hardware and other browser engines remain unverified. Continue as a standalone project only if a reproducible supported-workflow failure escapes existing tests, or at least two maintainers confirm the harness is useful. Otherwise contribute focused fixtures to existing suites. That research go/no-go criterion has not yet been met.
+The [experiment plan](docs/experiment-plan.md) sets the matrix and decision rule. [Current results](docs/current-results.md) include Windows, Linux within WSL2, Windows-origin writes on both filesystem paths, Windows Chrome/Edge HMR, and Debian VMware endpoint/Chromium/Firefox/WebKit HMR matrices. Physical Linux hardware, Safari on Apple platforms, and additional application fixtures remain unverified. Continue as a standalone project only if a reproducible supported-workflow failure escapes existing tests, or at least two maintainers confirm the harness is useful. Otherwise contribute focused fixtures to existing suites. That research go/no-go criterion has not yet been met.
 
 ## License
 

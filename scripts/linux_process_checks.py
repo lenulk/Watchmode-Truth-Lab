@@ -15,8 +15,6 @@ def project_processes():
             executable = (directory / "exe").resolve(strict=True)
             if not executable.is_relative_to(ROOT / "reports"):
                 continue
-            if executable.name not in {"node", "chrome", "chrome_crashpad_handler"}:
-                continue
             stat = (directory / "stat").read_text()
             state = stat[stat.rfind(")") + 2:].split()[0]
             if state != "Z":
@@ -35,4 +33,4 @@ class LinuxProcessChecks(unittest.TestCase):
         while remaining and time.monotonic() < deadline:
             time.sleep(0.05)
             remaining = project_processes()
-        self.assertEqual(remaining, [], "Project-local Node or Chromium survived completed experiments")
+        self.assertEqual(remaining, [], "Project-local runtime or browser survived completed experiments")

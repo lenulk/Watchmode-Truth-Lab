@@ -1,0 +1,6 @@
+test_unknown_engine_is_rejected_before_launch (test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.973s
+
+OK

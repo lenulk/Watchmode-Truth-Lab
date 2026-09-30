@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T180231Z-debian-webkit-integration-cf85dd",
+  "started_at_utc": "2026-09-30T18:02:31.082045+00:00",
+  "purpose": "Actual Playwright WebKit DOM HMR, stale control, and invalid engine rejection on Debian VM; not Safari",
+  "git_revision": "c73827a",
+  "working_tree_dirty": null,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "7715469f48b38c698e7bd72c0c56b08505149397fc2641582f8ce9bb28f0f804",
+  "environment": {
+    "system": "Linux",
+    "release": "6.1.0-53-amd64",
+    "python": "3.11.2"
+  },
+  "duration_seconds": 11.501,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "pass",
+      "duration_seconds": 4.9097,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "pass",
+      "duration_seconds": 5.1379,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch",
+      "status": "pass",
+      "duration_seconds": 1.4467,
+      "detail": null
+    }
+  ]
+}

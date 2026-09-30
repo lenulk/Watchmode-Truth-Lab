@@ -1,0 +1,7 @@
+{
+  "operation": "per-command official Debian HTTPS sources override",
+  "system_sources_changed": false,
+  "original_sources_sha256": "4dad12ad9e4eb345cb33d728b753576f224ca0d3ec04742249d6be8c9ae28eca",
+  "override_sources": "# WTL disabled installer medium: deb cdrom:[Debian GNU/Linux 12.14.0 _Bookworm_ - Official amd64 DVD Binary-1 with firmware 20260516-14:43]/ bookworm contrib main non-free-firmware\n\ndeb https://deb.debian.org/debian/ bookworm main non-free-firmware\ndeb-src https://deb.debian.org/debian/ bookworm main non-free-firmware\n\ndeb https://security.debian.org/debian-security bookworm-security main non-free-firmware\ndeb-src https://security.debian.org/debian-security bookworm-security main non-free-firmware\n\n# bookworm-updates, to get updates before a point release is made;\n# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports\ndeb https://deb.debian.org/debian/ bookworm-updates main non-free-firmware\ndeb-src https://deb.debian.org/debian/ bookworm-updates main non-free-firmware\n",
+  "config": "reports/apt-https-ipv4.conf"
+}

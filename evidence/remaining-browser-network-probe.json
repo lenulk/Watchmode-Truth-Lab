@@ -1,0 +1,20 @@
+[
+  {
+    "url": "http://deb.debian.org/debian/pool/main/c/codec2/libcodec2-1.0_1.0.5-1_amd64.deb",
+    "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+  },
+  {
+    "url": "https://deb.debian.org/debian/pool/main/c/codec2/libcodec2-1.0_1.0.5-1_amd64.deb",
+    "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+  },
+  {
+    "url": "http://deb.debian.org/debian/pool/main/f/flite/libflite1_2.2-5_amd64.deb",
+    "status": 200,
+    "prefix_bytes": 128
+  },
+  {
+    "url": "https://deb.debian.org/debian/pool/main/f/flite/libflite1_2.2-5_amd64.deb",
+    "status": 200,
+    "prefix_bytes": 128
+  }
+]

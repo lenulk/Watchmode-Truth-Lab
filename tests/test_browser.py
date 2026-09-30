@@ -22,6 +22,20 @@ def browser_states(report):
                      (ROOT / "node_modules/playwright-core/package.json").exists(),
                      "Requires installed Windows Chrome or Linux browser opt-in, plus pinned Playwright dependency")
 class BrowserTests(unittest.TestCase):
+    def test_unknown_engine_is_rejected_before_launch(self):
+        for engine in ("unknown", "toString"):
+            with self.subTest(engine=engine), tempfile.TemporaryDirectory() as temporary:
+                config = json.loads((ROOT / "vite.browser.json").read_text())
+                config["fixture_dir"] = str(ROOT / config["fixture_dir"])
+                config["command"] = [value.replace("{config_dir}", str(ROOT)) for value in config["command"]]
+                config["version_command"] = [value.replace("{config_dir}", str(ROOT)) for value in config["version_command"]]
+                config["env"] = {"WTL_BROWSER_ENGINE": engine}
+                path = Path(temporary) / "unknown-engine.json"
+                path.write_text(json.dumps(config), encoding="utf-8")
+                report = run(path)
+                self.assertEqual(report["status"], "inconclusive", report)
+                self.assertIn(f"Unsupported browser engine: {engine}", "\n".join(report["logs"]))
+
     def test_browser_hmr_updates_dom_without_reload(self):
         report = run(ROOT / "vite.browser.json", rounds=2, mutation="atomic_replace")
         self.assertEqual(report["status"], "pass", report)

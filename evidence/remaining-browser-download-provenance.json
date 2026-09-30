@@ -1,0 +1,18 @@
+[
+  {
+    "engine": "firefox",
+    "revision": "1538",
+    "url": "https://cdn.playwright.dev/dbazure/download/playwright/builds/firefox/1538/firefox-debian-12.zip",
+    "relative": "builds/firefox/1538/firefox-debian-12.zip",
+    "bytes": 113411079,
+    "sha256": "04b0d3d86f7472bbbebce1b7c536900d05e0eb63bcfdb22cd1da932b5ea297e7"
+  },
+  {
+    "engine": "webkit",
+    "revision": "2336",
+    "url": "https://cdn.playwright.dev/dbazure/download/playwright/builds/webkit/2336/webkit-debian-12.zip",
+    "relative": "builds/webkit/2336/webkit-debian-12.zip",
+    "bytes": 107153598,
+    "sha256": "95d87eedf554620015e392805be5d71aedbbdbb65dfa6c62c94753cf8e34406e"
+  }
+]

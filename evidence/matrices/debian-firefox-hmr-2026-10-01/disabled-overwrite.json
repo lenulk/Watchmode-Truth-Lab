@@ -1,0 +1,113 @@
+{
+  "watcher": "disabled",
+  "mutation": "overwrite",
+  "expected_status": "stale",
+  "browser_engine": "firefox",
+  "browser_channel": null,
+  "assessment": "pass",
+  "browser_version": [
+    "153.0"
+  ],
+  "session_continuity": true,
+  "observed_hmr_updates": 0,
+  "scenario_base": "vite.browser.json",
+  "scenario_env": {
+    "WTL_DISABLE_WATCH": "1"
+  },
+  "analysis": "Actual DOM token and a retained page session were observed. A disabled watcher is an expected stale control, not a newly discovered tool failure.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T18:04:41.826669+00:00",
+    "status": "stale",
+    "config": "vite.browser.disabled.json",
+    "config_sha256": "d0f237ec4bfe1e97ec286cd8cda65760f638256ce016b42faac51c195c85e8d8",
+    "command": [
+      "{node}",
+      "<project>/examples/vite/browser_probe.mjs",
+      "<project>/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.1.0-53-amd64",
+      "python": "3.11.2",
+      "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 3111.7,
+      "samples": 108,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "bb16d6f760d940667eae75eae8ca7679d95398b4a408c74deda4d928093b085e",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 3000.4,
+        "samples": 100,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "0132738c7c90c2f95a7b0b6a58aab0e79d258ef52cde9dd453c71a541e8c3308",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 328 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:46427/",
+      "WTL_BROWSER_ENGINE firefox",
+      "WTL_BROWSER_VERSION 153.0",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"eadc6766-fba1-456c-a73e-2dcdd2b854b2\",\"updates\":0}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "Browser logs:",
+      "",
+      "<launching> <project>/reports/playwright-browsers/firefox-1538/firefox/firefox -no-remote -headless -profile /tmp/playwright_firefoxdev_profile-15b7uB -juggler-pipe -silent",
+      "<launched> pid=13052",
+      "[pid=13052][err] *** You are running in headless mode.",
+      "[pid=13052][err] JavaScript warning: resource://services-settings/Utils.sys.mjs, line 119: unreachable code after return statement",
+      "[pid=13052][out] ",
+      "[pid=13052][out] Juggler listening to the pipe",
+      "[pid=13052][out] console.error: (new TypeError(\"can't access property \\\"find\\\", this._searchProviderInfo is null\", \"moz-src:///browser/components/search/SearchSERPTelemetry.sys.mjs\", 1209))",
+      "[pid=13052][out] console.warn: services.settings: #fetchAttachment: Forcing fallbackToDump to false due to Utils.LOAD_DUMPS being false",
+      "[pid=13052][out] console.error: (new NotFoundError(\"Could not find fa0fc42c-d91d-fca7-34eb-806ff46062dc in cache or dump\", \"resource://services-settings/Attachments.sys.mjs\", 48))",
+      "[pid=13052][out] console.warn: \"Unable to find the attachment for\" \"fa0fc42c-d91d-fca7-34eb-806ff46062dc\"",
+      "[pid=13052][out] console.error: \"Error fetching remote settings base url from CDN. Falling back to https://firefox-settings-attachments.cdn.mozilla.net/\" (new SyntaxError(\"XMLHttpRequest.open: '/' is not a valid URL.\", (void 0), 126))",
+      "[pid=13052][out] console.error: services.settings: ",
+      "[pid=13052][out]   Message: EmptyDatabaseError: \"main/nimbus-desktop-experiments\" has not been synced yet",
+      "[pid=13052][out]   Stack:",
+      "[pid=13052][out]     EmptyDatabaseError@resource://services-settings/Database.sys.mjs:19:5",
+      "[pid=13052][out] list@resource://services-settings/Database.sys.mjs:96:13",
+      "[pid=13052][out] ",
+      "[pid=13052] <gracefully close start>",
+      "    at <project>/examples/vite/browser_probe.mjs:53:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "vite.browser.disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.browser.disabled.json --rounds 1 --mutation overwrite"
+    }
+  }
+}

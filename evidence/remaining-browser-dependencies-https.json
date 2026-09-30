@@ -1,0 +1,10 @@
+{
+  "status": "fail",
+  "exit_code": 1,
+  "added_packages": {},
+  "changed_versions": {},
+  "added_manual_marks": [],
+  "package_backup": "reports/remaining-engines-before/dpkg-status.before-https-install",
+  "manual_backup": "reports/remaining-engines-before/apt-manual.before-https-install",
+  "rollback": "Review recorded additions, changed versions, and later user work before any package rollback; preserve earlier Chromium dependencies"
+}

@@ -17,7 +17,7 @@ The initial project committed in `35ee9f1` passed seven tests on Windows and six
 ## Remaining verification queue
 
 - Physical Linux hardware remains unverified. Linux Chromium is verified in the Debian VMware guest; WSL2 and Windows Chrome evidence remain separate.
-- Other browser engines and application-specific HMR fixtures are not covered.
+- Chrome/Edge and Debian Chromium/Firefox/WebKit have actual browser coverage. Safari on Apple platforms, further browser/platform combinations, and application-specific HMR fixtures remain unverified.
 - A supported-workflow gap in existing tests or maintainer confirmation is still needed for the research go/no-go decision.
 
 ## Cycle 1 Windows baseline
@@ -373,3 +373,131 @@ The initial project committed in `35ee9f1` passed seven tests on Windows and six
 - Analysis: 42 guest artifacts were imported only after the evidence archive SHA-256 matched the guest value; existing differing evidence would have stopped import. Failed provisioning attempts remain distinguishable from successful software runs. A targeted scan found neither the supplied credential nor private connection address in evidence.
 - Completion: the actual Debian VM suite, endpoint matrix, Chromium HMR matrix, stale controls, and post-run process checks meet this environment's verification plan. Windows support regression also passed. Current documentation records the observed VM version and separates physical-hardware, other-browser, and research-validation limits. No additional broad test cycle is needed for this completed scope.
 - Final content review: retained APT console logs contain original prompt/progress whitespace. The existing raw-log whitespace policy is extended only to the Debian provisioning logs, preserving evidence formatting; source and documentation whitespace checks remain enabled.
+
+## Cycle 50 Requested Windows repeat
+
+- Evidence: [JSON](../evidence/test-runs/20260930T150202Z-requested-windows-repeat-b0c0ae.json), [console log](../evidence/test-runs/20260930T150202Z-requested-windows-repeat-b0c0ae.log).
+- Result: all 24 tests passed with no skips, failures, or errors against commit c73827a.
+- Analysis: this repeat began before the user narrowed the request to remaining coverage. No repair is needed. Further work targets additional installed browsers and Linux browser engines rather than repeating completed Chromium matrices.
+- Next verification: test installed Windows Edge, inspect pinned Firefox/WebKit availability, then provision and exercise those engines where supported. Physical Linux hardware remains unavailable; do not substitute VM results for it.
+
+## Cycle 51 Installed Windows Edge integration
+
+- Evidence: [JSON](../evidence/test-runs/20260930T150402Z-windows-edge-integration-db3ad6.json), [console log](../evidence/test-runs/20260930T150402Z-windows-edge-integration-db3ad6.log).
+- Result: both real Microsoft Edge DOM/HMR and disabled-watcher control tests passed, with no skips. Installed Edge reports 154.0.4258.37.
+- Analysis: Edge is an additional browser on the Chromium engine, not a separate rendering engine. Added explicit Firefox/WebKit selection to the adapter while preserving Chromium defaults; selected engine/channel will be recorded by future matrices.
+- Next verification: run Edge across every watcher/mutation combination, then verify Firefox/WebKit on Debian using the pinned Playwright browser manifest.
+
+## Cycle 52 Windows Edge repeated HMR matrix
+
+- Evidence: [summary](../evidence/matrices/windows-edge-hmr-remaining-2026-09-30/summary.json) and scenario reports in that directory.
+- Result: all 120 positive DOM updates passed across native/polling watchers and three mutation modes. Each positive scenario retained its session and observed 20 callbacks. The disabled-watcher control correctly stayed stale with zero callbacks.
+- Analysis: installed Microsoft Edge now has repeated real-browser coverage distinct from Chrome. The generalized adapter preserves the Chromium launch path and records the selected engine and channel. No repair was needed.
+- Next verification: install pinned Firefox/WebKit binaries on the guest and exercise their real DOM paths with deliberately stale controls.
+
+## Cycle 53 Default Chrome regression after engine selection
+
+- Evidence: [JSON](../evidence/test-runs/20260930T151158Z-browser-engine-chrome-default-18e321.json), [console log](../evidence/test-runs/20260930T151158Z-browser-engine-chrome-default-18e321.log).
+- Result: both actual default Chrome DOM/HMR and disabled-watcher tests passed without skips.
+- Analysis: the adapter's new engine selection preserves the existing default Chrome path. This targeted regression addresses the changed launch integration; no broad repeat was needed.
+- Next verification: complete guest Firefox/WebKit provisioning and test the new engine paths.
+
+## Cycle 54 Firefox/WebKit binaries installed; libraries missing
+
+- Evidence: [archive provenance](../evidence/remaining-browser-download-provenance.json), [installer result](../evidence/remaining-browser-install.json), [installer log](../evidence/remaining-browser-install.log).
+- Result: pinned Firefox 153.0 revision 1538 and WebKit 26.5 revision 2336 were downloaded over HTTPS, transfer hashes verified, and installed by the normal Playwright installer. The temporary mirror was shut down. Installer exit 0 includes a host validation warning for missing shared libraries; no browser test pass is claimed.
+- Analysis and next action: the observed library warning agrees with the dependency dry run (228 missing package dependencies). The guest has 14 GiB available. Source files and package/manual-mark baselines are backed up under ignored reports before the engine support overlay and dependency installation. Install the official Firefox/WebKit dependency set with the existing scoped IPv4 APT configuration, record changes, then verify actual launches and HMR.
+- Limit: archive hashes establish identity to host HTTPS downloads, not publisher signatures. These are Playwright browser builds; WebKit results must not be labeled Safari.
+
+## Cycle 55 Invalid engine selection before repair
+
+- Evidence: [JSON](../evidence/test-runs/20260930T151712Z-browser-engine-invalid-before-341d1a.json), [console log](../evidence/test-runs/20260930T151712Z-browser-engine-invalid-before-341d1a.log).
+- Result: the invalid-engine integration test failed on the inherited object key `toString`. A normal unknown engine was rejected correctly, but prototype lookup reached the launch path instead of the explicit unsupported-engine diagnostic.
+- Analysis and repair: use a Map containing only the three allowed engine entries. This addresses one engine-selection boundary; retain the failed test evidence and rerun the targeted real Node integration before browser tests.
+
+## Cycle 56 Invalid engine selection after repair
+
+- Evidence: [JSON](../evidence/test-runs/20260930T151817Z-browser-engine-invalid-after-096bea.json), [console log](../evidence/test-runs/20260930T151817Z-browser-engine-invalid-after-096bea.log).
+- Result: the targeted integration passed for both a normal unknown value and `toString`. Both remain inconclusive with the explicit unsupported-engine diagnostic.
+- Analysis: explicit Map lookup fixes the observed prototype-key launch problem. Browser integrations must verify all supported engine paths after this repair; no unsupported value is treated as a watcher defect.
+
+## Cycle 57 Additional browser dependency downloads failed
+
+- Evidence: [result and package comparison](../evidence/remaining-browser-dependencies.json), [installation log](../evidence/remaining-browser-dependencies.log).
+- Result: the official Firefox/WebKit dependency installer exited 1 after APT could not connect to package archive HTTP endpoints. No packages were added or changed relative to the fresh baseline.
+- Analysis: this is provisioning failure, not an HMR test failure. The scoped IPv4 retry that previously worked was insufficient on this attempt. Keep the failure and original sources unchanged; probe actual failed archive URLs over HTTP and HTTPS before choosing a per-command HTTPS source override.
+
+## Cycle 58 Network diagnostic URL parsing corrected
+
+- Evidence: [invalid initial probe](../evidence/remaining-browser-network-probe-parse-before.json), [corrected archive probe](../evidence/remaining-browser-network-probe.json).
+- Result: the initial ad hoc extraction matched the `.deb` prefix inside repository hostnames and produced invalid URLs. Its DNS errors cannot describe real repository reachability.
+- Analysis and repair: require `.deb` to end the complete URL at whitespace/end of input; retain the incorrect diagnostic and probe actual package URLs again. The prepared HTTPS override is per-command and has not changed system sources.
+
+## Cycle 59 HTTPS dependency retry left two archive failures
+
+- Evidence: [corrected reachability probe](../evidence/remaining-browser-network-probe.json), [scoped source override](../evidence/remaining-browser-https-source-override.json), [retry result](../evidence/remaining-browser-dependencies-https.json), [retry log](../evidence/remaining-browser-dependencies-https.log).
+- Result: the probe observed transient DNS failures for one archive and HTTP/HTTPS success for another. The HTTPS installer retry fetched 36.9 MB, but two package archives failed with timeout/read errors. Installation exited 1, with zero added packages or version changes.
+- Analysis and recovery: cached successful downloads are retained. Obtain the exact two missing archives through the host, verify their SHA-256 against guest APT package metadata, then let the normal installer use the complete package cache. Preserve both failed attempts and use a new package baseline/result filename for the final retry. The system sources file remains unchanged by this per-command override.
+
+## Cycle 60 Chrome integration after selector repair
+
+- Evidence: [JSON](../evidence/test-runs/20260930T175643Z-browser-selector-chrome-repaired-5be44c.json), [console log](../evidence/test-runs/20260930T175643Z-browser-selector-chrome-repaired-5be44c.log).
+- Result: all three targeted browser tests passed without skips: real Chrome DOM/HMR, disabled-watcher stale control, and unknown/prototype-key engine rejection.
+- Analysis: supported Chromium launch behavior remains correct after the explicit allowlist repair. The full suite's historical 24-test count predates this added boundary test; this is the current three-test browser integration result.
+- Next verification: finish guest dependency installation and run those same three tests on Firefox and WebKit before repeated matrices.
+
+## Cycle 61 Firefox/WebKit dependencies installed from verified cache recovery
+
+- Evidence: [APT archive metadata](../evidence/remaining-browser-apt-cache-provenance.json), [successful installer and package changes](../evidence/remaining-browser-dependencies-cache.json), [installer log](../evidence/remaining-browser-dependencies-cache.log), [adapter provenance](../evidence/remaining-browser-adapter-provenance.json).
+- Result: both missing host downloads matched SHA-256 and sizes from guest APT metadata. The normal dependency installer completed with exit 0, adding 228 packages and changing zero existing package versions. The system sources SHA-256 still matches the pre-override value.
+- Analysis: failed HTTP/HTTPS downloads are retained separately; the recovery completed the cache without bypassing package checks. Package/manual-mark baselines and previous adapter files remain in ignored reports for reviewed rollback. Source overlay archive integrity was checked before updating the adapter, cleanup inspector, and tests.
+- Next verification: test actual Firefox and WebKit DOM/HMR, stale controls, invalid engine selection, repeated matrices, and post-run process cleanup. Installation alone does not establish browser correctness.
+
+## Cycle 62 Actual Debian Firefox integration
+
+- Evidence: [JSON](../evidence/test-runs/20260930T180027Z-debian-firefox-integration-b544f6.json), [console log](../evidence/test-runs/20260930T180027Z-debian-firefox-integration-b544f6.log).
+- Result: all three tests passed without skips, failures, or errors: actual Firefox DOM/HMR without reload, disabled-watcher stale detection, and invalid engine rejection.
+- Analysis: Firefox's separate engine launch path works in the provisioned Debian guest. This verifies the dependency-accept fixture; repeated mutation coverage and other applications are separate checks. No repair was needed.
+- Next verification: run the corresponding WebKit integration, then repeated engine matrices.
+
+## Cycle 63 Actual Debian WebKit integration
+
+- Evidence: [JSON](../evidence/test-runs/20260930T180231Z-debian-webkit-integration-cf85dd.json), [console log](../evidence/test-runs/20260930T180231Z-debian-webkit-integration-cf85dd.log).
+- Result: all three tests passed without skips, failures, or errors: actual Playwright WebKit DOM/HMR, disabled-watcher stale control, and invalid engine rejection.
+- Analysis: WebKit's separate engine path works in this Debian guest. This describes Playwright WebKit 26.5 on Linux, not macOS/iOS Safari. No repair was needed.
+- Next verification: run 20 rounds per watcher/mutation combination on Firefox, then WebKit, followed by Chromium integration and process cleanup after the package changes.
+
+## Cycle 64 Debian Firefox repeated HMR matrix
+
+- Evidence: [summary](../evidence/matrices/debian-firefox-hmr-2026-10-01/summary.json) and retained per-scenario reports.
+- Result: all 120 positive DOM updates passed across native/polling watchers and three mutation modes. Every positive scenario retained one page session with 20 callbacks. The disabled-watcher control stayed stale with zero callbacks and preserved its session.
+- Analysis: actual Firefox 153.0 on the Debian guest now has repeated dependency-accept HMR coverage, separate from Chromium. No repair was needed. Timing remains scenario policy rather than a cross-browser performance benchmark.
+- Next verification: run the corresponding 120-update WebKit matrix and then inspect affected Chromium integration and all-engine process cleanup.
+
+## Cycle 65 Debian WebKit repeated HMR matrix
+
+- Evidence: [summary](../evidence/matrices/debian-webkit-hmr-2026-10-01/summary.json) and retained per-scenario reports.
+- Result: all 120 positive DOM updates passed across native/polling watchers and three mutation modes. All positive scenarios retained one session and observed 20 callbacks. The disabled-watcher control stayed stale with zero callbacks and preserved its session.
+- Analysis: actual Playwright WebKit 26.5 on Debian now has repeated dependency-accept HMR coverage. This is neither Safari testing nor a claim about every application. No repair was needed.
+- Next verification: check the previously provisioned Linux Chromium path after the additional library installation and selector changes, then inspect process cleanup for all project-local engines.
+
+## Cycle 66 Linux Chromium after engine and package updates
+
+- Evidence: [JSON](../evidence/test-runs/20260930T180801Z-debian-chromium-after-engines-a7fc41.json), [console log](../evidence/test-runs/20260930T180801Z-debian-chromium-after-engines-a7fc41.log).
+- Result: all three targeted integration tests passed without skips, failures, or errors: real Linux Chromium HMR, deliberately stale control, and invalid engine rejection.
+- Analysis: the existing Linux Chromium path remains working after the changed selector and additional library installation. This targeted check addresses the affected integration; historical full-suite counts are preserved without claiming a new full-suite run.
+- Next verification: inspect all live project-local executable paths after the completed Firefox/WebKit matrices and Chromium checks, then import and audit retained evidence.
+
+## Cycle 67 Cleanup after all guest browser engines
+
+- Evidence: [JSON](../evidence/test-runs/20260930T181025Z-debian-all-engine-cleanup-2f3562.json), [console log](../evidence/test-runs/20260930T181025Z-debian-all-engine-cleanup-2f3562.log).
+- Result: the expanded actual /proc inspection passed with no live executable under project-local runtime/browser storage after Chromium, Firefox, and WebKit experiments.
+- Analysis: this extends the former name-limited check to every project-local executable path, covering selected browser descendants without assuming their executable names. Its scope excludes external runtime paths and deliberately escaped processes. No cleanup repair was needed.
+- Next verification: retrieve guest records, confirm per-round counts/versions and unchanged system sources, audit artifact consistency/local links/redaction, and commit reviewed changes.
+
+## Cycle 68 Remaining browser artifact audit
+
+- Evidence: [JSON](../evidence/test-runs/20260930T181438Z-remaining-browser-artifact-audit-9127c7.json), [console log](../evidence/test-runs/20260930T181438Z-remaining-browser-artifact-audit-9127c7.log).
+- Result: all three audit checks passed without skips, failures, or errors: JSON and matrix-summary consistency, document links, and user-home redaction. A targeted scan found no supplied credential, private connection address, or literal guest user-home path in evidence.
+- Analysis: 39 guest artifacts were imported after verifying the archive SHA-256; existing differing evidence would stop import. Original installation failures and the selector failure are retained alongside successful repairs. Edge, Firefox, and WebKit each passed 120 real DOM observations plus their correctly stale control; affected Chrome/Chromium integration and all-engine cleanup passed.
+- Completion and limits: browser-engine coverage available on the Windows host and Debian VM is complete for this dependency-accept fixture. Physical Linux hardware and Safari on Apple devices require separate machines; application-specific fixtures require the actual application. No novelty or maintainer usefulness claim is established by these passes. Final source/document diff and whitespace checks are reviewed before local commit.

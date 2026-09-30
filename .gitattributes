@@ -2,3 +2,4 @@
 # Retain console output formatting in historical test evidence.
 evidence/test-runs/*.log -whitespace
 evidence/debian-vm-*.log -whitespace
+evidence/remaining-browser-*.log -whitespace

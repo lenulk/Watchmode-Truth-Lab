@@ -1,0 +1,15 @@
+test_unknown_engine_is_rejected_before_launch (test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch) ... 
+  test_unknown_engine_is_rejected_before_launch (test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch) (engine='toString') ... FAIL
+
+======================================================================
+FAIL: test_unknown_engine_is_rejected_before_launch (test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch) (engine='toString')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_browser.py", line 37, in test_unknown_engine_is_rejected_before_launch
+    self.assertIn(f"Unsupported browser engine: {engine}", "\n".join(report["logs"]))
+AssertionError: 'Unsupported browser engine: toString' not found in 'TypeError: browserType.launch is not a function\n    at file:///<home>/OneDrive/%E0%B9%80%E0%B8%94%E0%B8%AA%E0%B8%81%E0%B9%8C%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B/opensode/watchmode-truth-lab/examples/vite/browser_probe.mjs:33:31\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)'
+
+----------------------------------------------------------------------
+Ran 1 test in 2.004s
+
+FAILED (failures=1)

@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "operation": "Pinned Firefox/WebKit normal installer from verified host-download mirror",
+  "mirror_shutdown": true
+}

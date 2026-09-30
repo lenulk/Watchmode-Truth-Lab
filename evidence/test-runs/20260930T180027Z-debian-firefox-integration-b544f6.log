@@ -1,0 +1,8 @@
+test_browser_hmr_updates_dom_without_reload (test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload) ... ok
+test_disabled_watcher_keeps_browser_dom_stale (test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale) ... ok
+test_unknown_engine_is_rejected_before_launch (test_browser.BrowserTests.test_unknown_engine_is_rejected_before_launch) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 14.875s
+
+OK

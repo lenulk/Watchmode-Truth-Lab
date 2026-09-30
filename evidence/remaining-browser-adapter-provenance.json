@@ -1,0 +1,9 @@
+{
+  "base_revision": "c73827a",
+  "files": {
+    "examples/vite/browser_probe.mjs": "e149e114394a753aba74c6cb12e4c4e47a384a2c3f23d60de672e716103cbd31",
+    "scripts/browser_cycle.py": "ec0be4b2c114bfea401f383c32274d8f8bf5fc6f78c1cf172f08cab6da126b75",
+    "scripts/linux_process_checks.py": "a78975d2a5f7ff33e15f8a5fcb34064e466ab55eb956c89f627dfd0b965abbac",
+    "tests/test_browser.py": "1647f3f82cfd5f69bbf3bb31c601974f4f0060aafdcb74654d778a24483e3a22"
+  }
+}
