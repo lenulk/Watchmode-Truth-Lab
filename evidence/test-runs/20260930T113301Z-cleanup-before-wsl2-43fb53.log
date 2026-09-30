@@ -1,0 +1,15 @@
+test_child_does_not_survive_exited_launcher (test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher) ... FAIL
+
+======================================================================
+FAIL: test_child_does_not_survive_exited_launcher (test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>/tests/test_cleanup.py", line 60, in test_child_does_not_survive_exited_launcher
+    self.assertFalse(alive(pid), "A child survived the scenario cleanup")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : A child survived the scenario cleanup
+
+----------------------------------------------------------------------
+Ran 1 test in 2.659s
+
+FAILED (failures=1)

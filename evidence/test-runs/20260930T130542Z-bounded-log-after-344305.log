@@ -1,0 +1,8 @@
+test_long_line_is_drained_in_bounded_reads_and_next_line_survives (test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives) ... ok
+test_external_mutation_success_and_failure_are_distinguished (test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished) ... ok
+test_noisy_mutator_and_timeout_are_bounded (test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.635s
+
+OK

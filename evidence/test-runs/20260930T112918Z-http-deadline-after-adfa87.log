@@ -1,0 +1,10 @@
+test_oversized_body_is_rejected (test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected) ... ok
+test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline) ... ok
+test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive) ... ok
+test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout) ... ok
+test_transient_match_does_not_hide_final_stale_output (test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.448s
+
+OK

@@ -1,0 +1,81 @@
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... 
+  test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='missing_command') ... FAIL
+  test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='mutation_list') ... FAIL
+  test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='oracle_type_list') ... FAIL
+  test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='impossible_stability') ... FAIL
+
+======================================================================
+FAIL: test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='missing_command')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_cli.py", line 27, in test_invalid_scenarios_use_configuration_exit_code
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 1 != 2 : Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\cli.py", line 17, in main
+    result = run(args.config, rounds=args.rounds, mutation=args.mutation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\runner.py", line 212, in run
+    command = config["command"]
+              ~~~~~~^^^^^^^^^^^
+KeyError: 'command'
+
+
+======================================================================
+FAIL: test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='mutation_list')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_cli.py", line 27, in test_invalid_scenarios_use_configuration_exit_code
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 1 != 2 : Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\cli.py", line 17, in main
+    result = run(args.config, rounds=args.rounds, mutation=args.mutation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\runner.py", line 216, in run
+    if mode not in {"overwrite", "atomic_replace", "burst"}:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'list'
+
+
+======================================================================
+FAIL: test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='oracle_type_list')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_cli.py", line 27, in test_invalid_scenarios_use_configuration_exit_code
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 1 != 2 : Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\cli.py", line 17, in main
+    result = run(args.config, rounds=args.rounds, mutation=args.mutation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\OneDrive\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\opensode\watchmode-truth-lab\watchmode_truth_lab\runner.py", line 219, in run
+    if oracle.get("type") not in {"file", "http"}:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'list'
+
+
+======================================================================
+FAIL: test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) (case='impossible_stability')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_cli.py", line 27, in test_invalid_scenarios_use_configuration_exit_code
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 1 != 2 : 
+
+----------------------------------------------------------------------
+Ran 1 test in 1.198s
+
+FAILED (failures=4)

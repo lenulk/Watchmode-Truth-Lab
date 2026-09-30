@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T112401Z-oracle-regression-after-b7e727",
+  "started_at_utc": "2026-09-30T11:24:01.838273+00:00",
+  "purpose": "Verify corrected liveness and deadline decisions after the repair",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.172,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    }
+  ]
+}

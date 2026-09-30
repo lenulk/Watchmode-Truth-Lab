@@ -1,0 +1,124 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "WSL2 UNC share to Linux filesystem",
+  "scenario": "vite.windows-origin.polling.json",
+  "mutation": "overwrite",
+  "analysis": "Observed freshness is specific to this UNC/Linux-filesystem path. It does not establish behavior for /mnt/c mounts or browser HMR.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T11:56:26.975010+00:00",
+    "status": "pass",
+    "config": "vite.windows-origin.polling.json",
+    "config_sha256": "57e15010c6ccf18672dfd21d1f7d62f4012599642c5042d770ad5fda38adfe99",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:57499/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 209.9,
+      "samples": 7,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "244c8cb66ef40076886d87267c59fb2c26f7ee0dae7b80ec42036ab81c16955f",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 387.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 3.9,
+        "samples": 5,
+        "observed_hash": "244c8cb66ef40076886d87267c59fb2c26f7ee0dae7b80ec42036ab81c16955f",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "overwrite",
+        "expected_hash": "a69e7ad929c123404d5a46c4f919254f456d825d2ef74b6dcd5bfd862938d272",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 384.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 2.9,
+        "samples": 5,
+        "observed_hash": "a69e7ad929c123404d5a46c4f919254f456d825d2ef74b6dcd5bfd862938d272",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "overwrite",
+        "expected_hash": "5e1f1a2ee6aa9f88e34da4e1e980be33ba5fe1c0864ca84c02ac61ce0c1dfdef",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 391.2,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 2.8,
+        "samples": 5,
+        "observed_hash": "5e1f1a2ee6aa9f88e34da4e1e980be33ba5fe1c0864ca84c02ac61ce0c1dfdef",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 2.9,
+      "p95_ms": 3.9
+    },
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 158 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:57499/",
+      "6:56:27 PM [vite] (client) page reload src/token.js",
+      "6:56:28 PM [vite] (client) page reload src/token.js",
+      "6:56:29 PM [vite] (client) page reload src/token.js"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.polling.json",
+      "rounds": 3,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.polling.json --rounds 3 --mutation overwrite"
+    }
+  }
+}

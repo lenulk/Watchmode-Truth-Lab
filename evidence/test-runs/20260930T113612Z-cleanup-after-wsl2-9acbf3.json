@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T113612Z-cleanup-after-wsl2-9acbf3",
+  "started_at_utc": "2026-09-30T11:36:12.024657+00:00",
+  "purpose": "Verify process-group cleanup after launcher exit",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "python": "3.13.12"
+  },
+  "duration_seconds": 0.432,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher",
+      "status": "pass",
+      "duration_seconds": 0.1382,
+      "detail": null
+    }
+  ]
+}

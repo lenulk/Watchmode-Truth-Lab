@@ -1,0 +1,9 @@
+[
+  {
+    "file": "native-overwrite.json",
+    "status": "inconclusive",
+    "assessment": "fail",
+    "session_continuity": true,
+    "hmr_updates": 6
+  }
+]

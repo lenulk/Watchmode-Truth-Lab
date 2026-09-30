@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T113301Z-cleanup-before-wsl2-43fb53",
+  "started_at_utc": "2026-09-30T11:33:01.509249+00:00",
+  "purpose": "Check child cleanup after an exited launcher in WSL2",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "python": "3.13.12"
+  },
+  "duration_seconds": 2.963,
+  "status": "fail",
+  "tests_run": 1,
+  "failures": 1,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher",
+      "status": "fail",
+      "duration_seconds": 2.6566,
+      "detail": "Traceback (most recent call last):\n  File \"<project>/tests/test_cleanup.py\", line 60, in test_child_does_not_survive_exited_launcher\n    self.assertFalse(alive(pid), \"A child survived the scenario cleanup\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not false : A child survived the scenario cleanup\n"
+    }
+  ]
+}

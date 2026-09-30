@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T125640Z-browser-hmr-windows-ce32b3",
+  "started_at_utc": "2026-09-30T12:56:40.511277+00:00",
+  "purpose": "Verify actual Chrome DOM HMR continuity and disabled watcher stale control",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 8.656,
+  "status": "pass",
+  "tests_run": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "pass",
+      "duration_seconds": 3.047,
+      "detail": null
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "pass",
+      "duration_seconds": 5.375,
+      "detail": null
+    }
+  ]
+}

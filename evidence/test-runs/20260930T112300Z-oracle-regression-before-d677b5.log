@@ -1,0 +1,30 @@
+test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive) ... FAIL
+test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout) ... FAIL
+test_transient_match_does_not_hide_final_stale_output (test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output) ... ok
+
+======================================================================
+FAIL: test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_oracle.py", line 16, in test_matching_output_from_exited_process_is_inconclusive
+    self.assertEqual(result["status"], "inconclusive")
+AssertionError: 'pass' != 'inconclusive'
+- pass
++ inconclusive
+
+
+======================================================================
+FAIL: test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_oracle.py", line 24, in test_matching_output_observed_after_deadline_is_timeout
+    self.assertEqual(result["status"], "timeout")
+AssertionError: 'pass' != 'timeout'
+- pass
++ timeout
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+FAILED (failures=2)

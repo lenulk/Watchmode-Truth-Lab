@@ -1,0 +1,26 @@
+test_browser_hmr_updates_dom_without_reload (test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload) ... ok
+test_disabled_watcher_keeps_browser_dom_stale (test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale) ... ok
+test_child_does_not_survive_exited_launcher (test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_oversized_body_is_rejected (test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected) ... ok
+test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline) ... ok
+test_long_line_is_drained_in_bounded_reads_and_next_line_survives (test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives) ... ok
+test_external_mutation_success_and_failure_are_distinguished (test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished) ... ok
+test_noisy_mutator_and_timeout_are_bounded (test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded) ... ok
+test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive) ... ok
+test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout) ... ok
+test_transient_match_does_not_hide_final_stale_output (test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output) ... ok
+test_existing_matrix_directory_is_rejected_before_scenarios (test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios) ... ok
+test_example_passes_all_mutation_modes (test_runner.RunnerTests.test_example_passes_all_mutation_modes) ... ok
+test_http_oracle_checks_response_bytes (test_runner.RunnerTests.test_http_oracle_checks_response_bytes) ... ok
+test_rejects_mutation_outside_temporary_workspace (test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace) ... ok
+test_rejects_nonfinite_timeout (test_runner.RunnerTests.test_rejects_nonfinite_timeout) ... ok
+test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported) ... ok
+test_templated_source_and_extracted_file_output (test_runner.RunnerTests.test_templated_source_and_extracted_file_output) ... ok
+test_vite_disabled_watcher_reports_stale (test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale) ... ok
+test_vite_native_module_response (test_runner.RunnerTests.test_vite_native_module_response) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 25.759s
+
+OK

@@ -1,0 +1,124 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "WSL2 UNC share to Linux filesystem",
+  "scenario": "vite.windows-origin.native.json",
+  "mutation": "atomic_replace",
+  "analysis": "Observed freshness is specific to this UNC/Linux-filesystem path. It does not establish behavior for /mnt/c mounts or browser HMR.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T11:56:21.070043+00:00",
+    "status": "pass",
+    "config": "vite.windows-origin.native.json",
+    "config_sha256": "ed2b5cb121fc7b4f909250e07f608adfd82ea1bec6e830f747749e2bcbbb06a3",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:54733/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 221.7,
+      "samples": 7,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "00b5066b9a840f38c488f74d171d00e48406ea27e183f8f114d5e5df26bc4264",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 776.0,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 3.9,
+        "samples": 5,
+        "observed_hash": "00b5066b9a840f38c488f74d171d00e48406ea27e183f8f114d5e5df26bc4264",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "acd78886c8ea3f5cb268801c9f67490051004175971cf66f907ce9c1f3193544",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 603.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 2.9,
+        "samples": 5,
+        "observed_hash": "acd78886c8ea3f5cb268801c9f67490051004175971cf66f907ce9c1f3193544",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "atomic_replace",
+        "expected_hash": "e0313813acd956e83cdd31ccf8bc6ec7c990aacb8158644cc6f77ebef6ffc415",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 601.0,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 2.8,
+        "samples": 5,
+        "observed_hash": "e0313813acd956e83cdd31ccf8bc6ec7c990aacb8158644cc6f77ebef6ffc415",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 2.9,
+      "p95_ms": 3.9
+    },
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 159 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:54733/",
+      "6:56:22 PM [vite] (client) page reload src/token.js",
+      "6:56:23 PM [vite] (client) page reload src/token.js",
+      "6:56:23 PM [vite] (client) page reload src/token.js"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.native.json",
+      "rounds": 3,
+      "mutation": "atomic_replace",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.native.json --rounds 3 --mutation atomic_replace"
+    }
+  }
+}

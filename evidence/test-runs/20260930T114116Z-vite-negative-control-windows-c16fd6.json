@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T114116Z-vite-negative-control-windows-c16fd6",
+  "started_at_utc": "2026-09-30T11:41:16.910649+00:00",
+  "purpose": "Verify disabled Vite watcher produces a stale outcome while startup succeeds",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 4.75,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale",
+      "status": "pass",
+      "duration_seconds": 4.625,
+      "detail": null
+    }
+  ]
+}

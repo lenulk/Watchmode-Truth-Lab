@@ -1,0 +1,13 @@
+{
+  "fixture_dir": "examples/vite/browser-fixture",
+  "command": ["{node}", "{config_dir}/examples/vite/browser_probe.mjs", "{config_dir}/node_modules/vite/bin/vite.js", "{workspace}", "{port}", "{workspace}/.wtl-browser-state.json"],
+  "version_command": ["{node}", "{config_dir}/node_modules/vite/bin/vite.js", "--version"],
+  "mutation_target": "src/token.js",
+  "mutation_template": "export const token = \"{token}\";\n",
+  "initial_expected": "seed",
+  "oracle": {"type": "file", "path": ".wtl-browser-state.json", "extract_regex": "\"token\":\"([^\"]+)\""},
+  "startup_timeout_seconds": 15,
+  "timeout_seconds": 3,
+  "probe_interval_seconds": 0.03,
+  "stable_seconds": 0.15
+}

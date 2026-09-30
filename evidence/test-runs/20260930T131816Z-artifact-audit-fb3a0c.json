@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T131816Z-artifact-audit-fb3a0c",
+  "started_at_utc": "2026-09-30T13:18:16.458524+00:00",
+  "purpose": "Verify evidence JSON, summary consistency, document links, and user-home path redaction",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.438,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "artifact_checks.ArtifactChecks.test_document_local_links_resolve",
+      "status": "pass",
+      "duration_seconds": 0.031,
+      "detail": null
+    },
+    {
+      "test": "artifact_checks.ArtifactChecks.test_evidence_has_no_literal_user_home_paths",
+      "status": "pass",
+      "duration_seconds": 0.141,
+      "detail": null
+    },
+    {
+      "test": "artifact_checks.ArtifactChecks.test_evidence_json_and_matrix_summaries_are_consistent",
+      "status": "pass",
+      "duration_seconds": 0.062,
+      "detail": null
+    }
+  ]
+}

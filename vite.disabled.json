@@ -1,0 +1,17 @@
+{
+  "fixture_dir": "examples/vite/fixture",
+  "command": ["{node}", "{config_dir}/node_modules/vite/bin/vite.js", "{workspace}", "--host", "127.0.0.1", "--port", "{port}", "--strictPort"],
+  "version_command": ["{node}", "{config_dir}/node_modules/vite/bin/vite.js", "--version"],
+  "env": {"WTL_DISABLE_WATCH": "1"},
+  "mutation_target": "src/token.js",
+  "mutation_template": "export const token = \"{token}\";\n",
+  "initial_expected": "seed",
+  "oracle": {
+    "type": "http",
+    "url": "http://127.0.0.1:{port}/src/token.js",
+    "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+  },
+  "timeout_seconds": 3,
+  "probe_interval_seconds": 0.05,
+  "stable_seconds": 0.2
+}

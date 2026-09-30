@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T130542Z-bounded-log-after-344305",
+  "started_at_utc": "2026-09-30T13:05:42.511903+00:00",
+  "purpose": "Verify bounded capture, noisy external process, timeout, and mutation exit outcomes",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 2.766,
+  "status": "pass",
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished",
+      "status": "pass",
+      "duration_seconds": 1.313,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded",
+      "status": "pass",
+      "duration_seconds": 1.312,
+      "detail": null
+    }
+  ]
+}

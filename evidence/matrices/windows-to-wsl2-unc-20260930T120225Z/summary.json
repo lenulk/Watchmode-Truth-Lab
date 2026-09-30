@@ -1,0 +1,32 @@
+[
+  {
+    "file": "native-overwrite.json",
+    "status": "pass",
+    "rounds": 20
+  },
+  {
+    "file": "native-atomic_replace.json",
+    "status": "pass",
+    "rounds": 20
+  },
+  {
+    "file": "native-burst.json",
+    "status": "pass",
+    "rounds": 20
+  },
+  {
+    "file": "polling-overwrite.json",
+    "status": "pass",
+    "rounds": 20
+  },
+  {
+    "file": "polling-atomic_replace.json",
+    "status": "pass",
+    "rounds": 20
+  },
+  {
+    "file": "polling-burst.json",
+    "status": "pass",
+    "rounds": 20
+  }
+]

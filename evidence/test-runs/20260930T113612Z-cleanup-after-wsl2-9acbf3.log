@@ -1,0 +1,6 @@
+test_child_does_not_survive_exited_launcher (test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.138s
+
+OK

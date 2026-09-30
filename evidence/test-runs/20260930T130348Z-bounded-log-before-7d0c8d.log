@@ -1,0 +1,19 @@
+test_long_line_is_drained_in_bounded_reads_and_next_line_survives (test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives) ... FAIL
+
+======================================================================
+FAIL: test_long_line_is_drained_in_bounded_reads_and_next_line_survives (test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_logs.py", line 19, in test_long_line_is_drained_in_bounded_reads_and_next_line_survives
+    _capture(source, lines)
+  File "<project>\watchmode_truth_lab\runner.py", line 165, in _capture
+    for line in iter(stream.readline, ""):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\tests\test_logs.py", line 11, in readline
+    raise AssertionError("Log reads must be bounded before allocating a line")
+AssertionError: Log reads must be bounded before allocating a line
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (failures=1)

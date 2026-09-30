@@ -1,0 +1,451 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "Windows NTFS mounted in WSL2",
+  "scenario": "vite.windows-origin.native.json",
+  "mutation": "overwrite",
+  "analysis": "Observed freshness is specific to the recorded origin and filesystem path. A native stale result must be compared with documented WSL2 limitations; browser HMR is not covered.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T12:52:28.340390+00:00",
+    "status": "stale",
+    "config": "vite.windows-origin.native.json",
+    "config_sha256": "c436ff7b5d84c4569760ef180a269e89e0866f8570222488cc9882c60c1f0dbf",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "v9fs"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:34721/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 508.2,
+      "samples": 11,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "0744c01535dc504053c97e24a3ff06b15dbb898411c827bc22ea2b6c5c1cdaa6",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 940.1,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 2,
+        "mutation": "overwrite",
+        "expected_hash": "121d890906048270ed4c70ddbcd8e3a4cad533e37343f94186efda11fdfbbe55",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 474.3,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 3,
+        "mutation": "overwrite",
+        "expected_hash": "f732f31c80934e68c0880c5af1358e7175451e4fa4e93624a3e011f1c464fcd5",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 490.6,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 4,
+        "mutation": "overwrite",
+        "expected_hash": "c73609e7daad1462211a8e7e1c37875f587ff83f017a0021fb0f224bf63c056b",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 400.4,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.1,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 5,
+        "mutation": "overwrite",
+        "expected_hash": "9e780f9c7a5ea23e060f4457454f0ffcd5ad4669352862de1851859d05a6d858",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 411.4,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 6,
+        "mutation": "overwrite",
+        "expected_hash": "5ef78b19c3401516793b8bdb9e2db1227e5c21a025ca958c949b8df5dadcc66a",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 407.2,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 7,
+        "mutation": "overwrite",
+        "expected_hash": "c2c5176bca4d203272ad87eeeb79480a2112fa219abd5d123a270e5dd19564d7",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 724.6,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 8,
+        "mutation": "overwrite",
+        "expected_hash": "5deb444cbe397a8b53109b177dd0466f2649ccfe5574c0be9cd302e5e686f54d",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 533.7,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 9,
+        "mutation": "overwrite",
+        "expected_hash": "2aff8889a9775b27d945c37d542ebad505002a56a2ed8cc23f1950c6a5364755",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 413.0,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 10,
+        "mutation": "overwrite",
+        "expected_hash": "7a38623ec49e0701d607d7e7e6ee7d9eba14f584847fe355b8f149b5d36da0f5",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 452.6,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 11,
+        "mutation": "overwrite",
+        "expected_hash": "3d6a36fceb31d621593e5520f80632828cee5298674ac25223fa8300ea076d51",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 444.5,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 12,
+        "mutation": "overwrite",
+        "expected_hash": "c8381f90b18426d9398542fc9dc9aa3077a2459091fe5d6cad0526b5a3d20407",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 449.9,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 13,
+        "mutation": "overwrite",
+        "expected_hash": "d5a578967185af4108e25c639423e7acfe6e9601b6cace88f258cbd66a85f5a0",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 508.1,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 14,
+        "mutation": "overwrite",
+        "expected_hash": "54d9c9dde686093ee31a2c898f9124deba6c3fcce3ea271bc89ab5732d34b6ce",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 414.2,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 15,
+        "mutation": "overwrite",
+        "expected_hash": "22cc54f31bfefbc3e8631e45a5d795120f43b2924ebc7123c5be2ff9d4c76b4b",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 393.8,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.1,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 16,
+        "mutation": "overwrite",
+        "expected_hash": "c7da1efb2cc17ee61311b81776803d7ca935bc650bc7692b14b6c72eb669dee1",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 396.8,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.1,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 17,
+        "mutation": "overwrite",
+        "expected_hash": "22d06d1fd32824ecaa098e60a4e26e30b1242df455db0f0f04b0fa6b6e749e42",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 387.2,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 18,
+        "mutation": "overwrite",
+        "expected_hash": "1fb534712e81809be47d5359189e5c3f54001d25b42b08cd204c1b117561b1d2",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 534.2,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 19,
+        "mutation": "overwrite",
+        "expected_hash": "33fcd78e521b566cdc76154d9583cdbc7f857840de84a16d82c4e42b0bc609f0",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 465.5,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 20,
+        "mutation": "overwrite",
+        "expected_hash": "ec14b1b64edad83884f607b1997b09f0b8d59ce322e566fd58dfa20de7f68752",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 457.8,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 2000.2,
+        "samples": 40,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "7:52:29 PM [vite] (client) Re-optimizing dependencies because vite config has changed",
+      "",
+      "  VITE v8.3.1  ready in 395 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:34721/"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.native.json",
+      "rounds": 20,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.native.json --rounds 20 --mutation overwrite"
+    }
+  }
+}

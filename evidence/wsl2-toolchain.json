@@ -1,0 +1,9 @@
+{
+  "node_version": "24.18.0",
+  "pnpm_version": "11.19.0",
+  "node_archive_url": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz",
+  "node_archive_sha256": "55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742",
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "python": "3.13.12",
+  "installation": "temporary project lab; no system package changes"
+}

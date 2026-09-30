@@ -1,0 +1,6 @@
+test_existing_matrix_directory_is_rejected_before_scenarios (test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+OK

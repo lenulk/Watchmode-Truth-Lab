@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T112300Z-oracle-regression-before-d677b5",
+  "started_at_utc": "2026-09-30T11:23:00.158512+00:00",
+  "purpose": "Confirm false-pass risks with controlled deadline and exited-process simulations",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.188,
+  "status": "fail",
+  "tests_run": 3,
+  "failures": 2,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive",
+      "status": "fail",
+      "duration_seconds": 0.0,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_oracle.py\", line 16, in test_matching_output_from_exited_process_is_inconclusive\n    self.assertEqual(result[\"status\"], \"inconclusive\")\nAssertionError: 'pass' != 'inconclusive'\n- pass\n+ inconclusive\n\n"
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout",
+      "status": "fail",
+      "duration_seconds": 0.0,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_oracle.py\", line 24, in test_matching_output_observed_after_deadline_is_timeout\n    self.assertEqual(result[\"status\"], \"timeout\")\nAssertionError: 'pass' != 'timeout'\n- pass\n+ timeout\n\n"
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    }
+  ]
+}

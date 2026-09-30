@@ -1,0 +1,6 @@
+test_external_mutation_success_and_failure_are_distinguished (test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.253s
+
+OK

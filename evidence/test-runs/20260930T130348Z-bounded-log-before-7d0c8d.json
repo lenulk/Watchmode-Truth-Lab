@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T130348Z-bounded-log-before-7d0c8d",
+  "started_at_utc": "2026-09-30T13:03:48.635492+00:00",
+  "purpose": "Exercise a two MiB log line and require bounded reads with following diagnostics preserved",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.203,
+  "status": "fail",
+  "tests_run": 1,
+  "failures": 1,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives",
+      "status": "fail",
+      "duration_seconds": 0.0,
+      "detail": "Traceback (most recent call last):\n  File \"<project>\\tests\\test_logs.py\", line 19, in test_long_line_is_drained_in_bounded_reads_and_next_line_survives\n    _capture(source, lines)\n  File \"<project>\\watchmode_truth_lab\\runner.py\", line 165, in _capture\n    for line in iter(stream.readline, \"\"):\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<project>\\tests\\test_logs.py\", line 11, in readline\n    raise AssertionError(\"Log reads must be bounded before allocating a line\")\nAssertionError: Log reads must be bounded before allocating a line\n"
+    }
+  ]
+}

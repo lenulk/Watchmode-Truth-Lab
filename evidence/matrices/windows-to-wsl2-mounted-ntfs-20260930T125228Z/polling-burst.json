@@ -1,0 +1,414 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "Windows NTFS mounted in WSL2",
+  "scenario": "vite.windows-origin.polling.json",
+  "mutation": "burst",
+  "analysis": "Observed freshness is specific to the recorded origin and filesystem path. A native stale result must be compared with documented WSL2 limitations; browser HMR is not covered.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T12:55:41.161192+00:00",
+    "status": "pass",
+    "config": "vite.windows-origin.polling.json",
+    "config_sha256": "39cb449cc7c10884e9e5d8a7b5543126ec7f54f4eb0b109d0a4d9fa23ac63a19",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "v9fs"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:38305/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 477.1,
+      "samples": 11,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "burst",
+        "expected_hash": "06fb748edf4e44368e74083c8ebc20077254600464d713ae0b18a193cc9dca49",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 609.3,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 8.9,
+        "samples": 5,
+        "observed_hash": "06fb748edf4e44368e74083c8ebc20077254600464d713ae0b18a193cc9dca49",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "burst",
+        "expected_hash": "79c8c8ffbb1329a7c9f84c5820b3c4bddf8cf4e7effee94ed44cf7532d8c2a31",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 534.3,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 57.9,
+        "samples": 6,
+        "observed_hash": "79c8c8ffbb1329a7c9f84c5820b3c4bddf8cf4e7effee94ed44cf7532d8c2a31",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "burst",
+        "expected_hash": "ae3fdc5a9e1808c1c31cac4822a3adb680ed2215bb07440bef6dcbc43117f017",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 561.7,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 5.9,
+        "samples": 5,
+        "observed_hash": "ae3fdc5a9e1808c1c31cac4822a3adb680ed2215bb07440bef6dcbc43117f017",
+        "observed_bytes": 41
+      },
+      {
+        "round": 4,
+        "mutation": "burst",
+        "expected_hash": "67cc09886dfe96562654aa5c91259f2656e58aecc017ae22ff31eb3bf078b02c",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 599.8,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 11.1,
+        "samples": 5,
+        "observed_hash": "67cc09886dfe96562654aa5c91259f2656e58aecc017ae22ff31eb3bf078b02c",
+        "observed_bytes": 41
+      },
+      {
+        "round": 5,
+        "mutation": "burst",
+        "expected_hash": "1569f57ac6baa1a976ba12d5ec08351f0336801bf1114ee8dc248bfb1d43e9fe",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 884.2,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 6.3,
+        "samples": 5,
+        "observed_hash": "1569f57ac6baa1a976ba12d5ec08351f0336801bf1114ee8dc248bfb1d43e9fe",
+        "observed_bytes": 41
+      },
+      {
+        "round": 6,
+        "mutation": "burst",
+        "expected_hash": "288b8573d159007600bad7561d68fa5d1445652ae7d1024cdefade33dfad7039",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 568.9,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 16.7,
+        "samples": 5,
+        "observed_hash": "288b8573d159007600bad7561d68fa5d1445652ae7d1024cdefade33dfad7039",
+        "observed_bytes": 41
+      },
+      {
+        "round": 7,
+        "mutation": "burst",
+        "expected_hash": "58bdf0cad72f61f2d56819c1721a0c417fdb9d4deb62530d294f5f54303e11e9",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 545.3,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 57.7,
+        "samples": 6,
+        "observed_hash": "58bdf0cad72f61f2d56819c1721a0c417fdb9d4deb62530d294f5f54303e11e9",
+        "observed_bytes": 41
+      },
+      {
+        "round": 8,
+        "mutation": "burst",
+        "expected_hash": "1c59c68cb990e093035d6ec67aae63bb2b25c61b31ddeddfa2e451c3bbccabfa",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 562.0,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 6.7,
+        "samples": 5,
+        "observed_hash": "1c59c68cb990e093035d6ec67aae63bb2b25c61b31ddeddfa2e451c3bbccabfa",
+        "observed_bytes": 41
+      },
+      {
+        "round": 9,
+        "mutation": "burst",
+        "expected_hash": "f1279e2d18f2fc61ceaea5494e974451f990a8fb5d40736438a75f184720c11d",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 568.3,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 61.4,
+        "samples": 6,
+        "observed_hash": "f1279e2d18f2fc61ceaea5494e974451f990a8fb5d40736438a75f184720c11d",
+        "observed_bytes": 41
+      },
+      {
+        "round": 10,
+        "mutation": "burst",
+        "expected_hash": "76e267bf1a62c87a4f0bd84dea1aab8a4ec3d68aafeb4691ff35bc6ff043b706",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 606.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 59.2,
+        "samples": 6,
+        "observed_hash": "76e267bf1a62c87a4f0bd84dea1aab8a4ec3d68aafeb4691ff35bc6ff043b706",
+        "observed_bytes": 41
+      },
+      {
+        "round": 11,
+        "mutation": "burst",
+        "expected_hash": "e0fe90be456dedf738bc9f9884670fa3834aefcca18f7237a15171361355e426",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 584.9,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 5.9,
+        "samples": 5,
+        "observed_hash": "e0fe90be456dedf738bc9f9884670fa3834aefcca18f7237a15171361355e426",
+        "observed_bytes": 41
+      },
+      {
+        "round": 12,
+        "mutation": "burst",
+        "expected_hash": "03f4e500f8ce695eab721337aefcfac523b7c6763e0e08252a5bd30436860fb1",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 598.7,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 14.4,
+        "samples": 5,
+        "observed_hash": "03f4e500f8ce695eab721337aefcfac523b7c6763e0e08252a5bd30436860fb1",
+        "observed_bytes": 41
+      },
+      {
+        "round": 13,
+        "mutation": "burst",
+        "expected_hash": "44a7b41e185a41e6d9f248f1d13dbd1b7aa006fcfc7b07fe181a85462a243bc8",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 627.4,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 58.6,
+        "samples": 6,
+        "observed_hash": "44a7b41e185a41e6d9f248f1d13dbd1b7aa006fcfc7b07fe181a85462a243bc8",
+        "observed_bytes": 41
+      },
+      {
+        "round": 14,
+        "mutation": "burst",
+        "expected_hash": "9cdd38079deeec28ebf43315cc6c6c354b19ee8b2474289a0b50c6718556c50d",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 664.2,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 6.8,
+        "samples": 5,
+        "observed_hash": "9cdd38079deeec28ebf43315cc6c6c354b19ee8b2474289a0b50c6718556c50d",
+        "observed_bytes": 41
+      },
+      {
+        "round": 15,
+        "mutation": "burst",
+        "expected_hash": "88ef0d28fd8f96855693e44e455e92cfc77bd9b7f576ecacc354714ea64a49f1",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 513.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 5.5,
+        "samples": 5,
+        "observed_hash": "88ef0d28fd8f96855693e44e455e92cfc77bd9b7f576ecacc354714ea64a49f1",
+        "observed_bytes": 41
+      },
+      {
+        "round": 16,
+        "mutation": "burst",
+        "expected_hash": "9a9f7c77f2936601d8c40df72e5822528c53a5c510dc5fa4ad2b43ebe263a8ae",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 568.8,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 6.4,
+        "samples": 5,
+        "observed_hash": "9a9f7c77f2936601d8c40df72e5822528c53a5c510dc5fa4ad2b43ebe263a8ae",
+        "observed_bytes": 41
+      },
+      {
+        "round": 17,
+        "mutation": "burst",
+        "expected_hash": "35bfde80d2eb572875467f4118623d66f67f4388244d9494fdbfa53c1f84579a",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 556.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 57.5,
+        "samples": 6,
+        "observed_hash": "35bfde80d2eb572875467f4118623d66f67f4388244d9494fdbfa53c1f84579a",
+        "observed_bytes": 41
+      },
+      {
+        "round": 18,
+        "mutation": "burst",
+        "expected_hash": "a9d7d3c835deb8c533d7127666417df1d9c6f9807f281791b2aa2252f21921da",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 484.6,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 108.5,
+        "samples": 7,
+        "observed_hash": "a9d7d3c835deb8c533d7127666417df1d9c6f9807f281791b2aa2252f21921da",
+        "observed_bytes": 41
+      },
+      {
+        "round": 19,
+        "mutation": "burst",
+        "expected_hash": "113ca37643bf4cad832e6271d52d7dc1ec877fd0900b0fb35f75e78c083ceff1",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 498.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 109.2,
+        "samples": 7,
+        "observed_hash": "113ca37643bf4cad832e6271d52d7dc1ec877fd0900b0fb35f75e78c083ceff1",
+        "observed_bytes": 41
+      },
+      {
+        "round": 20,
+        "mutation": "burst",
+        "expected_hash": "1988fec2701a2b3d538832c0ea183746fc5fd91463af18915d6c7a6f4b4682ab",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 470.4,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 5.4,
+        "samples": 5,
+        "observed_hash": "1988fec2701a2b3d538832c0ea183746fc5fd91463af18915d6c7a6f4b4682ab",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 12.75,
+      "p95_ms": 108.5
+    },
+    "logs": [
+      "7:55:41 PM [vite] (client) Re-optimizing dependencies because vite config has changed",
+      "",
+      "  VITE v8.3.1  ready in 373 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:38305/",
+      "7:55:42 PM [vite] (client) page reload src/token.js",
+      "7:55:43 PM [vite] (client) page reload src/token.js",
+      "7:55:44 PM [vite] (client) page reload src/token.js",
+      "7:55:45 PM [vite] (client) page reload src/token.js",
+      "7:55:46 PM [vite] (client) page reload src/token.js",
+      "7:55:46 PM [vite] (client) page reload src/token.js",
+      "7:55:47 PM [vite] (client) page reload src/token.js",
+      "7:55:48 PM [vite] (client) page reload src/token.js",
+      "7:55:49 PM [vite] (client) page reload src/token.js",
+      "7:55:50 PM [vite] (client) page reload src/token.js",
+      "7:55:51 PM [vite] (client) page reload src/token.js",
+      "7:55:51 PM [vite] (client) page reload src/token.js",
+      "7:55:52 PM [vite] (client) page reload src/token.js",
+      "7:55:53 PM [vite] (client) page reload src/token.js",
+      "7:55:54 PM [vite] (client) page reload src/token.js",
+      "7:55:55 PM [vite] (client) page reload src/token.js",
+      "7:55:56 PM [vite] (client) page reload src/token.js",
+      "7:55:56 PM [vite] (client) page reload src/token.js",
+      "7:55:57 PM [vite] (client) page reload src/token.js",
+      "7:55:58 PM [vite] (client) page reload src/token.js"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.polling.json",
+      "rounds": 20,
+      "mutation": "burst",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.polling.json --rounds 20 --mutation burst"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+test_oversized_body_is_rejected (test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected) ... ok
+test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline) ... ok
+test_matching_output_from_exited_process_is_inconclusive (test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive) ... ok
+test_matching_output_observed_after_deadline_is_timeout (test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout) ... ok
+test_transient_match_does_not_hide_final_stale_output (test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output) ... ok
+test_example_passes_all_mutation_modes (test_runner.RunnerTests.test_example_passes_all_mutation_modes) ... ok
+test_http_oracle_checks_response_bytes (test_runner.RunnerTests.test_http_oracle_checks_response_bytes) ... ok
+test_rejects_mutation_outside_temporary_workspace (test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace) ... ok
+test_rejects_nonfinite_timeout (test_runner.RunnerTests.test_rejects_nonfinite_timeout) ... ok
+test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported) ... ok
+test_templated_source_and_extracted_file_output (test_runner.RunnerTests.test_templated_source_and_extracted_file_output) ... ok
+test_vite_native_module_response (test_runner.RunnerTests.test_vite_native_module_response) ... skipped 'Pinned Vite dependency is not installed'
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.311s
+
+OK (skipped=1)

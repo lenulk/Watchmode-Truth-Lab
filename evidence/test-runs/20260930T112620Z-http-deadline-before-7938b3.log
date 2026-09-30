@@ -1,0 +1,14 @@
+test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline) ... FAIL
+
+======================================================================
+FAIL: test_slow_trickle_body_cannot_extend_observation_deadline (test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_http_probe.py", line 40, in test_slow_trickle_body_cannot_extend_observation_deadline
+    self.assertLess(elapsed, 0.8, "A slow HTTP body must not keep the runner blocked")
+AssertionError: 1.4839999999985594 not less than 0.8 : A slow HTTP body must not keep the runner blocked
+
+----------------------------------------------------------------------
+Ran 1 test in 1.602s
+
+FAILED (failures=1)

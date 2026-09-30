@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T130245Z-evidence-preservation-after-8ff31b",
+  "started_at_utc": "2026-09-30T13:02:45.102278+00:00",
+  "purpose": "Verify existing matrix evidence remains intact and no scenario executes",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.219,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    }
+  ]
+}

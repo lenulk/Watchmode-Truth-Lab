@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T113841Z-cli-config-after-9f9d50",
+  "started_at_utc": "2026-09-30T11:38:41.974299+00:00",
+  "purpose": "Verify malformed scenarios are rejected before command startup",
+  "git_revision": "35ee9f1cf76fa5aeb12eccdbdcceb1aa64c56605",
+  "working_tree_dirty": true,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 1.078,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 0.906,
+      "detail": null
+    }
+  ]
+}

@@ -1,1 +1,3 @@
 * text=auto eol=lf
+# Retain console output formatting in historical test evidence.
+evidence/test-runs/*.log -whitespace

@@ -1,0 +1,128 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "Windows NTFS mounted in WSL2",
+  "scenario": "vite.windows-origin.native.json",
+  "mutation": "atomic_replace",
+  "analysis": "Observed freshness is specific to the recorded origin and filesystem path. A native stale result must be compared with documented WSL2 limitations; browser HMR is not covered.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T11:59:41.068798+00:00",
+    "status": "stale",
+    "config": "vite.windows-origin.native.json",
+    "config_sha256": "bcc9e83e047c66af04c3e5bcf334984a9de3909544dc2fc30a490b2e15398cd4",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "v9fs"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:34381/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 461.6,
+      "samples": 11,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "5782f4fdd85841694f1ec759d6fff862992e4ceb1a6a7255c948fb0e35de3c1b",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 718.2,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.1,
+        "samples": 157,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "0582f8b259a400884b03ed27b8a84dd5c703b1827a03d815d5cb4e44d41d4b99",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 589.3,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.2,
+        "samples": 157,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      },
+      {
+        "round": 3,
+        "mutation": "atomic_replace",
+        "expected_hash": "2a7dce63e415a5d0cefb97b7c39acdb3d6be66146d17eaaf4cc24cebf7abc560",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 574.9,
+          "diagnostics": ""
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.2,
+        "samples": 157,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "6:59:41 PM [vite] (client) Re-optimizing dependencies because vite config has changed",
+      "",
+      "  VITE v8.3.1  ready in 369 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:34381/"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.native.json",
+      "rounds": 3,
+      "mutation": "atomic_replace",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.native.json --rounds 3 --mutation atomic_replace"
+    }
+  }
+}

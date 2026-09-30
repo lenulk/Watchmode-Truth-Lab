@@ -21,7 +21,9 @@ Vite already tests HMR in its playground and uses polling during those tests. Wa
 | Windows local filesystem | Vite scenario | Vite scenario | overwrite, atomic replace, burst | At least 20 each |
 | Linux local filesystem | Vite scenario | Vite scenario | overwrite, atomic replace, burst | At least 20 each |
 | WSL2 Linux filesystem, edit from WSL2 | Vite scenario | Vite scenario | same three | At least 20 each |
-| WSL2 Linux filesystem, edit from Windows | Requires host-side mutator | Vite polling control | same three | At least 20 each after adapter exists |
+| WSL2 Linux filesystem, Windows writes through UNC | Vite scenario plus Windows mutator | Vite polling control | same three | At least 20 each |
+| WSL2 mounted Windows NTFS, Windows writes | Vite scenario plus Windows mutator | Vite polling control | same three | At least 20 each |
+| Windows Chrome DOM and HMR session | Browser adapter with native watching | Browser adapter with polling | same three | At least 20 each |
 
 For every run, retain raw JSON and the exact Vite, Node, Python, OS, and filesystem details. Run each case from a clean fixture copy. A new port and process are allocated per run. Do not compare latency between environments as a benchmark without controlling machine load and storage.
 
@@ -31,8 +33,10 @@ Investigate any `stale` or `timeout` result using the saved hashes and logs. Rep
 
 ## Current evidence and limits
 
-The [Windows result](windows-results-2026-09-30.md) records 20 passing rounds for each of the six Vite watcher and mutation combinations. This completes the Windows row only. The Vite Linux and WSL2 rows are unverified. The present mutation runs in the same OS as the runner; it cannot represent a Windows editor changing a WSL2 file. HTTP polling of a transformed module does not test browser state, WebSocket HMR delivery, or generated file output. Timing and extract regex are scenario-defined and may need tuning per tool.
+The [current results](current-results.md) complete the Windows, WSL2 Linux-side, Windows-origin UNC, Windows-origin mounted-NTFS, and Windows Chrome rows with 20 rounds per watcher/mutation combination. Disabled-watcher controls detect deliberately stale output. The mounted-NTFS native stale result agrees with the documented Vite WSL2 limitation; it does not establish a new uncovered defect.
 
-The generic Python test suite also ran inside Kali Linux on WSL2 with Python 3.13.12: six tests passed and the Vite integration test was skipped because Node.js is not installed in that distro. This verifies the generic runner there, not the Vite/WSL2 matrix or a Windows-to-WSL2 edit.
+The generic file oracle also has generated-output integration tests. The browser adapter observes real DOM tokens and HMR callbacks with page-session continuity, covering one dependency-accept fixture. HTTP results remain endpoint checks. Python's controlled time/process simulations establish decision behavior, while real slow HTTP, subprocess cleanup, Vite, Windows PowerShell, and Chrome runs establish the tested integrations.
+
+Bare-metal Linux, other Linux distributions, Linux browser execution, and other browser engines remain unverified. WSL2 evidence cannot substitute for those environments. Timing and extract regex are scenario-defined and may need tuning per tool. Browser HMR coverage in Vite already exists, and maintainer confirmation or a supported-workflow coverage gap has not yet been established.
 
 Sources: [Vite contributing guide](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md), [Vite server watch options](https://vite.dev/config/server-options#server-watch), [Watchwoman project](https://github.com/radiosilence/watchwoman).

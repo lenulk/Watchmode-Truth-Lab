@@ -108,6 +108,14 @@ class RunnerTests(unittest.TestCase):
                                                         "environment": result["environment"],
                                                         "reproduction": result["reproduction"]}))
 
+    @unittest.skipUnless(shutil.which("node") and (ROOT / "node_modules" / "vite" / "bin" / "vite.js").exists(),
+                         "Pinned Vite dependency is not installed")
+    def test_vite_disabled_watcher_reports_stale(self):
+        result = run(ROOT / "vite.disabled.json", rounds=1)
+        self.assertEqual(result["startup"]["status"], "pass", result)
+        self.assertEqual(result["status"], "stale", result)
+        self.assertEqual(result["attempts"][0]["reason"], "output_mismatch")
+
     def test_rejects_mutation_outside_temporary_workspace(self):
         config = json.loads((ROOT / "example.json").read_text(encoding="utf-8"))
         config["mutation_target"] = "../outside.txt"

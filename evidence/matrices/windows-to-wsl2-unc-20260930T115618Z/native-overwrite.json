@@ -1,0 +1,124 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "WSL2 UNC share to Linux filesystem",
+  "scenario": "vite.windows-origin.native.json",
+  "mutation": "overwrite",
+  "analysis": "Observed freshness is specific to this UNC/Linux-filesystem path. It does not establish behavior for /mnt/c mounts or browser HMR.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T11:56:18.408194+00:00",
+    "status": "pass",
+    "config": "vite.windows-origin.native.json",
+    "config_sha256": "ed2b5cb121fc7b4f909250e07f608adfd82ea1bec6e830f747749e2bcbbb06a3",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:46087/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 255.2,
+      "samples": 7,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "1260c6008830afec46c52244bd76ad92c4f378f214a8d705687e40a64bab7633",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 461.4,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 4.2,
+        "samples": 5,
+        "observed_hash": "1260c6008830afec46c52244bd76ad92c4f378f214a8d705687e40a64bab7633",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "overwrite",
+        "expected_hash": "7b6093c7d75779b1c112a43b3bc30c60c6d6fc88b5d6b1c59006017792972271",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 396.5,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 3.0,
+        "samples": 5,
+        "observed_hash": "7b6093c7d75779b1c112a43b3bc30c60c6d6fc88b5d6b1c59006017792972271",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "overwrite",
+        "expected_hash": "51ff050be767efb7bb990c8fd09b19e612f49a2da5ac0b9e06a058b8681503c5",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 395.9,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 3.5,
+        "samples": 5,
+        "observed_hash": "51ff050be767efb7bb990c8fd09b19e612f49a2da5ac0b9e06a058b8681503c5",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 3.5,
+      "p95_ms": 4.2
+    },
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 193 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:46087/",
+      "6:56:19 PM [vite] (client) page reload src/token.js",
+      "6:56:20 PM [vite] (client) page reload src/token.js",
+      "6:56:20 PM [vite] (client) page reload src/token.js"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.native.json",
+      "rounds": 3,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.native.json --rounds 3 --mutation overwrite"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "mutation_origin": "Windows PowerShell process",
+  "access_path": "Windows NTFS mounted in WSL2",
+  "scenario": "vite.windows-origin.polling.json",
+  "mutation": "overwrite",
+  "analysis": "Observed freshness is specific to the recorded origin and filesystem path. A native stale result must be compared with documented WSL2 limitations; browser HMR is not covered.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T12:00:34.062940+00:00",
+    "status": "pass",
+    "config": "vite.windows-origin.polling.json",
+    "config_sha256": "36bafd2bd05fbceee66acc12471b4488050d92e42f9a8cdd222fea9ef94d34dc",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/scripts/windows_wsl_mutator.py",
+      "{workspace}",
+      "{target}",
+      "{mode}",
+      "{content_base64}",
+      "{intermediate_base64}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "v9fs"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:45183/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 447.8,
+      "samples": 11,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "d40a5c61083c8683732bbc064490d093ec0fde4d8d35851a219ae670a387545b",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 541.6,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 61.0,
+        "samples": 6,
+        "observed_hash": "d40a5c61083c8683732bbc064490d093ec0fde4d8d35851a219ae670a387545b",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "overwrite",
+        "expected_hash": "a9e9c4f18f77a8c2b10053c5b4d0e54fd8128a3031c40d84e99d648cea9be147",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 610.1,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 110.0,
+        "samples": 7,
+        "observed_hash": "a9e9c4f18f77a8c2b10053c5b4d0e54fd8128a3031c40d84e99d648cea9be147",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "overwrite",
+        "expected_hash": "5e0d6795ce6035aaf245f02257feef093c9f55f3bcf622718c86aeebff4288d0",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 459.3,
+          "diagnostics": ""
+        },
+        "status": "pass",
+        "latency_ms": 5.8,
+        "samples": 5,
+        "observed_hash": "5e0d6795ce6035aaf245f02257feef093c9f55f3bcf622718c86aeebff4288d0",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 61.0,
+      "p95_ms": 110.0
+    },
+    "logs": [
+      "7:00:34 PM [vite] (client) Re-optimizing dependencies because vite config has changed",
+      "",
+      "  VITE v8.3.1  ready in 346 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:45183/",
+      "7:00:35 PM [vite] (client) page reload src/token.js",
+      "7:00:36 PM [vite] (client) page reload src/token.js",
+      "7:00:37 PM [vite] (client) page reload src/token.js"
+    ],
+    "reproduction": {
+      "config": "vite.windows-origin.polling.json",
+      "rounds": 3,
+      "mutation": "overwrite",
+      "cli": "python -m watchmode_truth_lab vite.windows-origin.polling.json --rounds 3 --mutation overwrite"
+    }
+  }
+}

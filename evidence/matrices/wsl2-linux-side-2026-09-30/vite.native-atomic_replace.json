@@ -1,0 +1,305 @@
+{
+  "label": "WSL2 Linux-side edits",
+  "scenario": "vite.native.json",
+  "mutation": "atomic_replace",
+  "expected_status": "pass",
+  "assessment": "pass",
+  "analysis": "Expected latest output was observed for every round under the scenario time policy.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-09-30T11:49:33.406667+00:00",
+    "status": "pass",
+    "config": "vite.native.json",
+    "config_sha256": "64c889f3b3231f763e13097d89f365ef2a684c585fafcfcadfd18f03207bf655",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "python": "3.13.12",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:38287/src/token.js",
+      "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 275.8,
+      "samples": 8,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "948ea828e668a8842c42238c43be5865c496ae28f530af22938d57776dd132b7",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 16.4,
+        "samples": 5,
+        "observed_hash": "948ea828e668a8842c42238c43be5865c496ae28f530af22938d57776dd132b7",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "933662ed5d9c2a7a868972ad904c0c719a4a707783ea046187634d67a420c728",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 4.1,
+        "samples": 5,
+        "observed_hash": "933662ed5d9c2a7a868972ad904c0c719a4a707783ea046187634d67a420c728",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "atomic_replace",
+        "expected_hash": "7d417634197250772d5d794f300ab11091a33bef359592a57a925f78637e5699",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 54.5,
+        "samples": 6,
+        "observed_hash": "7d417634197250772d5d794f300ab11091a33bef359592a57a925f78637e5699",
+        "observed_bytes": 41
+      },
+      {
+        "round": 4,
+        "mutation": "atomic_replace",
+        "expected_hash": "0ee1fcaafb6e351e3cb549127633d9c2223c51c06da707928912db99294374e3",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 4.6,
+        "samples": 5,
+        "observed_hash": "0ee1fcaafb6e351e3cb549127633d9c2223c51c06da707928912db99294374e3",
+        "observed_bytes": 41
+      },
+      {
+        "round": 5,
+        "mutation": "atomic_replace",
+        "expected_hash": "c7708cbc4156bd5127f701f55e892097b7830d6cb98801a74706bc9b288014c4",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 5.2,
+        "samples": 5,
+        "observed_hash": "c7708cbc4156bd5127f701f55e892097b7830d6cb98801a74706bc9b288014c4",
+        "observed_bytes": 41
+      },
+      {
+        "round": 6,
+        "mutation": "atomic_replace",
+        "expected_hash": "e1e30b601ece943053582a4380e42bb87c27b0f6794a8ea7c9ce7b71f35d5ab8",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 5.7,
+        "samples": 5,
+        "observed_hash": "e1e30b601ece943053582a4380e42bb87c27b0f6794a8ea7c9ce7b71f35d5ab8",
+        "observed_bytes": 41
+      },
+      {
+        "round": 7,
+        "mutation": "atomic_replace",
+        "expected_hash": "129f3199324b953616e2865a803857a4b1d18ccf36eae15f892aa76871b7f445",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 5.6,
+        "samples": 5,
+        "observed_hash": "129f3199324b953616e2865a803857a4b1d18ccf36eae15f892aa76871b7f445",
+        "observed_bytes": 41
+      },
+      {
+        "round": 8,
+        "mutation": "atomic_replace",
+        "expected_hash": "28cdf705b3ef153f203466ac4deef0e67a33dbeee3123ea0be0375023fd9d0f4",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 5.3,
+        "samples": 5,
+        "observed_hash": "28cdf705b3ef153f203466ac4deef0e67a33dbeee3123ea0be0375023fd9d0f4",
+        "observed_bytes": 41
+      },
+      {
+        "round": 9,
+        "mutation": "atomic_replace",
+        "expected_hash": "52b12f104e9a854439e9193ee9cfa7f0473365d306fce38e21163a08b5f93d90",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 4.9,
+        "samples": 5,
+        "observed_hash": "52b12f104e9a854439e9193ee9cfa7f0473365d306fce38e21163a08b5f93d90",
+        "observed_bytes": 41
+      },
+      {
+        "round": 10,
+        "mutation": "atomic_replace",
+        "expected_hash": "5e763ebd869b3045b99d86c3c024fbb9e6745d5ac29ce6c1a201e75a5ec300ba",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 5.1,
+        "samples": 5,
+        "observed_hash": "5e763ebd869b3045b99d86c3c024fbb9e6745d5ac29ce6c1a201e75a5ec300ba",
+        "observed_bytes": 41
+      },
+      {
+        "round": 11,
+        "mutation": "atomic_replace",
+        "expected_hash": "c96c080db965f19f00c681fcd1e3cff68a4aa0aa3be3fe46783e0685ddf53ce4",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 3.6,
+        "samples": 5,
+        "observed_hash": "c96c080db965f19f00c681fcd1e3cff68a4aa0aa3be3fe46783e0685ddf53ce4",
+        "observed_bytes": 41
+      },
+      {
+        "round": 12,
+        "mutation": "atomic_replace",
+        "expected_hash": "e29ec48670ab7e33a3a8cb1edbfa45d61b7fa37054781580d264dfc394d85fda",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 4.6,
+        "samples": 5,
+        "observed_hash": "e29ec48670ab7e33a3a8cb1edbfa45d61b7fa37054781580d264dfc394d85fda",
+        "observed_bytes": 41
+      },
+      {
+        "round": 13,
+        "mutation": "atomic_replace",
+        "expected_hash": "a4da74d2db01e01123b4a7599c0da78b7693c108c0b942c86e9b2fd7b0b7b652",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 3.9,
+        "samples": 5,
+        "observed_hash": "a4da74d2db01e01123b4a7599c0da78b7693c108c0b942c86e9b2fd7b0b7b652",
+        "observed_bytes": 41
+      },
+      {
+        "round": 14,
+        "mutation": "atomic_replace",
+        "expected_hash": "e03fa1c69a69b3154bbc9617e72f97f0a1d2155e7c0f00a33486bdae98c4aba0",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 4.9,
+        "samples": 5,
+        "observed_hash": "e03fa1c69a69b3154bbc9617e72f97f0a1d2155e7c0f00a33486bdae98c4aba0",
+        "observed_bytes": 41
+      },
+      {
+        "round": 15,
+        "mutation": "atomic_replace",
+        "expected_hash": "d06eb3b745842a4bce8c1de45f8c547e84b77ec824ae1f0e892078af6e1c1625",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 4.1,
+        "samples": 5,
+        "observed_hash": "d06eb3b745842a4bce8c1de45f8c547e84b77ec824ae1f0e892078af6e1c1625",
+        "observed_bytes": 41
+      },
+      {
+        "round": 16,
+        "mutation": "atomic_replace",
+        "expected_hash": "c1e7325e584ce382a938c15c8f161cad6c63ab67df46a017922f61effd1afb4b",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 2.9,
+        "samples": 5,
+        "observed_hash": "c1e7325e584ce382a938c15c8f161cad6c63ab67df46a017922f61effd1afb4b",
+        "observed_bytes": 41
+      },
+      {
+        "round": 17,
+        "mutation": "atomic_replace",
+        "expected_hash": "314a2610c5671d0eb944fca7bdb304b4c63fb7aa6f8b90bf540bd776efbc56a0",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 3.4,
+        "samples": 5,
+        "observed_hash": "314a2610c5671d0eb944fca7bdb304b4c63fb7aa6f8b90bf540bd776efbc56a0",
+        "observed_bytes": 41
+      },
+      {
+        "round": 18,
+        "mutation": "atomic_replace",
+        "expected_hash": "f8f7577b9bb8af5c55b00e3940f7da6302a0081cd83d635d854bd17141a20253",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 3.7,
+        "samples": 5,
+        "observed_hash": "f8f7577b9bb8af5c55b00e3940f7da6302a0081cd83d635d854bd17141a20253",
+        "observed_bytes": 41
+      },
+      {
+        "round": 19,
+        "mutation": "atomic_replace",
+        "expected_hash": "1a0c7026c23abe0b2116cc0ba40a3e4f57a59f2a5f1832222b4896ea82837c40",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 3.3,
+        "samples": 5,
+        "observed_hash": "1a0c7026c23abe0b2116cc0ba40a3e4f57a59f2a5f1832222b4896ea82837c40",
+        "observed_bytes": 41
+      },
+      {
+        "round": 20,
+        "mutation": "atomic_replace",
+        "expected_hash": "b8bb23ca4185baf1668699a6669961cd234091d5b7814a4dbf8ef0bd61ad8a80",
+        "expected_bytes": 41,
+        "status": "pass",
+        "latency_ms": 3.7,
+        "samples": 5,
+        "observed_hash": "b8bb23ca4185baf1668699a6669961cd234091d5b7814a4dbf8ef0bd61ad8a80",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 4.6,
+      "p95_ms": 16.4
+    },
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 186 ms",
+      "",
+      "  ➜  Local:   http://127.0.0.1:38287/",
+      "6:49:34 PM [vite] (client) page reload src/token.js",
+      "6:49:34 PM [vite] (client) page reload src/token.js",
+      "6:49:34 PM [vite] (client) page reload src/token.js",
+      "6:49:34 PM [vite] (client) page reload src/token.js",
+      "6:49:34 PM [vite] (client) page reload src/token.js",
+      "6:49:35 PM [vite] (client) page reload src/token.js",
+      "6:49:35 PM [vite] (client) page reload src/token.js",
+      "6:49:35 PM [vite] (client) page reload src/token.js",
+      "6:49:35 PM [vite] (client) page reload src/token.js",
+      "6:49:36 PM [vite] (client) page reload src/token.js",
+      "6:49:36 PM [vite] (client) page reload src/token.js",
+      "6:49:36 PM [vite] (client) page reload src/token.js",
+      "6:49:36 PM [vite] (client) page reload src/token.js",
+      "6:49:36 PM [vite] (client) page reload src/token.js",
+      "6:49:37 PM [vite] (client) page reload src/token.js",
+      "6:49:37 PM [vite] (client) page reload src/token.js",
+      "6:49:37 PM [vite] (client) page reload src/token.js",
+      "6:49:37 PM [vite] (client) page reload src/token.js",
+      "6:49:37 PM [vite] (client) page reload src/token.js",
+      "6:49:38 PM [vite] (client) page reload src/token.js"
+    ],
+    "reproduction": {
+      "config": "vite.native.json",
+      "rounds": 20,
+      "mutation": "atomic_replace",
+      "cli": "python -m watchmode_truth_lab vite.native.json --rounds 20 --mutation atomic_replace"
+    }
+  }
+}
