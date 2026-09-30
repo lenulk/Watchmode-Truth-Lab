@@ -40,6 +40,8 @@ The guest installed from a Debian 12.14 image reports Debian 12.15 at execution 
 
 Missing Git originally prevented the test recorder from saving results after execution. Git metadata is now optional; unknown working-tree state is null, and archive runs can supply a source revision. Recorder and runner SHA-256 values preserve identification of the executed files. Targeted tests, the Windows regression, and the actual VM suite pass; see cycles 32–37 and 44 in [the test log](test-log.md).
 
+When synchronizing artifacts back to the guest, compare and retain byte-identical existing evidence instead of rewriting it. The final readiness sync initially stopped with PermissionError on a pre-existing provisioning record; retaining identical records completed the transfer and all 289 archive files then matched their committed content. Backup existing documentation before replacing it, and reject evidence whose bytes differ. No ownership changes or root privileges were needed for recovery.
+
 ## Debian browser provisioning recovery and rollback
 
 Browser dependency installation first failed because an active installation-CD source blocked APT update. The original sources file was backed up in `reports/apt-sources.list.before` before commenting the single inspected CD-ROM entry. A subsequent download failure was resolved with a per-command APT configuration using IPv4, retries, and timeouts. This observed recovery does not establish IPv6 as the sole cause. The fresh pre-browser package baseline preserves unrelated Git installation work.
