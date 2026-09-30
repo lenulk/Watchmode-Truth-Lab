@@ -242,9 +242,9 @@ def _stop(process):
         process.wait(timeout=2)
 
 
-def run(config_path, rounds=1, mutation=None):
-    started_at = datetime.now(timezone.utc).isoformat()
-    if rounds < 1:
+def prepare_scenario(config_path, rounds=1, mutation=None):
+    """Validate without spawning commands, allocating a workspace, or mutating files."""
+    if isinstance(rounds, bool) or not isinstance(rounds, int) or rounds < 1:
         raise ConfigError("rounds must be at least 1")
     config_path = Path(config_path).resolve()
     config = json.loads(config_path.read_text(encoding="utf-8"))
@@ -322,6 +322,45 @@ def run(config_path, rounds=1, mutation=None):
         temp_parent = (config_dir / temp_parent.replace("{config_dir}", str(config_dir))).resolve()
         if not temp_parent.is_dir():
             raise ConfigError("workspace_parent must be an existing directory")
+    target = _inside(fixture, config["mutation_target"])
+    if not target.is_file():
+        raise ConfigError("mutation_target must be an existing fixture file")
+    if oracle["type"] == "file":
+        _inside(fixture, oracle["path"])
+    for key, value in config.get("env", {}).items():
+        if not isinstance(key, str) or not isinstance(value, str) or not key or "=" in key or "\0" in key + value:
+            raise ConfigError("env must map valid environment names to strings without NUL")
+    for field in ("command", "mutation_command", "version_command"):
+        argv = config.get(field)
+        if argv is not None and (not isinstance(argv, list) or not argv or
+                                 not all(isinstance(value, str) and "\0" not in value for value in argv) or not argv[0]):
+            raise ConfigError(f"{field} must be a nonempty argv array without NUL")
+    return {"config_path": config_path, "config": config, "config_dir": config_dir, "fixture": fixture,
+            "command": command, "mode": mode, "oracle": oracle, "extractor": extractor,
+            "source_template": source_template, "timeout": timeout, "interval": interval,
+            "stable": stable, "startup_timeout": startup_timeout, "mutation_command": mutation_command,
+            "mutation_timeout": mutation_timeout, "temp_parent": temp_parent}
+
+
+def run(config_path, rounds=1, mutation=None):
+    started_at = datetime.now(timezone.utc).isoformat()
+    scenario = prepare_scenario(config_path, rounds, mutation)
+    config_path = scenario["config_path"]
+    config = scenario["config"]
+    config_dir = scenario["config_dir"]
+    fixture = scenario["fixture"]
+    command = scenario["command"]
+    mode = scenario["mode"]
+    oracle = scenario["oracle"]
+    extractor = scenario["extractor"]
+    source_template = scenario["source_template"]
+    timeout = scenario["timeout"]
+    interval = scenario["interval"]
+    stable = scenario["stable"]
+    startup_timeout = scenario["startup_timeout"]
+    mutation_command = scenario["mutation_command"]
+    mutation_timeout = scenario["mutation_timeout"]
+    temp_parent = scenario["temp_parent"]
     with tempfile.TemporaryDirectory(prefix="watchmode-truth-lab-", dir=temp_parent) as temporary:
         workspace = Path(temporary).resolve()
         shutil.copytree(fixture, workspace, dirs_exist_ok=True)

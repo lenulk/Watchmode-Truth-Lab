@@ -1,0 +1,18 @@
+test_cli_validate_does_not_execute_scenario_or_version_command (test_preflight.PreflightTests.test_cli_validate_does_not_execute_scenario_or_version_command) ... ok
+test_invalid_late_fields_are_rejected_before_workspace_or_command (test_preflight.PreflightTests.test_invalid_late_fields_are_rejected_before_workspace_or_command) ... ok
+test_prepare_never_starts_commands_allocates_workspace_or_mutates (test_preflight.PreflightTests.test_prepare_never_starts_commands_allocates_workspace_or_mutates) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... ok
+test_example_passes_all_mutation_modes (test_runner.RunnerTests.test_example_passes_all_mutation_modes) ... ok
+test_http_oracle_checks_response_bytes (test_runner.RunnerTests.test_http_oracle_checks_response_bytes) ... ok
+test_rejects_mutation_outside_temporary_workspace (test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace) ... ok
+test_rejects_nonfinite_timeout (test_runner.RunnerTests.test_rejects_nonfinite_timeout) ... ok
+test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported) ... ok
+test_templated_source_and_extracted_file_output (test_runner.RunnerTests.test_templated_source_and_extracted_file_output) ... ok
+test_vite_disabled_watcher_reports_stale (test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale) ... ok
+test_vite_native_module_response (test_runner.RunnerTests.test_vite_native_module_response) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 12.074s
+
+OK

@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T200935Z-scenario-preflight-d22995",
+  "started_at_utc": "2026-09-30T20:09:35.402122+00:00",
+  "purpose": "Verify config validation has no command/workspace/mutation side effects and keeps existing file HTTP CLI behavior",
+  "git_revision": "58373b59bbcdf3af5c0f57255c9f58486f0015c2",
+  "working_tree_dirty": true,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 12.219,
+  "status": "pass",
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_preflight.PreflightTests.test_cli_validate_does_not_execute_scenario_or_version_command",
+      "status": "pass",
+      "duration_seconds": 0.25,
+      "detail": null
+    },
+    {
+      "test": "test_preflight.PreflightTests.test_invalid_late_fields_are_rejected_before_workspace_or_command",
+      "status": "pass",
+      "duration_seconds": 0.047,
+      "detail": null
+    },
+    {
+      "test": "test_preflight.PreflightTests.test_prepare_never_starts_commands_allocates_workspace_or_mutates",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 0.89,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit",
+      "status": "pass",
+      "duration_seconds": 0.844,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_example_passes_all_mutation_modes",
+      "status": "pass",
+      "duration_seconds": 2.063,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_http_oracle_checks_response_bytes",
+      "status": "pass",
+      "duration_seconds": 0.547,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace",
+      "status": "pass",
+      "duration_seconds": 0.015,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_nonfinite_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_stale_output_is_reported",
+      "status": "pass",
+      "duration_seconds": 0.578,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_templated_source_and_extracted_file_output",
+      "status": "pass",
+      "duration_seconds": 0.485,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale",
+      "status": "pass",
+      "duration_seconds": 4.531,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_native_module_response",
+      "status": "pass",
+      "duration_seconds": 1.812,
+      "detail": null
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Experiment plan
 
+This document retains the original research question and decision rule. The user's 2026-10-01 request to plan development toward practical use is addressed in the [development plan](development-plan.md), with installed-package and real-application acceptance gates. Research novelty and maintainer usefulness remain unestablished.
+
 ## Question
 
 Can a black-box runner detect when a supported watch workflow serves old output after a file mutation, while avoiding false alarms from normal rebuild latency? The initial adapter requests a Vite-transformed JavaScript module over HTTP and extracts a unique token from the response. A passing response proves only that this endpoint returned the current token during the observation window. It does not prove that browser HMR applied the update.

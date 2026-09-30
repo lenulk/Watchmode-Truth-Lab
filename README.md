@@ -25,6 +25,8 @@ python scripts/test_cycle.py --label installed-package --purpose "Verify isolate
 
 ## Test, record, analyze, improve
 
+The [development plan](docs/development-plan.md) defines the requested path from this pilot to an installable tool validated against real application workflows, with completion checks for each phase.
+
 Every automated test cycle saves JSON outcomes and a console log under `evidence/test-runs/`, including failures and skips. Append its analysis, repair, verification, and remaining limits to [the test log](docs/test-log.md) before the next cycle. Keep failed evidence when a repair passes. The current [results](docs/current-results.md) link to complete experimental matrices.
 
 ```sh
@@ -145,7 +147,7 @@ Latency measurement begins after mutation returns. An external mutator's duratio
 
 Vite already has browser-level HMR integration tests and runs its test watcher in polling mode. Watchwoman already has a black-box harness for Watchman protocol parity. This pilot tests a narrower reusable question: can one external command's final file or HTTP bytes be checked after controlled mutations, independent of its watcher implementation? It has not demonstrated a gap in either project's test suite yet.
 
-The [experiment plan](docs/experiment-plan.md) sets the matrix and decision rule. [Current results](docs/current-results.md) include Windows, Linux within WSL2, Windows-origin writes on both filesystem paths, Windows Chrome/Edge HMR, and Debian VMware endpoint/Chromium/Firefox/WebKit HMR matrices. Physical Linux hardware, Safari on Apple platforms, and additional application fixtures remain unverified. Continue as a standalone project only if a reproducible supported-workflow failure escapes existing tests, or at least two maintainers confirm the harness is useful. Otherwise contribute focused fixtures to existing suites. That research go/no-go criterion has not yet been met.
+The [experiment plan](docs/experiment-plan.md) sets the original research matrix and decision rule. [Current results](docs/current-results.md) include Windows, Linux within WSL2, Windows-origin writes on both filesystem paths, Windows Chrome/Edge HMR, and Debian VMware endpoint/Chromium/Firefox/WebKit HMR matrices. Physical Linux hardware, Safari on Apple platforms, and additional application fixtures remain unverified. The original standalone research criterion requires a reproducible supported-workflow failure escaping existing tests, or usefulness confirmed by at least two maintainers; it has not been met. The user's requested [product development plan](docs/development-plan.md) now defines operational readiness through installed-package and real-workflow acceptance, while retaining that research criterion for claims of novelty and upstream contributions.
 
 ## License
 

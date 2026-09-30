@@ -609,3 +609,15 @@ The initial project committed in `35ee9f1` passed seven tests on Windows and six
 ### Final VM artifact synchronization (operational)
 
 The committed README, documentation and evidence archive from 2c1b99c was transferred and verified against SHA-256 `edd72905f3b053ce413ea5ab3ef874d5ea04514998280e17aa1bf94db1540cc3`. Previous documentation was backed up under `reports/readiness-final-notes-before/`. The first write pass stopped with PermissionError on existing `evidence/debian-vm-apt-source-change.json`; its bytes had already matched the archive. Retrying by retaining byte-identical existing records wrote 36 remaining files and retained 253 identical files. A final hash comparison verified all 289 archive files. Source files and system provisioning were unchanged. This was an artifact transfer recovery, not another software test or freshness failure.
+
+## Cycle 86 Development plan documentation audit
+
+- Evidence: [JSON](../evidence/test-runs/20260930T200206Z-development-plan-links-c03a88.json), [console log](../evidence/test-runs/20260930T200206Z-development-plan-links-c03a88.log).
+- Result: all three artifact checks passed after adding the practical development plan and linking its installed-package/workflow acceptance gates from README and the original experiment plan.
+- Analysis: this checks documentation links and retained evidence consistency; no software behavior changed. The user subsequently authorized autonomous development/testing and GitHub upload on success. Work begins with CLI/config preflight and installed-package usability for Windows/Debian, while preserving the existing runtime and research limits until verified.
+
+## Cycle 87 Shared scenario preflight and CLI compatibility
+
+- Evidence: [JSON](../evidence/test-runs/20260930T200935Z-scenario-preflight-d22995.json), [console log](../evidence/test-runs/20260930T200935Z-scenario-preflight-d22995.log).
+- Result: all 13 targeted tests passed: preflight, CLI boundaries and existing file/HTTP runner behavior.
+- Analysis: validation is shared with execution and now rejects invalid late fields before workspace allocation. `--validate` returns JSON/exit 0 without running scenario/version commands or mutating fixtures; a sentinel CLI integration and mocked side-effect boundaries verify that promise. Runtime rechecks copied paths before mutation. Existing command invocation and freshness results remain compatible. Next deliver installed starters and scenario-specific diagnostics; no full release readiness is claimed by this targeted run.
