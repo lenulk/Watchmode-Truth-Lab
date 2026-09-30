@@ -16,7 +16,7 @@ The initial project committed in `35ee9f1` passed seven tests on Windows and six
 
 ## Remaining verification queue
 
-- Bare-metal Linux and Linux browser execution require another provisioned environment. WSL2 and Windows Chrome evidence remain separate.
+- Physical Linux hardware remains unverified. Linux Chromium is verified in the Debian VMware guest; WSL2 and Windows Chrome evidence remain separate.
 - Other browser engines and application-specific HMR fixtures are not covered.
 - A supported-workflow gap in existing tests or maintainer confirmation is still needed for the research go/no-go decision.
 
@@ -240,3 +240,136 @@ The initial project committed in `35ee9f1` passed seven tests on Windows and six
 - Analysis: failed and skipped histories remain distinguishable from passing results. Historical pilot documentation now points to current evidence; the initial investigation queue is marked resolved, with external-environment and research-validation limits retained.
 - Final review: inspect the actual source/document diff and run Git whitespace checks before a local commit. No additional behavioral change follows the passing Windows and WSL2 regressions.
 - Git review: the staged check found trailing spaces in retained unittest console output. Scoped the whitespace attribute to console-evidence logs so their original formatting is preserved; source, JSON, and documentation remain checked. Approved staging also required an exact per-command `safe.directory` because the checkout belongs to the sandbox account, as recorded in engineering notes.
+
+## Cycle 32 Missing Git on the Debian VM
+
+- Evidence: [JSON](../evidence/test-runs/20260930T135402Z-missing-git-before-1c9fbd.json), [console log](../evidence/test-runs/20260930T135402Z-missing-git-before-1c9fbd.log).
+- Observation: the SSH-connected Debian guest reports version 12.15, Python 3.11.2, VMware, and no Git executable. The transferred source archive from `da9270c` was SHA-256 verified before extraction into a fresh project directory.
+- Result: the controlled missing-Git regression errored. Metadata collection raised `FileNotFoundError`, which would prevent test outcomes from being saved on this minimal VM.
+- Repair: treat unavailable Git metadata as unknown, permit the verified archive revision through `WTL_SOURCE_REVISION`, and record recorder/runner hashes. Unknown working-tree state must remain null rather than being reported clean.
+- Next verification: repeat the metadata regression, then run the generic suite on the VM before installing Node/browser dependencies.
+
+## Cycle 33 Missing Git recording after repair
+
+- Evidence: [JSON](../evidence/test-runs/20260930T135516Z-missing-git-after-de6c83.json), [console log](../evidence/test-runs/20260930T135516Z-missing-git-after-de6c83.log).
+- Result: both recording regressions passed: unavailable Git metadata returns unknown, and existing matrix evidence remains protected.
+- Analysis: the recorder no longer requires Git to save results. The verified archive revision and explicit file hashes make VM reports traceable while unknown working-tree state remains null.
+- Next verification: transfer this focused recorder update and run the Debian VM baseline before adding tool dependencies.
+
+## Cycle 34 Debian VM baseline before tool installation
+
+- Evidence: [JSON](../evidence/test-runs/20260930T135641Z-debian-vm-baseline-a02eb0.json), [console log](../evidence/test-runs/20260930T135641Z-debian-vm-baseline-a02eb0.log), [observed VM environment](../evidence/debian-vm-environment.json). Artifacts are retained on the VM and collected into this project.
+- Result: 18 tests passed and four tool-dependent tests were skipped, with zero failures or errors. Vite and browser dependencies are not installed yet.
+- Analysis: the generic runner and corrected recorder work on Debian 12.15/Python 3.11.2 within VMware, independently of WSL2. Git metadata is unavailable rather than falsely clean. The reported filesystem label is `ext2/ext3`; no more specific type is inferred from that label.
+- Provisioning preparation: retained the pre-install dpkg status and manual package list in ignored VM reports. Node/pnpm will be project-local; any browser-library additions are separately recorded.
+- Next improvement: add a Linux bootstrap compatible with Python 3.11.2, whose tar API lacks the newer `filter` argument, then verify extraction boundaries before provisioning.
+
+## Cycle 35 Portable Linux toolchain bootstrap
+
+- Evidence: [JSON](../evidence/test-runs/20260930T140016Z-linux-bootstrap-portability-aba179.json), [console log](../evidence/test-runs/20260930T140016Z-linux-bootstrap-portability-aba179.log).
+- Result: both extraction tests passed. A controlled old-Python API branch extracts regular files, and escaping members/symlink targets are rejected before extraction.
+- Change and analysis: added a separate Linux bootstrap for an existing project copy. It verifies the official Node archive SHA-256 before extraction, uses newer data filtering where available, supports the observed Debian Python API, and installs Node/pnpm inside ignored project reports.
+- Limit: the bootstrap is for verified official Node archives on Linux x86_64, not a general untrusted-archive extraction service.
+- Next verification: provision the Debian VM from the frozen lockfile, run real Vite checks, and add Linux browser opt-in coverage after installing the required browser libraries.
+
+## Cycle 36 Browser platform opt-in preserves Windows checks
+
+- Evidence: [JSON](../evidence/test-runs/20260930T140333Z-browser-platform-opt-in-windows-6a5b1b.json), [console log](../evidence/test-runs/20260930T140333Z-browser-platform-opt-in-windows-6a5b1b.log).
+- Result: both real Windows Chrome tests passed without skips after adding explicit Linux browser opt-in.
+- Change and analysis: Linux browser tests can now be enabled with `WTL_TEST_BROWSER=1` after provisioning. The browser matrix records the selected channel and uses an environment-neutral label, preserving the earlier Windows browser behavior.
+- Next verification: run the Debian suite with the newly provisioned Linux Node/Vite, then install browser dependencies and exercise the Linux opt-in in the actual VM.
+
+## Cycle 37 Debian VM with real Vite
+
+- Evidence: [JSON](../evidence/test-runs/20260930T140442Z-debian-vm-vite-b51038.json), [console log](../evidence/test-runs/20260930T140442Z-debian-vm-vite-b51038.log), [toolchain provenance](../evidence/debian-vm-toolchain.json).
+- Result: 22 tests passed and two browser tests skipped, with zero failures or errors. Real Linux Vite freshness and its disabled-watcher stale control both passed on the VM.
+- Analysis: the portable bootstrap successfully verified and extracted the official Node archive using the observed older Python API, then installed frozen dependencies. This establishes Vite in the Debian guest, separate from Windows and WSL2.
+- Next verification: install Chromium libraries through root while retaining the package baseline, download the browser into ignored project storage as `test`, and enable Linux browser tests.
+
+## Cycle 38 Debian browser dependency provisioning failed on CD-ROM source
+
+- Evidence: [record](../evidence/debian-vm-browser-dependencies-before.json), [redacted installation log](../evidence/debian-vm-browser-dependencies-before.log).
+- Result: Playwright's dependency installer failed with APT exit 100 because the active installation-CD repository has no usable release metadata for `apt-get update`.
+- Analysis: this is VM provisioning configuration, not a watch-mode or browser-HMR failure. The package database is checked against the retained pre-install baseline.
+- Repair plan: inspect the active CD-ROM entry, preserve `/etc/apt/sources.list`, and comment only that entry before retrying the official browser dependency installer. Retain the backup and package baseline for rollback.
+- Next verification: dependency installation must succeed; record package additions/upgrades and run real Linux browser tests without counting provisioning as a browser pass.
+- Baseline check: Git, git-man, and liberror-perl appeared after the original package snapshot, before the browser retry. The failed browser step stopped during APT update; these additions are not attributed to it. Preserve that existing work and take a fresh package baseline immediately before the authorized browser-library installation.
+
+## Cycle 39 Windows regression for Debian support changes
+
+- Evidence: [JSON](../evidence/test-runs/20260930T141238Z-debian-support-windows-regression-8b93f8.json), [console log](../evidence/test-runs/20260930T141238Z-debian-support-windows-regression-8b93f8.log).
+- Result: all 24 tests passed with no skips, failures, or errors.
+- Analysis: optional Git metadata, the portable Linux extraction helper, and Linux browser opt-in preserve existing Windows software and real Chrome integrations. This is a regression check on the host, separate from VM provisioning.
+- Next verification: complete Debian browser provisioning and run the full VM suite and both Vite matrices.
+
+## Cycle 40 Debian browser dependency retry reached a network failure
+
+- Evidence: [source change and rollback record](../evidence/debian-vm-apt-source-change.json), [retry result](../evidence/debian-vm-browser-dependencies-after.json), [retry log](../evidence/debian-vm-browser-dependencies-after.log).
+- Result: disabling the single inspected CD-ROM entry allowed APT update to succeed. Package downloads then failed with network-unreachable diagnostics; the dependency installer still exited 100.
+- Analysis: the CD-ROM configuration issue is resolved, but no browser pass is claimed. The sources backup and a fresh package baseline were retained before the retry. Diagnose IPv4/IPv6 and HTTP/HTTPS reachability before choosing a scoped network workaround.
+- Next verification: collect reachability observations, retry with an explicit supported APT configuration, and retain this failed attempt rather than overwriting it.
+
+## Cycle 41 Debian browser libraries installed with scoped IPv4 retry
+
+- Evidence: [network observations](../evidence/debian-vm-network-probe.json), [retry result](../evidence/debian-vm-browser-dependencies-ipv4.json), [retry log](../evidence/debian-vm-browser-dependencies-ipv4.log), [package changes and rollback references](../evidence/debian-vm-package-changes.json).
+- Result: both HTTP and HTTPS metadata requests returned 200. A per-command APT configuration using IPv4, retries, and request timeouts completed browser-library installation successfully.
+- Analysis: the retry resolved this observed download problem without establishing that IPv6 was its sole cause. The inspected CD-ROM source change and package baselines are recorded separately; this provisioning success is not a browser/HMR test pass.
+- Next verification: download project-local Chromium as the ordinary user, run Linux browser opt-in tests, and inspect for remaining project browser processes after cleanup.
+
+## Cycle 42 Direct VM browser download failed
+
+- Evidence: [result](../evidence/debian-vm-browser-download-before.json), [redacted download log](../evidence/debian-vm-browser-download-before.log).
+- Result: the pinned browser download exhausted retries with read timeouts and a transient DNS lookup error; installation exited 1. Browser libraries are already provisioned, but browser tests have not run.
+- Analysis and recovery: fetch the exact archives named by pinned Playwright's browser manifest on the Windows host, transfer them to the guest, and verify transfer hashes. Use Playwright's supported download-host override against a temporary localhost server so its normal installer performs extraction and completion checks.
+- Limit: browser archive hashes establish transfer identity to the HTTPS host download; they are not claimed as publisher signatures. Node retains its separate official SHA-256-manifest verification.
+- Next verification: finish the normal browser installer from the local mirror, then run real Linux DOM/HMR tests and process cleanup inspection.
+
+## Cycle 43 Browser installation recovered through verified local mirror
+
+- Evidence: [archive origin and transfer hashes](../evidence/debian-vm-browser-download-provenance.json), [installation result](../evidence/debian-vm-browser-download-after.json), [installation log](../evidence/debian-vm-browser-download-after.log).
+- Result: host HTTPS downloads completed for Chromium revision 1234 (Chrome for Testing 151.0.7922.34) and FFmpeg revision 1011. The guest verified both SHA-256 values and the normal Playwright installer completed successfully from the temporary localhost mirror.
+- Analysis: browser binaries are project-local, and the mirror server is shut down in a finally block. This bypasses the observed guest download failure while retaining the pinned archives and installer behavior. No browser test outcome is inferred from installation alone.
+- Next verification: enable Linux browser tests in the full VM suite and inspect project-local Node/Chromium processes after completion.
+
+## Cycle 44 Full Debian VM suite with real Chromium
+
+- Evidence: [JSON](../evidence/test-runs/20260930T143705Z-debian-vm-browser-full-bd4997.json), [console log](../evidence/test-runs/20260930T143705Z-debian-vm-browser-full-bd4997.log).
+- Result: all 24 tests passed with zero skips, failures, or errors, including real Linux Chromium DOM/HMR freshness and the disabled-watcher stale control.
+- Analysis: verification ran in the Debian VMware guest against the source archive based on da9270c plus the recorded support updates. Recorder and runner hashes identify the executed files. This is VM verification, separate from WSL2 and physical Linux hardware.
+- Next verification: inspect remaining project Node/Chromium processes, then run repeated endpoint and browser matrices on the Linux-local filesystem.
+
+## Cycle 45 Debian browser process cleanup
+
+- Evidence: [JSON](../evidence/test-runs/20260930T144622Z-debian-vm-browser-cleanup-f001d9.json), [console log](../evidence/test-runs/20260930T144622Z-debian-vm-browser-cleanup-f001d9.log).
+- Result: the post-experiment process check passed; no live project-local Node, Chromium, or Chromium crash-handler process was found after the full suite.
+- Analysis: the check reads actual guest /proc executable paths after a bounded settling interval. It verifies the observed completed experiments; it does not promise cleanup of arbitrary detached external processes or future interrupted sessions.
+- Next verification: run the repeated real Vite endpoint matrix, then the real browser HMR matrix.
+
+## Cycle 46 Debian VM endpoint matrix
+
+- Evidence: [summary](../evidence/matrices/debian-vm-endpoint-2026-09-30/summary.json) and linked scenario reports in that directory.
+- Result: all 120 positive endpoint observations passed: native and polling watchers, three mutation modes, 20 rounds each. The disabled-watcher control correctly returned stale.
+- Analysis: these are real Vite HTTP module-token checks from edits on guest-local Linux storage. They establish freshness at the tested endpoint; browser DOM application is checked separately. No runner repair was needed.
+- Next verification: run the same repeated mutation combinations through actual Linux Chromium DOM/HMR observation.
+
+## Cycle 47 Debian VM real Chromium HMR matrix
+
+- Evidence: [summary](../evidence/matrices/debian-vm-chromium-hmr-2026-09-30/summary.json) and linked scenario reports in that directory.
+- Result: all 120 positive DOM updates passed across native/polling watchers and all three mutation modes. Every scenario retained one page session and observed at least 20 HMR callbacks. The disabled-watcher control correctly remained stale with zero callbacks and retained its session.
+- Analysis: actual Linux Chromium DOM state was observed in the provisioned Debian VMware guest. The fixture exercises dependency-accept HMR; other browser engines, application fixtures, and physical Linux hardware remain unverified. No repair was needed.
+- Next verification: inspect process cleanup after these complete matrices, retrieve guest evidence, and audit artifact consistency and documentation links.
+
+## Cycle 48 Debian process cleanup after matrices
+
+- Evidence: [JSON](../evidence/test-runs/20260930T144950Z-debian-vm-matrix-cleanup-15ddc7.json), [console log](../evidence/test-runs/20260930T144950Z-debian-vm-matrix-cleanup-15ddc7.log).
+- Result: the actual guest process check passed again after both repeated matrices; no live project-local Node/Chromium/crash-handler executable remained.
+- Analysis: this checks cleanup after the larger real-tool experiments, in addition to the earlier full-suite check. Its scope is the observed project-local executable paths and completed runs.
+- Next verification: retrieve retained guest artifacts, inspect recorded environment and per-round outcomes, update current results, and audit local links/JSON before committing.
+
+## Cycle 49 Imported VM artifact audit
+
+- Evidence: [JSON](../evidence/test-runs/20260930T145418Z-debian-vm-artifact-audit-f0d6af.json), [console log](../evidence/test-runs/20260930T145418Z-debian-vm-artifact-audit-f0d6af.log).
+- Result: all three audit checks passed with zero failures/errors/skips: retained JSON and matrix summary consistency, document links, and user-home path redaction.
+- Analysis: 42 guest artifacts were imported only after the evidence archive SHA-256 matched the guest value; existing differing evidence would have stopped import. Failed provisioning attempts remain distinguishable from successful software runs. A targeted scan found neither the supplied credential nor private connection address in evidence.
+- Completion: the actual Debian VM suite, endpoint matrix, Chromium HMR matrix, stale controls, and post-run process checks meet this environment's verification plan. Windows support regression also passed. Current documentation records the observed VM version and separates physical-hardware, other-browser, and research-validation limits. No additional broad test cycle is needed for this completed scope.
+- Final content review: retained APT console logs contain original prompt/progress whitespace. The existing raw-log whitespace policy is extended only to the Debian provisioning logs, preserving evidence formatting; source and documentation whitespace checks remain enabled.

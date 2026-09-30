@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "phase": "browser_binary_installation",
+  "exit_code": 0,
+  "transport": "Verified host HTTPS archives through temporary localhost download mirror"
+}

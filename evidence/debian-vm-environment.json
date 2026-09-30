@@ -1,0 +1,13 @@
+{
+  "debian": "12.15",
+  "kernel": "6.1.0-53-amd64",
+  "python": "3.11.2",
+  "machine": "x86_64",
+  "virtualization": "vmware",
+  "cpu": 2,
+  "memory_kib": 1978232,
+  "filesystem": "ext2/ext3",
+  "source_revision": "da9270c",
+  "source_archive_sha256": "4e1c910ce9c7dbed82933c64d149f1da61efd90558995b1cda06e1022f26420b",
+  "execution": "SSH to a Debian VMware guest on its local Linux filesystem"
+}

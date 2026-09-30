@@ -1,0 +1,6 @@
+{
+  "status": "fail",
+  "phase": "browser_dependency_installation",
+  "exit_code": 1,
+  "package_baseline": "reports/dpkg-status.before-browser"
+}

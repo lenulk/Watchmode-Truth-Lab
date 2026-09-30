@@ -1,8 +1,10 @@
 """Run unittest and persist outcomes even when the suite fails."""
 
 import argparse
+import hashlib
 import io
 import json
+import os
 import platform
 import re
 import subprocess
@@ -65,7 +67,10 @@ class RecordedResult(unittest.TextTestResult):
 
 
 def git_value(*args):
-    result = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+    try:
+        result = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+    except OSError:
+        return None
     return result.stdout.strip() if result.returncode == 0 else None
 
 
@@ -85,9 +90,12 @@ def main():
              unittest.defaultTestLoader.discover(str(ROOT / "tests")))
     started = time.monotonic()
     result = unittest.TextTestRunner(stream=stream, verbosity=2, resultclass=RecordedResult).run(suite)
+    git_status = git_value("status", "--porcelain")
     report = {"schema_version": 1, "run_id": run_id, "started_at_utc": timestamp.isoformat(),
-              "purpose": args.purpose, "git_revision": git_value("rev-parse", "HEAD"),
-              "working_tree_dirty": bool(git_value("status", "--porcelain")),
+              "purpose": args.purpose, "git_revision": git_value("rev-parse", "HEAD") or os.environ.get("WTL_SOURCE_REVISION"),
+              "working_tree_dirty": None if git_status is None else bool(git_status),
+              "recorder_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+              "runner_sha256": hashlib.sha256((ROOT / "watchmode_truth_lab/runner.py").read_bytes()).hexdigest(),
               "environment": {"system": platform.system(), "release": platform.release(),
                               "python": platform.python_version()},
               "duration_seconds": round(time.monotonic() - started, 3),

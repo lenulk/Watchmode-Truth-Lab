@@ -1,0 +1,51 @@
+[
+  {
+    "file": "native-overwrite.json",
+    "status": "pass",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 20
+  },
+  {
+    "file": "native-atomic_replace.json",
+    "status": "pass",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 20
+  },
+  {
+    "file": "native-burst.json",
+    "status": "pass",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 20
+  },
+  {
+    "file": "polling-overwrite.json",
+    "status": "pass",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 20
+  },
+  {
+    "file": "polling-atomic_replace.json",
+    "status": "pass",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 20
+  },
+  {
+    "file": "polling-burst.json",
+    "status": "pass",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 20
+  },
+  {
+    "file": "disabled-overwrite.json",
+    "status": "stale",
+    "assessment": "pass",
+    "session_continuity": true,
+    "hmr_updates": 0
+  }
+]

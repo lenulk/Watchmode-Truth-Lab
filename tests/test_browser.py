@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,9 +17,10 @@ def browser_states(report):
             if line.startswith("WTL_BROWSER_STATE ")]
 
 
-@unittest.skipUnless(os.name == "nt" and CHROME.exists() and shutil.which("node") and
+@unittest.skipUnless(((os.name == "nt" and CHROME.exists()) or
+                      (sys.platform.startswith("linux") and os.environ.get("WTL_TEST_BROWSER") == "1")) and shutil.which("node") and
                      (ROOT / "node_modules/playwright-core/package.json").exists(),
-                     "Requires installed Windows Chrome and pinned Playwright dependency")
+                     "Requires installed Windows Chrome or Linux browser opt-in, plus pinned Playwright dependency")
 class BrowserTests(unittest.TestCase):
     def test_browser_hmr_updates_dom_without_reload(self):
         report = run(ROOT / "vite.browser.json", rounds=2, mutation="atomic_replace")

@@ -1,0 +1,12 @@
+[
+  {
+    "scheme": "http",
+    "status": 200,
+    "first_bytes": 32
+  },
+  {
+    "scheme": "https",
+    "status": 200,
+    "first_bytes": 32
+  }
+]

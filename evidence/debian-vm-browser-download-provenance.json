@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip",
+    "relative_path": "builds/cft/151.0.7922.34/linux64/chrome-linux64.zip",
+    "sha256": "ae8736ac28bc69278551500f219fc749575648263c43ec5990749eff43b9fcf8",
+    "bytes": 193282658
+  },
+  {
+    "url": "https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip",
+    "relative_path": "builds/ffmpeg/1011/ffmpeg-linux.zip",
+    "sha256": "ebc74fc5b94830176a3c2914ae96bd8bc7f6a91f4f33890230f84a172ee61ccc",
+    "bytes": 2376500
+  }
+]

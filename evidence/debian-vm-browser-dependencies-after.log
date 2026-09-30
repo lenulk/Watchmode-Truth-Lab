@@ -1,0 +1,497 @@
+Password: 
+Installing dependencies...
+Hit:1 http://deb.debian.org/debian bookworm InRelease
+Hit:2 http://deb.debian.org/debian bookworm-updates InRelease
+Hit:3 http://security.debian.org/debian-security bookworm-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libdbus-1-3 is already the newest version (1.14.10-1~deb12u1).
+libdbus-1-3 set to manually installed.
+libdrm2 is already the newest version (2.4.114-1+b1).
+libdrm2 set to manually installed.
+libglib2.0-0 is already the newest version (2.74.6-2+deb12u9).
+libglib2.0-0 set to manually installed.
+libx11-6 is already the newest version (2:1.8.4-2+deb12u2).
+libx11-6 set to manually installed.
+libxcb1 is already the newest version (1.15-1).
+libxcb1 set to manually installed.
+libxext6 is already the newest version (2:1.3.4-1+b1).
+libxext6 set to manually installed.
+libfreetype6 is already the newest version (2.12.1+dfsg-5+deb12u4).
+libfreetype6 set to manually installed.
+The following additional packages will be installed:
+  at-spi2-common fontconfig fontconfig-config libasound2-data libavahi-client3
+  libavahi-common-data libavahi-common3 libdatrie1 libdrm-amdgpu1
+  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libfontenc1 libfribidi0 libgl1
+  libgl1-mesa-dri libglapi-mesa libglvnd0 libglx-mesa0 libglx0 libgraphite2-3
+  libharfbuzz0b libice6 libllvm15 libpciaccess0 libpixman-1-0
+  libsensors-config libsensors5 libsm6 libthai-data libthai0 libunwind8
+  libwayland-server0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
+  libxcb-glx0 libxcb-present0 libxcb-randr0 libxcb-render0 libxcb-shm0
+  libxcb-sync1 libxcb-xfixes0 libxfont2 libxi6 libxkbfile1 libxmu6 libxpm4
+  libxrender1 libxshmfence1 libxt6 libxxf86vm1 libz3-4 x11-common
+  x11-xkb-utils xfonts-encodings xfonts-utils xserver-common
+Suggested packages:
+  libasound2-plugins alsa-utils cups-common lm-sensors
+Recommended packages:
+  fonts-ipafont-mincho fonts-tlwg-loma alsa-ucm-conf alsa-topology-conf
+  at-spi2-core xfonts-base
+The following NEW packages will be installed:
+  at-spi2-common fontconfig fontconfig-config fonts-freefont-ttf
+  fonts-ipafont-gothic fonts-liberation fonts-noto-color-emoji
+  fonts-tlwg-loma-otf fonts-unifont fonts-wqy-zenhei libasound2
+  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libcairo2 libcups2
+  libdatrie1 libdrm-amdgpu1 libdrm-intel1 libdrm-nouveau2 libdrm-radeon1
+  libfontconfig1 libfontenc1 libfribidi0 libgbm1 libgl1 libgl1-mesa-dri
+  libglapi-mesa libglvnd0 libglx-mesa0 libglx0 libgraphite2-3 libharfbuzz0b
+  libice6 libllvm15 libnspr4 libnss3 libpango-1.0-0 libpciaccess0
+  libpixman-1-0 libsensors-config libsensors5 libsm6 libthai-data libthai0
+  libunwind8 libwayland-server0 libx11-xcb1 libxaw7 libxcb-dri2-0
+  libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0 libxcb-render0
+  libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcomposite1 libxdamage1
+  libxfixes3 libxfont2 libxi6 libxkbcommon0 libxkbfile1 libxmu6 libxpm4
+  libxrandr2 libxrender1 libxshmfence1 libxt6 libxxf86vm1 libz3-4 x11-common
+  x11-xkb-utils xfonts-encodings xfonts-scalable xfonts-utils xserver-common
+  xvfb
+0 upgraded, 84 newly installed, 0 to remove and 0 not upgraded.
+Need to get 81.5 MB of archives.
+After this operation, 266 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main amd64 fonts-ipafont-gothic all 00303-23 [3,515 kB]
+Get:2 http://security.debian.org/debian-security bookworm-security/main amd64 libnss3 amd64 2:3.87.1-1+deb12u4 [1,331 kB]
+Get:3 http://security.debian.org/debian-security bookworm-security/main amd64 libxfont2 amd64 1:2.0.6-1+deb12u1 [132 kB]
+Get:4 http://security.debian.org/debian-security bookworm-security/main amd64 xserver-common all 2:21.1.7-3+deb12u13 [2,384 kB]
+Get:5 http://deb.debian.org/debian bookworm/main amd64 at-spi2-common all 2.46.0-5 [162 kB]
+Get:6 http://deb.debian.org/debian bookworm/main amd64 fonts-liberation all 1:1.07.4-11 [828 kB]
+Get:7 http://deb.debian.org/debian bookworm/main amd64 fonts-freefont-ttf all 20120503-10 [2,552 kB]
+Get:8 http://security.debian.org/debian-security bookworm-security/main amd64 xvfb amd64 2:21.1.7-3+deb12u13 [3,154 kB]
+Get:9 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+Get:10 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+Get:11 http://deb.debian.org/debian bookworm/main amd64 fontconfig amd64 2.14.1-4 [449 kB]
+Get:12 http://deb.debian.org/debian bookworm/main amd64 fonts-noto-color-emoji all 2.042-0+deb12u1 [9,894 kB]
+Get:13 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [147 kB]
+Get:14 http://deb.debian.org/debian bookworm/main amd64 fonts-unifont all 1:15.0.01-2 [2,019 kB]
+Get:15 http://deb.debian.org/debian bookworm/main amd64 fonts-wqy-zenhei all 0.9.45-8 [7,479 kB]
+Ign:15 http://deb.debian.org/debian bookworm/main amd64 fonts-wqy-zenhei all 0.9.45-8
+Ign:16 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1
+Ign:17 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1
+Ign:18 http://deb.debian.org/debian bookworm/main amd64 libatk1.0-0 amd64 2.46.0-5
+Ign:19 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1
+Ign:20 http://deb.debian.org/debian bookworm/main amd64 libatspi2.0-0 amd64 2.46.0-5
+Ign:21 http://deb.debian.org/debian bookworm/main amd64 libatk-bridge2.0-0 amd64 2.46.0-5
+Ign:22 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1
+Ign:23 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1
+Ign:24 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1
+Ign:25 http://deb.debian.org/debian bookworm/main amd64 libpixman-1-0 amd64 0.42.2-1
+Ign:26 http://deb.debian.org/debian bookworm/main amd64 libxcb-render0 amd64 1.15-1
+Ign:27 http://deb.debian.org/debian bookworm/main amd64 libxcb-shm0 amd64 1.15-1
+Ign:28 http://deb.debian.org/debian bookworm/main amd64 libxrender1 amd64 1:0.9.10-1.1
+Ign:29 http://deb.debian.org/debian bookworm/main amd64 libcairo2 amd64 1.16.0-7
+Ign:30 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9
+Ign:31 http://deb.debian.org/debian bookworm/main amd64 libdatrie1 amd64 0.2.13-2+b1
+Ign:32 http://deb.debian.org/debian bookworm/main amd64 libdrm-amdgpu1 amd64 2.4.114-1+b1
+Ign:33 http://deb.debian.org/debian bookworm/main amd64 libpciaccess0 amd64 0.17-2
+Ign:34 http://deb.debian.org/debian bookworm/main amd64 libdrm-intel1 amd64 2.4.114-1+b1
+Ign:35 http://deb.debian.org/debian bookworm/main amd64 libdrm-nouveau2 amd64 2.4.114-1+b1
+Ign:36 http://deb.debian.org/debian bookworm/main amd64 libdrm-radeon1 amd64 2.4.114-1+b1
+Ign:37 http://deb.debian.org/debian bookworm/main amd64 libfontenc1 amd64 1:1.1.4-1
+Ign:38 http://deb.debian.org/debian bookworm/main amd64 libfribidi0 amd64 1.0.8-2.1
+Ign:39 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1
+Ign:40 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u2
+Ign:41 http://deb.debian.org/debian bookworm/main amd64 libglvnd0 amd64 1.6.0-1
+Ign:42 http://deb.debian.org/debian bookworm/main amd64 libglapi-mesa amd64 22.3.6-1+deb12u2
+Ign:43 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2
+Ign:44 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri2-0 amd64 1.15-1
+Ign:45 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri3-0 amd64 1.15-1
+Ign:46 http://deb.debian.org/debian bookworm/main amd64 libxcb-glx0 amd64 1.15-1
+Ign:47 http://deb.debian.org/debian bookworm/main amd64 libxcb-present0 amd64 1.15-1
+Ign:48 http://deb.debian.org/debian bookworm/main amd64 libxcb-randr0 amd64 1.15-1
+Ign:49 http://deb.debian.org/debian bookworm/main amd64 libxcb-sync1 amd64 1.15-1
+Ign:50 http://deb.debian.org/debian bookworm/main amd64 libxcb-xfixes0 amd64 1.15-1
+Ign:51 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2
+Ign:52 http://deb.debian.org/debian bookworm/main amd64 libxshmfence1 amd64 1.3-1
+Ign:53 http://deb.debian.org/debian bookworm/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2
+Ign:54 http://deb.debian.org/debian bookworm/main amd64 libz3-4 amd64 4.8.12-3.1
+Ign:55 http://deb.debian.org/debian bookworm/main amd64 libllvm15 amd64 1:15.0.6-4+b1
+Ign:56 http://deb.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1
+Ign:57 http://deb.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1
+Ign:58 http://deb.debian.org/debian bookworm/main amd64 libgl1-mesa-dri amd64 22.3.6-1+deb12u2
+Ign:59 http://deb.debian.org/debian bookworm/main amd64 libglx-mesa0 amd64 22.3.6-1+deb12u2
+Ign:60 http://deb.debian.org/debian bookworm/main amd64 libglx0 amd64 1.6.0-1
+Ign:61 http://deb.debian.org/debian bookworm/main amd64 libgl1 amd64 1.6.0-1
+Ign:62 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-3 amd64 1.3.14-1+deb12u1
+Ign:63 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz0b amd64 6.0.0+dfsg-3
+Ign:64 http://deb.debian.org/debian bookworm/main amd64 x11-common all 1:7.7+23
+Ign:65 http://deb.debian.org/debian bookworm/main amd64 libice6 amd64 2:1.0.10-1
+Ign:66 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1
+Ign:67 http://deb.debian.org/debian bookworm/main amd64 libthai-data all 0.1.29-1
+Ign:68 http://deb.debian.org/debian bookworm/main amd64 libthai0 amd64 0.1.29-1
+Ign:69 http://deb.debian.org/debian bookworm/main amd64 libpango-1.0-0 amd64 1.50.12+ds-1
+Ign:70 http://deb.debian.org/debian bookworm/main amd64 libsm6 amd64 2:1.2.3-1
+Ign:71 http://deb.debian.org/debian bookworm/main amd64 libunwind8 amd64 1.6.2-3
+Ign:72 http://deb.debian.org/debian bookworm/main amd64 libxt6 amd64 1:1.2.1-1.1
+Ign:73 http://deb.debian.org/debian bookworm/main amd64 libxmu6 amd64 2:1.1.3-3
+Ign:74 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1
+Ign:75 http://deb.debian.org/debian bookworm/main amd64 libxaw7 amd64 2:1.0.14-1
+Ign:76 http://deb.debian.org/debian bookworm/main amd64 libxcomposite1 amd64 1:0.4.5-1
+Ign:77 http://deb.debian.org/debian bookworm/main amd64 libxdamage1 amd64 1:1.1.6-1
+Ign:78 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1
+Ign:79 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1
+Ign:80 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1
+Ign:81 http://deb.debian.org/debian bookworm/main amd64 x11-xkb-utils amd64 7.7+7
+Ign:82 http://deb.debian.org/debian bookworm/main amd64 xfonts-encodings all 1:1.0.4-2.2
+Ign:83 http://deb.debian.org/debian bookworm/main amd64 xfonts-utils amd64 1:7.7+6
+Ign:84 http://deb.debian.org/debian bookworm/main amd64 xfonts-scalable all 1:1.0.3-1.3
+Ign:15 http://deb.debian.org/debian bookworm/main amd64 fonts-wqy-zenhei all 0.9.45-8
+Ign:16 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1
+Ign:17 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1
+Ign:18 http://deb.debian.org/debian bookworm/main amd64 libatk1.0-0 amd64 2.46.0-5
+Ign:19 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1
+Ign:20 http://deb.debian.org/debian bookworm/main amd64 libatspi2.0-0 amd64 2.46.0-5
+Ign:21 http://deb.debian.org/debian bookworm/main amd64 libatk-bridge2.0-0 amd64 2.46.0-5
+Ign:22 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1
+Ign:23 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1
+Ign:24 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1
+Ign:25 http://deb.debian.org/debian bookworm/main amd64 libpixman-1-0 amd64 0.42.2-1
+Ign:26 http://deb.debian.org/debian bookworm/main amd64 libxcb-render0 amd64 1.15-1
+Ign:27 http://deb.debian.org/debian bookworm/main amd64 libxcb-shm0 amd64 1.15-1
+Ign:28 http://deb.debian.org/debian bookworm/main amd64 libxrender1 amd64 1:0.9.10-1.1
+Ign:29 http://deb.debian.org/debian bookworm/main amd64 libcairo2 amd64 1.16.0-7
+Ign:30 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9
+Ign:31 http://deb.debian.org/debian bookworm/main amd64 libdatrie1 amd64 0.2.13-2+b1
+Ign:32 http://deb.debian.org/debian bookworm/main amd64 libdrm-amdgpu1 amd64 2.4.114-1+b1
+Ign:33 http://deb.debian.org/debian bookworm/main amd64 libpciaccess0 amd64 0.17-2
+Ign:34 http://deb.debian.org/debian bookworm/main amd64 libdrm-intel1 amd64 2.4.114-1+b1
+Ign:35 http://deb.debian.org/debian bookworm/main amd64 libdrm-nouveau2 amd64 2.4.114-1+b1
+Ign:36 http://deb.debian.org/debian bookworm/main amd64 libdrm-radeon1 amd64 2.4.114-1+b1
+Ign:37 http://deb.debian.org/debian bookworm/main amd64 libfontenc1 amd64 1:1.1.4-1
+Ign:38 http://deb.debian.org/debian bookworm/main amd64 libfribidi0 amd64 1.0.8-2.1
+Ign:39 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1
+Ign:40 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u2
+Ign:41 http://deb.debian.org/debian bookworm/main amd64 libglvnd0 amd64 1.6.0-1
+Ign:42 http://deb.debian.org/debian bookworm/main amd64 libglapi-mesa amd64 22.3.6-1+deb12u2
+Ign:43 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2
+Ign:44 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri2-0 amd64 1.15-1
+Ign:45 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri3-0 amd64 1.15-1
+Ign:46 http://deb.debian.org/debian bookworm/main amd64 libxcb-glx0 amd64 1.15-1
+Ign:47 http://deb.debian.org/debian bookworm/main amd64 libxcb-present0 amd64 1.15-1
+Ign:48 http://deb.debian.org/debian bookworm/main amd64 libxcb-randr0 amd64 1.15-1
+Ign:49 http://deb.debian.org/debian bookworm/main amd64 libxcb-sync1 amd64 1.15-1
+Ign:50 http://deb.debian.org/debian bookworm/main amd64 libxcb-xfixes0 amd64 1.15-1
+Ign:51 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2
+Ign:52 http://deb.debian.org/debian bookworm/main amd64 libxshmfence1 amd64 1.3-1
+Ign:53 http://deb.debian.org/debian bookworm/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2
+Ign:54 http://deb.debian.org/debian bookworm/main amd64 libz3-4 amd64 4.8.12-3.1
+Ign:55 http://deb.debian.org/debian bookworm/main amd64 libllvm15 amd64 1:15.0.6-4+b1
+Ign:56 http://deb.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1
+Ign:57 http://deb.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1
+Ign:58 http://deb.debian.org/debian bookworm/main amd64 libgl1-mesa-dri amd64 22.3.6-1+deb12u2
+Ign:59 http://deb.debian.org/debian bookworm/main amd64 libglx-mesa0 amd64 22.3.6-1+deb12u2
+Ign:60 http://deb.debian.org/debian bookworm/main amd64 libglx0 amd64 1.6.0-1
+Ign:61 http://deb.debian.org/debian bookworm/main amd64 libgl1 amd64 1.6.0-1
+Ign:62 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-3 amd64 1.3.14-1+deb12u1
+Ign:63 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz0b amd64 6.0.0+dfsg-3
+Ign:64 http://deb.debian.org/debian bookworm/main amd64 x11-common all 1:7.7+23
+Ign:65 http://deb.debian.org/debian bookworm/main amd64 libice6 amd64 2:1.0.10-1
+Ign:66 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1
+Ign:67 http://deb.debian.org/debian bookworm/main amd64 libthai-data all 0.1.29-1
+Ign:68 http://deb.debian.org/debian bookworm/main amd64 libthai0 amd64 0.1.29-1
+Ign:69 http://deb.debian.org/debian bookworm/main amd64 libpango-1.0-0 amd64 1.50.12+ds-1
+Ign:70 http://deb.debian.org/debian bookworm/main amd64 libsm6 amd64 2:1.2.3-1
+Ign:71 http://deb.debian.org/debian bookworm/main amd64 libunwind8 amd64 1.6.2-3
+Ign:72 http://deb.debian.org/debian bookworm/main amd64 libxt6 amd64 1:1.2.1-1.1
+Ign:73 http://deb.debian.org/debian bookworm/main amd64 libxmu6 amd64 2:1.1.3-3
+Ign:74 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1
+Ign:75 http://deb.debian.org/debian bookworm/main amd64 libxaw7 amd64 2:1.0.14-1
+Ign:76 http://deb.debian.org/debian bookworm/main amd64 libxcomposite1 amd64 1:0.4.5-1
+Ign:77 http://deb.debian.org/debian bookworm/main amd64 libxdamage1 amd64 1:1.1.6-1
+Ign:78 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1
+Ign:79 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1
+Ign:80 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1
+Ign:81 http://deb.debian.org/debian bookworm/main amd64 x11-xkb-utils amd64 7.7+7
+Ign:82 http://deb.debian.org/debian bookworm/main amd64 xfonts-encodings all 1:1.0.4-2.2
+Ign:83 http://deb.debian.org/debian bookworm/main amd64 xfonts-utils amd64 1:7.7+6
+Ign:84 http://deb.debian.org/debian bookworm/main amd64 xfonts-scalable all 1:1.0.3-1.3
+Ign:15 http://deb.debian.org/debian bookworm/main amd64 fonts-wqy-zenhei all 0.9.45-8
+Ign:16 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1
+Ign:17 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1
+Ign:18 http://deb.debian.org/debian bookworm/main amd64 libatk1.0-0 amd64 2.46.0-5
+Ign:19 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1
+Ign:20 http://deb.debian.org/debian bookworm/main amd64 libatspi2.0-0 amd64 2.46.0-5
+Ign:21 http://deb.debian.org/debian bookworm/main amd64 libatk-bridge2.0-0 amd64 2.46.0-5
+Ign:22 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1
+Ign:23 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1
+Ign:24 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1
+Ign:25 http://deb.debian.org/debian bookworm/main amd64 libpixman-1-0 amd64 0.42.2-1
+Ign:26 http://deb.debian.org/debian bookworm/main amd64 libxcb-render0 amd64 1.15-1
+Ign:27 http://deb.debian.org/debian bookworm/main amd64 libxcb-shm0 amd64 1.15-1
+Ign:28 http://deb.debian.org/debian bookworm/main amd64 libxrender1 amd64 1:0.9.10-1.1
+Ign:29 http://deb.debian.org/debian bookworm/main amd64 libcairo2 amd64 1.16.0-7
+Ign:30 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9
+Ign:31 http://deb.debian.org/debian bookworm/main amd64 libdatrie1 amd64 0.2.13-2+b1
+Ign:32 http://deb.debian.org/debian bookworm/main amd64 libdrm-amdgpu1 amd64 2.4.114-1+b1
+Ign:33 http://deb.debian.org/debian bookworm/main amd64 libpciaccess0 amd64 0.17-2
+Ign:34 http://deb.debian.org/debian bookworm/main amd64 libdrm-intel1 amd64 2.4.114-1+b1
+Ign:35 http://deb.debian.org/debian bookworm/main amd64 libdrm-nouveau2 amd64 2.4.114-1+b1
+Ign:36 http://deb.debian.org/debian bookworm/main amd64 libdrm-radeon1 amd64 2.4.114-1+b1
+Ign:37 http://deb.debian.org/debian bookworm/main amd64 libfontenc1 amd64 1:1.1.4-1
+Ign:38 http://deb.debian.org/debian bookworm/main amd64 libfribidi0 amd64 1.0.8-2.1
+Ign:39 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1
+Ign:40 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u2
+Ign:41 http://deb.debian.org/debian bookworm/main amd64 libglvnd0 amd64 1.6.0-1
+Ign:42 http://deb.debian.org/debian bookworm/main amd64 libglapi-mesa amd64 22.3.6-1+deb12u2
+Ign:43 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2
+Ign:44 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri2-0 amd64 1.15-1
+Ign:45 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri3-0 amd64 1.15-1
+Ign:46 http://deb.debian.org/debian bookworm/main amd64 libxcb-glx0 amd64 1.15-1
+Ign:47 http://deb.debian.org/debian bookworm/main amd64 libxcb-present0 amd64 1.15-1
+Ign:48 http://deb.debian.org/debian bookworm/main amd64 libxcb-randr0 amd64 1.15-1
+Ign:49 http://deb.debian.org/debian bookworm/main amd64 libxcb-sync1 amd64 1.15-1
+Ign:50 http://deb.debian.org/debian bookworm/main amd64 libxcb-xfixes0 amd64 1.15-1
+Ign:51 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2
+Ign:52 http://deb.debian.org/debian bookworm/main amd64 libxshmfence1 amd64 1.3-1
+Ign:53 http://deb.debian.org/debian bookworm/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2
+Ign:54 http://deb.debian.org/debian bookworm/main amd64 libz3-4 amd64 4.8.12-3.1
+Ign:55 http://deb.debian.org/debian bookworm/main amd64 libllvm15 amd64 1:15.0.6-4+b1
+Ign:56 http://deb.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1
+Ign:57 http://deb.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1
+Ign:58 http://deb.debian.org/debian bookworm/main amd64 libgl1-mesa-dri amd64 22.3.6-1+deb12u2
+Ign:59 http://deb.debian.org/debian bookworm/main amd64 libglx-mesa0 amd64 22.3.6-1+deb12u2
+Ign:60 http://deb.debian.org/debian bookworm/main amd64 libglx0 amd64 1.6.0-1
+Ign:61 http://deb.debian.org/debian bookworm/main amd64 libgl1 amd64 1.6.0-1
+Ign:62 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-3 amd64 1.3.14-1+deb12u1
+Ign:63 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz0b amd64 6.0.0+dfsg-3
+Ign:64 http://deb.debian.org/debian bookworm/main amd64 x11-common all 1:7.7+23
+Ign:65 http://deb.debian.org/debian bookworm/main amd64 libice6 amd64 2:1.0.10-1
+Ign:66 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1
+Ign:67 http://deb.debian.org/debian bookworm/main amd64 libthai-data all 0.1.29-1
+Ign:68 http://deb.debian.org/debian bookworm/main amd64 libthai0 amd64 0.1.29-1
+Ign:69 http://deb.debian.org/debian bookworm/main amd64 libpango-1.0-0 amd64 1.50.12+ds-1
+Ign:70 http://deb.debian.org/debian bookworm/main amd64 libsm6 amd64 2:1.2.3-1
+Ign:71 http://deb.debian.org/debian bookworm/main amd64 libunwind8 amd64 1.6.2-3
+Ign:72 http://deb.debian.org/debian bookworm/main amd64 libxt6 amd64 1:1.2.1-1.1
+Ign:73 http://deb.debian.org/debian bookworm/main amd64 libxmu6 amd64 2:1.1.3-3
+Ign:74 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1
+Ign:75 http://deb.debian.org/debian bookworm/main amd64 libxaw7 amd64 2:1.0.14-1
+Ign:76 http://deb.debian.org/debian bookworm/main amd64 libxcomposite1 amd64 1:0.4.5-1
+Ign:77 http://deb.debian.org/debian bookworm/main amd64 libxdamage1 amd64 1:1.1.6-1
+Ign:78 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1
+Ign:79 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1
+Ign:80 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1
+Ign:81 http://deb.debian.org/debian bookworm/main amd64 x11-xkb-utils amd64 7.7+7
+Ign:82 http://deb.debian.org/debian bookworm/main amd64 xfonts-encodings all 1:1.0.4-2.2
+Ign:83 http://deb.debian.org/debian bookworm/main amd64 xfonts-utils amd64 1:7.7+6
+Ign:84 http://deb.debian.org/debian bookworm/main amd64 xfonts-scalable all 1:1.0.3-1.3
+Err:15 http://deb.debian.org/debian bookworm/main amd64 fonts-wqy-zenhei all 0.9.45-8
+  Connection timed out [IP: 199.232.166.132 80]
+Err:16 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) Could not connect to deb.debian.org:80 (199.232.166.132), connection timed out [IP: 199.232.166.132 80]
+Err:17 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:18 http://deb.debian.org/debian bookworm/main amd64 libatk1.0-0 amd64 2.46.0-5
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:19 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:20 http://deb.debian.org/debian bookworm/main amd64 libatspi2.0-0 amd64 2.46.0-5
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:21 http://deb.debian.org/debian bookworm/main amd64 libatk-bridge2.0-0 amd64 2.46.0-5
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:22 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:23 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:24 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:25 http://deb.debian.org/debian bookworm/main amd64 libpixman-1-0 amd64 0.42.2-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:26 http://deb.debian.org/debian bookworm/main amd64 libxcb-render0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:27 http://deb.debian.org/debian bookworm/main amd64 libxcb-shm0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:28 http://deb.debian.org/debian bookworm/main amd64 libxrender1 amd64 1:0.9.10-1.1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:29 http://deb.debian.org/debian bookworm/main amd64 libcairo2 amd64 1.16.0-7
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Ign:30 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9
+Err:31 http://deb.debian.org/debian bookworm/main amd64 libdatrie1 amd64 0.2.13-2+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:32 http://deb.debian.org/debian bookworm/main amd64 libdrm-amdgpu1 amd64 2.4.114-1+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:33 http://deb.debian.org/debian bookworm/main amd64 libpciaccess0 amd64 0.17-2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:34 http://deb.debian.org/debian bookworm/main amd64 libdrm-intel1 amd64 2.4.114-1+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:35 http://deb.debian.org/debian bookworm/main amd64 libdrm-nouveau2 amd64 2.4.114-1+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:36 http://deb.debian.org/debian bookworm/main amd64 libdrm-radeon1 amd64 2.4.114-1+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:37 http://deb.debian.org/debian bookworm/main amd64 libfontenc1 amd64 1:1.1.4-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:38 http://deb.debian.org/debian bookworm/main amd64 libfribidi0 amd64 1.0.8-2.1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:39 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:40 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:41 http://deb.debian.org/debian bookworm/main amd64 libglvnd0 amd64 1.6.0-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:42 http://deb.debian.org/debian bookworm/main amd64 libglapi-mesa amd64 22.3.6-1+deb12u2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Ign:43 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2
+Err:44 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri2-0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:45 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri3-0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:46 http://deb.debian.org/debian bookworm/main amd64 libxcb-glx0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:47 http://deb.debian.org/debian bookworm/main amd64 libxcb-present0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:48 http://deb.debian.org/debian bookworm/main amd64 libxcb-randr0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:49 http://deb.debian.org/debian bookworm/main amd64 libxcb-sync1 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:50 http://deb.debian.org/debian bookworm/main amd64 libxcb-xfixes0 amd64 1.15-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:51 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:52 http://deb.debian.org/debian bookworm/main amd64 libxshmfence1 amd64 1.3-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:53 http://deb.debian.org/debian bookworm/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:54 http://deb.debian.org/debian bookworm/main amd64 libz3-4 amd64 4.8.12-3.1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:55 http://deb.debian.org/debian bookworm/main amd64 libllvm15 amd64 1:15.0.6-4+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:56 http://deb.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:57 http://deb.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:58 http://deb.debian.org/debian bookworm/main amd64 libgl1-mesa-dri amd64 22.3.6-1+deb12u2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:59 http://deb.debian.org/debian bookworm/main amd64 libglx-mesa0 amd64 22.3.6-1+deb12u2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:60 http://deb.debian.org/debian bookworm/main amd64 libglx0 amd64 1.6.0-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:61 http://deb.debian.org/debian bookworm/main amd64 libgl1 amd64 1.6.0-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:62 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-3 amd64 1.3.14-1+deb12u1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:63 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz0b amd64 6.0.0+dfsg-3
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:64 http://deb.debian.org/debian bookworm/main amd64 x11-common all 1:7.7+23
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:65 http://deb.debian.org/debian bookworm/main amd64 libice6 amd64 2:1.0.10-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:66 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:67 http://deb.debian.org/debian bookworm/main amd64 libthai-data all 0.1.29-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:68 http://deb.debian.org/debian bookworm/main amd64 libthai0 amd64 0.1.29-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:69 http://deb.debian.org/debian bookworm/main amd64 libpango-1.0-0 amd64 1.50.12+ds-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:70 http://deb.debian.org/debian bookworm/main amd64 libsm6 amd64 2:1.2.3-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:71 http://deb.debian.org/debian bookworm/main amd64 libunwind8 amd64 1.6.2-3
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:72 http://deb.debian.org/debian bookworm/main amd64 libxt6 amd64 1:1.2.1-1.1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:73 http://deb.debian.org/debian bookworm/main amd64 libxmu6 amd64 2:1.1.3-3
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Ign:74 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1
+Err:75 http://deb.debian.org/debian bookworm/main amd64 libxaw7 amd64 2:1.0.14-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:76 http://deb.debian.org/debian bookworm/main amd64 libxcomposite1 amd64 1:0.4.5-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:77 http://deb.debian.org/debian bookworm/main amd64 libxdamage1 amd64 1:1.1.6-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:78 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:79 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:80 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:81 http://deb.debian.org/debian bookworm/main amd64 x11-xkb-utils amd64 7.7+7
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:82 http://deb.debian.org/debian bookworm/main amd64 xfonts-encodings all 1:1.0.4-2.2
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:83 http://deb.debian.org/debian bookworm/main amd64 xfonts-utils amd64 1:7.7+6
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Err:84 http://deb.debian.org/debian bookworm/main amd64 xfonts-scalable all 1:1.0.3-1.3
+  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+Get:30 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9 [245 kB]
+Get:43 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2 [192 kB]
+Get:74 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+Fetched 27.8 MB in 2min 13s (208 kB/s)
+E: Failed to fetch http://deb.debian.org/debian/pool/main/f/fonts-wqy-zenhei/fonts-wqy-zenhei_0.9.45-8_all.deb  Connection timed out [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/alsa-lib/libasound2-data_1.2.8-1_all.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) Could not connect to deb.debian.org:80 (199.232.166.132), connection timed out [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/alsa-lib/libasound2_1.2.8-1%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/at-spi2-core/libatk1.0-0_2.46.0-5_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxi/libxi6_1.8-1%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/at-spi2-core/libatspi2.0-0_2.46.0-5_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/at-spi2-core/libatk-bridge2.0-0_2.46.0-5_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/avahi/libavahi-common-data_0.8-10%2bdeb12u1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/avahi/libavahi-common3_0.8-10%2bdeb12u1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/a/avahi/libavahi-client3_0.8-10%2bdeb12u1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/p/pixman/libpixman-1-0_0.42.2-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-render0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-shm0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxrender/libxrender1_0.9.10-1.1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/c/cairo/libcairo2_1.16.0-7_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libd/libdatrie/libdatrie1_0.2.13-2%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.114-1%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libp/libpciaccess/libpciaccess0_0.17-2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libd/libdrm/libdrm-intel1_2.4.114-1%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libd/libdrm/libdrm-nouveau2_2.4.114-1%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libd/libdrm/libdrm-radeon1_2.4.114-1%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libf/libfontenc/libfontenc1_1.1.4-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/f/fribidi/libfribidi0_1.0.8-2.1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/w/wayland/libwayland-server0_1.21.0-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/m/mesa/libgbm1_22.3.6-1%2bdeb12u2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libg/libglvnd/libglvnd0_1.6.0-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/m/mesa/libglapi-mesa_22.3.6-1%2bdeb12u2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-dri2-0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-dri3-0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-glx0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-present0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-randr0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-sync1_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xfixes0_1.15-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxfixes/libxfixes3_6.0.0-2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence1_1.3-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxxf86vm/libxxf86vm1_1.1.4-1%2bb2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/z/z3/libz3-4_4.8.12-3.1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/l/llvm-toolchain-15/libllvm15_15.0.6-4%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/l/lm-sensors/libsensors-config_3.6.0-7.1_all.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/l/lm-sensors/libsensors5_3.6.0-7.1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/m/mesa/libgl1-mesa-dri_22.3.6-1%2bdeb12u2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/m/mesa/libglx-mesa0_22.3.6-1%2bdeb12u2_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libg/libglvnd/libglx0_1.6.0-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libg/libglvnd/libgl1_1.6.0-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/g/graphite2/libgraphite2-3_1.3.14-1%2bdeb12u1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/h/harfbuzz/libharfbuzz0b_6.0.0%2bdfsg-3_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/x/xorg/x11-common_7.7%2b23_all.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libi/libice/libice6_1.0.10-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/n/nspr/libnspr4_4.35-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libt/libthai/libthai-data_0.1.29-1_all.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libt/libthai/libthai0_0.1.29-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.50.12%2bds-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libs/libsm/libsm6_1.2.3-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libu/libunwind/libunwind8_1.6.2-3_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxt/libxt6_1.2.1-1.1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxmu/libxmu6_1.1.3-3_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxaw/libxaw7_1.0.14-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite1_0.4.5-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxdamage/libxdamage1_1.1.6-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon0_1.5.0-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile1_1.1.0-1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxrandr/libxrandr2_1.5.2-2%2bb1_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/x/x11-xkb-utils/x11-xkb-utils_7.7%2b7_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/x/xfonts-encodings/xfonts-encodings_1.0.4-2.2_all.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/x/xfonts-utils/xfonts-utils_7.7%2b6_amd64.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Failed to fetch http://deb.debian.org/debian/pool/main/x/xfonts-scalable/xfonts-scalable_1.0.3-1.3_all.deb  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:69::644). - connect (101: Network is unreachable) [IP: 199.232.166.132 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+Failed to install browser dependencies
+Error: Installation process exited with code: 100

@@ -1,0 +1,7 @@
+test_archive_member_and_link_escapes_are_rejected (test_linux_setup.LinuxSetupTests.test_archive_member_and_link_escapes_are_rejected) ... ok
+test_old_python_extraction_supports_regular_archive (test_linux_setup.LinuxSetupTests.test_old_python_extraction_supports_regular_archive) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.049s
+
+OK

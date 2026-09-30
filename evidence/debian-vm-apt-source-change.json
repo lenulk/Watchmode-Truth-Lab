@@ -1,0 +1,8 @@
+{
+  "changed_file": "/etc/apt/sources.list",
+  "backup": "reports/apt-sources.list.before",
+  "disabled_cdrom_entries": 1,
+  "sha256_before": "435c9fc58d55cb589e901686df4ceeb2c3f5e55ba9317bb787f9f831701cd2d9",
+  "sha256_after": "4dad12ad9e4eb345cb33d728b753576f224ca0d3ec04742249d6be8c9ae28eca",
+  "rollback": "Restore the retained sources.list backup as root"
+}

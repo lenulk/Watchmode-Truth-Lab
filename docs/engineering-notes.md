@@ -33,3 +33,17 @@ Retained log length was limited, but an unbounded `readline()` could first alloc
 ## Local Git ownership during approved writes
 
 The sandbox-created repository belongs to the sandbox account, while approved Git writes run as the Windows host account. Git therefore rejected staging with a dubious-ownership diagnostic. Use a per-command `safe.directory` value scoped to this verified project checkout for approved writes. No global Git setting is required. Test execution and source-file writes were unaffected.
+
+## Debian VM bootstrap and evidence recording
+
+The guest installed from a Debian 12.14 image reports Debian 12.15 at execution time. It is a VMware VM with two vCPUs and approximately 2 GiB memory, separate from the Kali WSL2 runs. Its Python 3.11.2 tarfile API lacks the newer extraction filter. The portable Linux bootstrap validates paths and link destinations, verifies the official Node archive checksum, and supports this older API for that verified archive. Runtime storage is project-local under ignored reports.
+
+Missing Git originally prevented the test recorder from saving results after execution. Git metadata is now optional; unknown working-tree state is null, and archive runs can supply a source revision. Recorder and runner SHA-256 values preserve identification of the executed files. Targeted tests, the Windows regression, and the actual VM suite pass; see cycles 32–37 and 44 in [the test log](test-log.md).
+
+## Debian browser provisioning recovery and rollback
+
+Browser dependency installation first failed because an active installation-CD source blocked APT update. The original sources file was backed up in `reports/apt-sources.list.before` before commenting the single inspected CD-ROM entry. A subsequent download failure was resolved with a per-command APT configuration using IPv4, retries, and timeouts. This observed recovery does not establish IPv6 as the sole cause. The fresh pre-browser package baseline preserves unrelated Git installation work.
+
+The successful browser dependency step added 84 packages, upgraded none, and added 32 manual package marks. [Package changes](../evidence/debian-vm-package-changes.json) and [source changes](../evidence/debian-vm-apt-source-change.json) identify backups and rollback references. Before rollback, inspect the current package state and any later user additions; do not blindly remove packages or restore an old package database. No desktop environment was installed.
+
+Direct guest Chromium downloads failed with read timeouts and a DNS error. Exact pinned archives were downloaded over HTTPS on the host, transferred to the VM, and checked for matching SHA-256 values. The normal Playwright installer used a temporary localhost mirror, which was then shut down. [Download provenance](../evidence/debian-vm-browser-download-provenance.json) records URLs, sizes, and transfer hashes; these are not claimed as publisher signatures. Failures and successful retries are retained separately in cycles 38–43. Actual DOM/HMR testing and post-test process checks are recorded independently of provisioning.

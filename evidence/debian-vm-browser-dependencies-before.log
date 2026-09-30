@@ -1,0 +1,23 @@
+Password: 
+Installing dependencies...
+Ign:1 cdrom://[Debian GNU/Linux 12.14.0 _Bookworm_ - Official amd64 DVD Binary-1 with firmware 20260516-14:43] bookworm InRelease
+Err:2 cdrom://[Debian GNU/Linux 12.14.0 _Bookworm_ - Official amd64 DVD Binary-1 with firmware 20260516-14:43] bookworm Release
+  Please use apt-cdrom to make this CD-ROM recognized by APT. apt-get update cannot be used to add new CD-ROMs
+Hit:3 http://deb.debian.org/debian bookworm InRelease
+Get:4 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+Get:5 http://deb.debian.org/debian bookworm/non-free-firmware Sources [7,152 B]
+Get:6 http://deb.debian.org/debian bookworm/main Sources [9,492 kB]
+Hit:7 http://security.debian.org/debian-security bookworm-security InRelease
+Get:8 http://security.debian.org/debian-security bookworm-security/non-free-firmware Sources [1,988 B]
+Get:9 http://security.debian.org/debian-security bookworm-security/main Sources [254 kB]
+Get:10 http://security.debian.org/debian-security bookworm-security/non-free-firmware amd64 Packages [940 B]
+Get:11 http://security.debian.org/debian-security bookworm-security/non-free-firmware Translation-en [648 B]
+Get:12 http://deb.debian.org/debian bookworm/non-free-firmware amd64 Packages [6,368 B]
+Get:13 http://deb.debian.org/debian bookworm/non-free-firmware Translation-en [20.9 kB]
+Get:14 http://deb.debian.org/debian bookworm-updates/main Sources [3,288 B]
+Get:15 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6,924 B]
+Get:16 http://deb.debian.org/debian bookworm-updates/main Translation-en [5,448 B]
+Reading package lists...
+E: The repository 'cdrom://[Debian GNU/Linux 12.14.0 _Bookworm_ - Official amd64 DVD Binary-1 with firmware 20260516-14:43] bookworm Release' does not have a Release file.
+Failed to install browser dependencies
+Error: Installation process exited with code: 100

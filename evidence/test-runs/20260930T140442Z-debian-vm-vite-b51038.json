@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T140442Z-debian-vm-vite-b51038",
+  "started_at_utc": "2026-09-30T14:04:42.458102+00:00",
+  "purpose": "Real Vite and generic integrations on Debian VMware with pinned project-local Linux Node; browser not provisioned yet",
+  "git_revision": "da9270c",
+  "working_tree_dirty": null,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "7715469f48b38c698e7bd72c0c56b08505149397fc2641582f8ce9bb28f0f804",
+  "environment": {
+    "system": "Linux",
+    "release": "6.1.0-53-amd64",
+    "python": "3.11.2"
+  },
+  "duration_seconds": 9.646,
+  "status": "pass",
+  "tests_run": 24,
+  "failures": 0,
+  "errors": 0,
+  "skips": 2,
+  "cases": [
+    {
+      "test": "test_browser.BrowserTests.test_browser_hmr_updates_dom_without_reload",
+      "status": "skip",
+      "duration_seconds": 0.0,
+      "detail": "Requires installed Windows Chrome and pinned Playwright dependency"
+    },
+    {
+      "test": "test_browser.BrowserTests.test_disabled_watcher_keeps_browser_dom_stale",
+      "status": "skip",
+      "duration_seconds": 0.0,
+      "detail": "Requires installed Windows Chrome and pinned Playwright dependency"
+    },
+    {
+      "test": "test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher",
+      "status": "pass",
+      "duration_seconds": 0.08,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 0.2855,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_oversized_body_is_rejected",
+      "status": "pass",
+      "duration_seconds": 0.5835,
+      "detail": null
+    },
+    {
+      "test": "test_http_probe.HTTPDeadlineTests.test_slow_trickle_body_cannot_extend_observation_deadline",
+      "status": "pass",
+      "duration_seconds": 0.5804,
+      "detail": null
+    },
+    {
+      "test": "test_linux_setup.LinuxSetupTests.test_archive_member_and_link_escapes_are_rejected",
+      "status": "pass",
+      "duration_seconds": 0.0022,
+      "detail": null
+    },
+    {
+      "test": "test_linux_setup.LinuxSetupTests.test_old_python_extraction_supports_regular_archive",
+      "status": "pass",
+      "duration_seconds": 0.0017,
+      "detail": null
+    },
+    {
+      "test": "test_logs.LogTests.test_long_line_is_drained_in_bounded_reads_and_next_line_survives",
+      "status": "pass",
+      "duration_seconds": 0.0065,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_external_mutation_success_and_failure_are_distinguished",
+      "status": "pass",
+      "duration_seconds": 0.5019,
+      "detail": null
+    },
+    {
+      "test": "test_mutation_command.MutationCommandTests.test_noisy_mutator_and_timeout_are_bounded",
+      "status": "pass",
+      "duration_seconds": 0.7706,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_from_exited_process_is_inconclusive",
+      "status": "pass",
+      "duration_seconds": 0.0004,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_matching_output_observed_after_deadline_is_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0008,
+      "detail": null
+    },
+    {
+      "test": "test_oracle.OracleDecisionTests.test_transient_match_does_not_hide_final_stale_output",
+      "status": "pass",
+      "duration_seconds": 0.0009,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios",
+      "status": "pass",
+      "duration_seconds": 0.001,
+      "detail": null
+    },
+    {
+      "test": "test_recording.RecordingTests.test_missing_git_returns_unknown_metadata",
+      "status": "pass",
+      "duration_seconds": 0.0002,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_example_passes_all_mutation_modes",
+      "status": "pass",
+      "duration_seconds": 1.3849,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_http_oracle_checks_response_bytes",
+      "status": "pass",
+      "duration_seconds": 0.2152,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace",
+      "status": "pass",
+      "duration_seconds": 0.0008,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_rejects_nonfinite_timeout",
+      "status": "pass",
+      "duration_seconds": 0.0005,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_stale_output_is_reported",
+      "status": "pass",
+      "duration_seconds": 0.3975,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_templated_source_and_extracted_file_output",
+      "status": "pass",
+      "duration_seconds": 0.2511,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale",
+      "status": "pass",
+      "duration_seconds": 3.6915,
+      "detail": null
+    },
+    {
+      "test": "test_runner.RunnerTests.test_vite_native_module_response",
+      "status": "pass",
+      "duration_seconds": 0.884,
+      "detail": null
+    }
+  ]
+}

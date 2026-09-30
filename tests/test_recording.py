@@ -4,9 +4,14 @@ from pathlib import Path
 from unittest.mock import patch
 
 import scenario_cycle
+import test_cycle
 
 
 class RecordingTests(unittest.TestCase):
+    def test_missing_git_returns_unknown_metadata(self):
+        with patch.object(test_cycle.subprocess, "run", side_effect=FileNotFoundError("git missing")):
+            self.assertIsNone(test_cycle.git_value("rev-parse", "HEAD"))
+
     def test_existing_matrix_directory_is_rejected_before_scenarios(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary) / "saved"

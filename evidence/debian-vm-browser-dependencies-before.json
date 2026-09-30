@@ -1,0 +1,7 @@
+{
+  "status": "fail",
+  "phase": "browser_dependency_installation",
+  "reason": "active_installer_cdrom_source_prevents_apt_update",
+  "exit_code": 100,
+  "installed_package_database_unchanged": false
+}

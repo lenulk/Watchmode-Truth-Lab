@@ -1,7 +1,8 @@
-"""Retain Chrome DOM freshness and HMR continuity evidence for each mutation."""
+"""Retain browser DOM freshness and HMR continuity evidence for each mutation."""
 
 import argparse
 import json
+import os
 import sys
 import tempfile
 import traceback
@@ -49,6 +50,7 @@ def main():
         assessment = "pass" if report["status"] == expected and continuity and (
             updates >= rounds if expected == "pass" else updates == 0) else "fail"
         record = {"watcher": watcher, "mutation": mode, "expected_status": expected,
+                  "browser_channel": os.environ.get("WTL_BROWSER_CHANNEL", "chrome"),
                   "assessment": assessment, "browser_version": versions, "session_continuity": continuity,
                   "observed_hmr_updates": updates, "scenario_base": "vite.browser.json", "scenario_env": config["env"],
                   "analysis": "Actual DOM token and a retained page session were observed. A disabled watcher is an expected stale control, not a newly discovered tool failure.",
@@ -58,7 +60,7 @@ def main():
         summary.append({"file": filename, "status": report["status"], "assessment": assessment,
                         "session_continuity": continuity, "hmr_updates": updates})
         (args.output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-        print(f"Chrome HMR {watcher} {mode}: {report['status']}; continuity={continuity}; saved {filename}", flush=True)
+        print(f"Browser HMR {watcher} {mode}: {report['status']}; continuity={continuity}; saved {filename}", flush=True)
         if assessment == "fail":
             return 1
     return 0

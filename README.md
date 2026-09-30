@@ -39,7 +39,7 @@ The fixture serves `/src/token.js` through Vite. The oracle extracts the exporte
 
 ### Browser HMR
 
-The separate browser adapter uses pinned Playwright Core with an existing installed Chrome. It reads the actual DOM, records HMR callback counts, and rejects a changed page session. It launches an isolated headless browser profile. `WTL_BROWSER_CHANNEL=msedge` may select installed Edge; only Windows Chrome is currently verified.
+The separate browser adapter uses pinned Playwright Core with installed Chrome or provisioned Chromium. It reads the actual DOM, records HMR callback counts, and rejects a changed page session. It launches an isolated headless browser profile. Windows Chrome and Linux Chromium in the Debian VMware guest are verified. `WTL_BROWSER_CHANNEL=msedge` may select installed Edge; Edge remains unverified.
 
 ```sh
 python -m watchmode_truth_lab vite.browser.json --rounds 3 --mutation atomic_replace --report reports/browser.json
@@ -47,6 +47,27 @@ python scripts/browser_cycle.py --output evidence/matrices/browser-run-001 --rou
 ```
 
 The browser matrix includes native and polling watchers for all three mutation modes and an expected-stale disabled-watcher control. This fixture tests dependency-accept HMR; other applications may need their own fixture and DOM oracle.
+
+### Linux or Debian VM
+
+Copy the project onto the guest's own Linux filesystem. The portable bootstrap supports Linux x86_64 and the runner's Python 3.10+ requirement, including Debian's observed Python 3.11.2. It installs the pinned Node and pnpm toolchain inside ignored `reports/` storage and verifies the official Node archive checksum. Git is optional for recording results; archive-based runs can set `WTL_SOURCE_REVISION` to a verified source revision, with unknown working-tree state recorded as null.
+
+```sh
+python3 scripts/linux_vite_lab.py --setup
+python3 scripts/linux_vite_lab.py -- '{python}' scripts/test_cycle.py --label linux-vite --purpose "Verify Linux Vite integrations"
+```
+
+For Chromium browser verification, run the dependency command with root privileges, then download the browser as the ordinary user. The `su` example uses the current project directory:
+
+```sh
+su -c 'python3 scripts/linux_vite_lab.py -- "{node}" node_modules/playwright-core/cli.js install-deps chromium'
+python3 scripts/linux_vite_lab.py -- '{node}' node_modules/playwright-core/cli.js install chromium --no-shell
+WTL_TEST_BROWSER=1 python3 scripts/linux_vite_lab.py -- '{python}' scripts/test_cycle.py --label linux-browser --purpose "Verify Linux DOM HMR and controls"
+python3 scripts/linux_vite_lab.py -- '{python}' scripts/scenario_cycle.py --label "Linux VM" --output evidence/matrices/linux-endpoint-001 --rounds 20
+python3 scripts/linux_vite_lab.py -- '{python}' scripts/browser_cycle.py --output evidence/matrices/linux-browser-001 --rounds 20
+```
+
+The wrapper selects the project-local Chromium channel and browser cache. Linux browser tests require explicit `WTL_TEST_BROWSER=1`; missing browser provision must remain a reported skip or failure. VM results are identified by the observed guest OS and virtualization, separately from WSL2 and physical Linux machines.
 
 ### WSL2 and Windows-origin writes
 
@@ -102,7 +123,7 @@ Latency measurement begins after mutation returns. An external mutator's duratio
 
 Vite already has browser-level HMR integration tests and runs its test watcher in polling mode. Watchwoman already has a black-box harness for Watchman protocol parity. This pilot tests a narrower reusable question: can one external command's final file or HTTP bytes be checked after controlled mutations, independent of its watcher implementation? It has not demonstrated a gap in either project's test suite yet.
 
-The [experiment plan](docs/experiment-plan.md) sets the matrix and decision rule. [Current results](docs/current-results.md) include Windows, Linux within WSL2, Windows-origin writes on both filesystem paths, and Windows Chrome HMR. Bare-metal Linux and other browser environments remain unverified. Continue as a standalone project only if a reproducible supported-workflow failure escapes existing tests, or at least two maintainers confirm the harness is useful. Otherwise contribute focused fixtures to existing suites. That research go/no-go criterion has not yet been met.
+The [experiment plan](docs/experiment-plan.md) sets the matrix and decision rule. [Current results](docs/current-results.md) include Windows, Linux within WSL2, Windows-origin writes on both filesystem paths, Windows Chrome HMR, and Debian VMware endpoint/Chromium HMR matrices. Physical Linux hardware and other browser engines remain unverified. Continue as a standalone project only if a reproducible supported-workflow failure escapes existing tests, or at least two maintainers confirm the harness is useful. Otherwise contribute focused fixtures to existing suites. That research go/no-go criterion has not yet been met.
 
 ## License
 

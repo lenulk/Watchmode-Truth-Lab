@@ -1,0 +1,6 @@
+{
+  "status": "fail",
+  "phase": "browser_binary_download",
+  "exit_code": 1,
+  "reason": "Observed repeated network timeouts and a transient DNS lookup failure"
+}

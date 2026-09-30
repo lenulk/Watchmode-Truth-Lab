@@ -1,0 +1,713 @@
+{
+  "changes": [
+    {
+      "package": "at-spi2-common",
+      "before": null,
+      "after": {
+        "Version": "2.46.0-5",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fontconfig",
+      "before": null,
+      "after": {
+        "Version": "2.14.1-4",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fontconfig-config",
+      "before": null,
+      "after": {
+        "Version": "2.14.1-4",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-freefont-ttf",
+      "before": null,
+      "after": {
+        "Version": "20120503-10",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-ipafont-gothic",
+      "before": null,
+      "after": {
+        "Version": "00303-23",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-liberation",
+      "before": null,
+      "after": {
+        "Version": "1:1.07.4-11",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-noto-color-emoji",
+      "before": null,
+      "after": {
+        "Version": "2.042-0+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-tlwg-loma-otf",
+      "before": null,
+      "after": {
+        "Version": "1:0.7.3-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-unifont",
+      "before": null,
+      "after": {
+        "Version": "1:15.0.01-2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "fonts-wqy-zenhei",
+      "before": null,
+      "after": {
+        "Version": "0.9.45-8",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libasound2",
+      "before": null,
+      "after": {
+        "Version": "1.2.8-1+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libasound2-data",
+      "before": null,
+      "after": {
+        "Version": "1.2.8-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libatk-bridge2.0-0",
+      "before": null,
+      "after": {
+        "Version": "2.46.0-5",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libatk1.0-0",
+      "before": null,
+      "after": {
+        "Version": "2.46.0-5",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libatspi2.0-0",
+      "before": null,
+      "after": {
+        "Version": "2.46.0-5",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libavahi-client3",
+      "before": null,
+      "after": {
+        "Version": "0.8-10+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libavahi-common-data",
+      "before": null,
+      "after": {
+        "Version": "0.8-10+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libavahi-common3",
+      "before": null,
+      "after": {
+        "Version": "0.8-10+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libcairo2",
+      "before": null,
+      "after": {
+        "Version": "1.16.0-7",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libcups2",
+      "before": null,
+      "after": {
+        "Version": "2.4.2-3+deb12u9",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libdatrie1",
+      "before": null,
+      "after": {
+        "Version": "0.2.13-2+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libdrm-amdgpu1",
+      "before": null,
+      "after": {
+        "Version": "2.4.114-1+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libdrm-intel1",
+      "before": null,
+      "after": {
+        "Version": "2.4.114-1+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libdrm-nouveau2",
+      "before": null,
+      "after": {
+        "Version": "2.4.114-1+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libdrm-radeon1",
+      "before": null,
+      "after": {
+        "Version": "2.4.114-1+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libfontconfig1",
+      "before": null,
+      "after": {
+        "Version": "2.14.1-4",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libfontenc1",
+      "before": null,
+      "after": {
+        "Version": "1:1.1.4-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libfribidi0",
+      "before": null,
+      "after": {
+        "Version": "1.0.8-2.1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libgbm1",
+      "before": null,
+      "after": {
+        "Version": "22.3.6-1+deb12u2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libgl1",
+      "before": null,
+      "after": {
+        "Version": "1.6.0-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libgl1-mesa-dri",
+      "before": null,
+      "after": {
+        "Version": "22.3.6-1+deb12u2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libglapi-mesa",
+      "before": null,
+      "after": {
+        "Version": "22.3.6-1+deb12u2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libglvnd0",
+      "before": null,
+      "after": {
+        "Version": "1.6.0-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libglx-mesa0",
+      "before": null,
+      "after": {
+        "Version": "22.3.6-1+deb12u2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libglx0",
+      "before": null,
+      "after": {
+        "Version": "1.6.0-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libgraphite2-3",
+      "before": null,
+      "after": {
+        "Version": "1.3.14-1+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libharfbuzz0b",
+      "before": null,
+      "after": {
+        "Version": "6.0.0+dfsg-3",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libice6",
+      "before": null,
+      "after": {
+        "Version": "2:1.0.10-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libllvm15",
+      "before": null,
+      "after": {
+        "Version": "1:15.0.6-4+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libnspr4",
+      "before": null,
+      "after": {
+        "Version": "2:4.35-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libnss3",
+      "before": null,
+      "after": {
+        "Version": "2:3.87.1-1+deb12u4",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libpango-1.0-0",
+      "before": null,
+      "after": {
+        "Version": "1.50.12+ds-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libpciaccess0",
+      "before": null,
+      "after": {
+        "Version": "0.17-2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libpixman-1-0",
+      "before": null,
+      "after": {
+        "Version": "0.42.2-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libsensors-config",
+      "before": null,
+      "after": {
+        "Version": "1:3.6.0-7.1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libsensors5",
+      "before": null,
+      "after": {
+        "Version": "1:3.6.0-7.1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libsm6",
+      "before": null,
+      "after": {
+        "Version": "2:1.2.3-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libthai-data",
+      "before": null,
+      "after": {
+        "Version": "0.1.29-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libthai0",
+      "before": null,
+      "after": {
+        "Version": "0.1.29-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libunwind8",
+      "before": null,
+      "after": {
+        "Version": "1.6.2-3",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libwayland-server0",
+      "before": null,
+      "after": {
+        "Version": "1.21.0-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libx11-xcb1",
+      "before": null,
+      "after": {
+        "Version": "2:1.8.4-2+deb12u2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxaw7",
+      "before": null,
+      "after": {
+        "Version": "2:1.0.14-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-dri2-0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-dri3-0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-glx0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-present0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-randr0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-render0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-shm0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-sync1",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcb-xfixes0",
+      "before": null,
+      "after": {
+        "Version": "1.15-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxcomposite1",
+      "before": null,
+      "after": {
+        "Version": "1:0.4.5-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxdamage1",
+      "before": null,
+      "after": {
+        "Version": "1:1.1.6-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxfixes3",
+      "before": null,
+      "after": {
+        "Version": "1:6.0.0-2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxfont2",
+      "before": null,
+      "after": {
+        "Version": "1:2.0.6-1+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxi6",
+      "before": null,
+      "after": {
+        "Version": "2:1.8-1+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxkbcommon0",
+      "before": null,
+      "after": {
+        "Version": "1.5.0-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxkbfile1",
+      "before": null,
+      "after": {
+        "Version": "1:1.1.0-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxmu6",
+      "before": null,
+      "after": {
+        "Version": "2:1.1.3-3",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxpm4",
+      "before": null,
+      "after": {
+        "Version": "1:3.5.12-1.1+deb12u1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxrandr2",
+      "before": null,
+      "after": {
+        "Version": "2:1.5.2-2+b1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxrender1",
+      "before": null,
+      "after": {
+        "Version": "1:0.9.10-1.1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxshmfence1",
+      "before": null,
+      "after": {
+        "Version": "1.3-1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxt6",
+      "before": null,
+      "after": {
+        "Version": "1:1.2.1-1.1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libxxf86vm1",
+      "before": null,
+      "after": {
+        "Version": "1:1.1.4-1+b2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "libz3-4",
+      "before": null,
+      "after": {
+        "Version": "4.8.12-3.1",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "x11-common",
+      "before": null,
+      "after": {
+        "Version": "1:7.7+23",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "x11-xkb-utils",
+      "before": null,
+      "after": {
+        "Version": "7.7+7",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "xfonts-encodings",
+      "before": null,
+      "after": {
+        "Version": "1:1.0.4-2.2",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "xfonts-scalable",
+      "before": null,
+      "after": {
+        "Version": "1:1.0.3-1.3",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "xfonts-utils",
+      "before": null,
+      "after": {
+        "Version": "1:7.7+6",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "xserver-common",
+      "before": null,
+      "after": {
+        "Version": "2:21.1.7-3+deb12u13",
+        "Status": "install ok installed"
+      }
+    },
+    {
+      "package": "xvfb",
+      "before": null,
+      "after": {
+        "Version": "2:21.1.7-3+deb12u13",
+        "Status": "install ok installed"
+      }
+    }
+  ],
+  "added_manual_marks": [
+    "fonts-freefont-ttf",
+    "fonts-ipafont-gothic",
+    "fonts-liberation",
+    "fonts-noto-color-emoji",
+    "fonts-tlwg-loma-otf",
+    "fonts-unifont",
+    "fonts-wqy-zenhei",
+    "libasound2",
+    "libatk-bridge2.0-0",
+    "libatk1.0-0",
+    "libatspi2.0-0",
+    "libcairo2",
+    "libcups2",
+    "libdbus-1-3",
+    "libdrm2",
+    "libfontconfig1",
+    "libfreetype6",
+    "libgbm1",
+    "libglib2.0-0",
+    "libnspr4",
+    "libnss3",
+    "libpango-1.0-0",
+    "libx11-6",
+    "libxcb1",
+    "libxcomposite1",
+    "libxdamage1",
+    "libxext6",
+    "libxfixes3",
+    "libxkbcommon0",
+    "libxrandr2",
+    "xfonts-scalable",
+    "xvfb"
+  ],
+  "sources_backup": "reports/apt-sources.list.before",
+  "package_baseline": "reports/dpkg-status.before-browser",
+  "rollback": "Restore the source backup as root; use the recorded added-package and manual-mark lists to review package rollback before execution"
+}

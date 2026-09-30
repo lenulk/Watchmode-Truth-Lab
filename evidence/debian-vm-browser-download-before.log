@@ -1,0 +1,46 @@
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+|                                                                                |   0% of 184.3 MiB
+Error: read ETIMEDOUT
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -110,
+  code: 'ETIMEDOUT',
+  syscall: 'read'
+}
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+Error: read ETIMEDOUT
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -110,
+  code: 'ETIMEDOUT',
+  syscall: 'read'
+}
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+Error: getaddrinfo EAI_AGAIN cdn.playwright.dev
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:internal/dns/promises:102:17) {
+  errno: -3001,
+  code: 'EAI_AGAIN',
+  syscall: 'getaddrinfo',
+  hostname: 'cdn.playwright.dev'
+}
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+|                                                                                |   0% of 184.3 MiB
+|■■■■■■■■                                                                        |  10% of 184.3 MiB
+Error: read ETIMEDOUT
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -110,
+  code: 'ETIMEDOUT',
+  syscall: 'read'
+}
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+|                                                                                |   0% of 184.3 MiB
+Error: read ETIMEDOUT
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -110,
+  code: 'ETIMEDOUT',
+  syscall: 'read'
+}
+Failed to install browsers
+Error: Failed to download Chrome for Testing 151.0.7922.34 (playwright chromium v1234), caused by
+Error: Download failure, code=1
+    at ChildProcess.<anonymous> (<project>/node_modules/.pnpm/playwright-core@1.62.1/node_modules/playwright-core/lib/coreBundle.js:32015:32)
+    at ChildProcess.emit (node:events:509:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:295:12)

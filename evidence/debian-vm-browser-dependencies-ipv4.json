@@ -1,0 +1,7 @@
+{
+  "status": "pass",
+  "phase": "browser_dependency_installation",
+  "exit_code": 0,
+  "apt_configuration": "per-command IPv4, retries and request timeouts",
+  "package_baseline": "reports/dpkg-status.before-browser"
+}

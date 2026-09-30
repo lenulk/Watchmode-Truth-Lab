@@ -1,0 +1,26 @@
+test_missing_git_returns_unknown_metadata (test_recording.RecordingTests.test_missing_git_returns_unknown_metadata) ... ERROR
+
+======================================================================
+ERROR: test_missing_git_returns_unknown_metadata (test_recording.RecordingTests.test_missing_git_returns_unknown_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_recording.py", line 13, in test_missing_git_returns_unknown_metadata
+    self.assertIsNone(test_cycle.git_value("rev-parse", "HEAD"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\scripts\test_cycle.py", line 68, in git_value
+    result = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+FileNotFoundError: git missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (errors=1)
