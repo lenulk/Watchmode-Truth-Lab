@@ -1,0 +1,16 @@
+{
+  "name": "watchmode-truth-lab-starter",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Pinned Vite dependency for a black-box watch-mode experiment",
+  "devDependencies": {
+    "playwright-core": "1.62.1",
+    "vite": "8.3.1"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite fixture --host 127.0.0.1"
+  }
+}

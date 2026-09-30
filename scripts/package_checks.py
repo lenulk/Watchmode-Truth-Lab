@@ -5,6 +5,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tarfile
 import tempfile
 import unittest
 import venv
@@ -33,7 +34,7 @@ class PackageChecks(unittest.TestCase):
             build_env["PYTHONDONTWRITEBYTECODE"] = "1"
             build_env["PYTHONUTF8"] = "1"
             result = subprocess.run([sys.executable, "-c",
-                                     "import setuptools,setuptools.build_meta; print('BUILD_BACKEND',setuptools.__version__); setuptools.build_meta.build_wheel('dist')"],
+                                     "import setuptools,setuptools.build_meta; print('BUILD_BACKEND',setuptools.__version__); setuptools.build_meta.build_wheel('dist'); setuptools.build_meta.build_sdist('dist')"],
                                     cwd=source, env=build_env, capture_output=True, text=True, encoding="utf-8", timeout=60)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             wheel = next((source / "dist").glob("*.whl"))
@@ -47,6 +48,27 @@ class PackageChecks(unittest.TestCase):
                 self.assertEqual(metadata["Requires-Python"], ">=3.10")
                 license_name = next(name for name in names if name.endswith("/licenses/LICENSE"))
                 self.assertEqual(archive.read(license_name), (ROOT / "LICENSE").read_bytes())
+                for asset in ("assets/file/worker.py", "assets/common/pnpm-lock.yaml", "assets/vite/browser_probe.mjs", "assets/vite/fixture/src/main.js"):
+                    self.assertIn("watchmode_truth_lab/" + asset, names)
+            unpacked = root / "unpacked"
+            unpacked.mkdir()
+            with tarfile.open(next((source / "dist").glob("*.tar.gz"))) as archive:
+                for member in archive.getmembers():
+                    target = (unpacked / member.name).resolve()
+                    self.assertTrue(target.is_relative_to(unpacked))
+                    self.assertTrue(member.isfile() or member.isdir())
+                    if member.isfile():
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(archive.extractfile(member).read())
+            rebuilt_source = next(unpacked.iterdir())
+            rebuilt = subprocess.run([sys.executable, "-c", "import setuptools.build_meta;setuptools.build_meta.build_wheel('rebuilt')"],
+                                     cwd=rebuilt_source, env=build_env, capture_output=True, text=True, encoding="utf-8", timeout=60)
+            self.assertEqual(rebuilt.returncode, 0, rebuilt.stdout + rebuilt.stderr)
+            rebuilt_wheel = next((rebuilt_source / "rebuilt").glob("*.whl"))
+            with zipfile.ZipFile(wheel) as original, zipfile.ZipFile(rebuilt_wheel) as rebuilt:
+                for filename in original.namelist():
+                    if filename.startswith("watchmode_truth_lab/"):
+                        self.assertEqual(original.read(filename), rebuilt.read(filename), filename)
             environment = root / "venv"
             venv.EnvBuilder(with_pip=False).create(environment)
             executable = environment / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
@@ -54,15 +76,34 @@ class PackageChecks(unittest.TestCase):
             clean_env.pop("PYTHONPATH", None)
             clean_env["PYTHONDONTWRITEBYTECODE"] = "1"
             clean_env["PYTHONUTF8"] = "1"
+            pip_env = clean_env.copy()
+            if os.environ.get("WTL_PIP_PATH"):
+                pip_env["PYTHONPATH"] = str(Path(os.environ["WTL_PIP_PATH"]).resolve())
             installed = subprocess.run([sys.executable, "-m", "pip", "--python", str(executable), "install",
-                                        "--no-index", "--no-deps", "--disable-pip-version-check", str(wheel)],
-                                       cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=60)
+                                        "--no-index", "--no-deps", "--disable-pip-version-check", str(rebuilt_wheel)],
+                                       cwd=root, env=pip_env, capture_output=True, text=True, encoding="utf-8", timeout=60)
             self.assertEqual(installed.returncode, 0, installed.stdout + installed.stderr)
             entrypoint = environment / ("Scripts/watchmode-truth-lab.exe" if os.name == "nt" else "bin/watchmode-truth-lab")
             location = subprocess.run([str(executable), "-c", "import watchmode_truth_lab;print(watchmode_truth_lab.__file__)"],
                                       cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
             self.assertEqual(location.returncode, 0, location.stderr)
             self.assertTrue(Path(location.stdout.strip()).is_relative_to(environment))
+            for template in ("file", "vite-http", "vite-browser"):
+                starter = root / ("installed-" + template)
+                created = subprocess.run([str(entrypoint), "--init", str(starter), "--template", template],
+                                         cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
+                self.assertEqual(created.returncode, 0, created.stdout + created.stderr)
+                validated = subprocess.run([str(entrypoint), str(starter / "scenario.json"), "--validate"],
+                                           cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
+                self.assertEqual(validated.returncode, 0, validated.stdout + validated.stderr)
+                if template == "file":
+                    checked = subprocess.run([str(entrypoint), str(starter / "scenario.json"), "--doctor"],
+                                             cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)
+                    self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
+                    checked = subprocess.run([str(entrypoint), str(starter / "scenario.json"), "--rounds", "2", "--format", "summary"],
+                                             cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=15)
+                    self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
+                    self.assertIn("2/2 passed", checked.stdout)
             cases = root / "cases"
             fixture = cases / "fixture"
             fixture.mkdir(parents=True)

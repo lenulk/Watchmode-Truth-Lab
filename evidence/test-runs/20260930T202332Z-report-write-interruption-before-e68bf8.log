@@ -1,0 +1,14 @@
+test_interrupted_report_write_preserves_previous_report (test_report_export.ReportExportTests.test_interrupted_report_write_preserves_previous_report) ... FAIL
+
+======================================================================
+FAIL: test_interrupted_report_write_preserves_previous_report (test_report_export.ReportExportTests.test_interrupted_report_write_preserves_previous_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_report_export.py", line 34, in test_interrupted_report_write_preserves_previous_report
+    self.assertEqual(report.read_bytes(), b'{"previous": true}\n')
+AssertionError: b'{\r\n  "' != b'{"previous": true}\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (failures=1)

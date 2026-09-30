@@ -621,3 +621,33 @@ The committed README, documentation and evidence archive from 2c1b99c was transf
 - Evidence: [JSON](../evidence/test-runs/20260930T200935Z-scenario-preflight-d22995.json), [console log](../evidence/test-runs/20260930T200935Z-scenario-preflight-d22995.log).
 - Result: all 13 targeted tests passed: preflight, CLI boundaries and existing file/HTTP runner behavior.
 - Analysis: validation is shared with execution and now rejects invalid late fields before workspace allocation. `--validate` returns JSON/exit 0 without running scenario/version commands or mutating fixtures; a sentinel CLI integration and mocked side-effect boundaries verify that promise. Runtime rechecks copied paths before mutation. Existing command invocation and freshness results remain compatible. Next deliver installed starters and scenario-specific diagnostics; no full release readiness is claimed by this targeted run.
+
+## Cycle 88 Starter creation and independent file workflow
+
+- Evidence: [JSON](../evidence/test-runs/20260930T201753Z-installed-starter-source-d104e3.json), [console log](../evidence/test-runs/20260930T201753Z-installed-starter-source-d104e3.log).
+- Result: all five targeted tests passed. All three starter templates validate; generated file projects pass each mutation mode without accessing checkout example assets, preserve their original fixture, and reject an existing destination without overwriting it. Existing CLI boundaries still pass.
+- Analysis: starters now use installed package resources with explicit setuptools package-data, including pinned Vite/Playwright manifests and lockfile. This source run does not yet prove resources are present in wheel/sdist; the isolated package gate will check actual artifacts. Next add dependency diagnostics and verify installed assets on both operating systems.
+
+## Cycle 89 Scenario dependency diagnostics
+
+- Evidence: [JSON](../evidence/test-runs/20260930T202144Z-dependency-diagnostics-d99867.json), [console log](../evidence/test-runs/20260930T202144Z-dependency-diagnostics-d99867.log).
+- Result: all seven targeted diagnostics/preflight/CLI checks passed. File diagnostics report ready without executing the watched command; a missing executable and missing Vite/browser assets produce actionable failures.
+- Analysis: `--doctor` checks configuration, executable and referenced assets, pinned starter dependencies, and uses a bounded launch/close probe for browser scenarios to detect missing binaries/libraries. It does not start Vite or mutate fixtures. Browser probe end-to-end and installed-package checks remain for the real-environment gate. Next protect report replacement and provide an optional readable summary while preserving default JSON.
+
+## Cycle 90 Interrupted export truncates the previous report
+
+- Evidence: [JSON](../evidence/test-runs/20260930T202332Z-report-write-interruption-before-e68bf8.json), [console log](../evidence/test-runs/20260930T202332Z-report-write-interruption-before-e68bf8.log).
+- Result: the controlled filesystem fault failed as expected: an interrupted write after truncation left the previous report containing only five characters.
+- Analysis and repair: current direct writes handle OSError but cannot preserve a prior report. Stage the UTF-8 export in a temporary file beside the destination, flush it, then replace only after completion. Verify active partial-write and replace-failure injections preserve the old bytes and remove temporary files; retain this original failure.
+
+## Cycle 91 Report replacement and presentation recovery
+
+- Evidence: [JSON](../evidence/test-runs/20260930T202528Z-report-export-recovery-8fdedb.json), [console log](../evidence/test-runs/20260930T202528Z-report-export-recovery-8fdedb.log).
+- Result: all five export/CLI checks passed. Active partial-write and replace-failure injections preserve prior report bytes and leave no temporary files; successful summary output still saves JSON; default stdout JSON and freshness exit codes remain compatible.
+- Analysis: UTF-8 export is staged beside the destination, flushed and replaced after completion. Fault assertions prove the simulated interruptions executed rather than being bypassed by the repair. `--format summary` is optional. Cancellation now returns 130 without a traceback after runner teardown, but actual signal/process verification remains outstanding. Next verify installed wheel/sdist assets and the real starter workflows.
+
+## Cycle 92 Installed wheel, sdist and packaged starters
+
+- Evidence: [JSON](../evidence/test-runs/20260930T202854Z-installed-wheel-sdist-starters-476058.json), [console log](../evidence/test-runs/20260930T202854Z-installed-wheel-sdist-starters-476058.log), [portable build provenance](../evidence/portable-build-toolchain.json).
+- Result: the expanded installed-package integration passed with exact minimum setuptools 77.0.3. Wheel assets/license were inspected, sdist rebuilt to a wheel with identical package bytes, that wheel installed into a fresh venv, and all three starters created/validated outside checkout. Installed file diagnostics, summary, mutation/report and slow HTTP checks passed.
+- Analysis: installed resources now have real distribution coverage on Windows. Verified pip/setuptools/wheel were also extracted into ignored guest project storage because system pip/setuptools were absent; system Python/packages were not changed. Their import versions were checked separately from software tests. Debian installed-package and full Vite/browser starter workflows remain next gates.

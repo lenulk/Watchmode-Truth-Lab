@@ -14,3 +14,7 @@ watchmode-truth-lab = "watchmode_truth_lab.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["watchmode_truth_lab*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+watchmode_truth_lab = ["assets/common/*", "assets/file/*", "assets/vite/*", "assets/vite/fixture/*", "assets/vite/fixture/src/*"]

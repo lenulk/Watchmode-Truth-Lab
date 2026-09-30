@@ -1,0 +1,10 @@
+test_all_templates_include_valid_config_and_required_assets (test_starter.StarterTests.test_all_templates_include_valid_config_and_required_assets) ... ok
+test_existing_work_is_retained_and_failed_stage_is_cleaned (test_starter.StarterTests.test_existing_work_is_retained_and_failed_stage_is_cleaned) ... ok
+test_file_starter_runs_without_source_checkout_assets (test_starter.StarterTests.test_file_starter_runs_without_source_checkout_assets) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.376s
+
+OK

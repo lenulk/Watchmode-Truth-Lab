@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T201753Z-installed-starter-source-d104e3",
+  "started_at_utc": "2026-09-30T20:17:53.243397+00:00",
+  "purpose": "Verify packaged starter configs assets preservation and file watcher execution in independent Unicode/space-safe fixture copies",
+  "git_revision": "2affc1f17ff4a6a5b71fe03a39004ce76baaf326",
+  "working_tree_dirty": true,
+  "recorder_sha256": "234c963b4201362e462f427f5ab61a8a6948bb860bb12dbf9e79ca75ad036371",
+  "runner_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 4.516,
+  "status": "pass",
+  "tests_run": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_starter.StarterTests.test_all_templates_include_valid_config_and_required_assets",
+      "status": "pass",
+      "duration_seconds": 0.203,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_existing_work_is_retained_and_failed_stage_is_cleaned",
+      "status": "pass",
+      "duration_seconds": 0.016,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_file_starter_runs_without_source_checkout_assets",
+      "status": "pass",
+      "duration_seconds": 2.125,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 1.14,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit",
+      "status": "pass",
+      "duration_seconds": 0.891,
+      "detail": null
+    }
+  ]
+}

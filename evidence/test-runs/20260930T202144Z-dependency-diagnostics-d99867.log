@@ -1,0 +1,12 @@
+test_file_ready_without_running_watch_or_version_command (test_diagnostics.DiagnosticTests.test_file_ready_without_running_watch_or_version_command) ... ok
+test_missing_executable_and_node_assets_are_actionable (test_diagnostics.DiagnosticTests.test_missing_executable_and_node_assets_are_actionable) ... ok
+test_cli_validate_does_not_execute_scenario_or_version_command (test_preflight.PreflightTests.test_cli_validate_does_not_execute_scenario_or_version_command) ... ok
+test_invalid_late_fields_are_rejected_before_workspace_or_command (test_preflight.PreflightTests.test_invalid_late_fields_are_rejected_before_workspace_or_command) ... ok
+test_prepare_never_starts_commands_allocates_workspace_or_mutates (test_preflight.PreflightTests.test_prepare_never_starts_commands_allocates_workspace_or_mutates) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.718s
+
+OK
