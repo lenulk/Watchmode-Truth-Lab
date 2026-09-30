@@ -1,0 +1,10 @@
+{
+  "fixture_dir": "examples/fixture",
+  "command": ["{python}", "{config_dir}/examples/polling_generator.py", "{workspace}/input.txt", "{workspace}/output.txt"],
+  "mutation_target": "input.txt",
+  "mutation": "overwrite",
+  "oracle": {"type": "file", "path": "output.txt"},
+  "timeout_seconds": 3,
+  "probe_interval_seconds": 0.03,
+  "stable_seconds": 0.1
+}

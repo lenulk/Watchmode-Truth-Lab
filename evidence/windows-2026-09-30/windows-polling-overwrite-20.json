@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-09-30T08:45:27.730673+00:00",
+  "status": "pass",
+  "config": "vite.polling.json",
+  "config_sha256": "60dd367b1b9c272fca4cb8de3673de3ae38eed1050800d8596eb2951bf48a92e",
+  "command": [
+    "{node}",
+    "{config_dir}/node_modules/vite/bin/vite.js",
+    "{workspace}",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "{port}",
+    "--strictPort"
+  ],
+  "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "workspace_device": "C:\\",
+    "filesystem_type": "NTFS"
+  },
+  "oracle": {
+    "type": "http",
+    "url": "http://127.0.0.1:32264/src/token.js",
+    "extract_regex": "export const token = \\\"([^\\\"]+)\\\""
+  },
+  "startup": {
+    "status": "pass",
+    "latency_ms": 750.0,
+    "samples": 4,
+    "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+    "observed_bytes": 4
+  },
+  "attempts": [
+    {
+      "round": 1,
+      "mutation": "overwrite",
+      "expected_hash": "0ed824026295f30cd4f13148cc448ca3d62a77304e072b0a3ecc7f26eb067875",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 109.0,
+      "samples": 3,
+      "observed_hash": "0ed824026295f30cd4f13148cc448ca3d62a77304e072b0a3ecc7f26eb067875",
+      "observed_bytes": 41
+    },
+    {
+      "round": 2,
+      "mutation": "overwrite",
+      "expected_hash": "db1aba2ad7fca624bd21d19e8d7b6e24c0b96db499f0713e4ce5eb8d742c84d2",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 78.0,
+      "samples": 3,
+      "observed_hash": "db1aba2ad7fca624bd21d19e8d7b6e24c0b96db499f0713e4ce5eb8d742c84d2",
+      "observed_bytes": 41
+    },
+    {
+      "round": 3,
+      "mutation": "overwrite",
+      "expected_hash": "a2d4687cb822c06de86a8a9eea02c6af8ae275275cc028ee65de0e09a9997f7f",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 78.0,
+      "samples": 3,
+      "observed_hash": "a2d4687cb822c06de86a8a9eea02c6af8ae275275cc028ee65de0e09a9997f7f",
+      "observed_bytes": 41
+    },
+    {
+      "round": 4,
+      "mutation": "overwrite",
+      "expected_hash": "353709eca656ea9ac17e66b8086e22354d3202b935b083a2da469135f47613c7",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 203.0,
+      "samples": 4,
+      "observed_hash": "353709eca656ea9ac17e66b8086e22354d3202b935b083a2da469135f47613c7",
+      "observed_bytes": 41
+    },
+    {
+      "round": 5,
+      "mutation": "overwrite",
+      "expected_hash": "9c5cc56dec585413179b12d42574b4f76dc57194e6b8d61d17ecaedadf352aa4",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 188.0,
+      "samples": 4,
+      "observed_hash": "9c5cc56dec585413179b12d42574b4f76dc57194e6b8d61d17ecaedadf352aa4",
+      "observed_bytes": 41
+    },
+    {
+      "round": 6,
+      "mutation": "overwrite",
+      "expected_hash": "42db8ffc232842c74fec53874fe8b2892f7a7014f7efb50b178b99f60f26790c",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 234.0,
+      "samples": 4,
+      "observed_hash": "42db8ffc232842c74fec53874fe8b2892f7a7014f7efb50b178b99f60f26790c",
+      "observed_bytes": 41
+    },
+    {
+      "round": 7,
+      "mutation": "overwrite",
+      "expected_hash": "c0975043f968747fc6f1f0310038878629fa04806935001cbb4e9b101f3bc01d",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 94.0,
+      "samples": 3,
+      "observed_hash": "c0975043f968747fc6f1f0310038878629fa04806935001cbb4e9b101f3bc01d",
+      "observed_bytes": 41
+    },
+    {
+      "round": 8,
+      "mutation": "overwrite",
+      "expected_hash": "367b00dd8d7df938c67b545058ecf593dc671da10e63f7c932f22bea03072067",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 94.0,
+      "samples": 3,
+      "observed_hash": "367b00dd8d7df938c67b545058ecf593dc671da10e63f7c932f22bea03072067",
+      "observed_bytes": 41
+    },
+    {
+      "round": 9,
+      "mutation": "overwrite",
+      "expected_hash": "dc93850c6842a58861ea6446f3f8f6ed0509f9fafec3c674d3eea3c5b9d3bf90",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 203.0,
+      "samples": 4,
+      "observed_hash": "dc93850c6842a58861ea6446f3f8f6ed0509f9fafec3c674d3eea3c5b9d3bf90",
+      "observed_bytes": 41
+    },
+    {
+      "round": 10,
+      "mutation": "overwrite",
+      "expected_hash": "6c952504bc9e1de260359f522ee8f694c3fd524ba6101012fb02074fbad7f6f1",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 219.0,
+      "samples": 4,
+      "observed_hash": "6c952504bc9e1de260359f522ee8f694c3fd524ba6101012fb02074fbad7f6f1",
+      "observed_bytes": 41
+    },
+    {
+      "round": 11,
+      "mutation": "overwrite",
+      "expected_hash": "dd545b9efd3ffcb06e0c4b1dc9526c5a1d80a6642b7cbecb55694171c902e3ee",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 93.0,
+      "samples": 3,
+      "observed_hash": "dd545b9efd3ffcb06e0c4b1dc9526c5a1d80a6642b7cbecb55694171c902e3ee",
+      "observed_bytes": 41
+    },
+    {
+      "round": 12,
+      "mutation": "overwrite",
+      "expected_hash": "ec6add044d64edae42444cedc4050221c8c77a96f7f2f7a72709b29f70f0b320",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 204.0,
+      "samples": 2,
+      "observed_hash": "ec6add044d64edae42444cedc4050221c8c77a96f7f2f7a72709b29f70f0b320",
+      "observed_bytes": 41
+    },
+    {
+      "round": 13,
+      "mutation": "overwrite",
+      "expected_hash": "64a4f7ba13402b2eeb201d893d3fa6e219530e2179bba8fa8ac18d9e7c03aa44",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 218.0,
+      "samples": 2,
+      "observed_hash": "64a4f7ba13402b2eeb201d893d3fa6e219530e2179bba8fa8ac18d9e7c03aa44",
+      "observed_bytes": 41
+    },
+    {
+      "round": 14,
+      "mutation": "overwrite",
+      "expected_hash": "aa82951732f21cfe542d642b196c697ce08ae43c5a739453412d9d4936c516fa",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 172.0,
+      "samples": 2,
+      "observed_hash": "aa82951732f21cfe542d642b196c697ce08ae43c5a739453412d9d4936c516fa",
+      "observed_bytes": 41
+    },
+    {
+      "round": 15,
+      "mutation": "overwrite",
+      "expected_hash": "19a5b914e9e9a04a0df4f08d24c73fc9b77e8233b22aaa8601f30a5f3a461800",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 203.0,
+      "samples": 3,
+      "observed_hash": "19a5b914e9e9a04a0df4f08d24c73fc9b77e8233b22aaa8601f30a5f3a461800",
+      "observed_bytes": 41
+    },
+    {
+      "round": 16,
+      "mutation": "overwrite",
+      "expected_hash": "c284f418ff365953409cb3ed9603c435c5832c6b4ee60a81e7e22ff52b0becfc",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 172.0,
+      "samples": 3,
+      "observed_hash": "c284f418ff365953409cb3ed9603c435c5832c6b4ee60a81e7e22ff52b0becfc",
+      "observed_bytes": 41
+    },
+    {
+      "round": 17,
+      "mutation": "overwrite",
+      "expected_hash": "be211aa39ed3a6217cf98b280e38ede907c81ce048fbc9377b505a0a6e96d2c9",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 250.0,
+      "samples": 4,
+      "observed_hash": "be211aa39ed3a6217cf98b280e38ede907c81ce048fbc9377b505a0a6e96d2c9",
+      "observed_bytes": 41
+    },
+    {
+      "round": 18,
+      "mutation": "overwrite",
+      "expected_hash": "fa225cc5d21cfda8a5a56e606cfceecdcc70bb55d6f01c6b865dccadfb249ee8",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 109.0,
+      "samples": 3,
+      "observed_hash": "fa225cc5d21cfda8a5a56e606cfceecdcc70bb55d6f01c6b865dccadfb249ee8",
+      "observed_bytes": 41
+    },
+    {
+      "round": 19,
+      "mutation": "overwrite",
+      "expected_hash": "38fb301e1fa9a58f8eeb9689987a559393015cd371539bb6d3188b5dbc20448e",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 235.0,
+      "samples": 4,
+      "observed_hash": "38fb301e1fa9a58f8eeb9689987a559393015cd371539bb6d3188b5dbc20448e",
+      "observed_bytes": 41
+    },
+    {
+      "round": 20,
+      "mutation": "overwrite",
+      "expected_hash": "c69d7b9a9ed208bb9a78f9dcf4ff7fdbf7c743006e64b8d722d4b4a08c93451d",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 235.0,
+      "samples": 4,
+      "observed_hash": "c69d7b9a9ed208bb9a78f9dcf4ff7fdbf7c743006e64b8d722d4b4a08c93451d",
+      "observed_bytes": 41
+    }
+  ],
+  "failure_rate": 0.0,
+  "pass_latency": {
+    "median_ms": 195.5,
+    "p95_ms": 235.0
+  },
+  "logs": [
+    "",
+    "  VITE v8.3.1  ready in 484 ms",
+    "",
+    "  ➜  Local:   http://127.0.0.1:32264/",
+    "3:45:29 PM [vite] (client) page reload src/token.js",
+    "3:45:29 PM [vite] (client) page reload src/token.js",
+    "3:45:30 PM [vite] (client) page reload src/token.js",
+    "3:45:30 PM [vite] (client) page reload src/token.js",
+    "3:45:30 PM [vite] (client) page reload src/token.js",
+    "3:45:31 PM [vite] (client) page reload src/token.js",
+    "3:45:31 PM [vite] (client) page reload src/token.js",
+    "3:45:32 PM [vite] (client) page reload src/token.js",
+    "3:45:32 PM [vite] (client) page reload src/token.js",
+    "3:45:32 PM [vite] (client) page reload src/token.js",
+    "3:45:33 PM [vite] (client) page reload src/token.js",
+    "3:45:33 PM [vite] (client) page reload src/token.js",
+    "3:45:34 PM [vite] (client) page reload src/token.js",
+    "3:45:34 PM [vite] (client) page reload src/token.js",
+    "3:45:35 PM [vite] (client) page reload src/token.js",
+    "3:45:35 PM [vite] (client) page reload src/token.js",
+    "3:45:36 PM [vite] (client) page reload src/token.js",
+    "3:45:36 PM [vite] (client) page reload src/token.js",
+    "3:45:37 PM [vite] (client) page reload src/token.js",
+    "3:45:37 PM [vite] (client) page reload src/token.js"
+  ],
+  "reproduction": {
+    "config": "vite.polling.json",
+    "rounds": 20,
+    "mutation": "overwrite",
+    "cli": "python -m watchmode_truth_lab vite.polling.json --rounds 20 --mutation overwrite"
+  }
+}

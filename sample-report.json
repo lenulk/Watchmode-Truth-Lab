@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-09-30T08:47:37.068417+00:00",
+  "status": "pass",
+  "config": "example.json",
+  "config_sha256": "25796f731891b707439b8b95603551473ab3b63c1cc1a8e6902e931dec2b5eba",
+  "command": [
+    "{python}",
+    "{config_dir}/examples/polling_generator.py",
+    "{workspace}/input.txt",
+    "{workspace}/output.txt"
+  ],
+  "tool_version": null,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "workspace_device": "C:\\",
+    "filesystem_type": "NTFS"
+  },
+  "oracle": {
+    "type": "file",
+    "path": "output.txt"
+  },
+  "startup": {
+    "status": "pass",
+    "latency_ms": 110.0,
+    "samples": 8,
+    "observed_hash": "4a6689419b00b11700c9b6246bcfa8936c8f5e1e824db3a7e57030e2d1c1a684",
+    "observed_bytes": 5
+  },
+  "attempts": [
+    {
+      "round": 1,
+      "mutation": "atomic_replace",
+      "expected_hash": "907822018ebb47b319169b868a7e2fa5a8a40fd8346edde84f5878025f8996ec",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 31.0,
+      "samples": 5,
+      "observed_hash": "907822018ebb47b319169b868a7e2fa5a8a40fd8346edde84f5878025f8996ec",
+      "observed_bytes": 41
+    },
+    {
+      "round": 2,
+      "mutation": "atomic_replace",
+      "expected_hash": "23488ca941de52f9fd5800ed26ea58472d5bb402c9439e45e400fe5c91e14916",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 32.0,
+      "samples": 6,
+      "observed_hash": "23488ca941de52f9fd5800ed26ea58472d5bb402c9439e45e400fe5c91e14916",
+      "observed_bytes": 41
+    },
+    {
+      "round": 3,
+      "mutation": "atomic_replace",
+      "expected_hash": "2154f1254777f745af465920645268649f20849dc9f62e9e49e16f2e2c88daa5",
+      "expected_bytes": 41,
+      "status": "pass",
+      "latency_ms": 31.0,
+      "samples": 6,
+      "observed_hash": "2154f1254777f745af465920645268649f20849dc9f62e9e49e16f2e2c88daa5",
+      "observed_bytes": 41
+    }
+  ],
+  "failure_rate": 0.0,
+  "pass_latency": {
+    "median_ms": 31.0,
+    "p95_ms": 32.0
+  },
+  "logs": [],
+  "reproduction": {
+    "config": "example.json",
+    "rounds": 3,
+    "mutation": "atomic_replace",
+    "cli": "python -m watchmode_truth_lab example.json --rounds 3 --mutation atomic_replace"
+  }
+}
