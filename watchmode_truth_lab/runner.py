@@ -207,9 +207,18 @@ def _run_captured(argv, workspace, env, timeout):
         thread.start()
     returncode = None
     try:
-        returncode = process.wait(timeout=timeout)
-    except subprocess.TimeoutExpired:
-        pass
+        deadline = started + timeout
+        while True:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            try:
+                # Windows waits on a process handle; short slices also return
+                # control to Python to deliver pending cancellation signals.
+                returncode = process.wait(timeout=min(0.1, remaining))
+                break
+            except subprocess.TimeoutExpired:
+                continue
     finally:
         _stop(process)
         for thread in threads:

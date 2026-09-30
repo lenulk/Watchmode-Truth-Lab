@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T215300Z-installed-cancel-mutation-repaired-85bba3",
+  "started_at_utc": "2026-09-30T21:53:00.362128+00:00",
+  "purpose": "Rebuilt candidate Windows controlled cancellation during startup pending HTTP and external mutation with descendants",
+  "git_revision": "06a0405037d8c88961ce4796cee412f69804f7f3",
+  "working_tree_dirty": true,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "38a2e938a0b35690ebb7c125be8dacbe8f566d1e2a7d4c9db3622fd46da75cfa",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 4.578,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "cancellation_checks.CancellationChecks.test_installed_sigint_stops_watch_descendants_and_pending_http",
+      "status": "pass",
+      "duration_seconds": 4.406,
+      "detail": null
+    }
+  ]
+}

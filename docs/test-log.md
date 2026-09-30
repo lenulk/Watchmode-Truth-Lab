@@ -805,3 +805,69 @@ The first pnpm setup failed with EPERM when approved host-account commands tried
 - Evidence: [JSON](../evidence/test-runs/20260930T214034Z-release-artifacts-precommit-64262f.json), [console log](../evidence/test-runs/20260930T214034Z-release-artifacts-precommit-64262f.log).
 - Result: all three checks passed for retained JSON/matrix agreement, local documentation links and literal home-path redaction, including the imported Debian installed matrices and their failures.
 - Analysis: evidence import verified the archive SHA-256 and retained identical existing files without overwriting history. This audit checks retained content, not runtime correctness. Commit the reviewed source before the final backed-up guest deployment and actual remote CI.
+
+## Cycle 118 Complete Debian release-source regression
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214327Z-release-source-debian-e2029d.json), [console log](../evidence/test-runs/20260930T214327Z-release-source-debian-e2029d.log), [deployment provenance](../evidence/release-source-debian-provenance.json).
+- Result: all 46 tests passed with zero failures/errors/skips, including real Debian Chromium/Vite and current diagnostics, starter, report and process boundaries.
+- Analysis: revision 06a0405 was deployed only after archive SHA-256/path validation and a backup of changed guest files. No system dependency changes were made. Git exports use LF while Windows working copies may use CRLF; executed-file hashes identify each copy. This source gate is separate from installing the exact final wheel and its upcoming matrices.
+
+## Cycle 119 Exact final wheel Windows HTTP acceptance
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214429Z-final-installed-windows-http-6ad280.json), [console log](../evidence/test-runs/20260930T214429Z-final-installed-windows-http-6ad280.log), [matrix](../evidence/matrices/final-windows-http-1.0.0/summary.json), [artifact identity](../evidence/release-final-1.0.0-manifest.json).
+- Result: final wheel installation into a new venv, independently created HTTP starter, dependency diagnostics, all 120 native/polling updates, unchanged fixture and expected-stale control passed.
+- Analysis: this uses the exact final artifact, including the diagnostics repair, under one consistent Windows account and clean cwd. The candidate's HTTP workflow is accepted here. Continue its browser and guest installed gates; earlier engine evidence identifies the unchanged adapter.
+
+## Cycle 120 Debian minimum-backend installed package contract
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214511Z-release-package-debian-643e08.json), [console log](../evidence/test-runs/20260930T214511Z-release-package-debian-643e08.log).
+- Result: wheel/sdist rebuild integration passed with the exact minimum backend, all installed starters, outside-checkout imports, CLI/module/distribution version agreement, file/report, slow HTTP and controlled invalid input.
+- Analysis: uses project-local build tools with no guest system Python changes. This closes the former Linux installed-package gap for the current source. Install the final Windows-built wheel after transfer SHA verification to prove the artifact supplied to users across both operating systems.
+
+## Cycle 121 Exact final wheel Windows browser acceptance
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214550Z-final-installed-windows-browser-310ebf.json), [console log](../evidence/test-runs/20260930T214550Z-final-installed-windows-browser-310ebf.log), [matrix](../evidence/matrices/final-windows-chrome-1.0.0/summary.json).
+- Result: all 120 DOM updates passed with retained clicked counter state and independent document identity; diagnostics, original fixture and expected-stale control passed.
+- Analysis: a new venv and starter created outside the checkout exercised the exact final wheel. Earlier Edge and guest alternate-engine matrices used the identical browser/runner assets, with the earlier diagnostics implementation explicitly identified. No runtime adapter changes followed those engine checks.
+
+## Cycle 122 Current WSL2 source compatibility
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214613Z-final-linux-wsl2-2f9957.json), [console log](../evidence/test-runs/20260930T214613Z-final-linux-wsl2-2f9957.log).
+- Result: 46 collected tests, 43 passed and three browser tests explicitly skipped because this WSL2 lab has no provisioned browser. No failures or errors.
+- Analysis: Linux-side WSL2 source execution covers current CLI/file/HTTP and failure boundaries with the existing pinned Node toolchain. Browser skips are not counted as verified browser behavior or required CI completion. Windows and Debian browser gates have no skips. Historical cross-origin mounted-storage native/polling findings remain separate and were not reinterpreted by this source repeat.
+
+## Cycle 123 Exact final wheel Windows cancellation
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214746Z-final-installed-windows-cancel-3674ed.json), [console log](../evidence/test-runs/20260930T214746Z-final-installed-windows-cancel-3674ed.log).
+- Result: installed real-process controlled SIGINT passed in both file-baseline/startup and pending-HTTP subcases, returning 130 without a traceback and leaving no watched process, ordinary descendant or pending worker alive.
+- Analysis: confirms teardown for the exact final artifact; delivery was a controlled in-process signal, not a physical Ctrl+C console event. The runner bytes are unchanged from earlier guest cancellation verification. Keep this distinction in the user guide and release support claims.
+
+## Cycle 124 Exact final wheel Debian HTTP acceptance
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214756Z-final-installed-debian-http-fd17c8.json), [console log](../evidence/test-runs/20260930T214756Z-final-installed-debian-http-fd17c8.log), [matrix](../evidence/matrices/final-debian-http-1.0.0/summary.json), [install identity](../evidence/final-debian-wheel-install.json).
+- Result: transfer SHA-256 matched the final wheel; new venv/import location/independent starter creation passed. All 120 HTTP updates, diagnostics, unchanged fixture and the stale control passed.
+- Analysis: Windows and Debian now exercise the exact same final wheel bytes for installed HTTP. Guest build tools/dependencies remain project-local and were reused without system changes. Continue its real browser, cancellation and cleanup gates.
+
+## Cycle 125 Windows mutation cancellation responsiveness failed
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215005Z-installed-cancel-mutation-windows-8b14c5.json), [console log](../evidence/test-runs/20260930T215005Z-installed-cancel-mutation-windows-8b14c5.log).
+- Result: startup and pending-HTTP subcases passed, but interruption during a 30-second external mutation exceeded the 20-second controller deadline.
+- Analysis and repair: Windows process.wait(timeout=30) can leave a self-delivered SIGINT pending while waiting for the process handle. Poll captured-command completion in bounded short slices while preserving the original whole-command deadline, so version/mutation/browser diagnostics can return to Python signal handling promptly. This is a confirmed Windows cancellation responsiveness issue for controlled signals; no physical-console signal claim is made. Preserve the failed package and rebuild before accepting a release. Controller timeout killed only its launcher; inspect and clean only identified test-owned processes and improve failure cleanup.
+
+## Cycle 126 Exact first final-wheel Debian browser acceptance
+
+- Evidence: [JSON](../evidence/test-runs/20260930T214957Z-final-installed-debian-browser-3cd0df.json), [console log](../evidence/test-runs/20260930T214957Z-final-installed-debian-browser-3cd0df.log), [matrix](../evidence/matrices/final-debian-chromium-1.0.0/summary.json).
+- Result: 120 DOM updates, retained state/session, ready diagnostics, original fixture and expected-stale control passed.
+- Analysis: these identify the first final wheel; Cycle 125 found a separate captured-command cancellation issue, so this artifact is superseded for release acceptance. Browser adapter bytes need no repair, but the changed runner must receive final regression/installed gates.
+
+## Cycle 127 Windows external-mutation cancellation repaired
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215300Z-installed-cancel-mutation-repaired-85bba3.json), [console log](../evidence/test-runs/20260930T215300Z-installed-cancel-mutation-repaired-85bba3.log), [rebuilt artifact identity](../evidence/release-1.0.0-r2-manifest.json).
+- Result: startup, pending HTTP and external-mutation subcases passed with exit 130, no traceback and no live watch/mutator/ordinary descendant/probe. The previous failed fixture had no remaining matching owned Python process at inspection.
+- Analysis: captured waits now return to Python in at most 100 ms slices while preserving their total deadline and cleanup. Failure cleanup in the controller is scoped to PIDs published by its own fixture. No global process termination was used. Complete live-browser cancellation and whole-source/installed regression for this revised artifact before publication.
+
+## Cycle 128 Installed Windows live-browser cancellation
+
+- Evidence: [JSON](../evidence/test-runs/20260930T215430Z-installed-browser-cancel-windows-993007.json), [console log](../evidence/test-runs/20260930T215430Z-installed-browser-cancel-windows-993007.log).
+- Result: actual browser DOM observation became available, then controlled SIGINT returned 130 without a traceback; all observed adapter/Vite/browser descendant PIDs stopped.
+- Analysis: the test records only process IDs/parent IDs from the installed CLI's own tree and verifies they are gone after normal cancellation. It deliberately keeps baseline observation pending after browser readiness to exercise live browser teardown. This is genuine installed browser/process integration with a self-delivered signal, not physical keyboard verification. Add it to required CI alongside mutation cancellation.

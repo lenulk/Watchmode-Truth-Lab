@@ -1,0 +1,6 @@
+test_installed_browser_interrupt_cleans_observed_process_tree (browser_cancellation_checks.BrowserCancellationChecks.test_installed_browser_interrupt_cleans_observed_process_tree) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.629s
+
+OK
