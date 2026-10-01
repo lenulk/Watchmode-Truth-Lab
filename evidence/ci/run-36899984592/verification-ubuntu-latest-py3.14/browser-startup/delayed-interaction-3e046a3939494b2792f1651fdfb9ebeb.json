@@ -1,0 +1,88 @@
+{
+  "adapter_sha256": "bb107e737efff4881cdb73bfd02f0977c156e7f3c932dee077c121574bbf9876",
+  "observation": {
+    "kind": "Actual browser with controlled HTTP server; not real Vite",
+    "elapsed_seconds": 2.9325976659999924,
+    "report": {
+      "schema_version": 1,
+      "started_at_utc": "2026-10-01T17:47:06.618429+00:00",
+      "status": "pass",
+      "config": "scenario.json",
+      "config_sha256": "ff79ffffbb978de9840d58266befc910e3d871fb569b00e753f4f4ad899c4133",
+      "command": [
+        "/opt/hostedtoolcache/node/24.18.0/x64/bin/node",
+        "<project>/watchmode_truth_lab/assets/vite/browser_probe.mjs",
+        "<project>/reports/browser-startup-shzv4s27/fake-vite.mjs",
+        "{workspace}",
+        "{port}",
+        "{workspace}/.wtl-browser-state.json"
+      ],
+      "mutation_command": null,
+      "tool_version": null,
+      "environment": {
+        "system": "Linux",
+        "release": "6.17.0-1022-azure",
+        "python": "3.14.7",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "workspace_device": "/",
+        "filesystem_type": "ext2/ext3"
+      },
+      "oracle": {
+        "type": "file",
+        "path": ".wtl-browser-state.json",
+        "extract_regex": "\"token\":\"([^\"]+)\""
+      },
+      "startup": {
+        "status": "pass",
+        "latency_ms": 2587.1,
+        "samples": 90,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4
+      },
+      "attempts": [
+        {
+          "round": 1,
+          "mutation": "overwrite",
+          "expected_hash": "6c6ddd3f7691bf057d93f1d339c5969f9008163184fb5b710bae034c28590d29",
+          "expected_bytes": 41,
+          "mutation_command_result": null,
+          "status": "pass",
+          "latency_ms": 30.5,
+          "samples": 6,
+          "observed_hash": "6c6ddd3f7691bf057d93f1d339c5969f9008163184fb5b710bae034c28590d29",
+          "observed_bytes": 41
+        }
+      ],
+      "failure_rate": 0.0,
+      "pass_latency": {
+        "median_ms": 30.5,
+        "p95_ms": 30.5
+      },
+      "logs": [
+        "WTL_BROWSER_ENGINE chromium",
+        "WTL_BROWSER_VERSION 151.0.7922.34",
+        "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"db7c522175cb54e072a058f76e8dc4c6\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+        "WTL_BROWSER_STATE {\"token\":\"wtl-0000-94d8bb3f1add4c749b3758fcaa5637e6\",\"session\":\"db7c522175cb54e072a058f76e8dc4c6\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+        "Error: Browser or Vite process stopped",
+        "    at file:<project>/watchmode_truth_lab/assets/vite/browser_probe.mjs:103:9"
+      ],
+      "reproduction": {
+        "config": "scenario.json",
+        "rounds": 1,
+        "mutation": "overwrite",
+        "argv": [
+          "/opt/hostedtoolcache/Python/3.14.7/x64/bin/python",
+          "-m",
+          "watchmode_truth_lab",
+          "scenario.json",
+          "--rounds",
+          "1",
+          "--mutation",
+          "overwrite"
+        ],
+        "cli_shell": "posix",
+        "cli": "/opt/hostedtoolcache/Python/3.14.7/x64/bin/python -m watchmode_truth_lab scenario.json --rounds 1 --mutation overwrite"
+      }
+    }
+  }
+}

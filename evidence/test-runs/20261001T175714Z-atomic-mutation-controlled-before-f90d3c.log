@@ -1,0 +1,73 @@
+test_cli_reports_mutation_failure_without_exposing_private_path (test_atomic_mutation.AtomicMutationTests.test_cli_reports_mutation_failure_without_exposing_private_path) ... FAIL
+test_persistent_sharing_denial_is_bounded_and_preserves_target (test_atomic_mutation.AtomicMutationTests.test_persistent_sharing_denial_is_bounded_and_preserves_target) ... FAIL
+test_transient_actual_sharing_denial_retries_and_replaces (test_atomic_mutation.AtomicMutationTests.test_transient_actual_sharing_denial_retries_and_replaces) ... ERROR
+test_unrelated_io_error_is_immediate_and_cleans_stage (test_atomic_mutation.AtomicMutationTests.test_unrelated_io_error_is_immediate_and_cleans_stage) ... ok
+
+======================================================================
+ERROR: test_transient_actual_sharing_denial_retries_and_replaces (test_atomic_mutation.AtomicMutationTests.test_transient_actual_sharing_denial_retries_and_replaces)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_atomic_mutation.py", line 87, in test_transient_actual_sharing_denial_retries_and_replaces
+    runner._mutate(target, b"updated", "atomic_replace")
+  File "<project>\watchmode_truth_lab\runner.py", line 200, in _mutate
+    os.replace(temporary, target)
+  File "<project>\tests\test_atomic_mutation.py", line 65, in observe_windows_replace
+    return original_replace(source, destination)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: '<project>\\reports\\atomic-mutation-my80lmrw\\input.txt.wtl-ad05bd5560444d0eb00ada734c07d135' -> '<project>\\reports\\atomic-mutation-my80lmrw\\input.txt'
+
+======================================================================
+FAIL: test_cli_reports_mutation_failure_without_exposing_private_path (test_atomic_mutation.AtomicMutationTests.test_cli_reports_mutation_failure_without_exposing_private_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\watchmode_truth_lab\cli.py", line 44, in main
+    result = run(args.config, rounds=args.rounds, mutation=args.mutation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\watchmode_truth_lab\runner.py", line 489, in run
+    _mutate(target, written, mode, intermediate)
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\tests\test_atomic_mutation.py", line 166, in denied_mutation
+    raise sharing_error(private_path, winerror=32)
+PermissionError: [WinError 32] sharing violation: '<project>\\reports\\atomic-mutation-y451n827\\private-sentinel-do-not-report.txt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<project>\tests\test_atomic_mutation.py", line 175, in test_cli_reports_mutation_failure_without_exposing_private_path
+    exit_code = cli.main(argv)
+                ^^^^^^^^^^^^^^
+  File "<project>\watchmode_truth_lab\cli.py", line 49, in main
+    parser.error(str(exc))
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\argparse.py", line 2650, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\argparse.py", line 2637, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<project>\tests\test_atomic_mutation.py", line 177, in test_cli_reports_mutation_failure_without_exposing_private_path
+    self.fail(f"CLI raised SystemExit({error.code}) instead of recording mutation failure")
+AssertionError: CLI raised SystemExit(2) instead of recording mutation failure
+
+======================================================================
+FAIL: test_persistent_sharing_denial_is_bounded_and_preserves_target (test_atomic_mutation.AtomicMutationTests.test_persistent_sharing_denial_is_bounded_and_preserves_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_atomic_mutation.py", line 129, in test_persistent_sharing_denial_is_bounded_and_preserves_target
+    self.assertGreaterEqual(elapsed, 0.8, "Persistent sharing denial was not retried")
+AssertionError: 0.014999999999417923 not greater than or equal to 0.8 : Persistent sharing denial was not retried
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.375s
+
+FAILED (failures=2, errors=1)

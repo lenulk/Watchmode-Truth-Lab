@@ -1,0 +1,288 @@
+{
+  "policy": "stable",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790877467308509200,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "truncated",
+          "time_ns": 1790877467308509200,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790877467505730200,
+          "bytes": 66,
+          "sha256": "20422ebf085614aef68d3ebcb39878ba642abc7a38ab98402c738bb6e2148b91"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790877468001588800,
+          "bytes": 66,
+          "sha256": "20422ebf085614aef68d3ebcb39878ba642abc7a38ab98402c738bb6e2148b91"
+        },
+        {
+          "phase": "truncated",
+          "time_ns": 1790877468002094500,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790877468122147600,
+          "bytes": 66,
+          "sha256": "c514fc0218a86806a91a39f2858a461d9eaf05f5ad7969ceb9675b3d2d93af34"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790877468612885800,
+          "bytes": 66,
+          "sha256": "c514fc0218a86806a91a39f2858a461d9eaf05f5ad7969ceb9675b3d2d93af34"
+        },
+        {
+          "phase": "truncated",
+          "time_ns": 1790877468612885800,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790877468729473000,
+          "bytes": 66,
+          "sha256": "7f3b258faa3f0e5b7d34131d083cb651f8dede43b3bb7842030e733871b94c1b"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790877469228483400,
+          "bytes": 66,
+          "sha256": "7f3b258faa3f0e5b7d34131d083cb651f8dede43b3bb7842030e733871b94c1b"
+        },
+        {
+          "phase": "truncated",
+          "time_ns": 1790877469244283900,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790877469371469600,
+          "bytes": 66,
+          "sha256": "041c6e43e785cca293d563976fc70e4d4d1ff5d1917eec6475929c8aaebacffb"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790877469858548400,
+          "bytes": 66,
+          "sha256": "041c6e43e785cca293d563976fc70e4d4d1ff5d1917eec6475929c8aaebacffb"
+        },
+        {
+          "phase": "truncated",
+          "time_ns": 1790877469859276200,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790877469977737000,
+          "bytes": 66,
+          "sha256": "539d0d6ce638c230d6fb411de476ca084bc86f26dc62de61a9aaa677df72bc2e"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T17:57:45.522451+00:00",
+    "status": "pass",
+    "config": "controlled.json",
+    "config_sha256": "2adf3ab574b562f8a39443ba6c194ec0472f11fb9bc204242160d4751ea8c65c",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<project>\\node_modules\\vite\\bin\\vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "2025Server",
+      "python": "3.12.10",
+      "platform": "Windows-2025Server-10.0.26100-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1312.0,
+      "samples": 39,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "c1e295794c66e467e729b6106c8402894edbf4d55164886951efe96e62ac64bb",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 297.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790877467308509200, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"truncated\", \"time_ns\": 1790877467308509200, \"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"phase\": \"final\", \"time_ns\": 1790877467505730200, \"bytes\": 66, \"sha256\": \"20422ebf085614aef68d3ebcb39878ba642abc7a38ab98402c738bb6e2148b91\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 266.0,
+        "samples": 13,
+        "observed_hash": "c1e295794c66e467e729b6106c8402894edbf4d55164886951efe96e62ac64bb",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "overwrite",
+        "expected_hash": "24fa66c0f2b3c8e9ee18829e3166b395a19298d86fd8e87c352f271980a489d7",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 250.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790877468001588800, \"bytes\": 66, \"sha256\": \"20422ebf085614aef68d3ebcb39878ba642abc7a38ab98402c738bb6e2148b91\"}, {\"phase\": \"truncated\", \"time_ns\": 1790877468002094500, \"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"phase\": \"final\", \"time_ns\": 1790877468122147600, \"bytes\": 66, \"sha256\": \"c514fc0218a86806a91a39f2858a461d9eaf05f5ad7969ceb9675b3d2d93af34\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 219.0,
+        "samples": 12,
+        "observed_hash": "24fa66c0f2b3c8e9ee18829e3166b395a19298d86fd8e87c352f271980a489d7",
+        "observed_bytes": 41
+      },
+      {
+        "round": 3,
+        "mutation": "overwrite",
+        "expected_hash": "1a053452d81d46d80142706f20d877ad5d4cd70b340b38aa17f75647e83bf490",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 265.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790877468612885800, \"bytes\": 66, \"sha256\": \"c514fc0218a86806a91a39f2858a461d9eaf05f5ad7969ceb9675b3d2d93af34\"}, {\"phase\": \"truncated\", \"time_ns\": 1790877468612885800, \"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"phase\": \"final\", \"time_ns\": 1790877468729473000, \"bytes\": 66, \"sha256\": \"7f3b258faa3f0e5b7d34131d083cb651f8dede43b3bb7842030e733871b94c1b\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 250.0,
+        "samples": 13,
+        "observed_hash": "1a053452d81d46d80142706f20d877ad5d4cd70b340b38aa17f75647e83bf490",
+        "observed_bytes": 41
+      },
+      {
+        "round": 4,
+        "mutation": "overwrite",
+        "expected_hash": "2734f3e403b5015f1ef2e22b80985d5049bb6ff63c0a50d29f53c7c1035c7ac8",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 250.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790877469228483400, \"bytes\": 66, \"sha256\": \"7f3b258faa3f0e5b7d34131d083cb651f8dede43b3bb7842030e733871b94c1b\"}, {\"phase\": \"truncated\", \"time_ns\": 1790877469244283900, \"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"phase\": \"final\", \"time_ns\": 1790877469371469600, \"bytes\": 66, \"sha256\": \"041c6e43e785cca293d563976fc70e4d4d1ff5d1917eec6475929c8aaebacffb\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 250.0,
+        "samples": 13,
+        "observed_hash": "2734f3e403b5015f1ef2e22b80985d5049bb6ff63c0a50d29f53c7c1035c7ac8",
+        "observed_bytes": 41
+      },
+      {
+        "round": 5,
+        "mutation": "overwrite",
+        "expected_hash": "2c9f30b85b16ef333b3201e49d7ad9b94e3c8d7987fb37bf6398b3c891609dd1",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 250.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790877469858548400, \"bytes\": 66, \"sha256\": \"041c6e43e785cca293d563976fc70e4d4d1ff5d1917eec6475929c8aaebacffb\"}, {\"phase\": \"truncated\", \"time_ns\": 1790877469859276200, \"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"phase\": \"final\", \"time_ns\": 1790877469977737000, \"bytes\": 66, \"sha256\": \"539d0d6ce638c230d6fb411de476ca084bc86f26dc62de61a9aaa677df72bc2e\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 250.0,
+        "samples": 13,
+        "observed_hash": "2c9f30b85b16ef333b3201e49d7ad9b94e3c8d7987fb37bf6398b3c891609dd1",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 250.0,
+      "p95_ms": 266.0
+    },
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  \u001b[32m\u001b[1mVITE\u001b[22m v8.3.1\u001b[39m  \u001b[2mready in \u001b[0m\u001b[1m534\u001b[22m\u001b[2m\u001b[0m ms\u001b[22m",
+      "",
+      "  \u001b[32m\u279c\u001b[39m  \u001b[1mLocal\u001b[22m:   \u001b[36mhttp://127.0.0.1:\u001b[1m65026\u001b[22m/\u001b[39m",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"9d0a36f608e75ab3922f670acbb3f961\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m5:57:47 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0000-be239f85cf0245ada73f039a2479c2e9\",\"session\":\"9d0a36f608e75ab3922f670acbb3f961\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m5:57:48 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0001-3a525061c7b44e398187d33934a7d799\",\"session\":\"9d0a36f608e75ab3922f670acbb3f961\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":2,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m5:57:48 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0002-7f9096efc7b54ec68586c31459cb4cb9\",\"session\":\"9d0a36f608e75ab3922f670acbb3f961\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":3,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m5:57:49 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0003-d20ce2b2b8b641bf864bb05d9c8bddcf\",\"session\":\"9d0a36f608e75ab3922f670acbb3f961\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":4,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m5:57:50 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0004-a9f7a4ecc7244f228d8057c48cf243d0\",\"session\":\"9d0a36f608e75ab3922f670acbb3f961\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":5,\"updateMetric\":\"observed_dom_changes\"}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 5,
+      "mutation": "overwrite",
+      "argv": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "5",
+        "--mutation",
+        "overwrite"
+      ],
+      "cli_shell": "powershell",
+      "cli": "& 'C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe' '-m' 'watchmode_truth_lab' 'controlled.json' '--rounds' '5' '--mutation' 'overwrite'"
+    }
+  }
+}

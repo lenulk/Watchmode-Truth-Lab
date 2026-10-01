@@ -1,0 +1,87 @@
+{
+  "adapter_sha256": "bb107e737efff4881cdb73bfd02f0977c156e7f3c932dee077c121574bbf9876",
+  "observation": {
+    "kind": "Actual browser with controlled HTTP server; not real Vite",
+    "elapsed_seconds": 7.280999999999949,
+    "report": {
+      "schema_version": 1,
+      "started_at_utc": "2026-10-01T17:45:51.258544+00:00",
+      "status": "pass",
+      "config": "scenario.json",
+      "config_sha256": "2034deae11eb2f0d126d34e41ad51acf0de7baef55acb33753833430138a31c5",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.18.0\\x64\\node.EXE",
+        "<project>\\watchmode_truth_lab\\assets\\vite\\browser_probe.mjs",
+        "<project>\\reports\\browser-startup-xdrj3bot\\fake-vite.mjs",
+        "{workspace}",
+        "{port}",
+        "{workspace}/.wtl-browser-state.json"
+      ],
+      "mutation_command": null,
+      "tool_version": null,
+      "environment": {
+        "system": "Windows",
+        "release": "10",
+        "python": "3.10.11",
+        "platform": "Windows-10-10.0.26100-SP0",
+        "workspace_device": "C:\\",
+        "filesystem_type": "NTFS"
+      },
+      "oracle": {
+        "type": "file",
+        "path": ".wtl-browser-state.json",
+        "extract_regex": "\"token\":\"([^\"]+)\""
+      },
+      "startup": {
+        "status": "pass",
+        "latency_ms": 5828.0,
+        "samples": 184,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4
+      },
+      "attempts": [
+        {
+          "round": 1,
+          "mutation": "overwrite",
+          "expected_hash": "7dab00ae3faf8506769fefb344edb0869ff6ffd2677d780c225e867f4a4cd7ea",
+          "expected_bytes": 41,
+          "mutation_command_result": null,
+          "status": "pass",
+          "latency_ms": 1156.0,
+          "samples": 7,
+          "observed_hash": "7dab00ae3faf8506769fefb344edb0869ff6ffd2677d780c225e867f4a4cd7ea",
+          "observed_bytes": 41
+        }
+      ],
+      "failure_rate": 0.0,
+      "pass_latency": {
+        "median_ms": 1156.0,
+        "p95_ms": 1156.0
+      },
+      "logs": [
+        "WTL_BROWSER_ENGINE chromium",
+        "WTL_BROWSER_VERSION 151.0.7922.34",
+        "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"c361afca5958431096424e5fc2c9b224\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+        "WTL_BROWSER_STATE {\"token\":\"\",\"session\":\"c361afca5958431096424e5fc2c9b224\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+        "WTL_BROWSER_STATE {\"token\":\"wtl-0000-6cc40a94ae17487fa70ebd6eec5137fd\",\"session\":\"c361afca5958431096424e5fc2c9b224\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":2,\"updateMetric\":\"observed_dom_changes\"}"
+      ],
+      "reproduction": {
+        "config": "scenario.json",
+        "rounds": 1,
+        "mutation": "overwrite",
+        "argv": [
+          "C:\\hostedtoolcache\\windows\\Python\\3.10.11\\x64\\python.exe",
+          "-m",
+          "watchmode_truth_lab",
+          "scenario.json",
+          "--rounds",
+          "1",
+          "--mutation",
+          "overwrite"
+        ],
+        "cli_shell": "powershell",
+        "cli": "& 'C:\\hostedtoolcache\\windows\\Python\\3.10.11\\x64\\python.exe' '-m' 'watchmode_truth_lab' 'scenario.json' '--rounds' '1' '--mutation' 'overwrite'"
+      }
+    }
+  }
+}

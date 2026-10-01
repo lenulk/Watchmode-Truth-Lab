@@ -197,7 +197,16 @@ def _mutate(target, content, mode, intermediate=None):
         temporary = target.with_name(target.name + ".wtl-" + uuid.uuid4().hex)
         try:
             temporary.write_bytes(content)
-            os.replace(temporary, target)
+            deadline = time.monotonic() + 1.0
+            while True:
+                try:
+                    os.replace(temporary, target)
+                    break
+                except PermissionError as error:
+                    remaining = deadline - time.monotonic()
+                    if os.name != "nt" or getattr(error, "winerror", None) not in {5, 32} or remaining <= 0:
+                        raise
+                    time.sleep(min(0.02, remaining))
         finally:
             temporary.unlink(missing_ok=True)
     elif mode == "burst":
@@ -479,6 +488,7 @@ def run(config_path, rounds=1, mutation=None):
                     intermediate = (source_template.replace("{token}", "intermediate-" + content.decode("ascii")).encode("utf-8")
                                     if source_template else None)
                     mutation_info = None
+                    mutation_error = None
                     if mutation_command is not None:
                         mutation_substitutions = {**substitutions, "{target}": str(target), "{mode}": mode,
                                                   "{content_base64}": base64.b64encode(written).decode("ascii"),
@@ -486,8 +496,15 @@ def run(config_path, rounds=1, mutation=None):
                         mutation_info = _external_mutation(mutation_command, mutation_substitutions, workspace,
                                                            child_env, mutation_timeout)
                     else:
-                        _mutate(target, written, mode, intermediate)
-                    if mutation_info is not None and mutation_info["returncode"] != 0:
+                        try:
+                            _mutate(target, written, mode, intermediate)
+                        except OSError as error:
+                            mutation_error = {"type": type(error).__name__, "errno": error.errno,
+                                              "winerror": getattr(error, "winerror", None)}
+                    if mutation_error is not None:
+                        outcome = {"status": "inconclusive", "reason": "mutation_failed",
+                                   "mutation_error": mutation_error}
+                    elif mutation_info is not None and mutation_info["returncode"] != 0:
                         outcome = {"status": "inconclusive", "reason": "mutation_command_failed"}
                     else:
                         outcome = _wait(content, runtime_oracle, workspace, process, timeout, interval, stable, extractor, http_probe)

@@ -1,0 +1,6 @@
+{
+  "source": "20261001T173353Z-ci-browser-ubuntu-latest-3-12-28c213.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}

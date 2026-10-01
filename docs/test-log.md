@@ -1383,3 +1383,45 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T172800Z-browser-startup-windows-core-0db3fd.json), [log](../evidence/test-runs/20261001T172800Z-browser-startup-windows-core-0db3fd.log).
 - Result: all64 source checks passed without skips, including actual Chrome/Vite, three controlled browser startup checks, file retry and lifecycle/oracle/report boundaries. Source endpoints matched throughout. Previous run36871271959 completed six successful hosted jobs; all six verified artifacts and analyses are retained under evidence/ci/run-36871271959. The independent startup matrix failures remain retained and keep wheel13521dc1 unaccepted.
 - Analysis: commit the independently verified startup repairs, then run the exact new committed source on Debian and required six-job CI. The distribution must be rebuilt because the packaged adapter changed. Publication helper review also tightened preflight manifest/sums validation and re-downloads the currently attached assets immediately before publish; these helper code inspections are not network delivery verification.
+
+## Cycle 214 Exact committed Debian source gate
+
+- Evidence: guest `evidence/test-runs/20261001T173302Z-browser-startup-debian-core-4aaa08.json/.log`, pending immutable import; verified overlay receipt `evidence/verified-source-debian-c65e0f82.json`.
+- Result: all64 actual Debian Python3.11.2 source checks passed without skips, including actual Chromium insecure documents, controlled delayed/missing interaction and Vite/browser/oracle/lifecycle boundaries. Source endpoints matched c65e0f82babc63ec914586be159da003756e1f3a. Verified93-file source archive SHA256 `2c4c13b2eec7c8789d54025a32e97b279a3e3d7956bf44fddda29ac70e9c6ab7`; rollback backup `reports/before-verified-c65e0f82` retained. No project processes were active before overlay.
+- Analysis: both native Windows and Debian full source gates pass after staged startup repairs. Required hosted run36899984592 and a newly rebuilt distribution remain pending. Historical file-worker acceptance and failed startup matrices are retained; neither superseded wheel is accepted as final delivery.
+
+## Cycle 215 Actual Edge Vite integration after startup repairs
+
+- Evidence: [JSON](../evidence/test-runs/20261001T173732Z-browser-repaired-edge-vite-d56f0e.json), [log](../evidence/test-runs/20261001T173732Z-browser-repaired-edge-vite-d56f0e.log).
+- Result: three checks passed without skips on actual Edge with real Vite: atomic HMR DOM/session continuity, independently expected-stale disabled watcher and unsupported-engine rejection. Source endpoints matchedc65e0f82.
+- Analysis: supports repaired adapter integration beyond the controlled Node server. Successful Ubuntu3.12 job110496436280 in new run36899984592 produced artifact11181432917; downloaded archive digest verified and four byte-identical assets selected under reports/release-ready-selected. Audit those exact distribution bytes before fresh installed acceptance; remaining hosted jobs are still required.
+
+## Cycle 216 Final candidate distribution byte audit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T173827Z-release-ready-byte-audit-33faba.json), [log](../evidence/test-runs/20261001T173827Z-release-ready-byte-audit-33faba.log), [selection](../evidence/release-ready-selection.json).
+- Result: one audit passed without skips and matching source endpoints. Selected wheel SHA256 `80c595858ecaa494a8fa2a3128a908082a7a469e32563778106d700685a48f36`; sdist `9603d6c49619092b00bfe71d3eed2c90d62125267c1b41e1b2b22005e1600b9c`. Exact manifest, sums and wheel/sdist package payloads match committedc65e0f82 and verified artifact11181432917 from successful Ubuntu3.12 build in run36899984592.
+- Analysis: fresh Windows/Debian same-byte installed acceptance and all six hosted jobs remain required. Preserve superseded13521dc1 matrices, including the two startup failures. New guest setup uses existing portable pip and --without-pip from the outset, preserving the system installation and prior failed setup.
+
+## Cycle 217 Installed Windows atomic mutation sharing failure
+
+- Evidence: [JSON](../evidence/test-runs/20261001T174101Z-release-ready-windows-file-3874f5.json), [log](../evidence/test-runs/20261001T174101Z-release-ready-windows-file-3874f5.log), [CLI diagnostic](../evidence/matrices/release-ready-windows-file/first-run.json), [installed payload identity](../evidence/matrices/release-ready-windows-file/installed-payload-identity.json).
+- Result: one installed test errored while reading the absent atomic report; overwrite20 and burst20 passed, and every installed file matched wheel80c59585. Actual atomic CLI exited2 with WinError5 from os.replace(staged input,target), before report creation. Source endpoints matched. This is the mutation writer's boundary, distinct from the worker source-read fault repaired earlier.
+- Analysis: preserve failed evidence and candidate;80c59585 is not accepted. Reproduce a denied replacement using a real Windows handle before changing the runner. Add bounded Windows replacement retry while preserving staged/target bytes on permanent faults, and record internal mutation failure as inconclusive with a reason so --report remains usable. Keep unrelated failures visible and observation deadlines unchanged. A product repair will require a new exact distribution and acceptance cycle.
+
+## Cycle 218 Controlled atomic mutation failure before repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T175714Z-atomic-mutation-controlled-before-f90d3c.json), [log](../evidence/test-runs/20261001T175714Z-atomic-mutation-controlled-before-f90d3c.log).
+- Result: four checks ran without skips: two failures and one error reproduced the missing CLI report, absent bounded retry and transient actual Windows WinError5 replacement denial. The unrelated EIO simulation passed immediately. Source endpoints matched.
+- Analysis: actual exclusive Windows handles reproduce the replacement boundary independently of Vite. Before execution the persistent-handle fixture was corrected to release its handle before reading preserved bytes. Repair Windows sharing/access replacement errors within one second, keep unrelated errors immediate, and retain an inconclusive report for internal mutation I/O failure. Do not change observation deadlines or accept wheel80c59585.
+
+## Cycle 219 Atomic mutation sharing and report repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T175815Z-atomic-mutation-sharing-repaired-5c3e30.json), [log](../evidence/test-runs/20261001T175815Z-atomic-mutation-sharing-repaired-5c3e30.log).
+- Result: all four checks passed without skips and with unchanged source endpoints. Actual Windows temporary denial recovered after handle release; permanent denial retried within the one-second policy, preserving the old target and removing staging. Simulated EIO was immediate. Real CLI integration with a controlled mutation fault exported an inconclusive report and exit1 without the private path.
+- Analysis: retry only Windows PermissionError with WinError5/32, using staged bytes once and interruptible20ms sleeps. Internal mutation OSError becomes structured mutation_failed; programming/configuration errors and cancellation remain separate. Observation deadlines are unchanged. Run the complete68-test source gate, rebuild and repeat exact-artifact acceptance; this focused result does not accept candidate80c59585.
+
+## Cycle 220 Complete Windows source gate after mutation repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T175934Z-atomic-mutation-windows-core-74b368.json), [log](../evidence/test-runs/20261001T175934Z-atomic-mutation-windows-core-74b368.log).
+- Result: all68 source checks passed without skips, including actual Chrome/Vite and Windows sharing handles, failure reporting, cancellation, lifecycle and oracle/export boundaries. Source endpoints matched. Previous c65e0f82 hosted run36899984592 completed all six jobs successfully; six digest-verified artifacts and their analyses are retained under evidence/ci/run-36899984592.
+- Analysis: hosted success did not expose the independent installed atomic failure217, so wheel80c59585 remains unaccepted. Commit this writer repair and repeat the exact committed Debian source gate, six-job hosted gate and newly built same-byte installed Windows/Debian acceptance. Preserve the unrelated README changes outside this repair commit.

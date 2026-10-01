@@ -42,6 +42,8 @@ The installed `watchmode-truth-lab` console command accepts the same options. Ex
 
 `--init` requires a new destination and never overwrites an existing project. Its parent directory must already exist. Starters include a local README. Vite starters also include `polling.json` and `disabled.json`; the latter should return stale/exit 1 and is a control, not a newly discovered tool defect.
 
+The `file` starter is a tiny sample worker. It retries missing-source reads and, on Windows, access-denied reads (`EACCES`) for up to one second during a continuous outage. A successful read resets that retry window; an error that persists past it propagates and stops the sample. This example policy does not promise that production watchers handle file replacement the same way.
+
 For a Vite starter, install Node (verification uses 24.18.0) and pnpm 11.19.0. Run `pnpm install --frozen-lockfile` inside the generated project. Vite 8.3.1 and Playwright Core 1.62.1 are pinned in the supplied manifest/lockfile. Use the Node engine policy of the installed Vite version when choosing another Node version.
 
 Generated Vite starters use `server.watch.awaitWriteFinish` with a 200ms file-size stability window and 20ms checks. Native and polling modes both include this policy, which adds latency and avoids short truncate/write intervals. Adjust or remove it when testing an application's actual save policy; interrupted writes longer than the window can still expose incomplete content. Historical checkout research scenarios use their own unfiltered configuration. Other watcher backends, including experimental bundled dev, need separately verified options.
@@ -68,8 +70,10 @@ The Vite browser adapter can observe an ordinary application without fixture-own
 - `WTL_DOM_SELECTOR`: DOM token selector; default `#token`.
 - `WTL_CLICK_SELECTOR`: optional single initial user interaction.
 - `WTL_STATE_SELECTOR`: optional text whose value must remain unchanged after that interaction.
-- The adapter creates a per-document identity and fails on reload or lost state.
+- The adapter creates an opaque identity for each document and fails if navigation replaces that document or the selected state is lost.
 - If the application exposes `window.__wtl_updates`, the metric is labeled `application_hmr_callbacks`; otherwise updates are sampled DOM changes, labeled `observed_dom_changes`. Do not interpret the latter as framework callback counts.
+
+After launching the browser, the adapter gives readiness a fixed 10-second total budget. Navigation retries, waiting for the document identity, token and optional state, and the optional initial click all share that budget. Generated browser scenarios set an outer `startup_timeout_seconds` of 15 seconds; increasing that outer timeout does not extend the adapter's internal 10-second budget.
 
 The generated application imports a token, view module and CSS, clicks its counter, then checks the DOM and retained counter through native/polling updates. Other frameworks, routes, authentication flows or state contracts need their own acceptance scenario. HTTP output alone does not establish browser HMR.
 

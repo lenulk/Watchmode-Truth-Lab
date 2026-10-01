@@ -1,0 +1,9 @@
+test_cli_reports_mutation_failure_without_exposing_private_path (test_atomic_mutation.AtomicMutationTests.test_cli_reports_mutation_failure_without_exposing_private_path) ... ok
+test_persistent_sharing_denial_is_bounded_and_preserves_target (test_atomic_mutation.AtomicMutationTests.test_persistent_sharing_denial_is_bounded_and_preserves_target) ... ok
+test_transient_actual_sharing_denial_retries_and_replaces (test_atomic_mutation.AtomicMutationTests.test_transient_actual_sharing_denial_retries_and_replaces) ... ok
+test_unrelated_io_error_is_immediate_and_cleans_stage (test_atomic_mutation.AtomicMutationTests.test_unrelated_io_error_is_immediate_and_cleans_stage) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.760s
+
+OK

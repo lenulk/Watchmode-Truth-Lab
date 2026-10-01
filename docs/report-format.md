@@ -28,7 +28,11 @@ Record `--version` with artifacts used for reproduction. This report is diagnost
 - `pass`: matching observations met the configured stable-window policy before the deadline while the watched process was alive.
 - `stale`: readable output failed to reach a stable matching value by the deadline; inspect `reason` and observed hash.
 - `timeout`: output was unavailable, or matching samples could not complete the observation policy before the deadline. A late match is never accepted.
-- `inconclusive`: startup was not ready, the process exited, extraction/body policy prevented a conclusion or an external mutation command failed/timed out.
+- `inconclusive`: startup was not ready, the process exited, extraction/body policy prevented a conclusion or a mutation failed/timed out.
+
+An internal mutation I/O failure records `reason: mutation_failed` and `mutation_error` containing the exception `type`, numeric `errno` and `winerror` (null when unavailable). Exception text and filesystem paths are not included in this field. The run stops after that attempt, still exports its completed report and returns exit 1. External mutation failures retain `mutation_command_failed` and their separate command result.
+
+On Windows, atomic replacement retries WinError 5/32 for at most one second in short interruptible sleeps. The staged content is written once; unrelated errors propagate immediately into the inconclusive result. A permanent replacement denial preserves the old target and removes the staging file. This retry budget precedes observation latency and does not extend the configured observation deadline.
 
 Pending HTTP slices are not new observations. They cannot themselves pass a round. A pending request is retained within the overall budget and canceled at the observation boundary. Actual sampled matches establish the configured policy, not correctness between samples or indefinitely afterward.
 

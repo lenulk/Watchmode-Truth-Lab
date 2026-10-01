@@ -1,0 +1,22 @@
+test_installed_console_first_run_and_file_mutations (evidence.release_acceptance.final_file_checks.FinalFileChecks.test_installed_console_first_run_and_file_mutations) ... 
+  test_installed_console_first_run_and_file_mutations (evidence.release_acceptance.final_file_checks.FinalFileChecks.test_installed_console_first_run_and_file_mutations) (mutation='atomic_replace') ... ERROR
+
+======================================================================
+ERROR: test_installed_console_first_run_and_file_mutations (evidence.release_acceptance.final_file_checks.FinalFileChecks.test_installed_console_first_run_and_file_mutations) (mutation='atomic_replace')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\evidence\release_acceptance\selected_file_checks.py", line 50, in test_installed_console_first_run_and_file_mutations
+    report = json.loads(target.read_text(encoding="utf-8"))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<project>\\reports\\tmpupq_ygq2\\result.json'
+
+----------------------------------------------------------------------
+Ran 1 test in 10.484s
+
+FAILED (errors=1)
