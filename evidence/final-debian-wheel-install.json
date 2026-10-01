@@ -1,0 +1,6 @@
+{
+  "artifact": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+  "sha256": "d586be8ff1504ae029049ce2be018f5fd90f2be78d51f27a3eb8f1ffc3fdb153",
+  "version": "1.0.0",
+  "creation": "new venv; independent project cwd; import location asserted inside venv; pinned dependencies from cache"
+}

@@ -1,0 +1,96 @@
+{
+  "run_id": 36783229577,
+  "source_revision": "4c488212f362dfaf1b8fba109124d21f42e898db",
+  "jobs": [
+    {
+      "job_id": 110118373731,
+      "name": "verify (ubuntu-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "failure",
+      "source_result": {
+        "status": "pass",
+        "tests_run": 47,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      },
+      "log": "job-110118373731.log",
+      "analysis": "Recorder output filenames normalize Python version dots; lookup/upload patterns did not. Windows 3.12/3.14 also reported source errors whose per-case evidence was not uploaded; repair retention and inspect the next actual failure before assigning a cause."
+    },
+    {
+      "job_id": 110118373848,
+      "name": "verify (ubuntu-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "failure",
+      "source_result": {
+        "status": "pass",
+        "tests_run": 47,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      },
+      "log": "job-110118373848.log",
+      "analysis": "Recorder output filenames normalize Python version dots; lookup/upload patterns did not. Windows 3.12/3.14 also reported source errors whose per-case evidence was not uploaded; repair retention and inspect the next actual failure before assigning a cause."
+    },
+    {
+      "job_id": 110118373885,
+      "name": "verify (windows-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "failure",
+      "source_result": {
+        "status": "pass",
+        "tests_run": 47,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      },
+      "log": "job-110118373885.log",
+      "analysis": "Recorder output filenames normalize Python version dots; lookup/upload patterns did not. Windows 3.12/3.14 also reported source errors whose per-case evidence was not uploaded; repair retention and inspect the next actual failure before assigning a cause."
+    },
+    {
+      "job_id": 110118373914,
+      "name": "verify (windows-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "failure",
+      "source_result": {
+        "status": "fail",
+        "tests_run": 47,
+        "failures": 1,
+        "errors": 1,
+        "skips": 0
+      },
+      "log": "job-110118373914.log",
+      "analysis": "Recorder output filenames normalize Python version dots; lookup/upload patterns did not. Windows 3.12/3.14 also reported source errors whose per-case evidence was not uploaded; repair retention and inspect the next actual failure before assigning a cause."
+    },
+    {
+      "job_id": 110118373963,
+      "name": "verify (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "failure",
+      "source_result": {
+        "status": "fail",
+        "tests_run": 47,
+        "failures": 0,
+        "errors": 1,
+        "skips": 0
+      },
+      "log": "job-110118373963.log",
+      "analysis": "Recorder output filenames normalize Python version dots; lookup/upload patterns did not. Windows 3.12/3.14 also reported source errors whose per-case evidence was not uploaded; repair retention and inspect the next actual failure before assigning a cause."
+    },
+    {
+      "job_id": 110118374079,
+      "name": "verify (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "failure",
+      "source_result": {
+        "status": "pass",
+        "tests_run": 47,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      },
+      "log": "job-110118374079.log",
+      "analysis": "Recorder output filenames normalize Python version dots; lookup/upload patterns did not. Windows 3.12/3.14 also reported source errors whose per-case evidence was not uploaded; repair retention and inspect the next actual failure before assigning a cause."
+    }
+  ]
+}

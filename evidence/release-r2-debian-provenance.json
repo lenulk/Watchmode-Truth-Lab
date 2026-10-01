@@ -1,0 +1,27 @@
+{
+  "revision": "bd3116c4cf062b223acfbf7dc45e09260489148b",
+  "archive_sha256": "2ac09e2799b9507fed8fbcdc7757e833083584883caac9a26db4139efffabe64",
+  "backup": "reports/before-release-bd3116c",
+  "files": [
+    {
+      "file": ".github/workflows/verify.yml",
+      "before_sha256": "2bcbf96821b4b80b033fa3bbdbcb4d716f9c623f9f61c0938846b41efe760c1b",
+      "after_sha256": "8eeb1b54edd316382865e1fbf2c72a9b502d33f4a01efc9f69399a1a1aa11a40"
+    },
+    {
+      "file": "scripts/browser_cancellation_checks.py",
+      "before_sha256": null,
+      "after_sha256": "391b00f03698092649f941a00359e70866e5a1ffb5afa06e4a4c65010ad24364"
+    },
+    {
+      "file": "scripts/cancellation_checks.py",
+      "before_sha256": "df6d346a511c7d5bd20214bf020d3f49cf62b0dd260726c0c6a6006d1132bfd5",
+      "after_sha256": "df2edad5ab2cd0a93cfc395d32c111d4d57f30759abf43ad1bc9acd88cb7efee"
+    },
+    {
+      "file": "watchmode_truth_lab/runner.py",
+      "before_sha256": "ffb2935154b78a772b95189c0b735588252849d335551e68e4848e2bb351a70f",
+      "after_sha256": "38a2e938a0b35690ebb7c125be8dacbe8f566d1e2a7d4c9db3622fd46da75cfa"
+    }
+  ]
+}

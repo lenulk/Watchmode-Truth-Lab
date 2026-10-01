@@ -124,7 +124,7 @@ class PackageChecks(unittest.TestCase):
             run = subprocess.run([str(entrypoint), str(path), "--rounds", "2", "--mutation", "atomic_replace", "--report", str(report)],
                                  cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=20)
             self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
-            saved = json.loads(report.read_text())
+            saved = json.loads(report.read_text(encoding="utf-8"))
             self.assertEqual(saved["status"], "pass")
             self.assertEqual(len(saved["attempts"]), 2)
             self.assertTrue(all(row["expected_hash"] == row["observed_hash"] for row in saved["attempts"]))
@@ -146,7 +146,7 @@ class PackageChecks(unittest.TestCase):
             run = subprocess.run([str(entrypoint), str(path), "--report", str(cases / "http-report.json")],
                                  cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=20)
             self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
-            self.assertEqual(json.loads((cases / "http-report.json").read_text())["status"], "pass")
+            self.assertEqual(json.loads((cases / "http-report.json").read_text(encoding="utf-8"))["status"], "pass")
             del config["command"]
             path.write_text(json.dumps(config))
             invalid = subprocess.run([str(entrypoint), str(path)], cwd=root, env=clean_env, capture_output=True, text=True, encoding="utf-8", timeout=10)

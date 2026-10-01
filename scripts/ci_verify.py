@@ -4,8 +4,15 @@ import argparse
 import json
 import os
 from pathlib import Path
+from test_cycle import normalize_label
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def find_record(directory, label):
+    records = [path for path in directory.glob("*-" + normalize_label(label) + "-*.json")
+               if not path.name.endswith("-analysis.json")]
+    return max(records, key=lambda path: path.name) if records else None
 
 
 def assess(report, minimum=1, revision=None):
@@ -27,11 +34,9 @@ def main():
     parser.add_argument("--label", required=True)
     parser.add_argument("--minimum", type=int, default=1)
     args = parser.parse_args()
-    records = list((ROOT / "evidence/test-runs").glob("*-" + args.label + "-*.json"))
-    records = [path for path in records if not path.name.endswith("-analysis.json")]
-    if not records:
+    source = find_record(ROOT / "evidence/test-runs", args.label)
+    if source is None:
         parser.error("No saved cycle matches the required label")
-    source = max(records, key=lambda path: path.name)
     report = json.loads(source.read_text(encoding="utf-8"))
     result = {"source": source.name, **assess(report, args.minimum, os.environ.get("GITHUB_SHA"))}
     target = source.with_name(source.stem + "-analysis.json")

@@ -1,0 +1,55 @@
+##[group]Run python scripts/test_cycle.py --label ci-core-ubuntu-latest-3.10 --purpose 'Required complete source suite with real Vite Chromium and failure cases'
+2026-09-30T22:03:42.1388991Z [36;1mpython scripts/test_cycle.py --label ci-core-ubuntu-latest-3.10 --purpose 'Required complete source suite with real Vite Chromium and failure cases'[0m
+2026-09-30T22:03:42.1390392Z [36;1mpython scripts/ci_verify.py --label ci-core-ubuntu-latest-3.10 --minimum 47[0m
+2026-09-30T22:03:42.1483333Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-30T22:03:42.1483883Z env:
+2026-09-30T22:03:42.1484500Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-30T22:03:42.1484902Z   PYTHONUTF8: 1
+2026-09-30T22:03:42.1485226Z   WTL_TEST_BROWSER: 1
+2026-09-30T22:03:42.1485589Z   WTL_BROWSER_CHANNEL: chromium
+2026-09-30T22:03:42.1486490Z   PLAYWRIGHT_BROWSERS_PATH: <ci-home>/work/Watchmode-Truth-Lab/Watchmode-Truth-Lab/reports/playwright-browsers
+2026-09-30T22:03:42.1487575Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:03:42.1488314Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.21/x64/lib/pkgconfig
+2026-09-30T22:03:42.1489029Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:03:42.1489679Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:03:42.1490318Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:03:42.1490965Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.21/x64/lib
+2026-09-30T22:03:42.1491507Z ##[endgroup]
+2026-09-30T22:04:08.5397539Z pass: 47 tests, 0 failures, 0 errors, 0 skips
+2026-09-30T22:04:08.5398599Z Saved evidence/test-runs/20260930T220342Z-ci-core-ubuntu-latest-3-10-a4cf71.json and .log
+2026-09-30T22:04:08.5902680Z usage: ci_verify.py [-h] --label LABEL [--minimum MINIMUM]
+2026-09-30T22:04:08.5903888Z ci_verify.py: error: No saved cycle matches the required label
+2026-09-30T22:04:08.5959027Z ##[error]Process completed with exit code 2.
+2026-09-30T22:04:08.6057760Z ##[group]Run actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+2026-09-30T22:04:08.6058181Z with:
+2026-09-30T22:04:08.6058428Z   name: verification-ubuntu-latest-py3.10
+2026-09-30T22:04:08.6058996Z   path: evidence/test-runs/*ci-*-ubuntu-latest-3.10-*
+evidence/matrices/ci-*-ubuntu-latest-3.10/
+reports/ci-release/
+
+2026-09-30T22:04:08.6059515Z   retention-days: 14
+2026-09-30T22:04:08.6059747Z   if-no-files-found: error
+2026-09-30T22:04:08.6059989Z   compression-level: 6
+2026-09-30T22:04:08.6060211Z   overwrite: false
+2026-09-30T22:04:08.6060431Z   include-hidden-files: false
+2026-09-30T22:04:08.6060670Z env:
+2026-09-30T22:04:08.6060871Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-30T22:04:08.6061113Z   PYTHONUTF8: 1
+2026-09-30T22:04:08.6061319Z   WTL_TEST_BROWSER: 1
+2026-09-30T22:04:08.6061548Z   WTL_BROWSER_CHANNEL: chromium
+2026-09-30T22:04:08.6062302Z   PLAYWRIGHT_BROWSERS_PATH: <ci-home>/work/Watchmode-Truth-Lab/Watchmode-Truth-Lab/reports/playwright-browsers
+2026-09-30T22:04:08.6062926Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:04:08.6063349Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.21/x64/lib/pkgconfig
+2026-09-30T22:04:08.6063762Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:04:08.6064376Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:04:08.6064756Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.21/x64
+2026-09-30T22:04:08.6065127Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.21/x64/lib
+2026-09-30T22:04:08.6065450Z ##[endgroup]
+2026-09-30T22:04:08.7890360Z (node:3503) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T22:04:08.7891930Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T22:04:08.8196468Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-30T22:04:08.8211318Z The least common ancestor is <ci-home>/work/Watchmode-Truth-Lab/Watchmode-Truth-Lab. This will be the root directory of the artifact
+2026-09-30T22:04:08.8228959Z ##[error]No files were found with the provided path: evidence/test-runs/*ci-*-ubuntu-latest-3.10-*
+evidence/matrices/ci-*-ubuntu-latest-3.10/
+reports/ci-release/. No artifacts will be uploaded.
+2026-09-30T22:04:08.8561973Z 

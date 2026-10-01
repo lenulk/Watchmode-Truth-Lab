@@ -907,3 +907,35 @@ The first pnpm setup failed with EPERM when approved host-account commands tried
 - Evidence: [JSON](../evidence/test-runs/20260930T220119Z-reproduction-filename-after-ac56b2.json), [console log](../evidence/test-runs/20260930T220119Z-reproduction-filename-after-ac56b2.log).
 - Result: all six checks passed, including actually executing the report's PowerShell invocation with spaces/apostrophe/dollar sign/Unicode in the filename, preserving the selected interpreter and scenario arguments. Existing CLI/export checks passed.
 - Analysis: structured argv and shell labels are additive schema 1 fields. Quoted presentation is platform-specific and still requires original cwd/dependencies/environment. Add installed argv execution to package verification and POSIX reproduction to Debian/required CI; preserve earlier failed metadata evidence.
+
+## Cycle 135 Installed special-filename package controller decoding failure
+
+- Evidence: [JSON](../evidence/test-runs/20260930T220317Z-release-reproduction-package-20312b.json), [console log](../evidence/test-runs/20260930T220317Z-release-reproduction-package-20312b.log).
+- Result: installed CLI returned success, but the controller read its UTF-8 report with Windows CP1252 and raised UnicodeDecodeError before checking reproduction.
+- Analysis and repair: explicitly decode saved JSON as UTF-8, matching the existing CLI contract. The defect is in the test controller, not exported JSON or installed runner. Preserve this failed cycle. Queue the independent remote CI label-normalization/artifact-pattern issue observed after its actual Python 3.10 source suite passed 47/47.
+
+## Cycle 136 Installed Unicode reproduction after controller repair
+
+- Evidence: [JSON](../evidence/test-runs/20260930T220700Z-release-reproduction-package-utf8-ecc3f9.json), [console log](../evidence/test-runs/20260930T220700Z-release-reproduction-package-utf8-ecc3f9.log).
+- Result: rebuilt sdist/wheel installed integration passed, including version/asset/license checks, three starters and actual reproduction argv execution for a filename containing spaces/apostrophe/dollar sign/Unicode.
+- Analysis: explicit UTF-8 report reads repaired only the controller. Current installed code produces valid JSON and preserves argv outside the checkout. Remote CI must still verify all declared Python versions and retain every required outcome.
+
+## Cycle 137 Debian POSIX reproduction compatibility
+
+- Evidence: [JSON](../evidence/test-runs/20260930T220715Z-reproduction-posix-debian-239ba2.json), [console log](../evidence/test-runs/20260930T220715Z-reproduction-posix-debian-239ba2.log), [deployment provenance](../evidence/reproduction-debian-provenance.json).
+- Result: all six checks passed, including actual POSIX shell execution of the special filename/current interpreter, plus CLI/report compatibility.
+- Analysis: backed-up source overlay 4c48821 supplies additive reproduction fields; process/adapter mechanisms remain unchanged from verified r2. This closes platform-specific shell quoting behavior for the selected shells. Arbitrary environment/dependency recreation still requires the original scenario context.
+
+## Cycle 138 First actual GitHub CI label contract failure
+
+- Evidence: [run](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36783229577), retained scoped job log and metadata under `evidence/ci/first-run-36783229577/`.
+- Result: Ubuntu Python 3.10.21 source suite passed 47/47 with zero skips/failures/errors. Required analysis then failed to locate the saved `3-10` label because it searched for `3.10`; artifact upload had the same mismatch and retained no artifact for that job. Remaining jobs are retained with their actual final/canceled status when available.
+- Analysis and repair: share recorder label normalization with CI lookup and normalize the upload pattern's Python suffix. Add a controlled lookup regression using real saved filenames. Always run the analyzer after a recorded test failure; its nonzero assessment stops later gates, so failed evidence receives analysis without treating failure as pass. No product runtime change is involved; preserve the original failed remote run.
+
+The completed [first-run job summaries](../evidence/ci/first-run-36783229577/jobs.json) show Ubuntu 3.10/3.12/3.14 and Windows 3.10 source suites passed 47/47. Windows 3.12 reported one source error; Windows 3.14 reported one failure and one error. Their per-case JSON/log was not uploaded by the broken pattern, so causes cannot yet be assigned. Retained scoped remote logs preserve this limitation. Rerun after retention repair, inspect the actual saved failing cases and repair them separately.
+
+## Cycle 139 CI normalization and strict result analysis verified
+
+- Evidence: [JSON](../evidence/test-runs/20261001T064238Z-ci-label-contract-repaired-558e79.json), [console log](../evidence/test-runs/20261001T064238Z-ci-label-contract-repaired-558e79.log), [analysis](../evidence/test-runs/20261001T064238Z-ci-label-contract-repaired-558e79-analysis.json).
+- Result: all six lookup/recorder/gate checks passed. The actual analyzer found and assessed the saved cycle; controlled skipped/empty/failed/wrong-revision inputs were rejected.
+- Analysis: shared label normalization resolves the reproduced lookup mismatch. The upload pattern uses the same normalized Python suffix. Required source collection now expects 48 tests, including the lookup regression. Remote retention and unknown Windows source failures still require an actual CI run; no local result is substituted for that evidence.

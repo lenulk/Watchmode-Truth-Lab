@@ -75,6 +75,10 @@ def git_value(*args):
     return result.stdout.strip() if result.returncode == 0 else None
 
 
+def normalize_label(label):
+    return re.sub(r"[^a-zA-Z0-9_-]", "-", label)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--label", required=True)
@@ -82,7 +86,7 @@ def main():
     parser.add_argument("--test", action="append", help="Specific unittest test name; may be repeated")
     args = parser.parse_args()
     timestamp = datetime.now(timezone.utc)
-    label = re.sub(r"[^a-zA-Z0-9_-]", "-", args.label)
+    label = normalize_label(args.label)
     run_id = timestamp.strftime("%Y%m%dT%H%M%SZ") + "-" + label + "-" + uuid.uuid4().hex[:6]
     output = ROOT / "evidence" / "test-runs"
     output.mkdir(parents=True, exist_ok=True)

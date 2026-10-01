@@ -1,0 +1,53 @@
+##[group]Run python scripts/test_cycle.py --label ci-core-windows-latest-3.10 --purpose 'Required complete source suite with real Vite Chromium and failure cases'
+2026-09-30T22:08:47.9219843Z [36;1mpython scripts/test_cycle.py --label ci-core-windows-latest-3.10 --purpose 'Required complete source suite with real Vite Chromium and failure cases'[0m
+2026-09-30T22:08:47.9220671Z [36;1mpython scripts/ci_verify.py --label ci-core-windows-latest-3.10 --minimum 47[0m
+2026-09-30T22:08:47.9234757Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-09-30T22:08:47.9235188Z env:
+2026-09-30T22:08:47.9235482Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-30T22:08:47.9235773Z   PYTHONUTF8: 1
+2026-09-30T22:08:47.9236035Z   WTL_TEST_BROWSER: 1
+2026-09-30T22:08:47.9236332Z   WTL_BROWSER_CHANNEL: chromium
+2026-09-30T22:08:47.9237754Z   PLAYWRIGHT_BROWSERS_PATH: D:\a\Watchmode-Truth-Lab\Watchmode-Truth-Lab/reports/playwright-browsers
+2026-09-30T22:08:47.9238570Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:08:47.9239131Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.10.11\x64/lib/pkgconfig
+2026-09-30T22:08:47.9239687Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:08:47.9240149Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:08:47.9240827Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:08:47.9241125Z ##[endgroup]
+2026-09-30T22:09:22.2669239Z pass: 47 tests, 0 failures, 0 errors, 0 skips
+2026-09-30T22:09:22.2671077Z Saved evidence/test-runs/20260930T220848Z-ci-core-windows-latest-3-10-4498fb.json and .log
+2026-09-30T22:09:22.3491265Z usage: ci_verify.py [-h] --label LABEL [--minimum MINIMUM]
+2026-09-30T22:09:22.3498687Z ci_verify.py: error: No saved cycle matches the required label
+2026-09-30T22:09:22.3606020Z ##[error]Process completed with exit code 2.
+2026-09-30T22:09:22.3793416Z ##[group]Run actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+2026-09-30T22:09:22.3794187Z with:
+2026-09-30T22:09:22.3794554Z   name: verification-windows-latest-py3.10
+2026-09-30T22:09:22.3795234Z   path: evidence/test-runs/*ci-*-windows-latest-3.10-*
+evidence/matrices/ci-*-windows-latest-3.10/
+reports/ci-release/
+
+2026-09-30T22:09:22.3795872Z   retention-days: 14
+2026-09-30T22:09:22.3796214Z   if-no-files-found: error
+2026-09-30T22:09:22.3796565Z   compression-level: 6
+2026-09-30T22:09:22.3796825Z   overwrite: false
+2026-09-30T22:09:22.3797068Z   include-hidden-files: false
+2026-09-30T22:09:22.3797361Z env:
+2026-09-30T22:09:22.3797609Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-30T22:09:22.3797897Z   PYTHONUTF8: 1
+2026-09-30T22:09:22.3798133Z   WTL_TEST_BROWSER: 1
+2026-09-30T22:09:22.3798370Z   WTL_BROWSER_CHANNEL: chromium
+2026-09-30T22:09:22.3798813Z   PLAYWRIGHT_BROWSERS_PATH: D:\a\Watchmode-Truth-Lab\Watchmode-Truth-Lab/reports/playwright-browsers
+2026-09-30T22:09:22.3799395Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:09:22.3799880Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.10.11\x64/lib/pkgconfig
+2026-09-30T22:09:22.3800297Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:09:22.3800659Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:09:22.3801030Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.10.11\x64
+2026-09-30T22:09:22.3801324Z ##[endgroup]
+2026-09-30T22:09:22.5402329Z (node:7692) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T22:09:22.5403285Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T22:09:22.5697014Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-30T22:09:22.5698765Z The least common ancestor is D:\a\Watchmode-Truth-Lab\Watchmode-Truth-Lab. This will be the root directory of the artifact
+2026-09-30T22:09:22.5712819Z ##[error]No files were found with the provided path: evidence/test-runs/*ci-*-windows-latest-3.10-*
+evidence/matrices/ci-*-windows-latest-3.10/
+reports/ci-release/. No artifacts will be uploaded.
+2026-09-30T22:09:22.5937402Z 

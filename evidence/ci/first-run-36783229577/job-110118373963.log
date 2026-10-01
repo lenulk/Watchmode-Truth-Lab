@@ -1,0 +1,51 @@
+##[group]Run python scripts/test_cycle.py --label ci-core-windows-latest-3.12 --purpose 'Required complete source suite with real Vite Chromium and failure cases'
+2026-09-30T22:10:19.9772439Z [36;1mpython scripts/test_cycle.py --label ci-core-windows-latest-3.12 --purpose 'Required complete source suite with real Vite Chromium and failure cases'[0m
+2026-09-30T22:10:19.9773426Z [36;1mpython scripts/ci_verify.py --label ci-core-windows-latest-3.12 --minimum 47[0m
+2026-09-30T22:10:19.9785754Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-09-30T22:10:19.9786270Z env:
+2026-09-30T22:10:19.9786580Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-30T22:10:19.9786999Z   PYTHONUTF8: 1
+2026-09-30T22:10:19.9787285Z   WTL_TEST_BROWSER: 1
+2026-09-30T22:10:19.9787646Z   WTL_BROWSER_CHANNEL: chromium
+2026-09-30T22:10:19.9789741Z   PLAYWRIGHT_BROWSERS_PATH: D:\a\Watchmode-Truth-Lab\Watchmode-Truth-Lab/reports/playwright-browsers
+2026-09-30T22:10:19.9790564Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:19.9791146Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-09-30T22:10:19.9791704Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:19.9792230Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:19.9792745Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:19.9793184Z ##[endgroup]
+2026-09-30T22:10:56.6577006Z fail: 47 tests, 0 failures, 1 errors, 0 skips
+2026-09-30T22:10:56.6579195Z Saved evidence/test-runs/20260930T221020Z-ci-core-windows-latest-3-12-23c672.json and .log
+2026-09-30T22:10:56.6877933Z ##[error]Process completed with exit code 1.
+2026-09-30T22:10:56.7059299Z ##[group]Run actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+2026-09-30T22:10:56.7060088Z with:
+2026-09-30T22:10:56.7060357Z   name: verification-windows-latest-py3.12
+2026-09-30T22:10:56.7060859Z   path: evidence/test-runs/*ci-*-windows-latest-3.12-*
+evidence/matrices/ci-*-windows-latest-3.12/
+reports/ci-release/
+
+2026-09-30T22:10:56.7061345Z   retention-days: 14
+2026-09-30T22:10:56.7061591Z   if-no-files-found: error
+2026-09-30T22:10:56.7061857Z   compression-level: 6
+2026-09-30T22:10:56.7062099Z   overwrite: false
+2026-09-30T22:10:56.7062365Z   include-hidden-files: false
+2026-09-30T22:10:56.7062632Z env:
+2026-09-30T22:10:56.7062869Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-30T22:10:56.7063131Z   PYTHONUTF8: 1
+2026-09-30T22:10:56.7063362Z   WTL_TEST_BROWSER: 1
+2026-09-30T22:10:56.7063602Z   WTL_BROWSER_CHANNEL: chromium
+2026-09-30T22:10:56.7064043Z   PLAYWRIGHT_BROWSERS_PATH: D:\a\Watchmode-Truth-Lab\Watchmode-Truth-Lab/reports/playwright-browsers
+2026-09-30T22:10:56.7064608Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:56.7065055Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-09-30T22:10:56.7065449Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:56.7065843Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:56.7066194Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-09-30T22:10:56.7066470Z ##[endgroup]
+2026-09-30T22:10:56.9012320Z (node:6996) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T22:10:56.9015796Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T22:10:56.9444978Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-30T22:10:56.9447232Z The least common ancestor is D:\a\Watchmode-Truth-Lab\Watchmode-Truth-Lab. This will be the root directory of the artifact
+2026-09-30T22:10:56.9459395Z ##[error]No files were found with the provided path: evidence/test-runs/*ci-*-windows-latest-3.12-*
+evidence/matrices/ci-*-windows-latest-3.12/
+reports/ci-release/. No artifacts will be uploaded.
+2026-09-30T22:10:57.0021624Z 
