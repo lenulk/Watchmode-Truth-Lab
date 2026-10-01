@@ -1,0 +1,79 @@
+test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout) ... FAIL
+
+======================================================================
+FAIL: test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\package_checks.py", line 126, in test_wheel_and_installed_console_without_source_checkout
+    self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+AssertionError: 1 != 0 : {
+  "schema_version": 1,
+  "started_at_utc": "2026-10-01T18:38:48.786037+00:00",
+  "status": "inconclusive",
+  "config": "file scenario's $token ü.json",
+  "config_sha256": "7848c8cd3bec274ba55c6755143bd260db043e22cb3e34a7e329ddf9051064b1",
+  "command": [
+    "{python}",
+    "{config_dir}/worker.py",
+    "{workspace}/input.txt",
+    "{workspace}/output.txt"
+  ],
+  "mutation_command": null,
+  "tool_version": null,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "workspace_device": "C:\\",
+    "filesystem_type": "NTFS"
+  },
+  "oracle": {
+    "type": "file",
+    "path": "output.txt"
+  },
+  "startup": {
+    "status": "inconclusive",
+    "reason": "process_exited_1",
+    "elapsed_ms": 266.0,
+    "samples": 6,
+    "observed_hash": null,
+    "observed_bytes": null,
+    "raw_output_hash": null,
+    "probe_error": "file_not_found_or_not_regular"
+  },
+  "attempts": [],
+  "failure_rate": null,
+  "pass_latency": null,
+  "logs": [
+    "Traceback (most recent call last):",
+    "  File \"<project>\\reports\\package-check-wiyai7qe\\cases/worker.py\", line 7, in <module>",
+    "    runpy.run_path(str(worker), run_name=\"__main__\")",
+    "  File \"<frozen runpy>\", line 286, in run_path",
+    "  File \"<frozen runpy>\", line 254, in _get_code_from_file",
+    "FileNotFoundError: [Errno 2] No such file or directory: '<project>\\\\reports\\\\package-check-wiyai7qe\\\\watchmode_truth_lab\\\\assets\\\\file\\\\worker.py'"
+  ],
+  "reproduction": {
+    "config": "file scenario's $token ü.json",
+    "rounds": 2,
+    "mutation": "atomic_replace",
+    "argv": [
+      "<project>\\reports\\package-check-wiyai7qe\\venv\\Scripts\\python.exe",
+      "-m",
+      "watchmode_truth_lab",
+      "file scenario's $token ü.json",
+      "--rounds",
+      "2",
+      "--mutation",
+      "atomic_replace"
+    ],
+    "cli_shell": "powershell",
+    "cli": "& '<project>\\reports\\package-check-wiyai7qe\\venv\\Scripts\\python.exe' '-m' 'watchmode_truth_lab' 'file scenario''s $token ü.json' '--rounds' '2' '--mutation' 'atomic_replace'"
+  }
+}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 10.188s
+
+FAILED (failures=1)

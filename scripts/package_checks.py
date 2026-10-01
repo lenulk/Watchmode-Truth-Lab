@@ -114,7 +114,7 @@ class PackageChecks(unittest.TestCase):
             fixture = cases / "fixture"
             fixture.mkdir(parents=True)
             (fixture / "input.txt").write_text("seed")
-            shutil.copy2(ROOT / "examples/polling_generator.py", cases / "worker.py")
+            shutil.copy2(root / "installed-file/worker.py", cases / "worker.py")
             config = {"fixture_dir": "fixture", "command": ["{python}", "{config_dir}/worker.py", "{workspace}/input.txt", "{workspace}/output.txt"],
                       "mutation_target": "input.txt", "oracle": {"type": "file", "path": "output.txt"},
                       "startup_timeout_seconds": 5, "timeout_seconds": 3, "stable_seconds": 0.05}
