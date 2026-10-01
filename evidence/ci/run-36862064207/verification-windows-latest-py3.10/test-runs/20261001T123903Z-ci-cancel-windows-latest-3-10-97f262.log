@@ -1,0 +1,20 @@
+test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks) ... test_installed_browser_interrupt_cleans_observed_process_tree (browser_cancellation_checks.BrowserCancellationChecks) ... ok
+
+======================================================================
+ERROR: test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks) (oracle='mutation')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\cancellation_checks.py", line 71, in test_installed_sigint_stops_watch_descendants_and_pending_http
+    result = subprocess.run([str(executable), str(launcher), str(scenario)], cwd=root, env=environment,
+  File "C:\hostedtoolcache\windows\Python\3.10.11\x64\lib\subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "C:\hostedtoolcache\windows\Python\3.10.11\x64\lib\subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "C:\hostedtoolcache\windows\Python\3.10.11\x64\lib\subprocess.py", line 1546, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['<project>\\reports\\ci-venv\\Scripts\\python.exe', '<project>\\reports\\cancel-8wskip1k\\interrupt.py', '<project>\\reports\\cancel-8wskip1k\\scenario.json']' timed out after 20 seconds
+
+----------------------------------------------------------------------
+Ran 2 tests in 23.718s
+
+FAILED (errors=1)

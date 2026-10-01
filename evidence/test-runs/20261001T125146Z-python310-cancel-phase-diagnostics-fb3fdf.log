@@ -1,0 +1,16 @@
+test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks) ... 
+======================================================================
+ERROR: test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks) (oracle='mutation')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\cancellation_checks.py", line 78, in test_installed_sigint_stops_watch_descendants_and_pending_http
+    result = subprocess.run([str(executable), str(launcher), str(scenario)], cwd=root, env=environment,
+  File "subprocess.py", line 505, in run
+  File "subprocess.py", line 1154, in communicate
+  File "subprocess.py", line 1546, in _communicate
+subprocess.TimeoutExpired: Command '['<project>\\reports\\python310-diagnostic\\python.exe', '<project>\\reports\\cancel-u91_2qkp\\interrupt.py', '<project>\\reports\\cancel-u91_2qkp\\scenario.json']' timed out after 20 seconds
+
+----------------------------------------------------------------------
+Ran 1 test in 23.292s
+
+FAILED (errors=1)

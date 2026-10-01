@@ -1,0 +1,14 @@
+test_native_handle_wait_vs_interruptible_sleep (evidence.release_acceptance.wait_signal_proof.WaitSignalProof) ... FAIL
+
+======================================================================
+FAIL: test_native_handle_wait_vs_interruptible_sleep (evidence.release_acceptance.wait_signal_proof.WaitSignalProof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\evidence\release_acceptance\wait_signal_proof.py", line 37, in test_native_handle_wait_vs_interruptible_sleep
+    self.assertIsNone(results['wait']['caught_after_seconds'])
+AssertionError: 4.110000000000582 is not None
+
+----------------------------------------------------------------------
+Ran 1 test in 4.561s
+
+FAILED (failures=1)

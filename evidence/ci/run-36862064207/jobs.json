@@ -1,0 +1,52 @@
+{
+  "run_id": 36862064207,
+  "source_revision": "3abf8d81cb63d6596e85fe96f4b4c4b11f86ca5a",
+  "jobs": [
+    {
+      "id": 110368430810,
+      "name": "verify (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110368430881,
+      "name": "verify (windows-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Installed cancellation"
+      ]
+    },
+    {
+      "id": 110368430988,
+      "name": "verify (windows-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110368431044,
+      "name": "verify (ubuntu-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110368431052,
+      "name": "verify (ubuntu-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110368431108,
+      "name": "verify (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Full regression and required-result analysis"
+      ]
+    }
+  ]
+}

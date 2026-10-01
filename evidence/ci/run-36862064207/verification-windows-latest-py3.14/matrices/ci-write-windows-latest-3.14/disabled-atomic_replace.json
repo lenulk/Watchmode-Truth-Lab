@@ -1,0 +1,116 @@
+{
+  "policy": "stable",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790858906559763500,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790858906560957400,
+          "bytes": 66,
+          "sha256": "fc878e75fe9a0d8dd994a64423ba34e1fc840690c8d1a5e985215c40888b4c0c"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T12:48:24.609866+00:00",
+    "status": "stale",
+    "config": "controlled.json",
+    "config_sha256": "72e06cb5573760a3a27765cce76ab1a7f2310ce7f722d2391e22362d2fc03dfe",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<project>\\node_modules\\vite\\bin\\vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "2025Server",
+      "python": "3.14.7",
+      "platform": "Windows-2025Server-10.0.26100-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1435.5,
+      "samples": 48,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "2faae8b9e16e6e1746b0ed02126f4f3292952289c74128d1d0e34bc320c861d7",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 127.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790858906559763500, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"final\", \"time_ns\": 1790858906560957400, \"bytes\": 66, \"sha256\": \"fc878e75fe9a0d8dd994a64423ba34e1fc840690c8d1a5e985215c40888b4c0c\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8001.6,
+        "samples": 255,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "6e1bcc69bb5487583f300430a343740433ef62d30794b70da643268e5df7b01b",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  \u001b[32m\u001b[1mVITE\u001b[22m v8.3.1\u001b[39m  \u001b[2mready in \u001b[0m\u001b[1m554\u001b[22m\u001b[2m\u001b[0m ms\u001b[22m",
+      "",
+      "  \u001b[32m\u279c\u001b[39m  \u001b[1mLocal\u001b[22m:   \u001b[36mhttp://127.0.0.1:\u001b[1m52393\u001b[22m/\u001b[39m",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"40390978-20bf-4e5f-983e-65a16bff543b\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 1,
+      "mutation": "atomic_replace",
+      "argv": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.14.7\\x64\\python.exe",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "1",
+        "--mutation",
+        "atomic_replace"
+      ],
+      "cli_shell": "powershell",
+      "cli": "& 'C:\\hostedtoolcache\\windows\\Python\\3.14.7\\x64\\python.exe' '-m' 'watchmode_truth_lab' 'controlled.json' '--rounds' '1' '--mutation' 'atomic_replace'"
+    }
+  }
+}

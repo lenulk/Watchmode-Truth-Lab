@@ -1,0 +1,10 @@
+{
+  "url": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-embed-amd64.zip",
+  "sha256": "608619f8619075629c9c69f361352a0da6ed7e62f83a0e19c63e0ea32eb7629d",
+  "publisher_digest_matched": true,
+  "published_md5_matched": true,
+  "signature_chain_verified": false,
+  "purpose": "Diagnostic embedded Python3.10.11, manually unpacked exact selected wheel; not pip/venv installation acceptance",
+  "global_settings_changed": false,
+  "selected_wheel_sha256": "5ba2eb988c391da861404a900e5a7be7ed287e664385e625dd32f91dd25fb30a"
+}

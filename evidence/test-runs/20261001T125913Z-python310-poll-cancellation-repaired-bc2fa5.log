@@ -1,0 +1,8 @@
+test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks) ... ok
+test_external_mutation_success_and_failure_are_distinguished (test_mutation_command.MutationCommandTests) ... ok
+test_noisy_mutator_and_timeout_are_bounded (test_mutation_command.MutationCommandTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 7.956s
+
+OK

@@ -1167,3 +1167,69 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T122753Z-identity-repair-package-equivalence-3d78af.json), [log](../evidence/test-runs/20261001T122753Z-identity-repair-package-equivalence-3d78af.log), [frozen original function](../evidence/release_acceptance/pid_only_snapshot.py).
 - Result: two checks passed: the frozen d7100e3 ownership defect remains reproducible, and the selected wheel/sdist manifest, sums and payload still match committed package source after the auxiliary-only repair. Source endpoints matched. Imported 55 VM evidence files after verifying transfer SHA256 `930f067a14dc9940ed344ebafa43a07d966113ef22fd59c0fe76cabe1fdc16fd`; no existing evidence was replaced.
 - Analysis: retaining the exact already-executed wheel is justified by package byte/source equivalence, not by its build job alone. The new required six-job CI and VM identity-aware lifecycle gates must pass before release.
+
+## Cycle 178 Debian identity and pidfd boundary
+
+- Evidence: `evidence/test-runs/20261001T123159Z-process-identity-debian-0feb0f.json` and `.log` on the VM, pending immutable import.
+- Result: all four helper checks passed on actual Debian, including observed child birth identity, mismatched-generation refusal and actual pidfd termination. No skips; source endpoints matched.
+- Analysis: independently verifies the Linux branch of the auxiliary repair. Before source overlay, live `/proc` inspection found no project processes. The 91-file reviewed source archive matched SHA256 `69f67af3aee61796bc87a69e4ff329e00b06344c470a89c34611df1b91662ccd`; deployment retained rollback backup `reports/before-verified-3abf8d81`. Installed VM cancellation remains the next gate.
+
+## Cycle 179 Same selected wheel Debian identity-aware cancellation
+
+- Evidence: `evidence/test-runs/20261001T123310Z-final-selected-identity-debian-cancel-08ecf1.json` and `.log`, plus retained PID/birth records under `evidence/cancellation/` on the VM, pending immutable import.
+- Result: two actual installed checks passed with zero skips and matching source endpoints, covering startup, pending HTTP, mutation and observable Chromium; exit 130 and matching process generations stopped.
+- Analysis: the selected wheel now passes repaired cancellation acceptance independently on Windows and Debian. Hosted Windows Python 3.14 remains required; the earlier CI record without birth identity is retained as failed evidence and is not relabeled.
+
+## Cycle 180 Debian post-acceptance runtime inspection
+
+- Evidence: `evidence/test-runs/20261001T123436Z-final-selected-debian-process-inspection-53ea61.json` and `.log`, pending immutable VM import.
+- Result: one actual Linux `/proc` inspection passed with zero skips, finding no live executable under project-local runtime/browser storage after all installed engine matrices and repaired cancellation. Source endpoints matched.
+- Analysis: independently checks actual post-run state, not a mocked cleanup assertion. This excludes only the inspected project-local executable scope, not unrelated system processes or deliberate detached/cross-OS escape. Required hosted CI remains pending.
+
+## Cycle 181 Hosted Windows Python 3.10 generic mutation cancellation timeout
+
+- Evidence: [CI job metadata](../evidence/ci/run-36862064207/jobs.json), retained Windows Python 3.10 cancellation JSON/log/analysis and birth snapshots under that directory.
+- Result: 58 core checks, package, HTTP and browser matrices passed. The repaired birth-aware browser cancellation passed. The separate generic cancellation test errored in its mutation subcase when the subprocess capture exceeded 20 seconds. Ubuntu 3.10/3.12/3.14 completed all gates; other Windows jobs were still running when inspected.
+- Analysis: this is distinct from the repaired ancestry assertion. The retained exception omits the timed-out child's output/thread state, so it cannot establish whether signal delivery, product cleanup or controller capture caused the delay. Do not enlarge the deadline or change the product speculatively. Reproduce using the actual Python 3.10.11 runtime and add retained signal/state diagnostics if needed. The selected wheel remains unreleased. Imported eight VM identity/post-run/deployment evidence files after transfer SHA256 `52bb9112e8bce03e1ad4917274b0da6efdf7cf0389a009cc6d537134cd1b5ce2`; an initial SCP connection timed out before authentication and wrote no archive, then retry succeeded.
+
+## Cycle 182 Scoped Python 3.10 diagnostic setup
+
+- Evidence: [runtime acquisition](../evidence/python310-diagnostic-runtime.json), [JSON](../evidence/test-runs/20261001T124630Z-python310-original-cancellation-a5a385.json), [log](../evidence/test-runs/20261001T124630Z-python310-original-cancellation-a5a385.log).
+- Result: the official embedded 3.10.11 archive matched publisher SHA256/MD5 metadata and the exact selected wheel was manually unpacked into its local site-packages. The test failed to import the auxiliary controller because the embedded `_pth` excludes the script directory. No product scenario ran.
+- Analysis: this is diagnostic setup failure, not product cancellation evidence or pip/venv acceptance. Add only the local scripts directory to that runtime's path, then run the original controller. No global installer/settings changes or signature-chain verification are claimed.
+
+## Cycle 183 Hosted snapshot enumeration deadline
+
+- Evidence: retained Windows Python 3.12 core JSON/log in [run 36862064207](../evidence/ci/run-36862064207/jobs.json).
+- Result: 57 of 58 core checks passed; the actual-child snapshot helper timed out while waiting ten seconds for its external PowerShell/CIM enumeration. No product cancellation test ran in this job.
+- Analysis: separate auxiliary enumeration defect: acceptance spends an unpredictable external startup/query interval before observing the owned child. Replace that enumeration with native Windows process snapshot and birth queries, preserving creation-order selection and exact-identity liveness/cleanup. Keep the generic Python 3.10 mutation timeout queued; its cause remains unproven.
+
+## Cycle 184 Python 3.10 mutation timeout reproduced locally
+
+- Evidence: [JSON](../evidence/test-runs/20261001T124919Z-python310-original-cancellation-configured-6487c1.json), [log](../evidence/test-runs/20261001T124919Z-python310-original-cancellation-configured-6487c1.log).
+- Result: actual scoped embedded Python 3.10.11 with the exact manually unpacked selected wheel reproduced the 20-second timeout in the original controller's mutation subcase; startup and HTTP subcases passed. Source endpoints matched. A separate inspection printed the runtime version but its package path encountered console CP1252 Unicode encoding, so no successful printed-path proof is claimed from that inspection.
+- Analysis: reproduces the hosted symptom independently of CIM enumeration. Add retained timeline, partial stdout/stderr and timed thread-stack dumps without relaxing deadlines or changing product code, then locate the stalled phase. The embedded runtime is diagnostic evidence, not the required hosted pip/venv gate. Native snapshot repair remains separately queued.
+
+## Cycle 185 Retained Python 3.10 signal timeline and stacks
+
+- Evidence: [JSON](../evidence/test-runs/20261001T125146Z-python310-cancel-phase-diagnostics-fb3fdf.json), [log](../evidence/test-runs/20261001T125146Z-python310-cancel-phase-diagnostics-fb3fdf.log), mutation record under `evidence/cancellation-diagnostics/`.
+- Result: timeout reproduced without changing the wheel/deadlines. The interruption thread reached and returned from `signal.raise_signal`; no `main_return` followed. Timed stack dumps at 5/10/15 seconds kept the main thread in the product's 100ms subprocess-handle wait, with capture readers blocked on their streams. The mutation worker and child had published PIDs.
+- Analysis: localizes delayed delivery to the captured-command wait loop on actual Python3.10.11, rather than readiness/active_children. Compare short handle waits with poll plus an interruptible sleep in a controlled process fixture before changing the runner. Cleanup has not started at the observed stack points. Retain diagnostics in future CI so another delay has actionable evidence.
+
+## Cycle 186 Controlled wait comparison observation
+
+- Evidence: [JSON](../evidence/test-runs/20261001T125500Z-python310-controlled-wait-signal-d586a5.json), [log](../evidence/test-runs/20261001T125500Z-python310-controlled-wait-signal-d586a5.log), [timings](../evidence/python310-wait-signal-comparison.json).
+- Result: the fixture's expectation of no handled interrupt failed: 100ms handle waits eventually caught SIGINT after 4.11 seconds, while short sleep caught it after 0.203 seconds. The signal was raised at 0.2 seconds and the child naturally finished at four seconds.
+- Analysis: supports delayed handle-wait delivery, not absent delivery. Preserve the failed expectation; correct the fixture to assert the observed late-versus-prompt boundary, using a new immutable comparison record. Replace captured-command handle waits with process polling and an interruptible short sleep while preserving the total deadline. The product change supersedes the selected distribution and requires rebuilding/repeating same-artifact installed acceptance.
+
+## Cycle 187 Corrected signal boundary and invocation error
+
+- Evidence: [JSON](../evidence/test-runs/20261001T125652Z-python310-controlled-signal-boundary-14f890.json), [log](../evidence/test-runs/20261001T125652Z-python310-controlled-signal-boundary-14f890.log), new UUID comparison record under `evidence/`.
+- Result: corrected late-versus-prompt signal fixture passed. The combined cycle failed because the requested `test_external_mutation` module does not exist; actual mutation tests are in `test_mutation_command` and did not run.
+- Analysis: retain the invocation error; it gives no mutation regression proof. Build a new local candidate from the repaired product, unpack it into a new scoped diagnostic runtime, then verify actual Python3.10 cancellation plus the correctly named mutation checks. Previous wheel/runtime stay retained.
+
+## Cycle 188 Actual Python 3.10 repaired candidate cancellation
+
+- Evidence: [JSON](../evidence/test-runs/20261001T125913Z-python310-poll-cancellation-repaired-bc2fa5.json), [log](../evidence/test-runs/20261001T125913Z-python310-poll-cancellation-repaired-bc2fa5.log), [candidate identity](../evidence/python310-poll-diagnostic-distribution.json), new phase records under `evidence/cancellation-diagnostics/`.
+- Result: three tests passed without skips using actual Python3.10.11: controlled SIGINT startup/HTTP/mutation subcases and external mutation noisy/failure/deadline regressions. The new manually unpacked candidate wheel SHA256 is `69277d0716b5c6d67a82ce48263fcf5fc1db987862df2a9db322a36e45b45bcc`; source endpoints matched. Existing cancellation deadlines were not increased.
+- Analysis: product poll/interruptible-sleep repair closes the locally reproduced symptom. This diagnostic embedded installation is not hosted pip/venv acceptance. The previously selected `5ba2e...` wheel is superseded; new required CI and same-byte Windows/Debian full installed matrices must establish the final delivery artifact. The native snapshot repair remains the next separate principal issue.

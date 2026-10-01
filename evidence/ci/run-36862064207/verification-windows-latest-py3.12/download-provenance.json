@@ -1,0 +1,8 @@
+{
+  "run_id": 36862064207,
+  "artifact_id": 11162262552,
+  "name": "verification-windows-latest-py3.12",
+  "archive_digest": "sha256:fc7a45b3de5c0b59506284c7bf32132f964fec2a97de5a390f7b5403e74c4fe9",
+  "digest_verified": true,
+  "source_revision": "3abf8d81cb63d6596e85fe96f4b4c4b11f86ca5a"
+}

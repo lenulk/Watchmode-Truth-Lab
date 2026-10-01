@@ -10,9 +10,9 @@
 
 0.2.0 เป็น milestone ระหว่างพัฒนา เป้าหมายส่งมอบคือเครื่องมือที่ทำ workflow ครบและผ่านเกณฑ์ทุกระยะ รวมถึง installed package และงานจริงที่เลือกทดสอบ จากนั้นอัปโหลด GitHub ตามที่ผู้ใช้อนุญาต ไม่จบงานเพียงเพราะ suite เดิมผ่าน และไม่อ้างผลบน platform/application ที่ไม่ได้ตรวจ
 
-## สถานะตั้งต้น
+## สถานะตั้งต้นก่อนงาน installed product (หลักฐานย้อนหลัง)
 
-[ผลล่าสุด](readiness.md) ยืนยัน Windows และ Debian 30/30 ไม่มี skip, Windows Vite 120 positive updates และ Windows installed-wheel smoke ผ่าน ช่องว่างที่พบจากการตรวจซอร์ส:
+ก่อนเริ่มระยะนี้ หลักฐานยืนยัน Windows และ Debian 30/30 ไม่มี skip, Windows Vite 120 positive updates และ Windows installed-wheel smoke ผ่าน ช่องว่างที่พบจากการตรวจซอร์ส:
 
 - CLI รับ scenario และส่ง JSON ได้ แต่ยังไม่มีขั้นตอนสร้าง starter หรือแยกตรวจ config/dependency ก่อนรัน
 - wheel บรรจุ Python package; ตัวอย่าง Vite, browser adapter และ Node dependencies ยังอยู่ใน checkout ต้องกำหนดวิธีส่งมอบให้ผู้ใช้ที่ติดตั้งแพ็กเกจ
@@ -29,7 +29,7 @@
 | 2. ผลลัพธ์และการหยุดงานเชื่อถือได้ | สัญญา report, ข้อความวินิจฉัย, การยกเลิกงาน, การเขียนรายงานอย่างปลอดภัย | Failure cases ด้านล่างผ่าน; ไม่มี false pass; reason/exit code ถูกต้อง; ยกเลิกแล้ว ordinary descendants ถูกเก็บ; export ล้มเหลวไม่ทำรายงานเดิมเสีย |
 | 3. ใช้กับ workflow จริง | Scenario ของแอปที่เลือก, oracle ที่ตรงกับงาน, stale control, reproduction | ทุก watcher/mutation ที่ประกาศผ่านอย่างน้อย 20 rounds ต่อ combination; stale control ต้องไม่ผ่าน; reproduce จากสำเนาได้; ต้นฉบับไม่ถูก mutate |
 | 4. ตรวจทุกการเปลี่ยนและเตรียม release | CI, support matrix, artifact retention, release gate | Windows/Linux required jobs ผ่านโดยไม่ซ่อน skip; wheel/sdist ของ release candidate ติดตั้งได้; เก็บ failed evidence; runtime/adapter ที่ประกาศมีหลักฐาน |
-| 5. ทดลองใช้และส่งมอบ | คู่มือติดตั้ง/แก้ปัญหา, ตัวอย่างจริง, release candidate, rollback | ผู้ใช้ทำ workflow จาก environment สะอาดตามคู่มือได้; ไม่มี P0/P1 ค้าง; checklist 0.2.0 ผ่าน |
+| 5. ทดลองใช้และส่งมอบ | คู่มือติดตั้ง/แก้ปัญหา, ตัวอย่างจริง, release candidate, rollback | ผู้ใช้ทำ workflow จาก environment สะอาดตามคู่มือได้; ไม่มี P0/P1 ค้าง; checklist 1.0.0 ผ่าน |
 
 ระยะถัดไปเริ่มเมื่อเกณฑ์ที่เกี่ยวข้องผ่าน ให้แยกปัญหาที่พบใหม่และแก้ทีละประเด็น ความผ่านของ suite เดิมยังไม่ถือว่าระยะใหม่เสร็จ
 

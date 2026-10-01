@@ -256,13 +256,13 @@ def _run_captured(argv, workspace, env, timeout):
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 break
-            try:
-                # Windows waits on a process handle; short slices also return
-                # control to Python to deliver pending cancellation signals.
-                returncode = process.wait(timeout=min(0.1, remaining))
+            returncode = process.poll()
+            if returncode is not None:
                 break
-            except subprocess.TimeoutExpired:
-                continue
+            # Windows Python 3.10 can defer a thread-raised SIGINT even during
+            # repeated short process-handle waits. Sleep uses its interruptible
+            # signal path; polling keeps completion and the total budget bounded.
+            time.sleep(min(0.05, remaining))
     finally:
         _stop(process)
         for thread in threads:

@@ -1,0 +1,10 @@
+{
+  "runtime_sha256": "608619f8619075629c9c69f361352a0da6ed7e62f83a0e19c63e0ea32eb7629d",
+  "distribution": {
+    "file": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+    "sha256": "69277d0716b5c6d67a82ce48263fcf5fc1db987862df2a9db322a36e45b45bcc",
+    "size_bytes": 29399
+  },
+  "build_backend": "BUILD_BACKEND 77.0.3",
+  "purpose": "Manually unpacked candidate diagnostic, not pip/venv acceptance"
+}
