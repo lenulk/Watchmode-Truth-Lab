@@ -1059,3 +1059,111 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T075038Z-release-nonrecursive-windows-core-34fbfe.json), [log](../evidence/test-runs/20261001T075038Z-release-nonrecursive-windows-core-34fbfe.log).
 - Result: 54/54 passed with zero skips/errors/failures; source endpoints matched. Actual Vite/Chrome and all affected runner, cleanup, CLI, diagnostic, report, reproduction and evidence integrations ran.
 - Analysis: third CI completed with five successful jobs and one Windows Python 3.10 recursive-cleanup error; every job's immutable case evidence and artifact provenance is retained under `evidence/ci/run-36830845467/`. Local corrected full suite passes, but supported Python 3.10 must now execute the corrected cleanup in actual CI. Build/select new distribution bytes only after that required result; previous candidates remain superseded.
+
+## Cycle 160 Complete Debian gate after cleanup compatibility repair
+
+- Evidence: `evidence/test-runs/20261001T075410Z-release-nonrecursive-debian-core-759621.json` and `.log`; deployment provenance `evidence/verified-source-debian-d7100e38.json`.
+- Result: actual Debian Python 3.11.2 and Chromium passed 54/54 with zero skips/failures/errors; source endpoints matched. Archive SHA-256 32a852d2b7cc97d4b729a1f0e0dbb57a38d0899fbf467b8eb7f7bcd4acc2b93a and deployed bytes verified, rollback backup retained after live process inspection.
+- Analysis: Linux's standard cleanup and the platform-independent persistent/finalizer regression remain compatible. Actual Windows minimum-version CI and newly selected artifact acceptance are still pending. Existing installed venvs keep their older candidate identity and are not silently relabeled.
+
+## Cycle 161 Corrected final selected distribution byte audit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T075857Z-final-selected-byte-audit-1244ed.json), [log](../evidence/test-runs/20261001T075857Z-final-selected-byte-audit-1244ed.log); run 36832902222 artifact 11147392816, Ubuntu Python 3.12.
+- Result: corrected distribution GitHub ZIP digest, manifest sizes/SHA-256, sums, packaged wheel/sdist payload and committed source all matched d7100e3; source endpoints matched. Wheel 5ba2eb988c391da861404a900e5a7be7ed287e664385e625dd32f91dd25fb30a; sdist 36c914f4d83eb17caf92901b19aebc572a5d709a7c391c9120207fdd83aa2d8a.
+- Analysis: install these exact bytes in new Windows/Debian venvs and exercise documented first run, real HTTP/DOM matrices and cancellation. Previous directories/results keep their superseded artifact identity. Release still waits for every required CI job and cross-OS acceptance.
+
+## Cycle 162 Selected wheel Windows documented first run
+
+- Evidence: [JSON](../evidence/test-runs/20261001T080138Z-final-selected-windows-file-43a652.json), [log](../evidence/test-runs/20261001T080138Z-final-selected-windows-file-43a652.log), [commands/controller identity](../evidence/matrices/final-selected-windows-file/first-run.json).
+- Result: fresh venv import was within sys.prefix from an independent cwd; installed console version, validate, doctor and readable summary/report all passed. Each overwrite/atomic/burst file case passed 20 updates (60 total) with original fixture unchanged. Source endpoints matched.
+- Analysis: this executes the documented first run from selected wheel 5ba2eb98..., using the retained acceptance controller and its hash. Node/browser application matrices, actual installed cancellation and all required CI remain separate gates; no source fallback is counted.
+
+## Cycle 163 Same selected wheel Debian documented first run
+
+- Evidence: `evidence/test-runs/20261001T080335Z-final-selected-debian-file-107761.json` and `.log`; `evidence/matrices/final-selected-debian-file/first-run.json`.
+- Result: identical received wheel/sdist hashes verified; clean Debian venv independent import/installed console version, preflight, doctor, summary and JSON reports passed. All three file mutation modes passed 20 updates each (60), retaining the original fixture; source endpoints matched.
+- Analysis: first run now executes from the exact same selected wheel on Windows and Debian without source fallback or system Python package installation. Frozen Node dependencies were provisioned offline in independently created starters. Continue installed application/cancellation gates and remaining required CI.
+
+## Cycle 164 Final selected wheel Windows HTTP matrix
+
+- Evidence: [JSON](../evidence/test-runs/20261001T080321Z-final-selected-windows-http-f79802.json), [log](../evidence/test-runs/20261001T080321Z-final-selected-windows-http-f79802.log), [matrix](../evidence/matrices/final-selected-windows-http/summary.json).
+- Result: 120/120 native/polling × overwrite/atomic/burst updates passed from the exact selected wheel's independently created HTTP starter. Diagnostics, independent stale control and original fixture retention passed; source endpoints matched.
+- Analysis: verifies Windows installed HTTP behavior with explicit 200ms write-stability policy. Browser DOM, other engines, lifecycle cancellation and remaining hosted jobs are separate gates; positive HTTP output does not establish HMR.
+
+## Cycle 165 Same final wheel Debian HTTP matrix
+
+- Evidence: `evidence/test-runs/20261001T080427Z-final-selected-debian-http-fdaa6e.json` and `.log`; `evidence/matrices/final-selected-debian-http/summary.json`.
+- Result: same wheel passed all 120 native/polling mutation updates on actual Debian, diagnostics, original fixture retention and independent stale control; source endpoints matched.
+- Analysis: exact selected bytes now verify installed HTTP on both platforms. Required Windows Python 3.10 CI has also completed every gate successfully, closing the actual recursive-cleanup failure. Remaining CI versions and browser-engine/cancellation acceptance must still finish before release.
+
+## Cycle 166 Final selected wheel Windows Chrome DOM
+
+- Evidence: [JSON](../evidence/test-runs/20261001T080605Z-final-selected-windows-chrome-d01419.json), [log](../evidence/test-runs/20261001T080605Z-final-selected-windows-chrome-d01419.log), [matrix](../evidence/matrices/final-selected-windows-chrome/summary.json).
+- Result: real installed Chrome passed 120 DOM updates across all native/polling mutation modes, independent session continuity, clicked counter retention, disabled stale control and original fixture preservation. Source endpoints matched.
+- Analysis: exact selected wheel's multi-module starter applies HMR and retains the tested state under the documented write policy. Counts are sampled DOM changes, not application callbacks; other framework state contracts remain application-specific. Edge and Debian engines require their own matrices.
+
+## Cycle 167 Same final wheel Windows Edge DOM
+
+- Evidence: [JSON](../evidence/test-runs/20261001T080842Z-final-selected-windows-edge-813893.json), [log](../evidence/test-runs/20261001T080842Z-final-selected-windows-edge-813893.log), [matrix](../evidence/matrices/final-selected-windows-edge/summary.json).
+- Result: actual installed Edge passed all 120 updates, document/counter continuity, independent disabled control and original fixture preservation; source endpoints matched.
+- Analysis: separately verifies Edge for the same selected wheel/application/write policy, not an inference from Chrome. Actual installed cancellation and Debian engine gates remain pending.
+
+## Cycle 168 Same final wheel Debian Chromium DOM
+
+- Evidence: `evidence/test-runs/20261001T080759Z-final-selected-debian-chromium-b0e7b2.json` and `.log`; `evidence/matrices/final-selected-debian-chromium/summary.json`.
+- Result: actual Debian Chromium passed 120 native/polling mutation updates with retained document/counter, independent stale control, original fixture preservation and matching source endpoints.
+- Analysis: exact same selected wheel now verifies Chromium DOM on Debian as well as installed Chrome/Edge on Windows. Remaining Firefox/WebKit/cancellation and final hosted CI job must pass before acceptance.
+
+## Cycle 169 Final selected wheel Windows cancellation
+
+- Evidence: [JSON](../evidence/test-runs/20261001T081155Z-final-selected-windows-cancel-f2a1ee.json), [log](../evidence/test-runs/20261001T081155Z-final-selected-windows-cancel-f2a1ee.log).
+- Result: two installed checks passed without skips, covering controlled SIGINT in startup, pending HTTP, external mutation and live observable Chrome. Exit 130 and observed owned watcher/mutator/browser descendants plus probes stopped; source endpoints matched.
+- Analysis: lifecycle acceptance now uses the exact selected wheel on Windows. Signals are delivered in real test processes, not physical keyboard presses; detached/cross-OS escape remains outside the ordinary-descendant contract. Repeat the same installed gate on Debian after its remaining browser matrices.
+
+## Cycle 170 Final selected wheel Debian Firefox DOM
+
+- Evidence: `evidence/test-runs/20261001T081132Z-final-selected-debian-firefox-d80107.json` and `.log`; `evidence/matrices/final-selected-debian-firefox/summary.json`.
+- Result: actual Playwright Firefox on Debian passed 120 native/polling mutation updates, retained document/counter, independent stale control and original fixture checks; source endpoints matched.
+- Analysis: independently verifies the selected wheel/application/write policy on Firefox rather than inferring from Chromium. Debian WebKit does not establish Safari and still needs its own installed matrix.
+
+## Cycle 171 Final selected wheel Debian Playwright WebKit DOM
+
+- Evidence: `evidence/test-runs/20261001T081414Z-final-selected-debian-webkit-8f29a7.json` and `.log`; `evidence/matrices/final-selected-debian-webkit/summary.json`.
+- Result: actual Debian Playwright WebKit passed 120 updates, document/counter continuity, independent stale control and original fixture checks; source endpoints matched.
+- Analysis: the same selected wheel/application now passes the five declared browser-engine matrices. This does not establish Safari on macOS/iOS. The final Windows Python3.14 CI job failed installed cancellation; inspect retained case evidence before assigning the cause or accepting release. Debian installed cancellation remains an independent gate.
+
+## Cycle 172 Final selected wheel Debian cancellation
+
+- Evidence: `evidence/test-runs/20261001T081649Z-final-selected-debian-cancel-ade6c8.json` and `.log` (created on the VM; pending immutable import).
+- Result: two actual installed checks passed without skips, covering startup, pending HTTP, external mutation and live Chromium cancellation. Exit 130, observed descendant shutdown and matching source endpoints passed.
+- Analysis: the selected wheel completes the declared installed VM matrices. Controlled signals are not physical key presses. The separate failed CI cancellation controller still prevents release acceptance.
+
+## Cycle 173 Required CI cancellation ownership investigation
+
+- Evidence: [six-job metadata](../evidence/ci/run-36832902222/jobs.json) and the retained Windows Python 3.14 cancellation JSON/log under that directory.
+- Result: five jobs completed all gates successfully; Windows Python 3.14 passed core, package, HTTP and browser gates but failed the browser cancellation descendant assertion. Exit 130, no traceback and the bounded return checks passed. The recorded PID-only list contains about 160 entries, including unrelated-looking system PIDs.
+- Analysis: the controller follows parent PIDs without process creation identity and later tests PID-only liveness. Windows retains parent PIDs after parent exit; PID reuse can connect old processes to a new parent. The old evidence lacks creation times, so this is a hypothesis, not proof that the hosted failure had only that cause or that product cleanup succeeded. First reproduce the ownership error with a controlled graph, then require identity-aware actual cancellation checks. No product fix is justified yet.
+
+## Cycle 174 Controlled recycled parent PID before repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T122012Z-pid-ownership-controlled-before-0c54b2.json), [log](../evidence/test-runs/20261001T122012Z-pid-ownership-controlled-before-0c54b2.log), historical controller [fixture](../evidence/release_acceptance/pid_ownership_proof.py).
+- Result: one controlled simulation passed, demonstrating that the current PID-only closure adopts two older unrelated processes when their recorded parent PID has been reused by the current root.
+- Analysis: confirms a controller defect independently of product cancellation. It does not establish the sole cause of the hosted failure because that run retained no birth identities. Repair snapshot selection, liveness and emergency cleanup together; verify the real installed browser gate again with birth identities. Product package bytes remain unchanged.
+
+## Cycle 175 Windows process identity repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T122335Z-process-identity-windows-c1f320.json), [log](../evidence/test-runs/20261001T122335Z-process-identity-windows-c1f320.log).
+- Result: four checks passed: older recycled-parent branches/cycles excluded, reused-PID liveness rejected, query failures propagated, and an actual owned Windows child observed and terminated through its matching stable handle. A deliberately mismatched birth identity left that child running.
+- Analysis: fixes auxiliary acceptance ownership, liveness and emergency cleanup without changing the product. Windows CIM creation dates select ancestry; exact WinAPI birth ticks verify the same process generation. Linux uses `/proc` birth identity and pidfd cleanup. These helper checks do not yet prove installed browser cancellation or Linux behavior; run those gates next. Required CI core minimum is now 58 and retains cancellation identities.
+
+## Cycle 176 Same selected wheel Windows identity-aware cancellation
+
+- Evidence: [JSON](../evidence/test-runs/20261001T122436Z-final-selected-identity-windows-cancel-d2dea5.json), [log](../evidence/test-runs/20261001T122436Z-final-selected-identity-windows-cancel-d2dea5.log), retained PID/birth records under `evidence/cancellation/`.
+- Result: both actual installed cancellation checks passed without skips; startup/pending HTTP/external mutation and live Chrome returned 130 and stopped the observed matching process generations. Source endpoints matched.
+- Analysis: verifies actual Windows lifecycle against the same selected wheel with repaired ownership checks; no product/package change was needed. Hosted Windows Python 3.14 and VM Linux require their independent checks, so release remains pending.
+
+## Cycle 177 Retained reproduction and package equivalence
+
+- Evidence: [JSON](../evidence/test-runs/20261001T122753Z-identity-repair-package-equivalence-3d78af.json), [log](../evidence/test-runs/20261001T122753Z-identity-repair-package-equivalence-3d78af.log), [frozen original function](../evidence/release_acceptance/pid_only_snapshot.py).
+- Result: two checks passed: the frozen d7100e3 ownership defect remains reproducible, and the selected wheel/sdist manifest, sums and payload still match committed package source after the auxiliary-only repair. Source endpoints matched. Imported 55 VM evidence files after verifying transfer SHA256 `930f067a14dc9940ed344ebafa43a07d966113ef22fd59c0fe76cabe1fdc16fd`; no existing evidence was replaced.
+- Analysis: retaining the exact already-executed wheel is justified by package byte/source equivalence, not by its build job alone. The new required six-job CI and VM identity-aware lifecycle gates must pass before release.

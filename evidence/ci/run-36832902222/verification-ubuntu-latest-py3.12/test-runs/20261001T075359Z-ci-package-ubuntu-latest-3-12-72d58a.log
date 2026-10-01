@@ -1,0 +1,6 @@
+test_wheel_and_installed_console_without_source_checkout (package_checks.PackageChecks.test_wheel_and_installed_console_without_source_checkout) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 6.169s
+
+OK

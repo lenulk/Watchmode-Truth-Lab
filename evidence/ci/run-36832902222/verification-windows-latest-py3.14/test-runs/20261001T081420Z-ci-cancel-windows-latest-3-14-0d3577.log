@@ -1,0 +1,16 @@
+test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks.test_installed_sigint_stops_watch_descendants_and_pending_http) ... ok
+test_installed_browser_interrupt_cleans_observed_process_tree (browser_cancellation_checks.BrowserCancellationChecks.test_installed_browser_interrupt_cleans_observed_process_tree) ... FAIL
+
+======================================================================
+FAIL: test_installed_browser_interrupt_cleans_observed_process_tree (browser_cancellation_checks.BrowserCancellationChecks.test_installed_browser_interrupt_cleans_observed_process_tree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\scripts\browser_cancellation_checks.py", line 100, in test_installed_browser_interrupt_cleans_observed_process_tree
+    self.assertFalse(any(alive(pid) for pid in owned), f"Observed browser process survived cancellation: {owned}")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : Observed browser process survived cancellation: [8, 528, 572, 616, 648, 656, 752, 760, 864, 884, 892, 1012, 1052, 1064, 1136, 1144, 1220, 1312, 1348, 1408, 1436, 1452, 1508, 1516, 1552, 1572, 1760, 1840, 1864, 1880, 1912, 1940, 1964, 2000, 2032, 2072, 2132, 2168, 2204, 2212, 2232, 2244, 2292, 2344, 2472, 2568, 2576, 2608, 2716, 2732, 2740, 2776, 2876, 2892, 2968, 2992, 3048, 3132, 3148, 3168, 3172, 3224, 3292, 3332, 3340, 3348, 3356, 3388, 3404, 3492, 3520, 3544, 3552, 3568, 3600, 3640, 3660, 3668, 3676, 3704, 3760, 3824, 3860, 3872, 3912, 3932, 4056, 4244, 4352, 4564, 4668, 4696, 4716, 4728, 4752, 4856, 4936, 5188, 5204, 5288, 5344, 5492, 5540, 5616, 5628, 5664, 5708, 5744, 5872, 5928, 5948, 5996, 6084, 6176, 6236, 6264, 6280, 6428, 6548, 6708, 6716, 6752, 6916, 7060, 7148, 7180, 7188, 7220, 7308, 7328, 7364, 7400, 7468, 7500, 7520, 7556, 7604, 7652, 7696, 7724, 7772, 7776, 7892, 7928, 8008, 8020, 8056, 8164]
+
+----------------------------------------------------------------------
+Ran 2 tests in 12.481s
+
+FAILED (failures=1)

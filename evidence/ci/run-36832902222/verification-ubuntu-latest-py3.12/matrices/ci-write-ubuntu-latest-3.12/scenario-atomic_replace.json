@@ -1,0 +1,157 @@
+{
+  "policy": "stable",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790841389842972059,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790841389843251890,
+          "bytes": 66,
+          "sha256": "080fc0ecab84f4e6bfad561cc254f5bf6b719e598518cf37b44d63f6c3ae0c29"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790841390243109225,
+          "bytes": 66,
+          "sha256": "080fc0ecab84f4e6bfad561cc254f5bf6b719e598518cf37b44d63f6c3ae0c29"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790841390243814475,
+          "bytes": 66,
+          "sha256": "a31328eeca158ec7a0c63f61b639cd18be450c47c45ade3b4be8fc09c67949de"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T07:56:28.298678+00:00",
+    "status": "pass",
+    "config": "controlled.json",
+    "config_sha256": "926600775d8fcab07cbfd98d73182be1c8e7ffcfbc1358bf2286e875baeb7c98",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<project>/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.17.0-1022-azure",
+      "python": "3.12.14",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1260.2,
+      "samples": 46,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "c82a0387f77455662053ba7a475ac34570461e4c8753eb9bb03cc509f82b5a33",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 32.7,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790841389842972059, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"final\", \"time_ns\": 1790841389843251890, \"bytes\": 66, \"sha256\": \"080fc0ecab84f4e6bfad561cc254f5bf6b719e598518cf37b44d63f6c3ae0c29\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 247.6,
+        "samples": 13,
+        "observed_hash": "c82a0387f77455662053ba7a475ac34570461e4c8753eb9bb03cc509f82b5a33",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "00654c9e776e6dd68a1d872e589ef3bab85827361d9a2fbc3cff538d15f2c520",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 32.2,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790841390243109225, \"bytes\": 66, \"sha256\": \"080fc0ecab84f4e6bfad561cc254f5bf6b719e598518cf37b44d63f6c3ae0c29\"}, {\"phase\": \"final\", \"time_ns\": 1790841390243814475, \"bytes\": 66, \"sha256\": \"a31328eeca158ec7a0c63f61b639cd18be450c47c45ade3b4be8fc09c67949de\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 212.9,
+        "samples": 12,
+        "observed_hash": "00654c9e776e6dd68a1d872e589ef3bab85827361d9a2fbc3cff538d15f2c520",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 230.25,
+      "p95_ms": 247.6
+    },
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  \u001b[32m\u001b[1mVITE\u001b[22m v8.3.1\u001b[39m  \u001b[2mready in \u001b[0m\u001b[1m424\u001b[22m\u001b[2m\u001b[0m ms\u001b[22m",
+      "",
+      "  \u001b[32m\u279c\u001b[39m  \u001b[1mLocal\u001b[22m:   \u001b[36mhttp://127.0.0.1:\u001b[1m58761\u001b[22m/\u001b[39m",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"b1a7e84c-6144-491b-a199-42cdf8b2569d\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m7:56:30 AM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0000-634e911cdb8447818ef0d975fe895774\",\"session\":\"b1a7e84c-6144-491b-a199-42cdf8b2569d\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m7:56:30 AM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0001-7a3c83eb61414feeb295a1dac5d960c6\",\"session\":\"b1a7e84c-6144-491b-a199-42cdf8b2569d\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":2,\"updateMetric\":\"observed_dom_changes\"}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "    at <project>/reports/tmp_d_rusq8/browser/browser_probe.mjs:61:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 2,
+      "mutation": "atomic_replace",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "2",
+        "--mutation",
+        "atomic_replace"
+      ],
+      "cli_shell": "posix",
+      "cli": "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python -m watchmode_truth_lab controlled.json --rounds 2 --mutation atomic_replace"
+    }
+  }
+}

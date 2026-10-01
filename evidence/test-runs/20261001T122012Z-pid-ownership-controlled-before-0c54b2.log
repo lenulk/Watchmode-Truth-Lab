@@ -1,0 +1,6 @@
+test_reused_parent_pid_adopts_older_unrelated_processes (evidence.release_acceptance.pid_ownership_proof.OwnershipProof.test_reused_parent_pid_adopts_older_unrelated_processes) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

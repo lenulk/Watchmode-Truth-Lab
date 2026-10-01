@@ -1,44 +1,17 @@
 """Installed controlled cancellation after a real browser becomes observable."""
 
-import inspect
 import json
 import os
-import signal
 import subprocess
 import tempfile
 import time
 import unittest
+import uuid
 from pathlib import Path
 
-from test_cleanup import alive
+import process_snapshot
+from process_snapshot import descendants, is_alive, terminate_observed
 from test_cycle import ROOT
-
-
-def descendants(parent):
-    import json
-    import os
-    import subprocess
-    from pathlib import Path
-    if os.name == "nt":
-        command = "Get-CimInstance Win32_Process | Select-Object ProcessId,ParentProcessId | ConvertTo-Json -Compress"
-        result = subprocess.run(["powershell.exe", "-NoProfile", "-NonInteractive", "-Command", command],
-                                capture_output=True, text=True, encoding="utf-8", timeout=10, check=True)
-        rows = json.loads(result.stdout)
-        pairs = [(row["ProcessId"], row["ParentProcessId"]) for row in rows]
-    else:
-        pairs = []
-        for path in Path("/proc").glob("[0-9]*/stat"):
-            try:
-                data = path.read_text()
-                pairs.append((int(path.parent.name), int(data[data.rfind(")") + 2:].split()[1])))
-            except (OSError, ValueError):
-                continue
-    found = {parent}
-    while True:
-        updated = found | {pid for pid, ppid in pairs if ppid in found}
-        if updated == found:
-            return sorted(found - {parent})
-        found = updated
 
 
 class BrowserCancellationChecks(unittest.TestCase):
@@ -61,7 +34,7 @@ class BrowserCancellationChecks(unittest.TestCase):
             scenario.write_text(json.dumps(config), encoding="utf-8")
             pids = root / "owned-pids.json"
             snapshot = root / "process_snapshot.py"
-            snapshot.write_text(inspect.getsource(descendants), encoding="utf-8")
+            snapshot.write_bytes(Path(process_snapshot.__file__).read_bytes())
             launcher = root / "interrupt.py"
             launcher.write_text(
                 "import os,sys,time,json,threading,signal\nfrom pathlib import Path\n"
@@ -81,20 +54,19 @@ class BrowserCancellationChecks(unittest.TestCase):
                                         capture_output=True, text=True, encoding="utf-8", timeout=35)
             finally:
                 if result is None and pids.exists():
-                    for pid in json.loads(pids.read_text()):
-                        if os.name == "nt":
-                            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True, timeout=5)
-                        else:
-                            try:
-                                os.kill(pid, signal.SIGTERM)
-                            except ProcessLookupError:
-                                pass
+                    for record in json.loads(pids.read_text()):
+                        terminate_observed(record)
+                if pids.exists():
+                    retained = ROOT / "evidence" / "cancellation"
+                    retained.mkdir(parents=True, exist_ok=True)
+                    (retained / (uuid.uuid4().hex + ".json")).write_bytes(pids.read_bytes())
             self.assertEqual(result.returncode, 130, result.stdout + result.stderr)
             self.assertNotIn("Traceback", result.stderr)
             self.assertLess(time.monotonic() - started, 20)
             owned = json.loads(pids.read_text())
             self.assertGreaterEqual(len(owned), 3, "No actual adapter/Vite/browser tree observed")
             deadline = time.monotonic() + 3
-            while any(alive(pid) for pid in owned) and time.monotonic() < deadline:
+            while any(is_alive(record) for record in owned) and time.monotonic() < deadline:
                 time.sleep(0.05)
-            self.assertFalse(any(alive(pid) for pid in owned), f"Observed browser process survived cancellation: {owned}")
+            remaining = [record for record in owned if is_alive(record)]
+            self.assertFalse(remaining, f"Observed browser process survived cancellation: {remaining}")

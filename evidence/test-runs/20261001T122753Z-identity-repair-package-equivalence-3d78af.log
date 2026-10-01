@@ -1,0 +1,7 @@
+test_reused_parent_pid_adopts_older_unrelated_processes (evidence.release_acceptance.pid_ownership_proof.OwnershipProof.test_reused_parent_pid_adopts_older_unrelated_processes) ... ok
+test_distribution_manifest_sums_and_payload_match_verified_source (release_artifact_checks.ReleaseArtifactChecks.test_distribution_manifest_sums_and_payload_match_verified_source) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.106s
+
+OK

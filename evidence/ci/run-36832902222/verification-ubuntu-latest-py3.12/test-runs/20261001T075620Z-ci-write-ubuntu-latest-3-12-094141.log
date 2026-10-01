@@ -1,0 +1,6 @@
+test_truncated_write_atomic_save_and_stale_control (browser_write_checks.BrowserWriteChecks.test_truncated_write_atomic_save_and_stale_control) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 20.025s
+
+OK

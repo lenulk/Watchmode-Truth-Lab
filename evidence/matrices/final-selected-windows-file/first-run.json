@@ -1,0 +1,80 @@
+{
+  "controller_sha256": "2d0b7da41752acf379feb6b169af577884cadd69650ffaa320aa6b645e4392c2",
+  "import_within_fresh_venv_verified": true,
+  "commands": [
+    {
+      "arguments": [
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "watchmode-truth-lab 1.0.0\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--validate"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"valid\",\n  \"config\": \"scenario.json\",\n  \"oracle_type\": \"file\",\n  \"mutation\": \"overwrite\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--doctor"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"ready\",\n  \"config\": \"scenario.json\",\n  \"checks\": [\n    {\n      \"name\": \"scenario\",\n      \"status\": \"pass\",\n      \"message\": \"Configuration and fixture paths are valid; watched commands were not started\"\n    },\n    {\n      \"name\": \"command.executable\",\n      \"status\": \"pass\",\n      \"message\": \"Executable found\"\n    },\n    {\n      \"name\": \"command.asset.1\",\n      \"status\": \"pass\",\n      \"message\": \"Referenced asset found\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "overwrite",
+        "--format",
+        "summary",
+        "--report",
+        "<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\reports\\tmpgj0vuajq\\result.json"
+      ],
+      "returncode": 0,
+      "stdout": "Watchmode Truth Lab: PASS\nRounds: 20/20 passed\nObserved latency: median 31.0 ms; p95 47.0 ms\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "atomic_replace",
+        "--format",
+        "summary",
+        "--report",
+        "<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\reports\\tmpr460ep3c\\result.json"
+      ],
+      "returncode": 0,
+      "stdout": "Watchmode Truth Lab: PASS\nRounds: 20/20 passed\nObserved latency: median 31.0 ms; p95 47.0 ms\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "burst",
+        "--format",
+        "summary",
+        "--report",
+        "<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\reports\\tmpcvs7yz87\\result.json"
+      ],
+      "returncode": 0,
+      "stdout": "Watchmode Truth Lab: PASS\nRounds: 20/20 passed\nObserved latency: median 31.0 ms; p95 32.0 ms\n",
+      "stderr": ""
+    }
+  ]
+}

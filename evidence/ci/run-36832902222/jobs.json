@@ -1,0 +1,50 @@
+{
+  "run_id": 36832902222,
+  "source_revision": "d7100e38f3bf2d1dce48c024a6ca7696ba234167",
+  "jobs": [
+    {
+      "id": 110273376550,
+      "name": "verify (ubuntu-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110273376781,
+      "name": "verify (ubuntu-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110273376787,
+      "name": "verify (windows-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Installed cancellation"
+      ]
+    },
+    {
+      "id": 110273376802,
+      "name": "verify (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110273376819,
+      "name": "verify (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110273376880,
+      "name": "verify (windows-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    }
+  ]
+}

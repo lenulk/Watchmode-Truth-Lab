@@ -1,0 +1,9 @@
+test_actual_child_identity_and_safe_termination (test_process_snapshot.ProcessSnapshotTests.test_actual_child_identity_and_safe_termination) ... ok
+test_liveness_rejects_reused_pid (test_process_snapshot.ProcessSnapshotTests.test_liveness_rejects_reused_pid) ... ok
+test_query_error_does_not_claim_process_exited (test_process_snapshot.ProcessSnapshotTests.test_query_error_does_not_claim_process_exited) ... ok
+test_recycled_parent_excludes_older_branch_and_cycle (test_process_snapshot.ProcessSnapshotTests.test_recycled_parent_excludes_older_branch_and_cycle) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.979s
+
+OK
