@@ -1305,3 +1305,81 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T134540Z-file-worker-fixture-cleanup-d20145.json), [log](../evidence/test-runs/20261001T134540Z-file-worker-fixture-cleanup-d20145.log).
 - Result: all three focused actual Windows checks passed without skips; source endpoints matched. Timer waits are now interruptible, its finally block releases the handle, and cleanup joins before temporary-directory deletion, including failed child launch.
 - Analysis: the 61-test gate in Cycle199 verified unchanged product behavior; this focused cycle verifies the subsequent fixture-only cleanup. Commit the bounded worker repair and launch the required six-platform gates, then verify the exact committed source on Debian before selecting the new distribution.
+
+## Cycle 201 Full Debian source gate after worker repair
+
+- Evidence: `evidence/test-runs/20261001T135034Z-file-worker-debian-core-fa3c36.json` and `.log` on the guest, pending immutable import.
+- Result: all61 actual Debian Python3.11.2 source checks passed without skips. Source endpoints matched commit44f01f5b. The verified92-file source overlay retained rollback backup `reports/before-verified-44f01f5b`; archive SHA256 `ffd3aed4f9db8706e02e96ee2bcb3918c4b09ecc8a9e9758629b2ea05dbbe12f`. No project processes were active before overlay.
+- Analysis: the portable missing-source recovery/persistent fault branches are now actually verified on Linux alongside Vite/Chromium integrations. Windows/Linux full source gates both passed. Required hosted run36871271959 and rebuilt installed-distribution acceptance remain necessary; no release acceptance yet.
+
+## Cycle 202 Rebuilt delivery candidate byte audit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T135454Z-release-delivery-byte-audit-f80865.json), [log](../evidence/test-runs/20261001T135454Z-release-delivery-byte-audit-f80865.log), [selection provenance](../evidence/release-delivery-selection.json).
+- Result: selected wheel13521dc19c76d7f64529349c8e22aeaf8c46ad0d912e112ea4cd239a050380db and sdist6c8fa3b64daafb1e4aa4068830b09ead4f8ceca0cd91d52345f2720a276e8a47 passed exact manifest/sums/package payload and committed44f01f5b audit. Successful Ubuntu3.12 build job110399359018 from run36871271959 produced artifact11167181490; archive digest verified. Source endpoints matched.
+- Analysis: this new distribution includes bounded file-worker recovery. Create independent fresh Windows/Debian environments from these exact bytes; preserve all superseded environments/results. A guest-evidence import initially rejected a manually mistyped digest before copying anything; actual host and guest hashes matched after correcting the transcription, and six source evidence files were imported without replacement. Hosted full-run and installed acceptance remain pending.
+
+## Cycle 203 Fresh Windows file starter accepted; guest setup limitation
+
+- Evidence: [JSON](../evidence/test-runs/20261001T135749Z-release-delivery-windows-file-5a429c.json), [log](../evidence/test-runs/20261001T135749Z-release-delivery-windows-file-5a429c.log), [first run](../evidence/matrices/release-delivery-windows-file/first-run.json), [installed package bytes](../evidence/matrices/release-delivery-windows-file/installed-payload-identity.json).
+- Result: one installed acceptance check passed, covering all60 file updates (20 per overwrite/atomic/burst), console/version/validate/doctor and every installed package-file hash matching selected wheel13521dc1. Source endpoints matched. Debian received the same seven delivery files after archive hash verification, without replacing differing existing files.
+- Analysis: atomic replacement now passes in the actual packaged Windows starter. Debian setup failed before installation because system Python lacks ensurepip/python3-venv; preserve that partial environment and use the already provisioned portable pip with a new --without-pip venv. This is provisioning, not an application test failure. Its attempted dependency setup did not create a valid starter; defer matrices until fresh setup succeeds.
+
+## Cycle 204 Same-wheel Windows HTTP matrix
+
+- Evidence: [JSON](../evidence/test-runs/20261001T140107Z-release-delivery-windows-http-f87483.json), [log](../evidence/test-runs/20261001T140107Z-release-delivery-windows-http-f87483.log), [matrix](../evidence/matrices/release-delivery-windows-http/summary.json).
+- Result: installed wheel13521dc1 passed all120 HTTP updates: native/polling, overwrite/atomic/burst,20 each. Independent disabled watcher returned stale as expected, and original fixture remained unchanged. One collected test passed with no skips and matching source endpoints.
+- Analysis: real Windows Vite HTTP acceptance passed; browser DOM/state is a separate pending gate.
+
+## Cycle 205 Same-wheel Debian file first run
+
+- Evidence: guest `evidence/test-runs/20261001T140231Z-release-delivery-debian-file-5b2a9e.json/.log` and matrix `evidence/matrices/release-delivery-debian-file/`, pending immutable import.
+- Result: one installed acceptance check passed without skips, covering60 file updates, fresh console/version/validate/doctor and every installed package-file hash against the same selected wheel13521dc1. Source endpoints matched44f01f5b. Portable pip installed into a fresh --without-pip venv; prior failed ensurepip environment remained preserved.
+- Analysis: exact rebuilt package first run passes on Windows and Debian. System packages were unchanged. Guest HTTP and browser matrices remain necessary; provisioning failure is separately retained.
+
+## Cycle 206 Same-wheel Debian HTTP matrix
+
+- Evidence: guest `evidence/test-runs/20261001T140419Z-release-delivery-debian-http-9e34c7.json/.log`, matrix `evidence/matrices/release-delivery-debian-http/summary.json`, pending import.
+- Result: one test passed without skips; all120 native/polling HTTP updates plus independent stale control passed with actual Debian Vite. Original fixture and source identity unchanged at44f01f5b.
+- Analysis: installed HTTP acceptance now passes both systems on the same wheel13521dc1. DOM/state acceptance remains separate.
+
+## Cycle 207 Same-wheel Windows Chrome DOM matrix
+
+- Evidence: [JSON](../evidence/test-runs/20261001T140425Z-release-delivery-windows-chrome-0e53a5.json), [log](../evidence/test-runs/20261001T140425Z-release-delivery-windows-chrome-0e53a5.log), [matrix](../evidence/matrices/release-delivery-windows-chrome/summary.json).
+- Result: one test passed without skips; actual Chrome passed120 DOM updates across native/polling and three save modes, plus expected-stale control. Independent document identity and clicked-counter state were retained. Fixture and source endpoints unchanged.
+- Analysis: establishes the declared Chrome reference-app workflow for this installed artifact. Test Edge and the three provisioned Debian engines next; these observations do not establish unspecified frameworks or Safari.
+
+## Cycle 208 Debian Chromium startup boundary
+
+- Evidence: guest `evidence/test-runs/20261001T140725Z-release-delivery-debian-chromium-a8d9d3.json/.log`, retained seven-case matrix `evidence/matrices/release-delivery-debian-chromium/`, pending import.
+- Result: one test failed; five positive matrices and disabled stale control passed, but polling-overwrite exited during startup before any mutation. Actual browser page.click timed out after1000ms waiting for #increment. Source endpoints matched44f01f5b; no false pass occurred.
+- Analysis: adapter startup readiness currently assumes application interaction is available within a separate1s click call. Reproduce delayed DOM interaction under a controlled fixture before changing startup behavior; retain the complete failed matrix. Wheel13521dc1 is not accepted.
+
+## Cycle 209 Edge startup/document initialization boundary
+
+- Evidence: [JSON](../evidence/test-runs/20261001T140732Z-release-delivery-windows-edge-b8b0ad.json), [log](../evidence/test-runs/20261001T140732Z-release-delivery-windows-edge-b8b0ad.log), [matrix](../evidence/matrices/release-delivery-windows-edge/summary.json).
+- Result: one test failed: four positive matrices passed; native-burst and disabled control were inconclusive at startup with no observations. Logs repeatedly show crypto.randomUUID is not a function, and one navigation timeout. Edge updated itself to154.0.4258.48 during these observed runs; this is recorded, not assigned as sole cause. Source endpoints matched; runner rejected missing output.
+- Analysis: inspect adapter initialization and navigation retry stages. Keep this failure and verify document identity creation on blank/error pages with a controlled actual-browser fixture. Do not extend observation deadlines or relabel failed controls. If the packaged adapter changes, supersede13521dc1 and repeat same-artifact acceptance.
+
+## Cycle 210 Controlled actual Edge startup reproductions
+
+- Evidence: [JSON](../evidence/test-runs/20261001T172321Z-browser-startup-controlled-before-c40a41.json), [log](../evidence/test-runs/20261001T172321Z-browser-startup-controlled-before-c40a41.log), retained actual observations in `evidence/browser-startup/`.
+- Result: three tests ran without skips: delayed interaction and insecure-document identity failed as expected, permanently missing interaction correctly stayed inconclusive without mutations. Actual Edge154.0.4258.48 data documents reported secureContext=false, crypto present, randomUUID undefined, missing session and two matching page errors. The controlled HTTP server exposed its interaction after1800ms; old adapter exited on the separate1000ms click timeout. Source endpoints matched.
+- Analysis: two independently reproduced adapter defects, not evidence of a Vite defect. First replace per-document randomUUID with128-bit getRandomValues identity (works in insecure documents), verify unique identities; then fix staged readiness within the original10s budget in a separate round. Controlled server execution uses a real browser but is not real Vite acceptance. New packaged adapter supersedes13521dc1 and needs fresh distribution/CI/installed matrices.
+
+## Cycle 211 Insecure-document identity repaired
+
+- Evidence: [JSON](../evidence/test-runs/20261001T172452Z-browser-document-identity-repaired-ca1155.json), [log](../evidence/test-runs/20261001T172452Z-browser-document-identity-repaired-ca1155.log), new insecure-document observation under `evidence/browser-startup/`.
+- Result: one actual Edge test passed without skips: two insecure data documents, still without randomUUID, each obtained a nonempty independent identity and their identities differed. Source endpoints matched. Packaged and research adapter initialization were updated consistently.
+- Analysis: use128-bit values from getRandomValues for each document, preserving reload detection. [MDN getRandomValues](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) documents its availability in insecure contexts, whereas [randomUUID](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) requires a secure context. This fixes the controlled API boundary, without assigning every historical startup failure solely to it. Next repair the separately reproduced interaction timing boundary.
+
+## Cycle 212 Staged browser readiness within unchanged budget
+
+- Evidence: [JSON](../evidence/test-runs/20261001T172601Z-browser-readiness-budget-repaired-953aa3.json), [log](../evidence/test-runs/20261001T172601Z-browser-readiness-budget-repaired-953aa3.log), new delayed/missing observations under `evidence/browser-startup/`.
+- Result: two actual Edge checks passed without skips: interaction appearing after1800ms completed one real source mutation with one document identity and clicked counter retained at1; permanently missing interaction remained inconclusive with no attempts before the15s outer startup deadline. Source endpoints matched.
+- Analysis: navigation, DOM/state readiness and a single optional click share the original10s adapter budget. Connected documents are not repeatedly navigated while waiting for application readiness. No runner startup/observation deadline was increased, no positive/stale expectation relaxed. Verify complete64-test source gate, required hosted CI and a fresh exact delivery wheel next;13521dc1 remains superseded.
+
+## Cycle 213 Complete Windows source gate after startup repairs
+
+- Evidence: [JSON](../evidence/test-runs/20261001T172800Z-browser-startup-windows-core-0db3fd.json), [log](../evidence/test-runs/20261001T172800Z-browser-startup-windows-core-0db3fd.log).
+- Result: all64 source checks passed without skips, including actual Chrome/Vite, three controlled browser startup checks, file retry and lifecycle/oracle/report boundaries. Source endpoints matched throughout. Previous run36871271959 completed six successful hosted jobs; all six verified artifacts and analyses are retained under evidence/ci/run-36871271959. The independent startup matrix failures remain retained and keep wheel13521dc1 unaccepted.
+- Analysis: commit the independently verified startup repairs, then run the exact new committed source on Debian and required six-job CI. The distribution must be rebuilt because the packaged adapter changed. Publication helper review also tightened preflight manifest/sums validation and re-downloads the currently attached assets immediately before publish; these helper code inspections are not network delivery verification.

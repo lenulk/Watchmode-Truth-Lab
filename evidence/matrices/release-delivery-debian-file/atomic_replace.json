@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-01T14:02:35.636968+00:00",
+  "status": "pass",
+  "config": "scenario.json",
+  "config_sha256": "93084159326f75852364bf398b14d9afed549d79c303527ff2b8c2bac0555370",
+  "command": [
+    "{python}",
+    "{config_dir}/worker.py",
+    "{workspace}/input.txt",
+    "{workspace}/output.txt"
+  ],
+  "mutation_command": null,
+  "tool_version": null,
+  "environment": {
+    "system": "Linux",
+    "release": "6.1.0-53-amd64",
+    "python": "3.11.2",
+    "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+    "workspace_device": "/",
+    "filesystem_type": "ext2/ext3"
+  },
+  "oracle": {
+    "type": "file",
+    "path": "output.txt"
+  },
+  "startup": {
+    "status": "pass",
+    "latency_ms": 62.6,
+    "samples": 7,
+    "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+    "observed_bytes": 4
+  },
+  "attempts": [
+    {
+      "round": 1,
+      "mutation": "atomic_replace",
+      "expected_hash": "900d6f12db4767c12baaf091c3e27f90c4204bbdcc0c37caaef5f3cb90e27084",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 31.2,
+      "samples": 6,
+      "observed_hash": "900d6f12db4767c12baaf091c3e27f90c4204bbdcc0c37caaef5f3cb90e27084",
+      "observed_bytes": 41
+    },
+    {
+      "round": 2,
+      "mutation": "atomic_replace",
+      "expected_hash": "b6121e6ab903163134e9244c855c28356c61519fbc6ed113f13c58a2e6c0bf1d",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 30.8,
+      "samples": 6,
+      "observed_hash": "b6121e6ab903163134e9244c855c28356c61519fbc6ed113f13c58a2e6c0bf1d",
+      "observed_bytes": 41
+    },
+    {
+      "round": 3,
+      "mutation": "atomic_replace",
+      "expected_hash": "145aab8d213532c7042e3f7d59de77da036fdccd8852c8931fb680fdbe7b6dd1",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 32.4,
+      "samples": 6,
+      "observed_hash": "145aab8d213532c7042e3f7d59de77da036fdccd8852c8931fb680fdbe7b6dd1",
+      "observed_bytes": 41
+    },
+    {
+      "round": 4,
+      "mutation": "atomic_replace",
+      "expected_hash": "1d3952623bc4e593302ccef7284c27e0d90569f34d194bcefb9091844025f39c",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 31.3,
+      "samples": 6,
+      "observed_hash": "1d3952623bc4e593302ccef7284c27e0d90569f34d194bcefb9091844025f39c",
+      "observed_bytes": 41
+    },
+    {
+      "round": 5,
+      "mutation": "atomic_replace",
+      "expected_hash": "b091bc1cd31ec9066b5c5ddecf251082600b901868c2a017a51bc2ca15500895",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 40.0,
+      "samples": 6,
+      "observed_hash": "b091bc1cd31ec9066b5c5ddecf251082600b901868c2a017a51bc2ca15500895",
+      "observed_bytes": 41
+    },
+    {
+      "round": 6,
+      "mutation": "atomic_replace",
+      "expected_hash": "0c05383da37e78f967996ecc5322b1e92f57c0aeb9edc0570b821dc63d6c5332",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 31.7,
+      "samples": 6,
+      "observed_hash": "0c05383da37e78f967996ecc5322b1e92f57c0aeb9edc0570b821dc63d6c5332",
+      "observed_bytes": 41
+    },
+    {
+      "round": 7,
+      "mutation": "atomic_replace",
+      "expected_hash": "7a0a5783d1a8ce7d355142b1682d82d6a4a51d2083ff00608e0bacc001bbd347",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 44.0,
+      "samples": 6,
+      "observed_hash": "7a0a5783d1a8ce7d355142b1682d82d6a4a51d2083ff00608e0bacc001bbd347",
+      "observed_bytes": 41
+    },
+    {
+      "round": 8,
+      "mutation": "atomic_replace",
+      "expected_hash": "c890d981d0b4e45040b90a255bcecf0077772a739f9473f81f6f07a55d78e291",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 34.2,
+      "samples": 6,
+      "observed_hash": "c890d981d0b4e45040b90a255bcecf0077772a739f9473f81f6f07a55d78e291",
+      "observed_bytes": 41
+    },
+    {
+      "round": 9,
+      "mutation": "atomic_replace",
+      "expected_hash": "54b0b2bab0b65425ddf078d9fbe02e33c86ae87e8946877a9a9a435dc9fb737a",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 33.9,
+      "samples": 6,
+      "observed_hash": "54b0b2bab0b65425ddf078d9fbe02e33c86ae87e8946877a9a9a435dc9fb737a",
+      "observed_bytes": 41
+    },
+    {
+      "round": 10,
+      "mutation": "atomic_replace",
+      "expected_hash": "040de700def07d78ce03321ca562443cbc274d2befc1529beff7b188fc4dea77",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 36.6,
+      "samples": 5,
+      "observed_hash": "040de700def07d78ce03321ca562443cbc274d2befc1529beff7b188fc4dea77",
+      "observed_bytes": 41
+    },
+    {
+      "round": 11,
+      "mutation": "atomic_replace",
+      "expected_hash": "a98b7d04b3dd17338baf8776a969348d804d245640a89e40b41aa9702dcfc7aa",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 32.8,
+      "samples": 5,
+      "observed_hash": "a98b7d04b3dd17338baf8776a969348d804d245640a89e40b41aa9702dcfc7aa",
+      "observed_bytes": 41
+    },
+    {
+      "round": 12,
+      "mutation": "atomic_replace",
+      "expected_hash": "294ae1a89c9a0e0c4ee7b72dac8ba4abf5d26b5b03db828bd8741ce0610bb14d",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 33.6,
+      "samples": 6,
+      "observed_hash": "294ae1a89c9a0e0c4ee7b72dac8ba4abf5d26b5b03db828bd8741ce0610bb14d",
+      "observed_bytes": 41
+    },
+    {
+      "round": 13,
+      "mutation": "atomic_replace",
+      "expected_hash": "10df72ae173d3a29df252dcbfa5e9c2fbfb7bfdea2f6470022bf2f8e6690adf1",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 32.3,
+      "samples": 6,
+      "observed_hash": "10df72ae173d3a29df252dcbfa5e9c2fbfb7bfdea2f6470022bf2f8e6690adf1",
+      "observed_bytes": 41
+    },
+    {
+      "round": 14,
+      "mutation": "atomic_replace",
+      "expected_hash": "bacede50d0b4cafe3c4f8e1d681531ff102c0cec704095fbd5e78ff78da9eb7f",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 41.7,
+      "samples": 5,
+      "observed_hash": "bacede50d0b4cafe3c4f8e1d681531ff102c0cec704095fbd5e78ff78da9eb7f",
+      "observed_bytes": 41
+    },
+    {
+      "round": 15,
+      "mutation": "atomic_replace",
+      "expected_hash": "7386717f073d4dd4e7f06deaa2d46e683e9708a03a31a374f55e2ea985081a52",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 33.4,
+      "samples": 6,
+      "observed_hash": "7386717f073d4dd4e7f06deaa2d46e683e9708a03a31a374f55e2ea985081a52",
+      "observed_bytes": 41
+    },
+    {
+      "round": 16,
+      "mutation": "atomic_replace",
+      "expected_hash": "dcdb0a74516886d4312bf114ea3ecd28692062bcf402f7f0548c3154d79c8460",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 33.6,
+      "samples": 6,
+      "observed_hash": "dcdb0a74516886d4312bf114ea3ecd28692062bcf402f7f0548c3154d79c8460",
+      "observed_bytes": 41
+    },
+    {
+      "round": 17,
+      "mutation": "atomic_replace",
+      "expected_hash": "8741868a88e10c7e10dc92b65312b2e4fa22d869c290052e8c8901b1933e48bd",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 31.2,
+      "samples": 5,
+      "observed_hash": "8741868a88e10c7e10dc92b65312b2e4fa22d869c290052e8c8901b1933e48bd",
+      "observed_bytes": 41
+    },
+    {
+      "round": 18,
+      "mutation": "atomic_replace",
+      "expected_hash": "ae5f0034b13fbf4ec2c8c2348cf89ca27f5d6911af44897e93579c0c8509e421",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 0.4,
+      "samples": 4,
+      "observed_hash": "ae5f0034b13fbf4ec2c8c2348cf89ca27f5d6911af44897e93579c0c8509e421",
+      "observed_bytes": 41
+    },
+    {
+      "round": 19,
+      "mutation": "atomic_replace",
+      "expected_hash": "9bd1df1ff87ec22b22d48661e2ce9a2f99aa845461760d5648ae6657902f3b38",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 36.0,
+      "samples": 6,
+      "observed_hash": "9bd1df1ff87ec22b22d48661e2ce9a2f99aa845461760d5648ae6657902f3b38",
+      "observed_bytes": 41
+    },
+    {
+      "round": 20,
+      "mutation": "atomic_replace",
+      "expected_hash": "a8952b837be9bfb9708703993b3b74145766d124a4405cb3794789c121fbf079",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 50.2,
+      "samples": 5,
+      "observed_hash": "a8952b837be9bfb9708703993b3b74145766d124a4405cb3794789c121fbf079",
+      "observed_bytes": 41
+    }
+  ],
+  "failure_rate": 0.0,
+  "pass_latency": {
+    "median_ms": 33.5,
+    "p95_ms": 44.0
+  },
+  "logs": [],
+  "reproduction": {
+    "config": "scenario.json",
+    "rounds": 20,
+    "mutation": "atomic_replace",
+    "argv": [
+      "<project>/reports/release-delivery-debian-venv/bin/python",
+      "-m",
+      "watchmode_truth_lab",
+      "scenario.json",
+      "--rounds",
+      "20",
+      "--mutation",
+      "atomic_replace"
+    ],
+    "cli_shell": "posix",
+    "cli": "<project>/reports/release-delivery-debian-venv/bin/python -m watchmode_truth_lab scenario.json --rounds 20 --mutation atomic_replace"
+  }
+}

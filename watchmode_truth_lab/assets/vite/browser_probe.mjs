@@ -37,22 +37,38 @@ try {
   console.log('WTL_BROWSER_ENGINE ' + engine);
   console.log('WTL_BROWSER_VERSION ' + browser.version());
   const page = await browser.newPage();
-  await page.addInitScript(() => { window.__wtl_probe_session = crypto.randomUUID(); });
+  await page.addInitScript(() => {
+    // Initialization also runs on blank/error documents, where randomUUID
+    // requires a secure context. Generate a fresh identity in every document.
+    window.__wtl_probe_session = Array.from(crypto.getRandomValues(new Uint8Array(16)),
+      (byte) => byte.toString(16).padStart(2, '0')).join('');
+  });
   page.on('pageerror', (error) => console.error('WTL_PAGE_ERROR ' + error.message));
   const deadline = Date.now() + 10000;
+  const remainingStartup = () => {
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) throw new Error('Browser startup deadline expired');
+    return remaining;
+  };
   while (true) {
     if (viteExited) throw new Error('Vite exited before browser readiness');
     try {
-      await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'domcontentloaded', timeout: 1000 });
-      await page.waitForFunction((selector) => typeof document.querySelector(selector)?.textContent === 'string', selector, { timeout: 1000 });
+      await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'domcontentloaded', timeout: remainingStartup() });
       break;
     } catch (error) {
       if (Date.now() >= deadline) throw error;
-      await sleep(50);
+      await sleep(Math.min(50, remainingStartup()));
     }
   }
+  // Once connected, wait on this document instead of resetting its startup
+  // with repeated navigation. DOM and interaction share the original budget.
+  await page.waitForFunction(({ selector, stateSelector }) =>
+    Boolean(window.__wtl_probe_session) &&
+    typeof document.querySelector(selector)?.textContent === 'string' &&
+    (!stateSelector || typeof document.querySelector(stateSelector)?.textContent === 'string'),
+    { selector, stateSelector }, { timeout: remainingStartup() });
   let session;
-  if (clickSelector) await page.click(clickSelector, { timeout: 1000 });
+  if (clickSelector) await page.click(clickSelector, { timeout: remainingStartup() });
   let previous;
   let previousToken;
   let observedChanges = 0;

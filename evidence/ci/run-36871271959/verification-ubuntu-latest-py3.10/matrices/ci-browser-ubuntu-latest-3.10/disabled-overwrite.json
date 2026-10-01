@@ -1,0 +1,97 @@
+{
+  "expected_status": "stale",
+  "assessment": "pass",
+  "installed_python": "isolated venv outside source checkout",
+  "browser_engine": "chromium",
+  "session_continuity": true,
+  "application_state_retained": true,
+  "observed_updates": 0,
+  "update_metric": "observed_dom_changes",
+  "analysis": "Installed starter with real Vite, isolated fixture mutation and disabled watcher control; DOM counts are sampled changes, not framework callback counts.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T13:50:29.857967+00:00",
+    "status": "stale",
+    "config": "disabled.json",
+    "config_sha256": "25e627831a2c08c764aaf0df85362b8e8b838280ecdff11cb912767c36bcd112",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.17.0-1022-azure",
+      "python": "3.10.21",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 859.3,
+      "samples": 33,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "cf30c7087d0846920f72b743e14531982be17416cc32dd9c86cdbe3a48213a21",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.4,
+        "samples": 264,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "87da1a0c5cb43bf273520619561c8ef38166dbb7adc740383656a544e18d8cb1",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  \u001b[32m\u001b[1mVITE\u001b[22m v8.3.1\u001b[39m  \u001b[2mready in \u001b[0m\u001b[1m275\u001b[22m\u001b[2m\u001b[0m ms\u001b[22m",
+      "",
+      "  \u001b[32m\u279c\u001b[39m  \u001b[1mLocal\u001b[22m:   \u001b[36mhttp://127.0.0.1:\u001b[1m33243\u001b[22m/\u001b[39m",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"bd0611a6-d4df-446b-9ebd-40d8f85492bf\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "    at <project>/reports/ci-projects/browser/browser_probe.mjs:61:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "argv": [
+        "<project>/reports/ci-venv/bin/python",
+        "-m",
+        "watchmode_truth_lab",
+        "disabled.json",
+        "--rounds",
+        "1",
+        "--mutation",
+        "overwrite"
+      ],
+      "cli_shell": "posix",
+      "cli": "<project>/reports/ci-venv/bin/python -m watchmode_truth_lab disabled.json --rounds 1 --mutation overwrite"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "source_revision": "44f01f5b4543bc8f23e9430dac273eef9a48efa5",
+  "run_id": 36871271959,
+  "artifact_id": 11167181490,
+  "job_id": 110399359018,
+  "job_conclusion": "success",
+  "download_provenance": {
+    "run_id": 36871271959,
+    "artifact_id": 11167181490,
+    "name": "verification-ubuntu-latest-py3.12",
+    "archive_digest": "sha256:e0a00db55609fdeb52780fe91017c7ddfc96701763995e163994fdaaeb539a70",
+    "digest_verified": true,
+    "source_revision": "44f01f5b4543bc8f23e9430dac273eef9a48efa5"
+  },
+  "selected_directory": "reports/release-delivery-selected",
+  "files": [
+    {
+      "file": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+      "sha256": "13521dc19c76d7f64529349c8e22aeaf8c46ad0d912e112ea4cd239a050380db"
+    },
+    {
+      "file": "watchmode_truth_lab-1.0.0.tar.gz",
+      "sha256": "6c8fa3b64daafb1e4aa4068830b09ead4f8ceca0cd91d52345f2720a276e8a47"
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "b1fef91a0d39a8850d48b3700efeebb2e76e2fc9e99acb0e1b8b4fd87ce356cf"
+    },
+    {
+      "file": "SHA256SUMS",
+      "sha256": "73529808f15cbfbc58325c613fccfe771a19abf7e08c54637ce6e6e24678755d"
+    }
+  ]
+}

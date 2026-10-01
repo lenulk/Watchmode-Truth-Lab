@@ -1,0 +1,27 @@
+test_delayed_interaction_preserves_state_and_session_during_real_mutation (test_browser_startup.BrowserStartupTests.test_delayed_interaction_preserves_state_and_session_during_real_mutation) ... FAIL
+test_missing_interaction_is_inconclusive_before_outer_startup_deadline (test_browser_startup.BrowserStartupTests.test_missing_interaction_is_inconclusive_before_outer_startup_deadline) ... ok
+test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents (test_browser_startup.BrowserStartupTests.test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents) ... FAIL
+
+======================================================================
+FAIL: test_delayed_interaction_preserves_state_and_session_during_real_mutation (test_browser_startup.BrowserStartupTests.test_delayed_interaction_preserves_state_and_session_during_real_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_browser_startup.py", line 254, in test_delayed_interaction_preserves_state_and_session_during_real_mutation
+    self.assertEqual(report["startup"]["status"], "pass", report)
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+ : {'schema_version': 1, 'started_at_utc': '2026-10-01T17:23:22.730275+00:00', 'status': 'inconclusive', 'config': 'scenario.json', 'config_sha256': '8d8f5cc5e0b33456b871707192379eff3ec6dd551c5b60ea21394f4d0fedd055', 'command': ['C:\\Program Files\\nodejs\\node.EXE', '<project>\\watchmode_truth_lab\\assets\\vite\\browser_probe.mjs', '<project>\\reports\\browser-startup-qff7cci0\\fake-vite.mjs', '{workspace}', '{port}', '{workspace}/.wtl-browser-state.json'], 'mutation_command': None, 'tool_version': None, 'environment': {'system': 'Windows', 'release': '11', 'python': '3.12.14', 'platform': 'Windows-11-10.0.26200-SP0', 'workspace_device': 'C:\\', 'filesystem_type': 'NTFS'}, 'oracle': {'type': 'file', 'path': '.wtl-browser-state.json', 'extract_regex': '"token":"([^"]+)"'}, 'startup': {'status': 'inconclusive', 'reason': 'process_exited_1', 'elapsed_ms': 4141.0, 'samples': 122, 'observed_hash': None, 'observed_bytes': None, 'raw_output_hash': None, 'probe_error': 'file_not_found_or_not_regular'}, 'attempts': [], 'failure_rate': None, 'pass_latency': None, 'logs': ['WTL_BROWSER_ENGINE chromium', 'WTL_BROWSER_VERSION 154.0.4258.48', 'page.click: Timeout 1000ms exceeded.', 'Call log:', "\x1b[2m  - waiting for locator('#increment')\x1b[22m", '', '    at <project>\\watchmode_truth_lab\\assets\\vite\\browser_probe.mjs:55:33 {', '  log: [ "  - waiting for locator(\'#increment\')" ],', "  name: 'TimeoutError'", '}'], 'reproduction': {'config': 'scenario.json', 'rounds': 1, 'mutation': 'overwrite', 'argv': ['<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe', '-m', 'watchmode_truth_lab', 'scenario.json', '--rounds', '1', '--mutation', 'overwrite'], 'cli_shell': 'powershell', 'cli': "& '<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' '-m' 'watchmode_truth_lab' 'scenario.json' '--rounds' '1' '--mutation' 'overwrite'"}}
+
+======================================================================
+FAIL: test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents (test_browser_startup.BrowserStartupTests.test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\tests\test_browser_startup.py", line 212, in test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents
+    self.assertIsInstance(page["session"], str, facts)
+AssertionError: None is not an instance of <class 'str'> : {'engine': 'chromium', 'browserVersion': '154.0.4258.48', 'pages': [{'secureContext': False, 'cryptoAvailable': True, 'randomUUID': 'undefined', 'session': None}, {'secureContext': False, 'cryptoAvailable': True, 'randomUUID': 'undefined', 'session': None}], 'pageErrors': ['crypto.randomUUID is not a function', 'crypto.randomUUID is not a function']}
+
+----------------------------------------------------------------------
+Ran 3 tests in 8.752s
+
+FAILED (failures=2)

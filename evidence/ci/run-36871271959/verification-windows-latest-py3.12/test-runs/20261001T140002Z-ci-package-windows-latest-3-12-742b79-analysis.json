@@ -1,0 +1,6 @@
+{
+  "source": "20261001T140002Z-ci-package-windows-latest-3-12-742b79.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}

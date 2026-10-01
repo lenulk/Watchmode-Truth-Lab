@@ -1,0 +1,6 @@
+{
+  "stage": "venv setup before package installation",
+  "error": "system Python3.11 lacks ensurepip; subsequent dependency install found no starter",
+  "preserved_partial_environment": "reports/release-delivery-debian-venv-failed-ensurepip",
+  "recovery": "new --without-pip venv with preprovisioned portable pip; no global package change"
+}

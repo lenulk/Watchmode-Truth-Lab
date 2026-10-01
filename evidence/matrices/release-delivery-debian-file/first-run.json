@@ -1,0 +1,80 @@
+{
+  "controller_sha256": "2d0b7da41752acf379feb6b169af577884cadd69650ffaa320aa6b645e4392c2",
+  "import_within_fresh_venv_verified": true,
+  "commands": [
+    {
+      "arguments": [
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "watchmode-truth-lab 1.0.0\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--validate"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"valid\",\n  \"config\": \"scenario.json\",\n  \"oracle_type\": \"file\",\n  \"mutation\": \"overwrite\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--doctor"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"ready\",\n  \"config\": \"scenario.json\",\n  \"checks\": [\n    {\n      \"name\": \"scenario\",\n      \"status\": \"pass\",\n      \"message\": \"Configuration and fixture paths are valid; watched commands were not started\"\n    },\n    {\n      \"name\": \"command.executable\",\n      \"status\": \"pass\",\n      \"message\": \"Executable found\"\n    },\n    {\n      \"name\": \"command.asset.1\",\n      \"status\": \"pass\",\n      \"message\": \"Referenced asset found\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "overwrite",
+        "--format",
+        "summary",
+        "--report",
+        "<project>/reports/tmptcr1rg7_/result.json"
+      ],
+      "returncode": 0,
+      "stdout": "Watchmode Truth Lab: PASS\nRounds: 20/20 passed\nObserved latency: median 32.4 ms; p95 34.4 ms\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "atomic_replace",
+        "--format",
+        "summary",
+        "--report",
+        "<project>/reports/tmpcy06wnhe/result.json"
+      ],
+      "returncode": 0,
+      "stdout": "Watchmode Truth Lab: PASS\nRounds: 20/20 passed\nObserved latency: median 33.5 ms; p95 44.0 ms\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scenario.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "burst",
+        "--format",
+        "summary",
+        "--report",
+        "<project>/reports/tmp7km95yha/result.json"
+      ],
+      "returncode": 0,
+      "stdout": "Watchmode Truth Lab: PASS\nRounds: 20/20 passed\nObserved latency: median 32.7 ms; p95 46.0 ms\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -52,7 +52,7 @@ jobs:
       - name: Full regression and required-result analysis
         run: |
           python scripts/test_cycle.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --purpose 'Required complete source suite with real Vite Chromium and failure cases' || true
-          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 61
+          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 64
       - name: Wheel and sdist rebuild integration
         run: |
           python scripts/test_cycle.py --label ci-package-${{ matrix.os }}-${{ matrix.python }} --purpose 'Minimum-backend wheel sdist rebuild and installed starter integration' --test package_checks || true
@@ -104,6 +104,7 @@ jobs:
             evidence/matrices/ci-*-${{ matrix.os }}-${{ matrix.python }}/
             evidence/cancellation/
             evidence/cancellation-diagnostics/
+            evidence/browser-startup/
             reports/ci-release/
           retention-days: 14
           if-no-files-found: error

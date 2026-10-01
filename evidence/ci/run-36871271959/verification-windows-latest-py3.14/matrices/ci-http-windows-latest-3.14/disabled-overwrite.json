@@ -1,0 +1,92 @@
+{
+  "expected_status": "stale",
+  "assessment": "pass",
+  "installed_python": "isolated venv outside source checkout",
+  "browser_engine": null,
+  "session_continuity": null,
+  "application_state_retained": null,
+  "observed_updates": null,
+  "update_metric": null,
+  "analysis": "Installed starter with real Vite, isolated fixture mutation and disabled watcher control; DOM counts are sampled changes, not framework callback counts.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T14:04:47.617840+00:00",
+    "status": "stale",
+    "config": "disabled.json",
+    "config_sha256": "50b795a38d8e415c193f86980a5754e0acbb91c79e392aa96bd350ec44b5b1ad",
+    "command": [
+      "{node}",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "{port}",
+      "--strictPort"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "2025Server",
+      "python": "3.14.7",
+      "platform": "Windows-2025Server-10.0.26100-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "http",
+      "url": "http://127.0.0.1:58795/src/token.js",
+      "extract_regex": "export const token = \"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 693.8,
+      "samples": 6,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "12d2952f165a4efff973f00d83f8001f02aa1b92332540c694601d40fa1c6957",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.1,
+        "samples": 256,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "94c22fb9a57611cbda09c05b80cbd69528fdb9ae097678dff72d65086927a663",
+        "probe_error": "probe_deadline_exceeded"
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "",
+      "  \u001b[32m\u001b[1mVITE\u001b[22m v8.3.1\u001b[39m  \u001b[2mready in \u001b[0m\u001b[1m178\u001b[22m\u001b[2m\u001b[0m ms\u001b[22m",
+      "",
+      "  \u001b[32m\u279c\u001b[39m  \u001b[1mLocal\u001b[22m:   \u001b[36mhttp://127.0.0.1:\u001b[1m58795\u001b[22m/\u001b[39m"
+    ],
+    "reproduction": {
+      "config": "disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "argv": [
+        "<project>\\reports\\ci-venv\\Scripts\\python.exe",
+        "-m",
+        "watchmode_truth_lab",
+        "disabled.json",
+        "--rounds",
+        "1",
+        "--mutation",
+        "overwrite"
+      ],
+      "cli_shell": "powershell",
+      "cli": "& '<project>\\reports\\ci-venv\\Scripts\\python.exe' '-m' 'watchmode_truth_lab' 'disabled.json' '--rounds' '1' '--mutation' 'overwrite'"
+    }
+  }
+}

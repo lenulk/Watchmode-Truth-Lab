@@ -1,0 +1,6 @@
+test_distribution_manifest_sums_and_payload_match_verified_source (release_artifact_checks.ReleaseArtifactChecks.test_distribution_manifest_sums_and_payload_match_verified_source) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.297s
+
+OK

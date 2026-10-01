@@ -1,0 +1,12 @@
+{
+  "platform": "windows",
+  "wheel": {
+    "file": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+    "sha256": "13521dc19c76d7f64529349c8e22aeaf8c46ad0d912e112ea4cd239a050380db",
+    "size_bytes": 29664
+  },
+  "source_revision": "44f01f5b4543bc8f23e9430dac273eef9a48efa5",
+  "venv": "reports/release-delivery-windows-venv",
+  "projects": "reports/release-delivery-windows-projects",
+  "purpose": "Fresh installed setup; first-run payload identity and matrices require recorded acceptance"
+}

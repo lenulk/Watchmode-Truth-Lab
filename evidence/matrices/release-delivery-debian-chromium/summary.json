@@ -1,0 +1,37 @@
+[
+  {
+    "file": "scenario-overwrite.json",
+    "status": "pass",
+    "assessment": "pass"
+  },
+  {
+    "file": "scenario-atomic_replace.json",
+    "status": "pass",
+    "assessment": "pass"
+  },
+  {
+    "file": "scenario-burst.json",
+    "status": "pass",
+    "assessment": "pass"
+  },
+  {
+    "file": "polling-overwrite.json",
+    "status": "inconclusive",
+    "assessment": "fail"
+  },
+  {
+    "file": "polling-atomic_replace.json",
+    "status": "pass",
+    "assessment": "pass"
+  },
+  {
+    "file": "polling-burst.json",
+    "status": "pass",
+    "assessment": "pass"
+  },
+  {
+    "file": "disabled-overwrite.json",
+    "status": "stale",
+    "assessment": "pass"
+  }
+]

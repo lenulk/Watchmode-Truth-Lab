@@ -1,0 +1,6 @@
+{
+  "source": "20261001T135449Z-ci-cancel-ubuntu-latest-3-14-29fdd9.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}

@@ -1,0 +1,87 @@
+{
+  "expected_status": "pass",
+  "assessment": "fail",
+  "installed_python": "isolated venv outside source checkout",
+  "browser_engine": "chromium",
+  "session_continuity": false,
+  "application_state_retained": false,
+  "observed_updates": null,
+  "update_metric": null,
+  "analysis": "Installed starter with real Vite, isolated fixture mutation and disabled watcher control; DOM counts are sampled changes, not framework callback counts.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T14:08:06.162397+00:00",
+    "status": "inconclusive",
+    "config": "polling.json",
+    "config_sha256": "e5174ed0e91ec80a57b1179879466d108b016c0ba931a333c9474c68cd072b42",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.1.0-53-amd64",
+      "python": "3.11.2",
+      "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "inconclusive",
+      "reason": "process_exited_1",
+      "elapsed_ms": 10105.2,
+      "samples": 220,
+      "observed_hash": null,
+      "observed_bytes": null,
+      "raw_output_hash": null,
+      "probe_error": "file_not_found_or_not_regular"
+    },
+    "attempts": [],
+    "failure_rate": null,
+    "pass_latency": null,
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  VITE v8.3.1  ready in 1915 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:60999/",
+      "page.click: Timeout 1000ms exceeded.",
+      "Call log:",
+      "  - waiting for locator('#increment')",
+      "",
+      "    at <project>/reports/release-delivery-debian-projects/browser/browser_probe.mjs:55:33 {",
+      "  log: [ \"  - waiting for locator('#increment')\" ],",
+      "  name: 'TimeoutError'",
+      "}"
+    ],
+    "reproduction": {
+      "config": "polling.json",
+      "rounds": 20,
+      "mutation": "overwrite",
+      "argv": [
+        "<project>/reports/release-delivery-debian-venv/bin/python",
+        "-m",
+        "watchmode_truth_lab",
+        "polling.json",
+        "--rounds",
+        "20",
+        "--mutation",
+        "overwrite"
+      ],
+      "cli_shell": "posix",
+      "cli": "<project>/reports/release-delivery-debian-venv/bin/python -m watchmode_truth_lab polling.json --rounds 20 --mutation overwrite"
+    }
+  }
+}

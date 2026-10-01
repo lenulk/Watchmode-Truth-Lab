@@ -1,0 +1,6 @@
+test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents (test_browser_startup.BrowserStartupTests.test_packaged_init_callback_creates_distinct_sessions_in_insecure_documents) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.095s
+
+OK

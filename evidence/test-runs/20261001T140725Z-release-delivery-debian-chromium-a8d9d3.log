@@ -1,0 +1,14 @@
+test_installed_vite_watchers_mutations_and_disabled_control (installed_workflow_checks.InstalledWorkflowChecks.test_installed_vite_watchers_mutations_and_disabled_control) ... FAIL
+
+======================================================================
+FAIL: test_installed_vite_watchers_mutations_and_disabled_control (installed_workflow_checks.InstalledWorkflowChecks.test_installed_vite_watchers_mutations_and_disabled_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>/scripts/installed_workflow_checks.py", line 59, in test_installed_vite_watchers_mutations_and_disabled_control
+    self.assertTrue(all(case["assessment"] == "pass" for case in summary),
+AssertionError: False is not true : One or more retained matrix cases failed: [{"file": "scenario-overwrite.json", "status": "pass", "assessment": "pass"}, {"file": "scenario-atomic_replace.json", "status": "pass", "assessment": "pass"}, {"file": "scenario-burst.json", "status": "pass", "assessment": "pass"}, {"file": "polling-overwrite.json", "status": "inconclusive", "assessment": "fail"}, {"file": "polling-atomic_replace.json", "status": "pass", "assessment": "pass"}, {"file": "polling-burst.json", "status": "pass", "assessment": "pass"}, {"file": "disabled-overwrite.json", "status": "stale", "assessment": "pass"}]
+
+----------------------------------------------------------------------
+Ran 1 test in 104.604s
+
+FAILED (failures=1)

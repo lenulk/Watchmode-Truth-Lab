@@ -1,0 +1,6 @@
+{
+  "source": "20261001T135838Z-ci-cancel-windows-latest-3-10-4c36b6.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}
