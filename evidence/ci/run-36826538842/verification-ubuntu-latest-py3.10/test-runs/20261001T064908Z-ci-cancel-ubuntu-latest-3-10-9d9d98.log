@@ -1,0 +1,7 @@
+test_installed_sigint_stops_watch_descendants_and_pending_http (cancellation_checks.CancellationChecks) ... ok
+test_installed_browser_interrupt_cleans_observed_process_tree (browser_cancellation_checks.BrowserCancellationChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.015s
+
+OK

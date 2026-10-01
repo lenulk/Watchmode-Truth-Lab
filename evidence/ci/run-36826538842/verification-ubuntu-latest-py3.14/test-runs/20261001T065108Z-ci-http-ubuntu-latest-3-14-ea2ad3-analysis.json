@@ -1,0 +1,6 @@
+{
+  "source": "20261001T065108Z-ci-http-ubuntu-latest-3-14-ea2ad3.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}

@@ -18,6 +18,7 @@ import threading
 import time
 import uuid
 from collections import deque
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from statistics import median
@@ -27,6 +28,29 @@ from .http_probe import HTTPProbe
 
 class ConfigError(ValueError):
     pass
+
+
+def _cleanup_workspace(temporary, timeout=2):
+    deadline = time.monotonic() + timeout
+    while True:
+        try:
+            temporary.cleanup()
+            return
+        except PermissionError as exc:
+            if os.name != "nt" or getattr(exc, "winerror", None) not in {5, 32} or time.monotonic() >= deadline:
+                raise
+            # Windows may release terminated descendants' directory handles
+            # asynchronously. Retry only this owned workspace, bounded.
+            time.sleep(min(0.025, max(0, deadline - time.monotonic())))
+
+
+@contextmanager
+def _temporary_workspace(parent):
+    temporary = tempfile.TemporaryDirectory(prefix="watchmode-truth-lab-", dir=parent)
+    try:
+        yield temporary.name
+    finally:
+        _cleanup_workspace(temporary)
 
 
 def _inside(root, relative):
@@ -371,7 +395,7 @@ def run(config_path, rounds=1, mutation=None):
     mutation_command = scenario["mutation_command"]
     mutation_timeout = scenario["mutation_timeout"]
     temp_parent = scenario["temp_parent"]
-    with tempfile.TemporaryDirectory(prefix="watchmode-truth-lab-", dir=temp_parent) as temporary:
+    with _temporary_workspace(temp_parent) as temporary:
         workspace = Path(temporary).resolve()
         shutil.copytree(fixture, workspace, dirs_exist_ok=True)
         target = _inside(workspace, config["mutation_target"])

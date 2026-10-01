@@ -20,6 +20,15 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tests"))
 
+SOURCE_DIRS = (".github/workflows", "watchmode_truth_lab", "scripts", "tests", "examples")
+SOURCE_ROOT_NAMES = {".gitattributes", ".gitignore", "LICENSE", "package.json", "pnpm-lock.yaml", "pyproject.toml"}
+SOURCE_ROOT_SUFFIXES = {".cfg", ".ini", ".json", ".toml", ".yaml", ".yml"}
+SOURCE_EXCLUDED_DIRS = {
+    ".git", ".mypy_cache", ".pnpm-store", ".pytest_cache", ".ruff_cache", ".turbo", ".venv",
+    ".vite", "__pycache__", "build", "cache", "caches", "dist", "docs", "evidence", "node_modules",
+    "reports", "venv",
+}
+
 
 def redact(text):
     for value, replacement in ((str(ROOT), "<project>"), (str(Path.home()), "<home>")):
@@ -66,13 +75,43 @@ class RecordedResult(unittest.TextTestResult):
         super().addSubTest(test, subtest, err)
 
 
-def git_value(*args):
+def git_value(*args, cwd=None):
+    cwd = Path(cwd if cwd is not None else ROOT).resolve()
     try:
-        result = subprocess.run(["git", "-c", f"safe.directory={ROOT}", *args], cwd=ROOT,
+        result = subprocess.run(["git", "-c", f"safe.directory={cwd}", *args], cwd=cwd,
                                 capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=5)
     except (OSError, subprocess.SubprocessError):
         return None
     return result.stdout.strip() if result.returncode == 0 else None
+
+
+def source_identity(root=None):
+    """Hash source inputs that can affect a recorded cycle, excluding generated evidence and caches."""
+    root = Path(root if root is not None else ROOT).resolve()
+    candidates = set()
+    for directory in SOURCE_DIRS:
+        base = root / directory
+        if not base.is_dir():
+            continue
+        for current, directories, filenames in os.walk(base):
+            directories[:] = sorted(name for name in directories if name not in SOURCE_EXCLUDED_DIRS)
+            candidates.update(Path(current) / name for name in filenames)
+    for path in root.iterdir():
+        if path.is_file() and (path.name in SOURCE_ROOT_NAMES or path.suffix.lower() in SOURCE_ROOT_SUFFIXES):
+            candidates.add(path)
+
+    files = {}
+    for path in sorted(candidates):
+        relative = path.relative_to(root).as_posix()
+        try:
+            files[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+        except OSError as exc:
+            # Keep the recording usable if a source file is concurrently replaced or locked.
+            files[relative] = "unreadable:" + type(exc).__name__
+    revision = git_value("rev-parse", "HEAD", cwd=root)
+    if revision is None and root == ROOT:
+        revision = os.environ.get("WTL_SOURCE_REVISION")
+    return {"git_revision": revision, "files_sha256": files}
 
 
 def normalize_label(label):
@@ -91,13 +130,17 @@ def main():
     output = ROOT / "evidence" / "test-runs"
     output.mkdir(parents=True, exist_ok=True)
     stream = io.StringIO()
+    source_identity_start = source_identity()
     suite = (unittest.defaultTestLoader.loadTestsFromNames(args.test) if args.test else
              unittest.defaultTestLoader.discover(str(ROOT / "tests")))
     started = time.monotonic()
     result = unittest.TextTestRunner(stream=stream, verbosity=2, resultclass=RecordedResult).run(suite)
+    source_identity_end = source_identity()
     git_status = git_value("status", "--porcelain")
     report = {"schema_version": 1, "run_id": run_id, "started_at_utc": timestamp.isoformat(),
               "purpose": args.purpose, "git_revision": git_value("rev-parse", "HEAD") or os.environ.get("WTL_SOURCE_REVISION"),
+              "source_identity_start": source_identity_start, "source_identity_end": source_identity_end,
+              "source_changed_during_cycle": source_identity_start != source_identity_end,
               "working_tree_dirty": None if git_status is None else bool(git_status),
               "recorder_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               "runner_sha256": hashlib.sha256((ROOT / "watchmode_truth_lab/runner.py").read_bytes()).hexdigest(),

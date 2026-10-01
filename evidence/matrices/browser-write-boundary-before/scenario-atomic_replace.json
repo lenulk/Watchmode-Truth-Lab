@@ -1,0 +1,154 @@
+{
+  "policy": "raw",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790839214199798300,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790839214212319800,
+          "bytes": 66,
+          "sha256": "3ad358de8095672a1c3798007360d48aa4f81dca544d56aaf84d04491a81b199"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790839214564878100,
+          "bytes": 66,
+          "sha256": "3ad358de8095672a1c3798007360d48aa4f81dca544d56aaf84d04491a81b199"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790839214577014300,
+          "bytes": 66,
+          "sha256": "a17637477eae9306ba9e41f5bfa0887cf05a5a869748ced685994ad1dfcb5acb"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T07:20:11.880879+00:00",
+    "status": "pass",
+    "config": "controlled.json",
+    "config_sha256": "fea5e414c07b93652f200ea07cc59d5c0624b43f5b4f0356157f922d48b24deb",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\node_modules\\vite\\bin\\vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "11",
+      "python": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1578.0,
+      "samples": 51,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "4a38b01ed79fd82b49a9453bcc80551cf398a1571235098737f7f7a06955d620",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 219.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790839214199798300, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"final\", \"time_ns\": 1790839214212319800, \"bytes\": 66, \"sha256\": \"3ad358de8095672a1c3798007360d48aa4f81dca544d56aaf84d04491a81b199\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 31.0,
+        "samples": 6,
+        "observed_hash": "4a38b01ed79fd82b49a9453bcc80551cf398a1571235098737f7f7a06955d620",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "36a7603dc023b26adad1c5fa13f8fedbfdf2a26d76f5d9d12c3b7c58793a3b44",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 203.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790839214564878100, \"bytes\": 66, \"sha256\": \"3ad358de8095672a1c3798007360d48aa4f81dca544d56aaf84d04491a81b199\"}, {\"phase\": \"final\", \"time_ns\": 1790839214577014300, \"bytes\": 66, \"sha256\": \"a17637477eae9306ba9e41f5bfa0887cf05a5a869748ced685994ad1dfcb5acb\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 0.0,
+        "samples": 5,
+        "observed_hash": "36a7603dc023b26adad1c5fa13f8fedbfdf2a26d76f5d9d12c3b7c58793a3b44",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 15.5,
+      "p95_ms": 31.0
+    },
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 154.0.8037.58",
+      "",
+      "  VITE v8.3.1  ready in 545 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:17195/",
+      "WTL_PAGE_ERROR crypto.randomUUID is not a function",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"fe977e8e-198f-48b8-98ef-efeb7f2052eb\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "2:20:14 PM [vite] (client) hmr update /src/main.js",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0000-1f8a6a8b0a264d3694639d7ebc8c8591\",\"session\":\"fe977e8e-198f-48b8-98ef-efeb7f2052eb\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+      "2:20:14 PM [vite] (client) hmr update /src/main.js",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0001-9fdcee3e8e1845d4bb95d6b97e39a60d\",\"session\":\"fe977e8e-198f-48b8-98ef-efeb7f2052eb\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":2,\"updateMetric\":\"observed_dom_changes\"}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 2,
+      "mutation": "atomic_replace",
+      "argv": [
+        "<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "2",
+        "--mutation",
+        "atomic_replace"
+      ],
+      "cli_shell": "powershell",
+      "cli": "& '<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' '-m' 'watchmode_truth_lab' 'controlled.json' '--rounds' '2' '--mutation' 'atomic_replace'"
+    }
+  }
+}

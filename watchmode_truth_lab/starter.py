@@ -53,6 +53,7 @@ def create_starter(destination, template="file"):
             config["oracle"] = {"type": "http", "url": "http://127.0.0.1:{port}/src/token.js",
                                 "extract_regex": r'export const token = "([^"]+)"'}
             setup = "Install Node.js and pnpm, then run `pnpm install --frozen-lockfile` in this directory."
+            setup += "\nThe starter waits for file size to stay stable for 200ms before notifying Vite (20ms checks). This adds update latency and avoids short truncate/write intervals. Adjust or remove `server.watch.awaitWriteFinish` when adapting the fixture; unfiltered watcher experiments require a separate scenario."
             if template == "vite-browser":
                 config["command"] = ["{node}", "{config_dir}/browser_probe.mjs", cli, "{workspace}", "{port}", "{workspace}/.wtl-browser-state.json"]
                 config["oracle"] = {"type": "file", "path": ".wtl-browser-state.json", "extract_regex": r'"token":"([^"]+)"'}

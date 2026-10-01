@@ -52,7 +52,7 @@ jobs:
       - name: Full regression and required-result analysis
         run: |
           python scripts/test_cycle.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --purpose 'Required complete source suite with real Vite Chromium and failure cases' || true
-          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 48
+          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 52
       - name: Wheel and sdist rebuild integration
         run: |
           python scripts/test_cycle.py --label ci-package-${{ matrix.os }}-${{ matrix.python }} --purpose 'Minimum-backend wheel sdist rebuild and installed starter integration' --test package_checks || true
@@ -85,6 +85,15 @@ jobs:
           export WTL_BROWSER_PROJECT="$(python -c "from pathlib import Path;print(Path('reports/ci-projects/browser').absolute())")"
           python scripts/test_cycle.py --label ci-cancel-${{ matrix.os }}-${{ matrix.python }} --purpose 'Installed controlled SIGINT in startup HTTP mutation and live browser with owned-process cleanup' --test cancellation_checks --test browser_cancellation_checks || true
           python scripts/ci_verify.py --label ci-cancel-${{ matrix.os }}-${{ matrix.python }}
+      - name: Controlled browser write boundary
+        run: |
+          export WTL_WRITE_EVIDENCE=evidence/matrices/ci-write-${{ matrix.os }}-${{ matrix.python }}
+          python scripts/test_cycle.py --label ci-write-${{ matrix.os }}-${{ matrix.python }} --purpose 'Controlled incomplete writes with exact DOM and independent atomic stale controls' --test browser_write_checks || true
+          python scripts/ci_verify.py --label ci-write-${{ matrix.os }}-${{ matrix.python }}
+      - name: Distribution byte and source identity
+        run: |
+          python scripts/test_cycle.py --label ci-artifact-${{ matrix.os }}-${{ matrix.python }} --purpose 'Audit wheel sdist exact manifest sums and committed packaged source' --test release_artifact_checks || true
+          python scripts/ci_verify.py --label ci-artifact-${{ matrix.os }}-${{ matrix.python }}
       - name: Retain failed and successful evidence and distributions
         if: always()
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5

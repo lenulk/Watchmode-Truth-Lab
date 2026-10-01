@@ -1,10 +1,32 @@
 # Current verification results — 2026-10-01
 
-This is an experimental pilot with recorded repairs and real-tool evidence. It has not established a new Vite defect, a gap in Vite's existing tests, or the research go/no-go criterion. [Every cycle, including failures](test-log.md), records its analysis and follow-up.
+The installed 1.0.0 candidate supplies file/HTTP/DOM starters, side-effect-free preflight, dependency diagnostics, recoverable JSON export, summaries, quoted reproduction and controlled cancellation. Local installed application workflows are verified; required remote release CI is in progress. No new Vite defect, upstream coverage gap or research go/no-go criterion is inferred. [Every cycle, including failures](test-log.md), records its analysis and follow-up.
 
-The latest [readiness assessment](readiness.md) records current complete suites on Windows and Debian, isolated installed-package checks and a repeated HTTP matrix after the HTTP worker repair. Earlier platform/browser matrices below remain historical evidence.
+The [readiness assessment](readiness.md) separates current release gates from historical experiments. The 30-test readiness suites and older research matrices below predate the installed-product work.
 
-## Completed 20-round matrices
+## Installed application acceptance
+
+Each positive matrix is native/polling × overwrite/atomic replacement/burst × 20 updates (120 total), with one expected-stale disabled control and original fixture-byte preservation. Browser matrices also require an independent document identity and the clicked counter's retained state. These application metrics count sampled DOM changes; historical fixture metrics below count application callbacks.
+
+| Workflow | Installed creation and execution | Evidence |
+| --- | --- | --- |
+| Windows HTTP, revised lifecycle candidate | 120/120 positive; stale control passed | [Matrix](../evidence/matrices/release-r2-windows-http-1.0.0/summary.json) |
+| Windows Chrome, independent multi-module starter | 120/120 positive; state/session/control passed | [Matrix](../evidence/matrices/installed-windows-chrome-clean-init-1.0.0/summary.json) |
+| Windows Edge, same application | 120/120 positive; state/session/control passed | [Matrix](../evidence/matrices/installed-windows-edge-clean-init-1.0.0/summary.json) |
+| Debian Chromium, same application | 120/120 positive; state/session/control passed | [Matrix](../evidence/matrices/installed-debian-chromium-clean-init-1.0.0/summary.json) |
+| Debian Firefox, same application | 120/120 positive; state/session/control passed | [Matrix](../evidence/matrices/installed-debian-firefox-clean-init-1.0.0/summary.json) |
+| Debian Playwright WebKit, same application | 120/120 positive; state/session/control passed | [Matrix](../evidence/matrices/installed-debian-webkit-clean-init-1.0.0/summary.json) |
+| Debian HTTP, independent installed starter | 120/120 positive; stale control passed | [Matrix](../evidence/matrices/installed-debian-http-clean-init-1.0.0/summary.json) |
+
+Artifacts evolved during acceptance: [initial candidate](../evidence/release-candidate-1.0.0-manifest.json), [diagnostics repair](../evidence/release-final-1.0.0-manifest.json), and [lifecycle repair](../evidence/release-1.0.0-r2-manifest.json). Browser/fixture assets stayed identical across those builds; later report reproduction fields are additive. Earlier matrices identify their tested artifact and are not claimed as byte-identical final-release acceptance. Final CI builds and tests its own artifacts; release identity will link the selected accepted artifact.
+
+Current source regression before the final report fields passed 46/46 without skips on [Windows](../evidence/test-runs/20260930T215533Z-release-r2-source-windows-84113d.json) and [Debian](../evidence/test-runs/20260930T215740Z-release-r2-source-debian-6cfaf8.json). Actual [Windows](../evidence/test-runs/20260930T220119Z-reproduction-filename-after-ac56b2.json) and [POSIX](../evidence/test-runs/20260930T220715Z-reproduction-posix-debian-239ba2.json) shell checks verify the later special-filename reproduction. [Installed sdist/wheel rebuild](../evidence/test-runs/20260930T220700Z-release-reproduction-package-utf8-ecc3f9.json) verifies current installed argv, versions and all starters.
+
+Controlled installed interruption covers startup, pending HTTP, external mutator/ordinary descendants and a live browser on [Windows mutation](../evidence/test-runs/20260930T215300Z-installed-cancel-mutation-repaired-85bba3.json), [Windows browser](../evidence/test-runs/20260930T215430Z-installed-browser-cancel-windows-993007.json) and [Debian](../evidence/test-runs/20260930T215955Z-release-r2-debian-cancel-a61a5a.json). [Current Debian process inspection](../evidence/test-runs/20261001T064719Z-release-debian-final-process-inspection-ff66fe.json) found no project-local runtime/browser survivor. Signals were self-delivered in a real CLI process, not physical keyboard events.
+
+The [current WSL2 source repeat](../evidence/test-runs/20260930T214613Z-final-linux-wsl2-2f9957.json) collected 46, passed 43 and explicitly skipped three unprovisioned browser tests. It does not count as WSL2 browser verification. The [first actual CI](../evidence/ci/first-run-36783229577/jobs.json) passed all 47 source checks on Ubuntu Python 3.10/3.12/3.14 and Windows 3.10, but analysis/artifact label mismatches stopped all jobs; Windows 3.12/3.14 additionally reported source errors. Corrected retention CI is running and must identify those failing cases before release.
+
+## Historical research 20-round matrices
 
 Each watcher column contains three mutation modes × 20 rounds. Each scenario uses a fresh isolated fixture. These observations are freshness checks, not comparable performance benchmarks.
 
@@ -54,4 +76,4 @@ The latest Debian full suite used a 43c6f57 source base plus the [readiness sour
 
 ## Remaining limits
 
-Physical Linux hardware remains unverified. Safari on macOS/iOS, additional browser/platform combinations, and application-specific HMR behavior have not been tested. The browser results cover one dependency-accept fixture. Linux installed-wheel execution and an actual Python 3.10 runtime remain unverified. Timing budgets and extraction rules are scenario policies; stable samples cannot prove indefinitely correct output. Process containment covers ordinary descendants, with deliberately detached or cross-OS escape outside the contract. Novelty and maintainer usefulness still need external validation.
+Physical Linux hardware and Safari on macOS/iOS remain unverified. Application/framework contracts beyond the selected multi-module vanilla Vite starter need their own acceptance scenario. Debian installed-package execution and actual Python 3.10 source execution are now verified; required remote installed/runtime gates are pending. Timing/extraction policies establish sampled observations, not indefinitely correct output. Ordinary descendants are contained; deliberately detached/cross-OS escape is outside the contract. Novelty and maintainer usefulness still need external validation.

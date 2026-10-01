@@ -1,0 +1,19 @@
+test_owned_workspace_cleanup_waits_for_active_cwd_release (test_workspace_cleanup.WorkspaceCleanupTests.test_owned_workspace_cleanup_waits_for_active_cwd_release) ... ok
+test_persistent_sharing_error_is_bounded_and_other_errors_propagate (test_workspace_cleanup.WorkspaceCleanupTests.test_persistent_sharing_error_is_bounded_and_other_errors_propagate) ... ok
+test_example_passes_all_mutation_modes (test_runner.RunnerTests.test_example_passes_all_mutation_modes) ... ok
+test_http_oracle_checks_response_bytes (test_runner.RunnerTests.test_http_oracle_checks_response_bytes) ... ok
+test_rejects_mutation_outside_temporary_workspace (test_runner.RunnerTests.test_rejects_mutation_outside_temporary_workspace) ... ok
+test_rejects_nonfinite_timeout (test_runner.RunnerTests.test_rejects_nonfinite_timeout) ... ok
+test_stale_output_is_reported (test_runner.RunnerTests.test_stale_output_is_reported) ... ok
+test_templated_source_and_extracted_file_output (test_runner.RunnerTests.test_templated_source_and_extracted_file_output) ... ok
+test_vite_disabled_watcher_reports_stale (test_runner.RunnerTests.test_vite_disabled_watcher_reports_stale) ... ok
+test_vite_native_module_response (test_runner.RunnerTests.test_vite_native_module_response) ... ok
+test_child_does_not_survive_exited_launcher (test_cleanup.CleanupTests.test_child_does_not_survive_exited_launcher) ... ok
+test_invalid_scenarios_use_configuration_exit_code (test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code) ... ok
+test_report_directory_uses_controlled_error_exit (test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit) ... ok
+test_special_filename_reproduction_executes_with_original_arguments (test_reproduction.ReproductionTests.test_special_filename_reproduction_executes_with_original_arguments) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 14.826s
+
+OK

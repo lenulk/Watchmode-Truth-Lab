@@ -1,0 +1,6 @@
+test_owned_workspace_cleanup_waits_for_active_cwd_release (test_workspace_cleanup.WorkspaceCleanupTests.test_owned_workspace_cleanup_waits_for_active_cwd_release) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.399s
+
+OK

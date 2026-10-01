@@ -939,3 +939,75 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T064238Z-ci-label-contract-repaired-558e79.json), [console log](../evidence/test-runs/20261001T064238Z-ci-label-contract-repaired-558e79.log), [analysis](../evidence/test-runs/20261001T064238Z-ci-label-contract-repaired-558e79-analysis.json).
 - Result: all six lookup/recorder/gate checks passed. The actual analyzer found and assessed the saved cycle; controlled skipped/empty/failed/wrong-revision inputs were rejected.
 - Analysis: shared label normalization resolves the reproduced lookup mismatch. The upload pattern uses the same normalized Python suffix. Required source collection now expects 48 tests, including the lookup regression. Remote retention and unknown Windows source failures still require an actual CI run; no local result is substituted for that evidence.
+
+## Cycle 140 Debian post-experiment process inspection
+
+- Evidence: [JSON](../evidence/test-runs/20261001T064719Z-release-debian-final-process-inspection-ff66fe.json), [console log](../evidence/test-runs/20261001T064719Z-release-debian-final-process-inspection-ff66fe.log).
+- Result: actual guest inspection passed; no live executable remained under project-local runtime/browser storage after the source, installed matrices and cancellation experiments.
+- Analysis: this examines current deployed process state rather than inferring cleanup from test exit codes. Installed Python/ordinary-descendant PID checks were separately verified in cancellation gates. Deliberately detached/cross-OS escape remains outside the contract. Continue actual remote CI and final artifact verification.
+
+## Cycle 141 Selected CI distribution byte/source audit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T065700Z-selected-release-byte-audit-d5a1ed.json), [console log](../evidence/test-runs/20261001T065700Z-selected-release-byte-audit-d5a1ed.log).
+- Result: the artifact from successful Ubuntu Python 3.12 CI matched the GitHub artifact digest, wheel/sdist size/SHA-256 manifest, published sums and every packaged source/payload hash from revision fafd03d.
+- Analysis: Git checkout text line-ending conversion is allowed only when content matches the committed UTF-8 source; distributed bytes still match their exact manifest. This chooses an actually installed/matrix-tested CI artifact rather than rebuilding after acceptance. Verify that exact wheel on Windows and Debian before release. Other CI jobs still must pass; this audit does not replace them.
+
+## Cycle 142 Corrected CI retention exposed Windows failures
+
+- Evidence: [run](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36826538842), [retained job snapshot](../evidence/ci/run-36826538842/jobs.json), [Windows 3.12 source log](../evidence/ci/run-36826538842/verification-windows-latest-py3.12/test-runs/20261001T065729Z-ci-core-windows-latest-3-12-b39261.log).
+- Result: Ubuntu 3.10/3.12/3.14 completed all five gates without skips. Corrected analysis/upload retained actual Windows failures: source runs hit WinError 32/5 while deleting owned temporary workspaces; Windows 3.10 browser overwrite observed an empty DOM token after eleven successful updates, preserving session/counter but correctly reporting inconclusive.
+- Analysis: handle owned-workspace cleanup's confirmed sharing-violation boundary first, with a controlled active-cwd holder and bounded failure checks. Queue application write-stability policy as a separate repair; the oracle must keep rejecting empty/wrong tokens. No new Vite defect is asserted. Short Windows home aliases in CI reports are additionally redacted on evidence import; originals remain in ignored downloaded artifacts. The provisionally selected artifact is superseded by the required cleanup repair and will not be released.
+
+## Cycle 143 Provisional selected artifact Windows HTTP matrix
+
+- Evidence: [JSON](../evidence/test-runs/20261001T065853Z-selected-release-windows-http-d8bc02.json), [console log](../evidence/test-runs/20261001T065853Z-selected-release-windows-http-d8bc02.log), [matrix](../evidence/matrices/selected-release-windows-http/summary.json).
+- Result: exact successful Ubuntu CI wheel passed installed Windows creation/diagnostics, 120 HTTP updates, original fixture retention and stale control.
+- Analysis: this is actual cross-OS execution of that artifact, but the separate retained CI cleanup defect supersedes it for release. Keep the positive result without treating it as acceptance of a known-defective candidate.
+
+## Cycle 144 Active-cwd-only cleanup check did not reproduce locally
+
+- Evidence: [JSON](../evidence/test-runs/20261001T070426Z-workspace-held-cwd-before-f7e314.json), [console log](../evidence/test-runs/20261001T070426Z-workspace-held-cwd-before-f7e314.log).
+- Result: the local process cwd holder alone did not prevent cleanup; the check passed before adding any retry.
+- Analysis: retained CI WinError 32 still proves a sharing violation, but this local cwd-only fixture does not establish which CI process held the directory. Refine the controlled boundary with an actual Windows directory handle that explicitly excludes delete sharing and signals readiness. Do not assert a sole process/antivirus cause or change process containment based on this non-reproduction.
+
+## Cycle 145 Actual owned-directory sharing failure reproduced
+
+- Evidence: [JSON](../evidence/test-runs/20261001T070529Z-workspace-sharing-lock-before-6b2297.json), [console log](../evidence/test-runs/20261001T070529Z-workspace-sharing-lock-before-6b2297.log).
+- Result: the test-owned child signaled readiness after opening a real Windows directory handle without delete sharing; immediate owned-temp cleanup raised WinError 32/5. The child exited and its fixture was cleaned in the controller finally block.
+- Analysis and repair: retry only PermissionError sharing/access boundaries on the already-owned TemporaryDirectory, for at most two seconds. Propagate persistent or unrelated failures and preserve Linux cleanup semantics. Verify real release of the handle plus a bounded persistent-error simulation and affected runner/CLI/process cleanup integrations. This reproduces the filesystem boundary, not the identity of the CI handle holder.
+
+## Cycle 146 Verification started before the repair was applied
+
+- Evidence: [JSON](../evidence/test-runs/20261001T070634Z-workspace-sharing-lock-after-338d99.json), [console log](../evidence/test-runs/20261001T070634Z-workspace-sharing-lock-after-338d99.log).
+- Result: 13 collected checks, one sharing-violation error and 12 passes. Despite its label, the suite loaded the original pass-through cleanup: the atomic multi-file patch had been rejected because a documentation context did not match.
+- Analysis: this is not repaired verification. The actual cleanup patch was applied while this suite was running; the recorder's end-of-run file hash can therefore differ from already-imported code, and this cycle cannot establish one uniform source identity. Preserve it, stop editing source during active cycles and rerun only after inspecting the applied diff. Queue start/end source snapshots as an evidence-recorder improvement in its own round. No failed evidence is removed or relabeled.
+
+## Cycle 147 Owned workspace cleanup repair verified
+
+- Evidence: [JSON](../evidence/test-runs/20261001T070947Z-workspace-sharing-lock-repaired-782a87.json), [console log](../evidence/test-runs/20261001T070947Z-workspace-sharing-lock-repaired-782a87.log).
+- Result: all 14 targeted checks passed without skips, including actual Windows non-delete-shared directory handle release, bounded persistent/unrelated permission errors, runner/CLI/reproduction and ordinary-descendant cleanup.
+- Analysis: owned TemporaryDirectory cleanup now retries only Windows WinError 5/32 within a two-second limit; persistent/unrelated errors remain failures. This verifies the confirmed filesystem boundary and affected integrations, not a sole cause for the CI lock holder. Required remote Windows jobs must still prove the actual retained sharing failure is resolved. Handle the independent browser write-boundary issue next.
+
+## Cycle 148 Controlled browser truncate/write boundary reproduced
+
+- Evidence: [JSON](../evidence/test-runs/20261001T072002Z-browser-write-boundary-before-cc808e.json), [log](../evidence/test-runs/20261001T072002Z-browser-write-boundary-before-cc808e.log), [native experiment](../evidence/matrices/browser-write-boundary-before/scenario-overwrite.json), [polling experiment](../evidence/matrices/browser-write-boundary-before/polling-overwrite.json).
+- Result: one experimental harness passed its checks. Both native and polling observed empty DOM during a controlled 120ms zero-byte interval; atomic-save and disabled-watcher controls ran independently. The experiment retains before/truncated/final file sizes, hashes, timestamps and browser/session/counter observations.
+- Analysis and repair: this reproduces exposure to an incomplete write, without proving the sole cause of CI's missing final update. Vite 8.3.1's ordinary dev server uses Chokidar (`chunks/node.js:24652`, bundledDev default false at 37032), which supports awaitWriteFinish. Give installed starters an explicit 200ms size-stability window with 20ms polling, preserve exact nonempty token matching and test final recovery plus no empty DOM. Historical unfiltered research fixtures remain identified separately. Writes interrupted longer than that window and bundled-dev adapters need their own policy and verification.
+
+## Cycle 149 Starter write-stability policy verified locally
+
+- Evidence: [JSON](../evidence/test-runs/20261001T072117Z-browser-write-boundary-repaired-fe707a.json), [log](../evidence/test-runs/20261001T072117Z-browser-write-boundary-repaired-fe707a.log), [native](../evidence/matrices/browser-write-boundary-repaired/scenario-overwrite.json), [polling](../evidence/matrices/browser-write-boundary-repaired/polling-overwrite.json).
+- Result: four checks passed without skips. Ten controlled incomplete writes across native/polling plus two atomic saves reached the exact final nonempty token without empty DOM, reload or counter loss; disabled watcher remained stale. Starter creation and preservation checks passed.
+- Analysis: explicit awaitWriteFinish policy addresses the reproduced short-write exposure for generated starters. It adds roughly 200ms stability latency, does not change the oracle and is not a universal guarantee for arbitrary editors or long interrupted writes. Repeat installed 120-update matrices in actual Windows/Linux CI before acceptance. Next independent repair: record source identities before and after each test cycle, so a changed source cannot silently appear uniform.
+
+## Cycle 150 Source snapshot evidence gate verified
+
+- Evidence: [JSON](../evidence/test-runs/20261001T072913Z-source-identity-snapshots-b5c1ae.json), [log](../evidence/test-runs/20261001T072913Z-source-identity-snapshots-b5c1ae.log).
+- Result: all eight recorder/CI gate checks passed without skips. A real temporary asset edit changed the source hash map; generated evidence/cache paths did not enter it. Required assessment rejected explicit change, differing endpoints and unreadable source inputs. This cycle's actual start/end source identities matched.
+- Analysis: bounded Luna implementation was reviewed and tested by the lead. Additive schema-1 snapshots run before discovery/import and after execution, covering package/assets/scripts/tests/examples/workflow/root manifests/LICENSE. Existing end hash fields remain compatible; old cycles are not retroactively assigned identities. Endpoint snapshots cannot detect an edit restored before the final snapshot, so no source edits are allowed during tests. Current required core minimum is 52 including cleanup and identity regressions.
+
+## Cycle 151 Complete repaired Windows release regression
+
+- Evidence: [JSON](../evidence/test-runs/20261001T072956Z-release-repairs-windows-core-9b2301.json), [log](../evidence/test-runs/20261001T072956Z-release-repairs-windows-core-9b2301.log).
+- Result: all 52 source checks passed without skips/failures/errors, including real Vite/Chrome, oracle boundaries, process cleanup/cancellation, report export, starter/preflight/diagnostics, quoted reproduction, actual directory sharing and evidence gates. Start/end source identities matched.
+- Analysis: concrete core cleanup and packaged starter changes justify this full release gate. Required CI must repeat on Windows/Linux Python 3.10/3.12/3.14, build/install its actual artifacts, retain independent matrix controls and pass the new controlled-write/distribution-source audits. Debian VM verification and acceptance of the final selected bytes remain pending. No release is claimed yet.

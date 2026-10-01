@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "20261001T070426Z-workspace-held-cwd-before-f7e314",
+  "started_at_utc": "2026-10-01T07:04:26.308357+00:00",
+  "purpose": "Controlled actual Windows process holds owned temporary cwd during cleanup; matches retained CI sharing violation",
+  "git_revision": "fafd03d68a8b00e3cee0bbaf82abdd89b2603114",
+  "working_tree_dirty": true,
+  "recorder_sha256": "61ebf3255f2c37a392eabab4e2eef54be80c08cafe719b513423e9082ff615ab",
+  "runner_sha256": "f90305c3785229b0a4a1bc8217275cb9564764fdbaa78e9d55c1b9fa67f7f2a8",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 0.609,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_workspace_cleanup.WorkspaceCleanupTests.test_owned_workspace_cleanup_waits_for_active_cwd_release",
+      "status": "pass",
+      "duration_seconds": 0.406,
+      "detail": null
+    }
+  ]
+}

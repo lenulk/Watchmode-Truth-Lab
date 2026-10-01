@@ -25,6 +25,17 @@ def assess(report, minimum=1, revision=None):
         problems.append("Required test collection is missing or unexpectedly small")
     if revision and report.get("git_revision") != revision:
         problems.append("Recorded source revision does not match the CI commit")
+    identity_start = report.get("source_identity_start")
+    identity_end = report.get("source_identity_end")
+    if report.get("source_changed_during_cycle") is True or (
+            isinstance(identity_start, dict) and isinstance(identity_end, dict) and identity_start != identity_end):
+        problems.append("Source identity changed during test collection or execution")
+    for identity in (identity_start, identity_end):
+        files = identity.get("files_sha256") if isinstance(identity, dict) else None
+        if isinstance(files, dict) and any(
+                isinstance(value, str) and value.startswith("unreadable:") for value in files.values()):
+            problems.append("Source identity contains unreadable source inputs")
+            break
     return {"assessment": "fail" if problems else "pass", "problems": problems,
             "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs." if not problems else "Keep the failed evidence and resolve the listed gate before acceptance."}
 

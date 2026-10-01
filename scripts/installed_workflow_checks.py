@@ -55,5 +55,6 @@ class InstalledWorkflowChecks(unittest.TestCase):
             (output / filename).write_text(redact(json.dumps(record, indent=2)) + "\n", encoding="utf-8")
             summary.append({"file": filename, "status": report["status"], "assessment": record["assessment"]})
             (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-            self.assertTrue(passed, redact(json.dumps(record, indent=2)))
         self.assertEqual(hashlib.sha256((project / "fixture/src/token.js").read_bytes()).hexdigest(), original)
+        self.assertTrue(all(case["assessment"] == "pass" for case in summary),
+                        "One or more retained matrix cases failed: " + json.dumps(summary))

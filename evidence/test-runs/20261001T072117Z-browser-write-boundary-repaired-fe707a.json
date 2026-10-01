@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "run_id": "20261001T072117Z-browser-write-boundary-repaired-fe707a",
+  "started_at_utc": "2026-10-01T07:21:17.965235+00:00",
+  "purpose": "Verify final exact DOM token and state through 120ms incomplete writes with explicit 200ms starter policy plus atomic and disabled controls",
+  "git_revision": "fafd03d68a8b00e3cee0bbaf82abdd89b2603114",
+  "working_tree_dirty": true,
+  "recorder_sha256": "61ebf3255f2c37a392eabab4e2eef54be80c08cafe719b513423e9082ff615ab",
+  "runner_sha256": "3d10d632724c8b58daffaeb077af3dd38bf74870ab0faac583449c8fc9c189fa",
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14"
+  },
+  "duration_seconds": 27.438,
+  "status": "pass",
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "browser_write_checks.BrowserWriteChecks.test_truncated_write_atomic_save_and_stale_control",
+      "status": "pass",
+      "duration_seconds": 25.281,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_all_templates_include_valid_config_and_required_assets",
+      "status": "pass",
+      "duration_seconds": 0.094,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_existing_work_is_retained_and_failed_stage_is_cleaned",
+      "status": "pass",
+      "duration_seconds": 0.0,
+      "detail": null
+    },
+    {
+      "test": "test_starter.StarterTests.test_file_starter_runs_without_source_checkout_assets",
+      "status": "pass",
+      "duration_seconds": 1.938,
+      "detail": null
+    }
+  ]
+}

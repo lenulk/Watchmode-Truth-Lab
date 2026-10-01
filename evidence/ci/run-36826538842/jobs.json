@@ -1,0 +1,54 @@
+{
+  "run_id": 36826538842,
+  "source_revision": "fafd03d68a8b00e3cee0bbaf82abdd89b2603114",
+  "jobs": [
+    {
+      "id": 110253364430,
+      "name": "verify (windows-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Installed HTTP and stateful DOM matrices"
+      ]
+    },
+    {
+      "id": 110253364603,
+      "name": "verify (windows-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Full regression and required-result analysis"
+      ]
+    },
+    {
+      "id": 110253364609,
+      "name": "verify (ubuntu-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110253364632,
+      "name": "verify (ubuntu-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110253364653,
+      "name": "verify (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Full regression and required-result analysis"
+      ]
+    },
+    {
+      "id": 110253364664,
+      "name": "verify (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    }
+  ]
+}

@@ -23,6 +23,30 @@ class RecordingTests(unittest.TestCase):
         with patch.object(test_cycle.subprocess, "run", side_effect=FileNotFoundError("git missing")):
             self.assertIsNone(test_cycle.git_value("rev-parse", "HEAD"))
 
+    def test_source_identity_detects_temporary_source_change_and_ignores_generated_paths(self):
+        with tempfile.TemporaryDirectory(prefix="source-identity-") as temporary:
+            root = Path(temporary)
+            source = root / "watchmode_truth_lab" / "assets" / "vite" / "main.js"
+            source.parent.mkdir(parents=True)
+            source.write_text("export const token = 'before';\n", encoding="utf-8")
+            (root / "example.json").write_text('{"scenario": true}\n', encoding="utf-8")
+            for excluded in ("docs", "evidence", "reports", "node_modules", "__pycache__"):
+                path = root / excluded / "generated.txt"
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("generated", encoding="utf-8")
+
+            before = test_cycle.source_identity(root)
+            source.write_text("export const token = 'after';\n", encoding="utf-8")
+            after = test_cycle.source_identity(root)
+
+            self.assertIsNone(before["git_revision"])
+            self.assertIsNone(after["git_revision"])
+            self.assertEqual(set(before["files_sha256"]), {"example.json", "watchmode_truth_lab/assets/vite/main.js"})
+            self.assertEqual(set(after["files_sha256"]), set(before["files_sha256"]))
+            changed = [name for name in before["files_sha256"]
+                       if before["files_sha256"][name] != after["files_sha256"][name]]
+            self.assertEqual(changed, ["watchmode_truth_lab/assets/vite/main.js"])
+
     def test_existing_matrix_directory_is_rejected_before_scenarios(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary) / "saved"

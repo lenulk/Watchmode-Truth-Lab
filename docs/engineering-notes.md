@@ -76,4 +76,42 @@ An existing directory passed as `--report` originally raised an uncaught write e
 
 The old `setuptools>=61` floor allowed 76.1.0, which rejected the SPDX string `license = "MIT"` in an actual build. The requirement is now `>=77.0.3`, following the [official packaging guidance](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) and [setuptools SPDX support documentation](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html). Exact backend wheels were verified against [PyPI metadata](../evidence/build-backend-provenance.json). A build with precisely 77.0.3, wheel license/module inspection, fresh venv install and file/slow-HTTP/invalid-input console tests passed on Windows, outside the source checkout.
 
-The new package smoke harness initially decoded UTF-8 output using Windows CP1252 and named an HTTP fixture `http.py`, shadowing the standard library. Explicit UTF-8 capture and a distinct fixture name repaired those harness failures without changing runner behavior for a correctly detected failed process. All intermediate results remain in cycles 76–80. Linux installed-wheel execution and an actual Python 3.10 runtime remain unverified.
+The new package smoke harness initially decoded UTF-8 output using Windows CP1252 and named an HTTP fixture `http.py`, shadowing the standard library. Explicit UTF-8 capture and a distinct fixture name repaired those harness failures without changing runner behavior for a correctly detected failed process. All intermediate results remain in cycles 76–80. Those limits were historical: later cycles verify Debian installed wheel/sdist and actual CI Python 3.10 source execution; current release gates are in [readiness](readiness.md).
+
+## Installed starter creation and interpreter identity
+
+Running a venv's `python -m` from the checkout can import checkout code first. The Debian older checkout exposed this in the application-state gate: tokens updated, but the source-created starter lacked the new retained-state selector. Create installed starters from an independent directory and assert the imported module lies within `sys.prefix`. Keep failed/source-created matrices and repeat acceptance with clean creation. Separately, resolving the Linux venv Python symlink selected the system interpreter and lost its installed package; use its absolute launcher path without resolving the symlink. Cycles 100–111 retain both setup faults and genuine installed repeats.
+
+## Windows account consistency and UTF-8 controllers
+
+Starter files staged under the sandbox account inherited creator permissions that an approved host pnpm process could not read. Creating the venv/starter and installing/testing under one Windows account resolved the confirmed EPERM setup issue; no global ACL changes were made. Existing failed directories remain under ignored reports. This is a setup-account boundary, not evidence of a watch freshness defect.
+
+Git capture also decoded UTF-8 Unicode paths with CP1252. Use explicit UTF-8, a five-second capture budget and per-command project-scoped Git trust. A real temporary Unicode Git repository verifies the recorder without requiring `.git` on archive guests. Later special-filename package checks needed explicit UTF-8 JSON reads too. Cycles 96–98 and 135–136 preserve failures and repairs.
+
+## Recoverable reports and generic application observations
+
+Partial direct report writes could truncate an existing report. Stage in the destination directory, flush/fsync and replace only completed content, removing the temporary file after failure. Controlled active write/rename faults verify that prior report bytes remain intact. This does not promise durability after every possible storage/power failure; see cycles 90–91.
+
+The adapter now creates its own per-document identity, accepts DOM/click/state selectors, and checks a multi-module counter application without requiring fixture-owned globals. Metrics distinguish sampled DOM changes from application-supplied HMR callbacks. Actual installed native/polling matrices with all three mutation modes and stale controls verify the selected Windows/Debian engines; other framework/state contracts require their own scenarios.
+
+## Captured-command cancellation on Windows
+
+A controlled installed SIGINT during a 30-second external mutator exceeded the controller deadline because a long process-handle wait did not promptly return to Python signal handling. Poll completion in at most 100 ms slices while preserving the total deadline and bounded capture/cleanup. Installed Windows/Debian cancellation covers startup, pending HTTP, mutator descendants and live browser trees. Failure cleanup in test controllers uses only PIDs published or observed under their own launched process. Cycles 125–133 retain the failure, repair and actual process checks; this is controlled signal delivery, not physical keypress or detached-process containment.
+
+## Reproduction and CI naming contracts
+
+The original reproduction text interpolated an unquoted filename and assumed a `python` alias. Reports now add literal `argv`, use the current interpreter, and label quoted PowerShell/POSIX presentation. Real shell execution of spaces/apostrophe/dollar-sign/Unicode filenames and installed argv repetition verify behavior; original cwd/environment/dependencies remain necessary. Schema 1 consumers must tolerate additive fields. Cycles 132–137 retain the checks and the separate controller decoding failure.
+
+The first actual CI run normalized Python-version dots in recorder filenames, but analyzer/upload patterns expected dots. Share `normalize_label` for lookup and derive the artifact suffix using the same function. Always assess a saved failed test cycle before stopping later gates; required assessment rejects failures/skips/empty runs/wrong revisions. First-run logs also show Windows 3.12/3.14 source errors; their case-level evidence was not uploaded, so causes remain unassigned until the repaired retention run supplies it. Cycles 138–139 record this limitation rather than attributing a speculative product fault.
+
+## Owned Windows temporary workspace sharing violations
+
+The second CI run retained WinError 32/5 during temporary directory deletion. A cwd-only child did not reproduce locally; an actual directory handle opened without delete sharing did. Retry deletion of the already-owned TemporaryDirectory for at most two seconds and only those Windows permission boundaries, propagating persistent/unrelated errors. This verifies the filesystem boundary, not the identity of the CI handle holder. Cycles 144–147 preserve both the non-reproduction and controlled failure/repair.
+
+## Generated Vite starter write stability
+
+The second CI Windows browser overwrite matrix observed empty DOM after eleven valid updates. A controlled 120ms truncate/write interval independently exposed empty DOM on native and polling watchers. Generated starters now explicitly wait for 200ms stable file size, checked every 20ms via Chokidar awaitWriteFinish. Native/polling labels describe the underlying watcher with this added policy; historical research fixtures remain unfiltered. The exact nonempty-token oracle is unchanged, reload/counter loss still invalidate continuity and disabled watch must remain stale. Cycles 148–149 verify short-write recovery without claiming that all interruption lengths are safe or that the CI event has one proven cause. Adapted/bundled-dev backends require their own verified options. Matrix controllers now retain all seven cases, including the stale control, before failing the combined assessment.
+
+## Source identity during recorded tests
+
+Cycle 146 loaded original code before a repair was applied, while its end-only hash described newer disk bytes. Preserve that cycle as mixed identity. Snapshot source inputs before test discovery/import and after execution; expose both maps and an explicit change flag, and reject changed/unreadable inputs in required CI. Tests mutate only a temporary source fixture. These endpoints cannot detect edit-and-restore, so freeze source throughout every cycle. Cycle 150 verifies the contract; historical records retain their original weaker metadata.

@@ -44,6 +44,8 @@ The installed `watchmode-truth-lab` console command accepts the same options. Ex
 
 For a Vite starter, install Node (verification uses 24.18.0) and pnpm 11.19.0. Run `pnpm install --frozen-lockfile` inside the generated project. Vite 8.3.1 and Playwright Core 1.62.1 are pinned in the supplied manifest/lockfile. Use the Node engine policy of the installed Vite version when choosing another Node version.
 
+Generated Vite starters use `server.watch.awaitWriteFinish` with a 200ms file-size stability window and 20ms checks. Native and polling modes both include this policy, which adds latency and avoids short truncate/write intervals. Adjust or remove it when testing an application's actual save policy; interrupted writes longer than the window can still expose incomplete content. Historical checkout research scenarios use their own unfiltered configuration. Other watcher backends, including experimental bundled dev, need separately verified options.
+
 For browser verification, installed Chrome is the default Chromium channel; `WTL_BROWSER_CHANNEL=msedge` selects installed Edge. Alternatively run `pnpm exec playwright-core install chromium`, then select `WTL_BROWSER_CHANNEL=chromium`. On Linux the selected browser also needs shared libraries; `pnpm exec playwright-core install-deps chromium` is a system dependency setup command requiring appropriate privileges. Install Firefox/WebKit builds and matching dependencies only when selecting those engines.
 
 Linux browser selection:

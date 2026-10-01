@@ -1,0 +1,116 @@
+{
+  "policy": "raw",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790839217000607800,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790839217010738500,
+          "bytes": 66,
+          "sha256": "2e66e56786e15abe5468646a4ef671cdc533b90eb0dcb72f6f9963689717775d"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T07:20:14.753048+00:00",
+    "status": "stale",
+    "config": "controlled.json",
+    "config_sha256": "5a8915c46b8de3e5071d5ecd99cd074de0019cc93c6329d13b1a3bdcf42cb1d9",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\node_modules\\vite\\bin\\vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "11",
+      "python": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1500.0,
+      "samples": 50,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "e52619ad814d1cad6eca190b23e9728c8b2d06181ac6fa0d5e56ea6c15b820b0",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 203.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790839217000607800, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"final\", \"time_ns\": 1790839217010738500, \"bytes\": 66, \"sha256\": \"2e66e56786e15abe5468646a4ef671cdc533b90eb0dcb72f6f9963689717775d\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.0,
+        "samples": 253,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "e901021c06e944a6a00cf3e2894b59433a1a82902f73e88a6ad206317f2434f2",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 154.0.8037.58",
+      "",
+      "  VITE v8.3.1  ready in 524 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:23814/",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"83d5f588-9f95-428f-ab5a-4ce9d5bd7ed3\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 1,
+      "mutation": "atomic_replace",
+      "argv": [
+        "<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "1",
+        "--mutation",
+        "atomic_replace"
+      ],
+      "cli_shell": "powershell",
+      "cli": "& '<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' '-m' 'watchmode_truth_lab' 'controlled.json' '--rounds' '1' '--mutation' 'atomic_replace'"
+    }
+  }
+}

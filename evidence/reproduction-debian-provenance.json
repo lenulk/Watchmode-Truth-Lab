@@ -1,0 +1,22 @@
+{
+  "revision": "4c488212f362dfaf1b8fba109124d21f42e898db",
+  "archive_sha256": "5e3c45c9f1d4065d41ea1d97beb33c115897f2637c430eed5dd9ee6a4853d66b",
+  "backup": "reports/before-reproduction-4c48821",
+  "files": [
+    {
+      "file": "scripts/package_checks.py",
+      "before_sha256": "710c44f351f6714a9223da5da4fcc264e45f138405f6fa1f2029eaa8cdacfd9e",
+      "after_sha256": "5c877192d80f4ea1e54cbc635629951bb09e13de00436dbef8d469a761827f62"
+    },
+    {
+      "file": "tests/test_reproduction.py",
+      "before_sha256": null,
+      "after_sha256": "0825d11a7af2380f099e2a5f52c777b515e681c698c04a2d9818a737d3198136"
+    },
+    {
+      "file": "watchmode_truth_lab/runner.py",
+      "before_sha256": "38a2e938a0b35690ebb7c125be8dacbe8f566d1e2a7d4c9db3622fd46da75cfa",
+      "after_sha256": "add5fb6e7a21aaa88d1a8a1d711dbb03a0a79b92273470ebd2c4ee0f33d5d5de"
+    }
+  ]
+}

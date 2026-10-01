@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "run_id": "20261001T065226Z-ci-cancel-ubuntu-latest-3-14-46ae82",
+  "started_at_utc": "2026-10-01T06:52:26.007381+00:00",
+  "purpose": "Installed controlled SIGINT in startup HTTP mutation and live browser with owned-process cleanup",
+  "git_revision": "fafd03d68a8b00e3cee0bbaf82abdd89b2603114",
+  "working_tree_dirty": true,
+  "recorder_sha256": "61ebf3255f2c37a392eabab4e2eef54be80c08cafe719b513423e9082ff615ab",
+  "runner_sha256": "add5fb6e7a21aaa88d1a8a1d711dbb03a0a79b92273470ebd2c4ee0f33d5d5de",
+  "environment": {
+    "system": "Linux",
+    "release": "6.17.0-1022-azure",
+    "python": "3.14.7"
+  },
+  "duration_seconds": 4.729,
+  "status": "pass",
+  "tests_run": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "cancellation_checks.CancellationChecks.test_installed_sigint_stops_watch_descendants_and_pending_http",
+      "status": "pass",
+      "duration_seconds": 3.2183,
+      "detail": null
+    },
+    {
+      "test": "browser_cancellation_checks.BrowserCancellationChecks.test_installed_browser_interrupt_cleans_observed_process_tree",
+      "status": "pass",
+      "duration_seconds": 1.5046,
+      "detail": null
+    }
+  ]
+}

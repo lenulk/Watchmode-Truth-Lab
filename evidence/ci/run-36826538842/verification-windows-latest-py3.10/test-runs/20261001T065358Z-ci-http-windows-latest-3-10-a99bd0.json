@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "20261001T065358Z-ci-http-windows-latest-3-10-a99bd0",
+  "started_at_utc": "2026-10-01T06:53:58.757107+00:00",
+  "purpose": "Installed HTTP 20-round native polling matrices and stale control",
+  "git_revision": "fafd03d68a8b00e3cee0bbaf82abdd89b2603114",
+  "working_tree_dirty": true,
+  "recorder_sha256": "61ebf3255f2c37a392eabab4e2eef54be80c08cafe719b513423e9082ff615ab",
+  "runner_sha256": "add5fb6e7a21aaa88d1a8a1d711dbb03a0a79b92273470ebd2c4ee0f33d5d5de",
+  "environment": {
+    "system": "Windows",
+    "release": "10",
+    "python": "3.10.11"
+  },
+  "duration_seconds": 40.062,
+  "status": "pass",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "installed_workflow_checks.InstalledWorkflowChecks.test_installed_vite_watchers_mutations_and_disabled_control",
+      "status": "pass",
+      "duration_seconds": 40.015,
+      "detail": null
+    }
+  ]
+}

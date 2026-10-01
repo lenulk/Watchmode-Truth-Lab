@@ -1,0 +1,13 @@
+test_existing_matrix_directory_is_rejected_before_scenarios (test_recording.RecordingTests.test_existing_matrix_directory_is_rejected_before_scenarios) ... ok
+test_git_unicode_checkout_path_is_captured (test_recording.RecordingTests.test_git_unicode_checkout_path_is_captured) ... ok
+test_missing_git_returns_unknown_metadata (test_recording.RecordingTests.test_missing_git_returns_unknown_metadata) ... ok
+test_source_identity_detects_temporary_source_change_and_ignores_generated_paths (test_recording.RecordingTests.test_source_identity_detects_temporary_source_change_and_ignores_generated_paths) ... ok
+test_complete_required_gate_keeps_observation_limits (test_ci_gates.CIGateTests.test_complete_required_gate_keeps_observation_limits) ... ok
+test_record_lookup_matches_recorder_normalization_for_python_versions (test_ci_gates.CIGateTests.test_record_lookup_matches_recorder_normalization_for_python_versions) ... ok
+test_required_gate_rejects_skip_empty_failure_and_wrong_revision (test_ci_gates.CIGateTests.test_required_gate_rejects_skip_empty_failure_and_wrong_revision) ... ok
+test_required_gate_rejects_source_changed_during_cycle (test_ci_gates.CIGateTests.test_required_gate_rejects_source_changed_during_cycle) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.306s
+
+OK

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "run_id": "20260930T220715Z-reproduction-posix-debian-239ba2",
+  "started_at_utc": "2026-09-30T22:07:15.797494+00:00",
+  "purpose": "Actual POSIX special-filename reproduction and existing CLI/export compatibility",
+  "git_revision": "4c488212f362dfaf1b8fba109124d21f42e898db",
+  "working_tree_dirty": null,
+  "recorder_sha256": "e7ca6d37c20b4956c05570517b9f3f15761fbbe7528d7f9bc239056c58d52ecc",
+  "runner_sha256": "add5fb6e7a21aaa88d1a8a1d711dbb03a0a79b92273470ebd2c4ee0f33d5d5de",
+  "environment": {
+    "system": "Linux",
+    "release": "6.1.0-53-amd64",
+    "python": "3.11.2"
+  },
+  "duration_seconds": 1.67,
+  "status": "pass",
+  "tests_run": 6,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "cases": [
+    {
+      "test": "test_reproduction.ReproductionTests.test_special_filename_reproduction_executes_with_original_arguments",
+      "status": "pass",
+      "duration_seconds": 0.7338,
+      "detail": null
+    },
+    {
+      "test": "test_report_export.ReportExportTests.test_interrupted_report_write_preserves_previous_report",
+      "status": "pass",
+      "duration_seconds": 0.0023,
+      "detail": null
+    },
+    {
+      "test": "test_report_export.ReportExportTests.test_replace_failure_preserves_original_and_removes_temporary",
+      "status": "pass",
+      "duration_seconds": 0.0018,
+      "detail": null
+    },
+    {
+      "test": "test_report_export.ReportExportTests.test_successful_summary_keeps_json_export_and_existing_default",
+      "status": "pass",
+      "duration_seconds": 0.0041,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_invalid_scenarios_use_configuration_exit_code",
+      "status": "pass",
+      "duration_seconds": 0.5115,
+      "detail": null
+    },
+    {
+      "test": "test_cli.CLIBoundaryTests.test_report_directory_uses_controlled_error_exit",
+      "status": "pass",
+      "duration_seconds": 0.4109,
+      "detail": null
+    }
+  ]
+}

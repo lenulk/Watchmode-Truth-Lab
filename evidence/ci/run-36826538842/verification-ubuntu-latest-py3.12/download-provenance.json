@@ -1,0 +1,8 @@
+{
+  "run_id": 36826538842,
+  "artifact_id": 11145960448,
+  "name": "verification-ubuntu-latest-py3.12",
+  "archive_digest": "sha256:9eeddad5c56cd76423a0f32433b4872df5bcd914bc71f1b6ce3e702584193deb",
+  "digest_verified": true,
+  "source_revision": "fafd03d68a8b00e3cee0bbaf82abdd89b2603114"
+}

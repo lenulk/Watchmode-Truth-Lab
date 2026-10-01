@@ -1,0 +1,8 @@
+{
+  "source": "20261001T065729Z-ci-core-windows-latest-3-12-b39261.json",
+  "assessment": "fail",
+  "problems": [
+    "Test failures or errors require investigation before the next gate"
+  ],
+  "analysis": "Keep the failed evidence and resolve the listed gate before acceptance."
+}
