@@ -1,0 +1,79 @@
+{
+  "adapter_sha256": "bb107e737efff4881cdb73bfd02f0977c156e7f3c932dee077c121574bbf9876",
+  "observation": {
+    "kind": "Actual browser with controlled HTTP server; not real Vite",
+    "elapsed_seconds": 11.193308100000081,
+    "report": {
+      "schema_version": 1,
+      "started_at_utc": "2026-10-01T18:21:45.588185+00:00",
+      "status": "inconclusive",
+      "config": "scenario.json",
+      "config_sha256": "2200be77065049636967d45c803078d0918239d2fc582b8c47bfe93b84340545",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.18.0\\x64\\node.EXE",
+        "<project>\\watchmode_truth_lab\\assets\\vite\\browser_probe.mjs",
+        "<project>\\reports\\browser-startup-wbxan85l\\fake-vite.mjs",
+        "{workspace}",
+        "{port}",
+        "{workspace}/.wtl-browser-state.json"
+      ],
+      "mutation_command": null,
+      "tool_version": null,
+      "environment": {
+        "system": "Windows",
+        "release": "2025Server",
+        "python": "3.14.7",
+        "platform": "Windows-2025Server-10.0.26100-SP0",
+        "workspace_device": "C:\\",
+        "filesystem_type": "NTFS"
+      },
+      "oracle": {
+        "type": "file",
+        "path": ".wtl-browser-state.json",
+        "extract_regex": "\"token\":\"([^\"]+)\""
+      },
+      "startup": {
+        "status": "inconclusive",
+        "reason": "process_exited_1",
+        "elapsed_ms": 11183.1,
+        "samples": 360,
+        "observed_hash": null,
+        "observed_bytes": null,
+        "raw_output_hash": null,
+        "probe_error": "file_not_found_or_not_regular"
+      },
+      "attempts": [],
+      "failure_rate": null,
+      "pass_latency": null,
+      "logs": [
+        "WTL_BROWSER_ENGINE chromium",
+        "WTL_BROWSER_VERSION 151.0.7922.34",
+        "page.click: Timeout 9718ms exceeded.",
+        "Call log:",
+        "\u001b[2m  - waiting for locator('#increment')\u001b[22m",
+        "",
+        "    at <project>\\watchmode_truth_lab\\assets\\vite\\browser_probe.mjs:71:33 {",
+        "  log: [ \"  - waiting for locator('#increment')\" ],",
+        "  name: 'TimeoutError'",
+        "}"
+      ],
+      "reproduction": {
+        "config": "scenario.json",
+        "rounds": 1,
+        "mutation": "overwrite",
+        "argv": [
+          "C:\\hostedtoolcache\\windows\\Python\\3.14.7\\x64\\python.exe",
+          "-m",
+          "watchmode_truth_lab",
+          "scenario.json",
+          "--rounds",
+          "1",
+          "--mutation",
+          "overwrite"
+        ],
+        "cli_shell": "powershell",
+        "cli": "& 'C:\\hostedtoolcache\\windows\\Python\\3.14.7\\x64\\python.exe' '-m' 'watchmode_truth_lab' 'scenario.json' '--rounds' '1' '--mutation' 'overwrite'"
+      }
+    }
+  }
+}

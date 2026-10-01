@@ -1425,3 +1425,124 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T175934Z-atomic-mutation-windows-core-74b368.json), [log](../evidence/test-runs/20261001T175934Z-atomic-mutation-windows-core-74b368.log).
 - Result: all68 source checks passed without skips, including actual Chrome/Vite and Windows sharing handles, failure reporting, cancellation, lifecycle and oracle/export boundaries. Source endpoints matched. Previous c65e0f82 hosted run36899984592 completed all six jobs successfully; six digest-verified artifacts and their analyses are retained under evidence/ci/run-36899984592.
 - Analysis: hosted success did not expose the independent installed atomic failure217, so wheel80c59585 remains unaccepted. Commit this writer repair and repeat the exact committed Debian source gate, six-job hosted gate and newly built same-byte installed Windows/Debian acceptance. Preserve the unrelated README changes outside this repair commit.
+
+## Cycle 221 Exact committed Debian source gate after writer repair
+
+- Evidence: guest `evidence/test-runs/20261001T180432Z-atomic-mutation-debian-core-57814b.json/.log`, pending verified import; overlay receipt `evidence/verified-source-debian-bf03c40e.json`.
+- Result: all68 checks passed without skips on actual Debian Python3.11.2, including real Chromium/Vite, browser startup, lifecycle/oracle/report behavior and Linux simulations of Windows replacement errors. Source endpoints matched bf03c40e56e3b6387dcffdb3cbed6e1270e9e799. Verified94-file archive SHA256 `77b17d422b7928151aec9347c9be190897cfe10f838c850573307627f5e5792c`; rollback backup `reports/before-verified-bf03c40e` retained. No project process was active before overlay.
+- Analysis: remote README Thai updates were reviewed and merged without changing product payload; the earlier local README was backed up. Required CI run36903993364 now tests this merged commit. Select a fresh successful build and repeat independent installed acceptance on Windows/Debian before release. Linux simulations do not claim actual Windows handle behavior; that was verified219/220.
+
+## Cycle 222 windows installed acceptance: byte
+
+- Evidence: [JSON](../evidence/test-runs/20261001T180943Z-release-acceptance-windows-byte-3cd2ab.json), [log](../evidence/test-runs/20261001T180943Z-release-acceptance-windows-byte-3cd2ab.log).
+- Purpose: Selected exact wheel/sdist manifest checksum and committed package payload audit.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 223 windows installed acceptance: file
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181141Z-release-acceptance-windows-file-f2e527.json), [log](../evidence/test-runs/20261001T181141Z-release-acceptance-windows-file-f2e527.log).
+- Purpose: Same exact selected wheel: installed console first run, 60 file updates and all package payload hashes.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 225 windows installed acceptance: http
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181233Z-release-acceptance-windows-http-195a50.json), [log](../evidence/test-runs/20261001T181233Z-release-acceptance-windows-http-195a50.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 227 windows installed acceptance: chrome
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181434Z-release-acceptance-windows-chrome-06fab1.json), [log](../evidence/test-runs/20261001T181434Z-release-acceptance-windows-chrome-06fab1.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 229 windows installed acceptance: edge
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181632Z-release-acceptance-windows-edge-71a1dc.json), [log](../evidence/test-runs/20261001T181632Z-release-acceptance-windows-edge-71a1dc.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 231 windows installed acceptance: cancel
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181904Z-release-acceptance-windows-cancel-a54a52.json), [log](../evidence/test-runs/20261001T181904Z-release-acceptance-windows-cancel-a54a52.log).
+- Purpose: Same-wheel installed SIGINT: startup pending HTTP mutator and live browser owned-process cleanup.
+- Result: pass; 2 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 224 debian installed acceptance: file
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181228Z-release-acceptance-debian-file-84d436.json), [log](../evidence/test-runs/20261001T181228Z-release-acceptance-debian-file-84d436.log).
+- Purpose: Same exact selected wheel: installed console first run, 60 file updates and all package payload hashes.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 226 debian installed acceptance: http
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181348Z-release-acceptance-debian-http-3853ab.json), [log](../evidence/test-runs/20261001T181348Z-release-acceptance-debian-http-3853ab.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 228 debian installed acceptance: chromium
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181504Z-release-acceptance-debian-chromium-13c6c4.json), [log](../evidence/test-runs/20261001T181504Z-release-acceptance-debian-chromium-13c6c4.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 230 debian installed acceptance: firefox
+
+- Evidence: [JSON](../evidence/test-runs/20261001T181716Z-release-acceptance-debian-firefox-45d3f2.json), [log](../evidence/test-runs/20261001T181716Z-release-acceptance-debian-firefox-45d3f2.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 232 debian installed acceptance: webkit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T182011Z-release-acceptance-debian-webkit-3f348a.json), [log](../evidence/test-runs/20261001T182011Z-release-acceptance-debian-webkit-3f348a.log).
+- Purpose: Same-wheel real Vite: six 20-round native/polling mutation matrices plus independently expected-stale control.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 233 debian installed acceptance: cancel
+
+- Evidence: [JSON](../evidence/test-runs/20261001T182209Z-release-acceptance-debian-cancel-8b4abe.json), [log](../evidence/test-runs/20261001T182209Z-release-acceptance-debian-cancel-8b4abe.log).
+- Purpose: Same-wheel installed SIGINT: startup pending HTTP mutator and live browser owned-process cleanup.
+- Result: pass; 2 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Cycle 234 debian installed acceptance: process
+
+- Evidence: [JSON](../evidence/test-runs/20261001T182319Z-release-acceptance-debian-process-1dbc8c.json), [log](../evidence/test-runs/20261001T182319Z-release-acceptance-debian-process-1dbc8c.log).
+- Purpose: Actual Debian post-run inspection for remaining project runtime/browser executables.
+- Result: pass; 1 tests, 0 failures, 0 errors, 0 skips; source changed: False.
+- Analysis: Recorded gate passed without skips and with unchanged source endpoints. File/browser reports, stale controls and exact distribution identity remain separate evidence; remaining declared gates and final audit are required before publishing.
+
+## Required CI checkout example failure after installed acceptance
+
+- Evidence: six digest-verified artifacts and terminal jobs under `evidence/ci/run-36903993364`; Windows3.14 core log retains the exact process_exited_1 report and PermissionError from examples/polling_generator.py.
+- Result: five jobs passed, Windows3.14 core failed one of68 checks. All960 independent same-wheel installed updates and their stale controls passed; cancellation and actual Debian process inspection passed. No release was created.
+- Analysis: the research checkout generator still reads without the bounded retry already present in the installed file worker. Reproduce its transient/persistent read boundaries before repair. Share the already-verified worker with the checkout driver so future worker fixes do not diverge. This is outside packaged code; retain the same installed wheel only after exact committed package equivalence and a fresh successful required CI run. Preserve the failure and report build/CI source identities separately.
+
+## Cycle 235 Checkout generator sharing reproduced
+
+- Evidence: [JSON](../evidence/test-runs/20261001T182652Z-checkout-generator-sharing-before-782637.json), [log](../evidence/test-runs/20261001T182652Z-checkout-generator-sharing-before-782637.log).
+- Result: three actual Windows checks ran without skips; transient recovery and persistent retry boundary failed, while unrelated output error propagated as expected. Source endpoints matched.
+- Analysis: controlled exclusive handles reproduce the checkout read issue. Replace the divergent example loop with a driver of the existing packaged worker, keeping command arguments/output policy unchanged. Verify all three boundaries and the documented example mutation integration; packaged files remain unchanged.
+
+## Cycle 236 Checkout driver uses the verified sample worker
+
+- Evidence: [JSON](../evidence/test-runs/20261001T182757Z-checkout-generator-sharing-repaired-558803.json), [log](../evidence/test-runs/20261001T182757Z-checkout-generator-sharing-repaired-558803.log).
+- Result: all four actual Windows checks passed without skips: transient recovery, bounded persistent denial, unrelated output error and documented example overwrite/atomic/burst integration. Source endpoints matched.
+- Analysis: examples/polling_generator.py now delegates to the existing packaged worker using its absolute source path, retaining input/output argv and policy. New inherited regression checks apply the real boundary fixture to both entry points. Required core minimum increases to71. No packaged code/assets/license/build settings changed; exact package equivalence must bind the accepted installed wheel to a fresh six-job CI revision.
+
+## Cycle 237 Complete Windows source gate for shared checkout worker
+
+- Evidence: [JSON](../evidence/test-runs/20261001T182855Z-checkout-generator-windows-core-949863.json), [log](../evidence/test-runs/20261001T182855Z-checkout-generator-windows-core-949863.log).
+- Result: all71 source checks passed without skips, including actual Chrome/Vite, both sample-worker entry points, mutation/report and lifecycle/oracle boundaries. Source endpoints matched. Code/hash inspection found all21 selected packaged inputs unchanged against build bf03c40e.
+- Analysis: commit the auxiliary driver/tests/workflow repair, then verify exact committed Debian71 and required six-job CI. Same-wheel installed matrices remain960 passed updates with their controls; final audit must explicitly distinguish the build source from the auxiliary CI source and verify packaged Git bytes are identical. Retain failed run36903993364 and never relabel it successful.

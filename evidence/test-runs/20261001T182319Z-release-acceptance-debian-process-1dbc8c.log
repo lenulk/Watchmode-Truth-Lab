@@ -1,0 +1,6 @@
+test_no_project_node_or_chromium_process_remains (linux_process_checks.LinuxProcessChecks.test_no_project_node_or_chromium_process_remains) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.012s
+
+OK

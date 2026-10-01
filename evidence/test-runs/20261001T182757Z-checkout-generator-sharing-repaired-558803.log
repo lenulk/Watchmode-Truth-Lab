@@ -1,0 +1,9 @@
+test_persistent_read_failure_is_bounded_and_reported (test_checkout_generator.CheckoutGeneratorTests.test_persistent_read_failure_is_bounded_and_reported) ... ok
+test_transient_source_read_boundary_recovers (test_checkout_generator.CheckoutGeneratorTests.test_transient_source_read_boundary_recovers) ... ok
+test_unrelated_output_error_propagates (test_checkout_generator.CheckoutGeneratorTests.test_unrelated_output_error_propagates) ... ok
+test_example_passes_all_mutation_modes (test_runner.RunnerTests.test_example_passes_all_mutation_modes) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.626s
+
+OK

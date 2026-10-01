@@ -1,36 +1,33 @@
-# Readiness assessment — 2026-10-01
+# Readiness assessment — 2026-10-02
 
-**Acceptance reopened:** Python3.10 mutation cancellation required the product poll/sleep repair in cycle 188. The distribution below is now superseded, and its passing matrices remain historical. A new distribution and required CI must pass before release; the native snapshot enumeration repair is pending.
+**1.0.0 acceptance is pending.** The current candidate is the distribution built from source `bf03c40e56e3b6387dcffdb3cbed6e1270e9e799`. Its selected wheel and sdist have passed the retained byte audit, and Windows installed file workflows have passed. The required hosted CI run and complete final environment/browser matrix are not yet accepted; no release-complete claim is made.
 
-**1.0.0 installed acceptance passed on Windows and Debian; required hosted CI is pending.** The tool provides file/HTTP/DOM starters, preflight, diagnostics, summaries, recoverable JSON reports and reproduction arguments. Release remains blocked until the required six-job run and final evidence audit pass.
+## Selected candidate
 
-## Selected distribution
+The exact wheel is `watchmode_truth_lab-1.0.0-py3-none-any.whl`, SHA256 `07e0cd82aa49d4a031bcf6dd72212bc0303da92eb1f14cf1426ab727d592f3da`. The sdist is `watchmode_truth_lab-1.0.0.tar.gz`, SHA256 `582c87f11e22084d73e10371126ffe5005bbe0e27fc7d9a4d4ae1df5061ce427`.
 
-The exact wheel tested in independent fresh Windows/Debian environments is `watchmode_truth_lab-1.0.0-py3-none-any.whl`, SHA256 `5ba2eb988c391da861404a900e5a7be7ed287e664385e625dd32f91dd25fb30a`. Its sdist SHA256 is `36c914f4d83eb17caf92901b19aebc572a5d709a7c391c9120207fdd83aa2d8a`.
+The selection receipt records successful Ubuntu Python 3.12 artifact `11182519157` from [CI run 36903993364](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36903993364). The retained [selection receipt](../evidence/release-acceptance-selection.json) records the wheel and sdist hashes and download provenance. That build run ended with five successful jobs and one Windows3.14 checkout-example failure. Cycles235–237 reproduced and repaired the divergent example without changing packaged inputs; a fresh required CI run and final equivalence audit remain pending.
 
-It was built by the successful Ubuntu Python 3.12 job in [run 36832902222](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36832902222) from d7100e3, artifact 11147392816. That whole run failed a separate Windows cancellation controller gate. The auxiliary repair in 3abf8d8 changes tests/scripts, not packaged code/assets; [package equivalence](../evidence/test-runs/20261001T122753Z-identity-repair-package-equivalence-3d78af.json) supports retaining the same tested distribution, subject to the new required CI.
-
-| Gate | Observed result | Evidence |
+| Gate | Current evidence | State |
 | --- | --- | --- |
-| Fresh installed console, preflight, diagnostics and file workflows | 60 updates each on Windows/Debian; imports inside fresh venv | [Windows first run](../evidence/matrices/final-selected-windows-file/first-run.json), [Debian first run](../evidence/matrices/final-selected-debian-file/first-run.json) |
-| Same wheel installed HTTP | 120 updates each, independent stale control, original fixture retained | [Windows](../evidence/matrices/final-selected-windows-http/summary.json), [Debian](../evidence/matrices/final-selected-debian-http/summary.json) |
-| Same wheel browser DOM/state | 120 updates per engine: Chrome, Edge, Debian Chromium/Firefox/WebKit; controls and continuity passed | [Five-engine matrix](current-results.md#installed-application-acceptance) |
-| Birth-aware actual installed cancellation | Two checks each; exit 130, observed matching descendants/probes stopped | [Windows](../evidence/test-runs/20261001T122436Z-final-selected-identity-windows-cancel-d2dea5.json), [Debian](../evidence/test-runs/20261001T123310Z-final-selected-identity-debian-cancel-08ecf1.json) |
-| Actual guest post-run inspection | No live executable under project-local runtime/browser storage | [Inspection](../evidence/test-runs/20261001T123436Z-final-selected-debian-process-inspection-53ea61.json) |
-| Required hosted Ubuntu/Windows × Python 3.10/3.12/3.14 | New 58-test core plus installed/package/write/byte gates in progress | [Current run](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36862064207) |
-| Owned Windows filesystem cleanup | Actual sharing/read-only boundary and persistent finalizer checks passed; Windows 3.10 passed prior CI | [Tests and repairs](test-log.md#cycle-157-nonrecursive-owned-deletion-verified-locally) |
-| Generated Vite short-write policy | Controlled 120ms incomplete writes recover exact DOM, native/polling, atomic/stale controls | [Windows](../evidence/test-runs/20261001T072117Z-browser-write-boundary-repaired-fe707a.json), [Debian](../evidence/test-runs/20261001T073423Z-browser-write-boundary-debian-7926a0.json) |
-
-Historical candidates and failed CI evidence remain retained. The old PID-only cancellation closure can adopt older unrelated processes after parent PID reuse; controlled reproduction and the repaired helpers are documented in [engineering notes](engineering-notes.md#cancellation-controller-process-creation-identity). Missing historical birth metadata prevents assigning the old CI failure a sole cause. No product cleanup defect is inferred from that assertion alone.
+| Selected wheel/sdist manifest and source byte audit | [Windows byte audit, cycle 222](../evidence/test-runs/20261001T180943Z-release-acceptance-windows-byte-3cd2ab.json) | Pass |
+| Installed Windows file starter, fresh import and first-run checks | [Windows file matrix](../evidence/matrices/release-acceptance-windows-file/first-run.json), [atomic replacement](../evidence/matrices/release-acceptance-windows-file/atomic_replace.json) | Pass; 20 rounds per mutation |
+| Windows HTTP application scenarios and stale control | [Windows HTTP matrix](../evidence/matrices/release-acceptance-windows-http/summary.json) | Pass |
+| Installed Windows Chrome and Edge browser matrices | [Chrome](../evidence/matrices/release-acceptance-windows-chrome/summary.json), [Edge](../evidence/matrices/release-acceptance-windows-edge/summary.json) | Pass |
+| Installed Debian file/HTTP/Chromium matrices | Passed on the exact selected wheel; guest proofs await import | Pass reported; final audit linkage pending |
+| Core suite on Windows and exact Debian source | 68-test minimum passed for each environment | Pass reported; final audit linkage pending |
+| Hosted Ubuntu/Windows × Python 3.10/3.12/3.14 CI | [Run 36903993364](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36903993364) | Previous run failed; fresh required CI pending after checkout-example repair |
+| Complete installed file/HTTP/browser matrix | Expected prefix: `release-acceptance`; see [current results](current-results.md) | Pending guest evidence import, Debian Firefox/WebKit, and remaining required gates |
+| Final evidence audit | [Acceptance controller](../evidence/release_acceptance/final_acceptance_checks.py) | Pending; no acceptance receipt exists yet |
 
 ## Support and practical limits
 
 - Selected multi-module vanilla Vite and dependency-accept research fixtures are verified. Other framework, route, authentication or state contracts need their own acceptance scenario. HTTP success does not establish browser HMR.
-- Windows, Debian VM, hosted Ubuntu and WSL2 are distinct evidence. The last WSL2 source run explicitly skipped three unprovisioned browser tests. Physical Linux hardware and Safari on macOS/iOS remain unverified; Debian Playwright WebKit does not establish Safari.
+- Windows, Debian VM, hosted Ubuntu and WSL2 are distinct evidence. Physical Linux hardware and Safari on macOS/iOS remain unverified; Debian Playwright WebKit does not establish Safari.
 - Generated Vite starters add a 200ms file-size stability window with 20ms checks. Native/polling modes include it. Longer interrupted writes and other watcher backends need application-specific verification; historical unfiltered fixtures are separate.
 - Windows-origin mounted-storage writes in WSL2 historically stayed stale with native watching and passed with polling. UNC writes into Linux storage were a separate observation.
 - Cancellation uses controlled signals in real processes, not physical keyboard events. Deliberately detached/cross-OS escape is outside ordinary-descendant containment.
 - Stable samples verify the configured timing policy, not indefinite correctness. Report replacement preserves prior bytes under tested active faults, not every power/storage failure.
 - No new Vite defect, upstream coverage gap or maintainer usefulness has been established. Those research criteria remain separate from practical tool acceptance.
 
-Use the [user guide](user-guide.md), [report contract](report-format.md), [current results](current-results.md) and [test ledger](test-log.md). GitHub visibility remains private; deployment backups and failed evidence remain retained.
+Use the [user guide](user-guide.md), [scenario format](scenario-format.md), [report contract](report-format.md), [current results](current-results.md) and [test ledger](test-log.md). GitHub visibility remains private; deployment backups and failed evidence remain retained.

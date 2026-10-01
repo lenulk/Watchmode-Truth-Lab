@@ -1,0 +1,25 @@
+{
+  "adapter_sha256": "03a9457be60aeaa9d06d1c9b805b1bf4561985cebfe7acb792dacf67a47b7b77",
+  "observation": {
+    "engine": "chromium",
+    "browserVersion": "154.0.4258.48",
+    "pages": [
+      {
+        "secureContext": false,
+        "cryptoAvailable": true,
+        "randomUUID": "undefined",
+        "session": null
+      },
+      {
+        "secureContext": false,
+        "cryptoAvailable": true,
+        "randomUUID": "undefined",
+        "session": null
+      }
+    ],
+    "pageErrors": [
+      "crypto.randomUUID is not a function",
+      "crypto.randomUUID is not a function"
+    ]
+  }
+}

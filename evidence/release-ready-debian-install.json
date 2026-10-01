@@ -1,0 +1,12 @@
+{
+  "platform": "debian",
+  "wheel": {
+    "file": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+    "sha256": "80c595858ecaa494a8fa2a3128a908082a7a469e32563778106d700685a48f36",
+    "size_bytes": 29986
+  },
+  "source_revision": "c65e0f82babc63ec914586be159da003756e1f3a",
+  "venv": "reports/release-ready-debian-venv",
+  "projects": "reports/release-ready-debian-projects",
+  "purpose": "Fresh setup; recorded installed payload and matrices establish acceptance"
+}

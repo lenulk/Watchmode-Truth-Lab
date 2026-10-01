@@ -149,3 +149,10 @@ The same CI separately timed out during installed generic mutation cancellation 
 - Reproduction: actual exclusive Windows handles caused transient and persistent replacement denial; controlled CLI mutation failure exposed the absent report (218). An unrelated EIO simulation already propagated immediately.
 - Fix: retry Windows WinError5/32 replacement for at most one second with interruptible20ms sleeps, writing staged bytes once and preserving target/stage cleanup. Catch internal mutation OSError at the attempt boundary, report inconclusive/mutation_failed with exception type and numeric codes, then stop attempts. Do not include exception paths/text or alter observation deadlines.
 - Verification: four focused checks passed without skips (219), including actual Windows handles, preserved old bytes, immediate unrelated error and real CLI report/export behavior under an injected fault. Complete source, Debian simulation, CI versions and freshly rebuilt installed matrices remain required. Successful retry does not promise recovery beyond one second; a staged-cleanup/storage failure can still prevent normal completion.
+
+## Checkout example diverged from the installed file worker
+
+- Symptom: required Windows Python3.14 core in run36903993364 failed on an example.json atomic round with PermissionError from the original examples/polling_generator.py read loop, after the independent installed same-wheel matrices passed960 updates.
+- Reproduction: apply actual exclusive-handle source-read checks to the documented checkout entry point; temporary recovery and persistent retry failed (235), unrelated output errors already propagated.
+- Fix: the checkout entry point delegates via runpy to the packaged sample worker, preserving argv and avoiding two independent copies of its recovery policy. No packaged source changed.
+- Verification: actual Windows boundary checks and all example mutation modes passed (236). New71-test source/hosted gates and exact build-to-CI package equivalence remain required. This repair does not assign the original handle holder or claim unlimited recovery.

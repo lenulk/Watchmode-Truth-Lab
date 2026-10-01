@@ -1,0 +1,22 @@
+{
+  "adapter_sha256": "bb107e737efff4881cdb73bfd02f0977c156e7f3c932dee077c121574bbf9876",
+  "observation": {
+    "engine": "chromium",
+    "browserVersion": "151.0.7922.34",
+    "pages": [
+      {
+        "secureContext": false,
+        "cryptoAvailable": true,
+        "randomUUID": "undefined",
+        "session": "bdeb1bbe14967cb975991db0214e105f"
+      },
+      {
+        "secureContext": false,
+        "cryptoAvailable": true,
+        "randomUUID": "undefined",
+        "session": "6475b5fd7d3d0fae4cae897aeaf8def1"
+      }
+    ],
+    "pageErrors": []
+  }
+}

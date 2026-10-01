@@ -1,0 +1,116 @@
+{
+  "expected_status": "stale",
+  "assessment": "pass",
+  "installed_python": "isolated venv outside source checkout",
+  "browser_engine": "firefox",
+  "session_continuity": true,
+  "application_state_retained": true,
+  "observed_updates": 0,
+  "update_metric": "observed_dom_changes",
+  "analysis": "Installed starter with real Vite, isolated fixture mutation and disabled watcher control; DOM counts are sampled changes, not framework callback counts.",
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T18:18:32.148733+00:00",
+    "status": "stale",
+    "config": "disabled.json",
+    "config_sha256": "25e627831a2c08c764aaf0df85362b8e8b838280ecdff11cb912767c36bcd112",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "{config_dir}/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": null,
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.1.0-53-amd64",
+      "python": "3.11.2",
+      "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 3836.6,
+      "samples": 130,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "overwrite",
+        "expected_hash": "8ddf0a3b695719293eb3191bf5b6047d3b5c4a3427bcf6fa9828c4c5c4a535fd",
+        "expected_bytes": 41,
+        "mutation_command_result": null,
+        "status": "stale",
+        "reason": "output_mismatch",
+        "elapsed_ms": 8000.4,
+        "samples": 264,
+        "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+        "observed_bytes": 4,
+        "raw_output_hash": "fa562c2419d9b55a8cbc492cc2de200ac583b40e5cda0d1bfcd6b2e30236f876",
+        "probe_error": null
+      }
+    ],
+    "failure_rate": 1.0,
+    "pass_latency": null,
+    "logs": [
+      "",
+      "  VITE v8.3.1  ready in 566 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:40179/",
+      "WTL_BROWSER_ENGINE firefox",
+      "WTL_BROWSER_VERSION 153.0",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"3f21949f4670ddb0ae4ee9927ef7e2c2\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "Browser logs:",
+      "",
+      "<launching> <project>/reports/playwright-browsers/firefox-1538/firefox/firefox -no-remote -headless -profile /tmp/playwright_firefoxdev_profile-tDuqnR -juggler-pipe -silent",
+      "<launched> pid=49962",
+      "[pid=49962][err] *** You are running in headless mode.",
+      "[pid=49962][err] JavaScript warning: resource://services-settings/Utils.sys.mjs, line 119: unreachable code after return statement",
+      "[pid=49962][out] ",
+      "[pid=49962][out] Juggler listening to the pipe",
+      "[pid=49962][out] console.warn: services.settings: #fetchAttachment: Forcing fallbackToDump to false due to Utils.LOAD_DUMPS being false",
+      "[pid=49962][out] console.error: (new NotFoundError(\"Could not find fa0fc42c-d91d-fca7-34eb-806ff46062dc in cache or dump\", \"resource://services-settings/Attachments.sys.mjs\", 48))",
+      "[pid=49962][out] console.warn: \"Unable to find the attachment for\" \"fa0fc42c-d91d-fca7-34eb-806ff46062dc\"",
+      "[pid=49962][out] console.error: \"Error fetching remote settings base url from CDN. Falling back to https://firefox-settings-attachments.cdn.mozilla.net/\" (new SyntaxError(\"XMLHttpRequest.open: '/' is not a valid URL.\", (void 0), 126))",
+      "[pid=49962][out] console.error: services.settings: ",
+      "[pid=49962][out]   Message: EmptyDatabaseError: \"main/nimbus-desktop-experiments\" has not been synced yet",
+      "[pid=49962][out]   Stack:",
+      "[pid=49962][out]     EmptyDatabaseError@resource://services-settings/Database.sys.mjs:19:5",
+      "[pid=49962][out] list@resource://services-settings/Database.sys.mjs:96:13",
+      "[pid=49962][out] ",
+      "[pid=49962] <gracefully close start>",
+      "    at <project>/reports/release-acceptance-debian-projects/browser/browser_probe.mjs:77:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "disabled.json",
+      "rounds": 1,
+      "mutation": "overwrite",
+      "argv": [
+        "<project>/reports/release-acceptance-debian-venv/bin/python",
+        "-m",
+        "watchmode_truth_lab",
+        "disabled.json",
+        "--rounds",
+        "1",
+        "--mutation",
+        "overwrite"
+      ],
+      "cli_shell": "posix",
+      "cli": "<project>/reports/release-acceptance-debian-venv/bin/python -m watchmode_truth_lab disabled.json --rounds 1 --mutation overwrite"
+    }
+  }
+}

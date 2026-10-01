@@ -63,7 +63,7 @@ PowerShell uses environment assignments, for example `$env:WTL_BROWSER_CHANNEL='
 
 ## Adapt to an application
 
-Copy a representative fixture and point `command` at your watch command. Keep commands as argv arrays. Set `mutation_target`, optional valid-source `mutation_template`/`initial_expected`, oracle and timing policy. Read [the scenario reference](../README.md#scenario-format). The target and file oracle must stay inside the fixture copy. Use `workspace_parent` to choose the storage under test. Keep credentials and live data out of fixtures intended for distribution.
+Copy a representative fixture and point `command` at your watch command. Keep commands as argv arrays. Set `mutation_target`, optional valid-source `mutation_template`/`initial_expected`, oracle and timing policy. Read [the scenario reference](scenario-format.md). The target and file oracle must stay inside the fixture copy. Use `workspace_parent` to choose the storage under test. Keep credentials and live data out of fixtures intended for distribution.
 
 The Vite browser adapter can observe an ordinary application without fixture-owned globals:
 

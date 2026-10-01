@@ -1,32 +1,39 @@
-# Current verification results — 2026-10-01
+# Current verification results — 2026-10-02
 
-**The selected distribution below is superseded after cycle 188's product cancellation repair.** Its earlier matrices remain retained evidence; the new delivery wheel must repeat installed acceptance. Required CI run 36862064207 completed with four successful jobs and separate Windows3.10 mutation cancellation / Windows3.12 snapshot-query timeout failures. See the [test ledger](test-log.md#cycle-188-actual-python-310-repaired-candidate-cancellation).
+**Acceptance is pending for the candidate from source `bf03c40e56e3b6387dcffdb3cbed6e1270e9e799`.** The selected wheel SHA256 is `07e0cd82aa49d4a031bcf6dd72212bc0303da92eb1f14cf1426ab727d592f3da`; the sdist SHA256 is `582c87f11e22084d73e10371126ffe5005bbe0e27fc7d9a4d4ae1df5061ce427`. The selection receipt binds these files to Ubuntu Python 3.12 artifact `11182519157` from [CI run 36903993364](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36903993364). That build run failed its Windows3.14 checkout-example gate. Cycles235–237 repair that separate source example; required CI and final package-equivalence audit remain pending. See the [readiness assessment](readiness.md).
 
-The installed 1.0.0 candidate supplies file/HTTP/DOM starters, side-effect-free preflight, dependency diagnostics, recoverable JSON export, summaries, quoted reproduction and controlled cancellation. The exact selected wheel passed fresh installed acceptance on Windows and Debian. Required hosted CI remains in progress. No new Vite defect or upstream coverage gap is inferred. [Every cycle, including failures](test-log.md), records its analysis and follow-up.
+The selected wheel includes file/HTTP/DOM starters, side-effect-free preflight, dependency diagnostics, recoverable JSON export, summaries, quoted reproduction and controlled cancellation. Current candidate evidence includes a passing exact-artifact byte audit and installed Windows file/HTTP workflows. Windows and Debian 68-test core runs are reported passing, but the final audit has not yet bound all source, CI, installation and matrix evidence into an acceptance receipt. No release-complete or novelty claim is made. [Every cycle, including failures](test-log.md), records its analysis and follow-up.
 
-## Installed application acceptance
+## Current candidate checks
 
-Selected wheel SHA256: `5ba2eb988c391da861404a900e5a7be7ed287e664385e625dd32f91dd25fb30a`. Sdist SHA256: `36c914f4d83eb17caf92901b19aebc572a5d709a7c391c9120207fdd83aa2d8a`. [Readiness](readiness.md#selected-distribution) identifies its build job, source commit, auxiliary controller repair and required CI.
+| Workflow | Result | Evidence |
+| --- | --- | --- |
+| Selected distribution identity | Wheel/sdist hashes and source/run/artifact identity recorded | [Selection receipt](../evidence/release-acceptance-selection.json) |
+| Exact selected artifact byte audit | Windows byte audit passed in cycle 222 | [Audit cycle](../evidence/test-runs/20261001T180943Z-release-acceptance-windows-byte-3cd2ab.json) |
+| Installed Windows file workflow | Fresh import and first-run checks; overwrite, atomic replacement and burst each passed 20 rounds | [First run](../evidence/matrices/release-acceptance-windows-file/first-run.json), [overwrite](../evidence/matrices/release-acceptance-windows-file/overwrite.json), [atomic replacement](../evidence/matrices/release-acceptance-windows-file/atomic_replace.json), [burst](../evidence/matrices/release-acceptance-windows-file/burst.json) |
+| Installed Windows HTTP workflow | Native/polling × three mutation modes passed; disabled-watcher stale control passed | [Matrix summary](../evidence/matrices/release-acceptance-windows-http/summary.json) |
+| Installed Windows Chrome and Edge | Six positive scenarios and disabled-watcher control passed for each browser | [Chrome](../evidence/matrices/release-acceptance-windows-chrome/summary.json), [Edge](../evidence/matrices/release-acceptance-windows-edge/summary.json) |
+| Installed Debian file/HTTP/Chromium | Passed on the exact wheel; guest evidence import is pending | Guest results reported; final retained run linkage is pending |
+| Windows and Debian core suites | 68-test minimum passed on each | Final retained run linkage is pending the acceptance audit |
+| Hosted Ubuntu/Windows × Python 3.10/3.12/3.14 | Run 36903993364; selected Ubuntu 3.12 build succeeded | [Hosted run](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36903993364); five jobs passed, Windows3.14 checkout example failed; fresh required CI pending |
+| Remaining installed matrices | Debian guest evidence import and Firefox/WebKit browser runs | Pending under the `release-acceptance` evidence prefix |
 
-Each positive HTTP/browser matrix is native/polling × overwrite/atomic replacement/burst × 20 updates (120 total), plus an independently expected-stale disabled control and original fixture preservation. Generated starters include the documented 200ms/20ms write-stability policy. Browser acceptance requires independent document identity and clicked counter retention; counts are sampled DOM changes, not framework callbacks.
+Positive HTTP/browser matrix policy is native/polling × overwrite/atomic replacement/burst × 20 updates per scenario, plus an independently expected-stale disabled control and original fixture preservation. Browser acceptance also requires document identity continuity and retained clicked state; sampled DOM changes are not framework callback counts. These are required gates, not completed results for the current candidate.
 
-| Same selected wheel workflow | Result | Evidence |
+## Historical installed acceptance — superseded 5ba2 wheel
+
+The following installed matrices used wheel SHA256 `5ba2eb988c391da861404a900e5a7be7ed287e664385e625dd32f91dd25fb30a` and sdist SHA256 `36c914f4d83eb17caf92901b19aebc572a5d709a7c391c9120207fdd83aa2d8a`. They remain useful historical evidence, but that distribution was superseded and does not establish acceptance of the current candidate.
+
+| Historical 5ba2 workflow | Result | Evidence |
 | --- | --- | --- |
 | Windows file first run | Console/version/validate/doctor, three modes × 20 updates | [First run](../evidence/matrices/final-selected-windows-file/first-run.json) |
 | Debian file first run | Same independent installed workflow, 60 updates | [First run](../evidence/matrices/final-selected-debian-file/first-run.json) |
-| Windows HTTP | 120/120 positives; stale control passed | [Matrix](../evidence/matrices/final-selected-windows-http/summary.json) |
-| Debian HTTP | 120/120 positives; stale control passed | [Matrix](../evidence/matrices/final-selected-debian-http/summary.json) |
-| Windows Chrome 154.0.8037.58 | 120/120; state/session/control passed | [Matrix](../evidence/matrices/final-selected-windows-chrome/summary.json) |
-| Windows Edge 154.0.4258.37 | 120/120; state/session/control passed | [Matrix](../evidence/matrices/final-selected-windows-edge/summary.json) |
-| Debian Chromium 151.0.7922.34 | 120/120; state/session/control passed | [Matrix](../evidence/matrices/final-selected-debian-chromium/summary.json) |
-| Debian Playwright Firefox 153.0 | 120/120; state/session/control passed | [Matrix](../evidence/matrices/final-selected-debian-firefox/summary.json) |
-| Debian Playwright WebKit 26.5 | 120/120; state/session/control passed | [Matrix](../evidence/matrices/final-selected-debian-webkit/summary.json) |
+| Windows / Debian HTTP | 120/120 positives per environment; stale control passed | [Windows](../evidence/matrices/final-selected-windows-http/summary.json), [Debian](../evidence/matrices/final-selected-debian-http/summary.json) |
+| Windows Chrome / Edge | 120/120 per engine; state, session and control passed | [Chrome](../evidence/matrices/final-selected-windows-chrome/summary.json), [Edge](../evidence/matrices/final-selected-windows-edge/summary.json) |
+| Debian Chromium / Firefox / WebKit | 120/120 per engine; state, session and control passed | [Chromium](../evidence/matrices/final-selected-debian-chromium/summary.json), [Firefox](../evidence/matrices/final-selected-debian-firefox/summary.json), [WebKit](../evidence/matrices/final-selected-debian-webkit/summary.json) |
+| Installed cancellation and cleanup | Controlled cancellation passed; no live project-local executable remained after guest inspection | [Windows](../evidence/test-runs/20261001T122436Z-final-selected-identity-windows-cancel-d2dea5.json), [Debian](../evidence/test-runs/20261001T123310Z-final-selected-identity-debian-cancel-08ecf1.json), [inspection](../evidence/test-runs/20261001T123436Z-final-selected-debian-process-inspection-53ea61.json) |
 
-Windows uses Python 3.12.14; actual Debian VM uses Python 3.11.2. Both use Node 24.18.0, pnpm 11.19.0, Vite 8.3.1 and Playwright Core 1.62.1. Fresh imports were verified under each installed venv. Debian Firefox revision is 1538; WebKit revision is 2336. Debian WebKit does not establish Safari.
-
-Same-wheel controlled installed cancellation passed with birth-aware observed process identity on [Windows](../evidence/test-runs/20261001T122436Z-final-selected-identity-windows-cancel-d2dea5.json) and [Debian](../evidence/test-runs/20261001T123310Z-final-selected-identity-debian-cancel-08ecf1.json), covering startup, pending HTTP, external mutation and live browser. [Post-run actual VM inspection](../evidence/test-runs/20261001T123436Z-final-selected-debian-process-inspection-53ea61.json) found no live project-local runtime/browser executable. Signals are controlled real-process delivery, not physical keypresses.
-
-Required [hosted run 36862064207](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36862064207) tests Ubuntu/Windows × Python 3.10/3.12/3.14 with a 58-test core minimum and required installed/package/write/artifact gates. Previous runs failed and remain retained; [engineering notes](engineering-notes.md) explain naming retention, filesystem sharing, short writes, Python 3.10 recursive cleanup and PID-only ownership. Missing old birth identities prevent proving the sole cause of the last hosted cancellation failure.
+Windows used Python 3.12.14; the Debian VM used Python 3.11.2. Both used Node 24.18.0, pnpm 11.19.0, Vite 8.3.1 and Playwright Core 1.62.1. Debian Firefox revision was 1538 and WebKit revision 2336. Debian WebKit does not establish Safari behavior. The 5ba2 results do not satisfy current-candidate CI or matrix gates.
 
 ## Historical development candidates
 

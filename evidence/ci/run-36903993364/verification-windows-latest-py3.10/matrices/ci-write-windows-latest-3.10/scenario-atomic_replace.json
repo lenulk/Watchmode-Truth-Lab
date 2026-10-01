@@ -1,0 +1,153 @@
+{
+  "policy": "stable",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790878612849722800,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790878612895236400,
+          "bytes": 66,
+          "sha256": "277a6434c6d7270f6bb77bf01626bedb1351faf9c9af0ccccca3bd007ab27f6a"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790878613369538400,
+          "bytes": 66,
+          "sha256": "277a6434c6d7270f6bb77bf01626bedb1351faf9c9af0ccccca3bd007ab27f6a"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790878613370367100,
+          "bytes": 66,
+          "sha256": "0b2ef5d2efac47d5dfe77f60c29f009063a1517cde23ac9154fa9bfddfb5be78"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T18:16:50.792732+00:00",
+    "status": "pass",
+    "config": "controlled.json",
+    "config_sha256": "84af41cde4da268896ef0e6478ca0680d9bdfb25bb867f75d159614375b70c64",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<project>\\node_modules\\vite\\bin\\vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 win32-x64 node-v24.18.0",
+    "environment": {
+      "system": "Windows",
+      "release": "10",
+      "python": "3.10.11",
+      "platform": "Windows-10-10.0.26100-SP0",
+      "workspace_device": "C:\\",
+      "filesystem_type": "NTFS"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1547.0,
+      "samples": 52,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "8635bb09b5c981136ee24c72f5d62e78772a04f25be2aae8fcb3e6776e109123",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 187.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790878612849722800, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"final\", \"time_ns\": 1790878612895236400, \"bytes\": 66, \"sha256\": \"277a6434c6d7270f6bb77bf01626bedb1351faf9c9af0ccccca3bd007ab27f6a\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 235.0,
+        "samples": 10,
+        "observed_hash": "8635bb09b5c981136ee24c72f5d62e78772a04f25be2aae8fcb3e6776e109123",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "0a6c38f2e16a02676f7a1a410775d08cc14785eb8f033a3badc4fa226095fdf5",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 125.0,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790878613369538400, \"bytes\": 66, \"sha256\": \"277a6434c6d7270f6bb77bf01626bedb1351faf9c9af0ccccca3bd007ab27f6a\"}, {\"phase\": \"final\", \"time_ns\": 1790878613370367100, \"bytes\": 66, \"sha256\": \"0b2ef5d2efac47d5dfe77f60c29f009063a1517cde23ac9154fa9bfddfb5be78\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 219.0,
+        "samples": 12,
+        "observed_hash": "0a6c38f2e16a02676f7a1a410775d08cc14785eb8f033a3badc4fa226095fdf5",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 227.0,
+      "p95_ms": 235.0
+    },
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  \u001b[32m\u001b[1mVITE\u001b[22m v8.3.1\u001b[39m  \u001b[2mready in \u001b[0m\u001b[1m524\u001b[22m\u001b[2m\u001b[0m ms\u001b[22m",
+      "",
+      "  \u001b[32m\u279c\u001b[39m  \u001b[1mLocal\u001b[22m:   \u001b[36mhttp://127.0.0.1:\u001b[1m57396\u001b[22m/\u001b[39m",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"acf2d1fceaf5acd31466b12a140743ec\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m6:16:53 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0000-697b45fa4f4d4c6eac800609adc027c6\",\"session\":\"acf2d1fceaf5acd31466b12a140743ec\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+      "\u001b[2m6:16:53 PM\u001b[22m \u001b[36m\u001b[1m[vite]\u001b[22m\u001b[39m \u001b[90m\u001b[2m(client)\u001b[22m\u001b[39m \u001b[32mhmr update \u001b[39m\u001b[2m/src/main.js\u001b[22m",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0001-c2a2eb35bd16441a8b7e7bd6c8a5b75a\",\"session\":\"acf2d1fceaf5acd31466b12a140743ec\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":2,\"updateMetric\":\"observed_dom_changes\"}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 2,
+      "mutation": "atomic_replace",
+      "argv": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.10.11\\x64\\python.exe",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "2",
+        "--mutation",
+        "atomic_replace"
+      ],
+      "cli_shell": "powershell",
+      "cli": "& 'C:\\hostedtoolcache\\windows\\Python\\3.10.11\\x64\\python.exe' '-m' 'watchmode_truth_lab' 'controlled.json' '--rounds' '2' '--mutation' 'atomic_replace'"
+    }
+  }
+}

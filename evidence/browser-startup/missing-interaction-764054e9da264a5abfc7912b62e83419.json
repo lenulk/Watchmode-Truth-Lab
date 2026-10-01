@@ -1,0 +1,79 @@
+{
+  "adapter_sha256": "bb107e737efff4881cdb73bfd02f0977c156e7f3c932dee077c121574bbf9876",
+  "observation": {
+    "kind": "Actual browser with controlled HTTP server; not real Vite",
+    "elapsed_seconds": 11.364307659008773,
+    "report": {
+      "schema_version": 1,
+      "started_at_utc": "2026-10-01T17:33:16.291869+00:00",
+      "status": "inconclusive",
+      "config": "scenario.json",
+      "config_sha256": "ec8c32bc6ad1aff5f0ba9829a7bc2a5a1d17bf5c61a833d3ae0f2eaedc2e0aae",
+      "command": [
+        "<project>/reports/linux-runtime/node-v24.18.0-linux-x64/bin/node",
+        "<project>/watchmode_truth_lab/assets/vite/browser_probe.mjs",
+        "<project>/reports/browser-startup-p1kexvmk/fake-vite.mjs",
+        "{workspace}",
+        "{port}",
+        "{workspace}/.wtl-browser-state.json"
+      ],
+      "mutation_command": null,
+      "tool_version": null,
+      "environment": {
+        "system": "Linux",
+        "release": "6.1.0-53-amd64",
+        "python": "3.11.2",
+        "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+        "workspace_device": "/",
+        "filesystem_type": "ext2/ext3"
+      },
+      "oracle": {
+        "type": "file",
+        "path": ".wtl-browser-state.json",
+        "extract_regex": "\"token\":\"([^\"]+)\""
+      },
+      "startup": {
+        "status": "inconclusive",
+        "reason": "process_exited_1",
+        "elapsed_ms": 11359.8,
+        "samples": 375,
+        "observed_hash": null,
+        "observed_bytes": null,
+        "raw_output_hash": null,
+        "probe_error": "file_not_found_or_not_regular"
+      },
+      "attempts": [],
+      "failure_rate": null,
+      "pass_latency": null,
+      "logs": [
+        "WTL_BROWSER_ENGINE chromium",
+        "WTL_BROWSER_VERSION 151.0.7922.34",
+        "page.click: Timeout 9924ms exceeded.",
+        "Call log:",
+        "  - waiting for locator('#increment')",
+        "",
+        "    at <project>/watchmode_truth_lab/assets/vite/browser_probe.mjs:71:33 {",
+        "  log: [ \"  - waiting for locator('#increment')\" ],",
+        "  name: 'TimeoutError'",
+        "}"
+      ],
+      "reproduction": {
+        "config": "scenario.json",
+        "rounds": 1,
+        "mutation": "overwrite",
+        "argv": [
+          "/usr/bin/python3",
+          "-m",
+          "watchmode_truth_lab",
+          "scenario.json",
+          "--rounds",
+          "1",
+          "--mutation",
+          "overwrite"
+        ],
+        "cli_shell": "posix",
+        "cli": "/usr/bin/python3 -m watchmode_truth_lab scenario.json --rounds 1 --mutation overwrite"
+      }
+    }
+  }
+}
