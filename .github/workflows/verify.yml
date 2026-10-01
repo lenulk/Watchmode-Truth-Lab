@@ -52,7 +52,7 @@ jobs:
       - name: Full regression and required-result analysis
         run: |
           python scripts/test_cycle.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --purpose 'Required complete source suite with real Vite Chromium and failure cases' || true
-          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 52
+          python scripts/ci_verify.py --label ci-core-${{ matrix.os }}-${{ matrix.python }} --minimum 54
       - name: Wheel and sdist rebuild integration
         run: |
           python scripts/test_cycle.py --label ci-package-${{ matrix.os }}-${{ matrix.python }} --purpose 'Minimum-backend wheel sdist rebuild and installed starter integration' --test package_checks || true

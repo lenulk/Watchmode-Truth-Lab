@@ -1011,3 +1011,51 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T072956Z-release-repairs-windows-core-9b2301.json), [log](../evidence/test-runs/20261001T072956Z-release-repairs-windows-core-9b2301.log).
 - Result: all 52 source checks passed without skips/failures/errors, including real Vite/Chrome, oracle boundaries, process cleanup/cancellation, report export, starter/preflight/diagnostics, quoted reproduction, actual directory sharing and evidence gates. Start/end source identities matched.
 - Analysis: concrete core cleanup and packaged starter changes justify this full release gate. Required CI must repeat on Windows/Linux Python 3.10/3.12/3.14, build/install its actual artifacts, retain independent matrix controls and pass the new controlled-write/distribution-source audits. Debian VM verification and acceptance of the final selected bytes remain pending. No release is claimed yet.
+
+## Cycle 152 Complete repaired Debian VM regression
+
+- Evidence: [JSON](../evidence/test-runs/20261001T073321Z-release-repairs-debian-core-2a68f2.json), [log](../evidence/test-runs/20261001T073321Z-release-repairs-debian-core-2a68f2.log), source deployment provenance `evidence/verified-source-debian-2034de80.json`.
+- Result: actual Debian VM Python 3.11.2 passed all 52 source checks without skips/failures/errors, including real Chromium. Deployment verified archive SHA-256 2026c98a5ef18f1ea343e5e220316b062f2d415d0ecbc3f0d726488fb9a0b45b, retained rollback backup and checked deployed bytes from commit 2034de8. Source endpoints matched.
+- Analysis: this closes the repaired source's Debian regression gate. Hosted CI and selected installed artifact acceptance remain separate; guest source execution does not prove final wheel identity. Repeat controlled-write integration on this VM, then accept only exact bytes selected from completed successful CI.
+
+## Cycle 153 Debian controlled browser write boundary
+
+- Evidence: [JSON](../evidence/test-runs/20261001T073423Z-browser-write-boundary-debian-7926a0.json), [log](../evidence/test-runs/20261001T073423Z-browser-write-boundary-debian-7926a0.log), matrix `evidence/matrices/browser-write-boundary-debian/`.
+- Result: actual Debian Chromium harness passed without skips/errors. Native/polling controlled incomplete writes and atomic saves reached the exact final token with retained state/session and no empty DOM; disabled watch remained stale. Source endpoints matched.
+- Analysis: Windows and actual Debian both verify the explicit starter's short-write policy. This is source-created fixture integration; selected wheel must still create and execute its own starters outside checkout. Continue actual CI, preserving any failures independently.
+
+## Cycle 154 Selected repaired CI distribution audit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T073821Z-accepted-release-byte-audit-c1c32b.json), [log](../evidence/test-runs/20261001T073821Z-accepted-release-byte-audit-c1c32b.log), GitHub run 36830845467 artifact 11146548926 (Ubuntu Python 3.12).
+- Result: exact GitHub ZIP digest verified; wheel/sdist sizes, manifest, sums and all packaged source/payload hashes matched commit 2034de8. Wheel SHA-256 0f7459cc3958fb91511cc7a693270c804597a45bcc5b7f8ffa7bfaa9be551d16; sdist 9f493f4300ae38a5b08310bb566668e2d87ec1b55c33d1a9022586fd60dbd46b. Source endpoints matched.
+- Analysis: select these bytes for cross-OS installed acceptance without rebuilding. Ubuntu 3.10/3.12 completed every required gate; remaining CI jobs must still pass before release. Exact Windows/Debian wheel execution remains pending, so the directory name is not itself an acceptance claim.
+
+## Cycle 155 Selected repaired wheel Windows HTTP
+
+- Evidence: [JSON](../evidence/test-runs/20261001T074119Z-accepted-windows-http-8f66ca.json), [log](../evidence/test-runs/20261001T074119Z-accepted-windows-http-8f66ca.log), [matrix](../evidence/matrices/accepted-windows-http/summary.json).
+- Result: exact selected Ubuntu CI wheel installed in a fresh Windows venv passed diagnostics, 120 HTTP updates with all native/polling mutation combinations, original fixture retention and stale control. Source endpoints matched.
+- Analysis: independent installed creation asserted import within sys.prefix and reused frozen dependencies offline. Debian received the same bytes; its first checksum command used the wrong cwd and explicitly verified no files, then both hashes passed from the artifact directory. Neither setup check is substituted for execution. A new Windows Python 3.10 required CI cleanup failure now supersedes this candidate; retain these bytes/results and repair before release.
+
+## Cycle 156 Python 3.10 TemporaryDirectory recursion exposed by CI
+
+- Evidence: [run](https://github.com/lenulk/Watchmode-Truth-Lab/actions/runs/36830845467), retained Windows 3.10 JSON/log/analysis under `evidence/ci/run-36830845467/verification-windows-latest-py3.10/test-runs/`.
+- Result: Ubuntu 3.10/3.12/3.14 passed all seven gates. Windows Python 3.10.11 core collected 52, passed 51 and errored in the real directory-handle regression. Its TemporaryDirectory permission handler recursively reentered rmtree on the locked root until RecursionError, so the outer PermissionError retry never received the sharing error.
+- Analysis and repair: the actual controlled filesystem boundary now proves the minimum-Python-specific mechanism. Delete the already-owned tree with a nonrecursive permission handler and bounded Windows sharing retries, then disarm TemporaryDirectory via cleanup after its root is gone. Retain read-only-file support, reject unrelated/persistent faults and repeat actual Python 3.10 CI. Do not broadly catch RecursionError or remove the regression. The previous selected distribution is superseded and will not be released.
+
+## Cycle 157 Nonrecursive owned deletion verified locally
+
+- Evidence: [JSON](../evidence/test-runs/20261001T074732Z-workspace-nonrecursive-cleanup-8bd580.json), [log](../evidence/test-runs/20261001T074732Z-workspace-nonrecursive-cleanup-8bd580.log).
+- Result: 15 targeted checks passed without skips, including actual Windows sharing release, read-only file deletion, bounded persistent/unrelated faults and runner/CLI/process/reproduction integrations. Source endpoints matched.
+- Analysis: explicit rmtree propagates sharing errors without calling a recursive handler. Review additionally found the TemporaryDirectory finalizer could reenter its old handler after a persistent failure; detach that finalizer before the owned Windows deletion attempts, retaining explicit cleanup failure and its directory for diagnosis. Verify this persistent path with a genuine TemporaryDirectory before the full release gate. Linux continues its standard cleanup path.
+
+## Cycle 158 Persistent cleanup/finalizer boundary verified
+
+- Evidence: [JSON](../evidence/test-runs/20261001T074955Z-workspace-finalizer-boundary-a2a5af.json), [log](../evidence/test-runs/20261001T074955Z-workspace-finalizer-boundary-a2a5af.log).
+- Result: four checks passed without skips: actual directory handle release, read-only file deletion, bounded/unrelated faults and a genuine TemporaryDirectory whose persistent failure retained its owned root with finalizer disarmed. Source endpoints matched.
+- Analysis: disarming the stdlib finalizer before explicit Windows cleanup prevents a second unbounded recovery after a reported failure. Supported-version finalizer compatibility still requires actual six-job CI; Linux standard cleanup remains unchanged. Full source now contains 54 checks. No broad RecursionError catch or skip masks the minimum-version failure.
+
+## Cycle 159 Complete Windows gate after Python 3.10 cleanup repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T075038Z-release-nonrecursive-windows-core-34fbfe.json), [log](../evidence/test-runs/20261001T075038Z-release-nonrecursive-windows-core-34fbfe.log).
+- Result: 54/54 passed with zero skips/errors/failures; source endpoints matched. Actual Vite/Chrome and all affected runner, cleanup, CLI, diagnostic, report, reproduction and evidence integrations ran.
+- Analysis: third CI completed with five successful jobs and one Windows Python 3.10 recursive-cleanup error; every job's immutable case evidence and artifact provenance is retained under `evidence/ci/run-36830845467/`. Local corrected full suite passes, but supported Python 3.10 must now execute the corrected cleanup in actual CI. Build/select new distribution bytes only after that required result; previous candidates remain superseded.

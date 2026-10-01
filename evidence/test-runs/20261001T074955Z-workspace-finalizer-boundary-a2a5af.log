@@ -1,0 +1,9 @@
+test_owned_read_only_file_is_removed_without_recursive_recovery (test_workspace_cleanup.WorkspaceCleanupTests.test_owned_read_only_file_is_removed_without_recursive_recovery) ... ok
+test_owned_workspace_cleanup_waits_for_directory_handle_release (test_workspace_cleanup.WorkspaceCleanupTests.test_owned_workspace_cleanup_waits_for_directory_handle_release) ... ok
+test_persistent_failure_disarms_stdlib_finalizer_and_retains_owned_root (test_workspace_cleanup.WorkspaceCleanupTests.test_persistent_failure_disarms_stdlib_finalizer_and_retains_owned_root) ... ok
+test_persistent_sharing_error_is_bounded_and_other_errors_propagate (test_workspace_cleanup.WorkspaceCleanupTests.test_persistent_sharing_error_is_bounded_and_other_errors_propagate) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.529s
+
+OK

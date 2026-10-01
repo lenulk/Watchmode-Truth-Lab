@@ -1,0 +1,50 @@
+{
+  "run_id": 36830845467,
+  "source_revision": "2034de8008ca4e02901b7601b4084e80ac01f836",
+  "jobs": [
+    {
+      "id": 110266842155,
+      "name": "verify (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110266842205,
+      "name": "verify (ubuntu-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110266842257,
+      "name": "verify (windows-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Full regression and required-result analysis"
+      ]
+    },
+    {
+      "id": 110266842277,
+      "name": "verify (ubuntu-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110266842318,
+      "name": "verify (windows-latest, 3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 110266842440,
+      "name": "verify (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    }
+  ]
+}

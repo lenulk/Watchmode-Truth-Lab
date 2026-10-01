@@ -1,0 +1,157 @@
+{
+  "policy": "stable",
+  "controlled_truncation_seconds": 0.12,
+  "empty_dom_observed": false,
+  "boundaries": [
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790840073671691432,
+          "bytes": 29,
+          "sha256": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790840073675377245,
+          "bytes": 66,
+          "sha256": "eec53a91afd20b45b1b5b8521115d05c2a33c0dc8c56ed258cfc06bdaae90782"
+        }
+      ],
+      "empty_dom_seen": false
+    },
+    {
+      "snapshots": [
+        {
+          "phase": "before",
+          "time_ns": 1790840074068579182,
+          "bytes": 66,
+          "sha256": "eec53a91afd20b45b1b5b8521115d05c2a33c0dc8c56ed258cfc06bdaae90782"
+        },
+        {
+          "phase": "final",
+          "time_ns": 1790840074069132544,
+          "bytes": 66,
+          "sha256": "cec4b2aa829f12a8bffb2c8f229e927e77bc20175236a995eef539b1145ea71a"
+        }
+      ],
+      "empty_dom_seen": false
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "started_at_utc": "2026-10-01T07:34:32.187788+00:00",
+    "status": "pass",
+    "config": "controlled.json",
+    "config_sha256": "699a414f4f9231d0044e9e8411760704bf73f5b7ba4f43f84db04ef0b086662b",
+    "command": [
+      "{node}",
+      "{config_dir}/browser_probe.mjs",
+      "<project>/node_modules/vite/bin/vite.js",
+      "{workspace}",
+      "{port}",
+      "{workspace}/.wtl-browser-state.json"
+    ],
+    "mutation_command": [
+      "{python}",
+      "{config_dir}/controlled_writer.py",
+      "{target}",
+      "{content_base64}",
+      "{mode}"
+    ],
+    "tool_version": "vite/8.3.1 linux-x64 node-v24.18.0",
+    "environment": {
+      "system": "Linux",
+      "release": "6.1.0-53-amd64",
+      "python": "3.11.2",
+      "platform": "Linux-6.1.0-53-amd64-x86_64-with-glibc2.36",
+      "workspace_device": "/",
+      "filesystem_type": "ext2/ext3"
+    },
+    "oracle": {
+      "type": "file",
+      "path": ".wtl-browser-state.json",
+      "extract_regex": "\"token\":\"([^\"]+)\""
+    },
+    "startup": {
+      "status": "pass",
+      "latency_ms": 1167.6,
+      "samples": 43,
+      "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+      "observed_bytes": 4
+    },
+    "attempts": [
+      {
+        "round": 1,
+        "mutation": "atomic_replace",
+        "expected_hash": "6e00bc1c0c96550011d952d69b9e0f8fc184287fc254fc53c6b66d77e29773da",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 64.6,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790840073671691432, \"bytes\": 29, \"sha256\": \"2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8\"}, {\"phase\": \"final\", \"time_ns\": 1790840073675377245, \"bytes\": 66, \"sha256\": \"eec53a91afd20b45b1b5b8521115d05c2a33c0dc8c56ed258cfc06bdaae90782\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 212.9,
+        "samples": 12,
+        "observed_hash": "6e00bc1c0c96550011d952d69b9e0f8fc184287fc254fc53c6b66d77e29773da",
+        "observed_bytes": 41
+      },
+      {
+        "round": 2,
+        "mutation": "atomic_replace",
+        "expected_hash": "c9072f81b093ad93fc37f2bdfcfa2d861bc05f0e3c5036ff2f3bedb82995a44f",
+        "expected_bytes": 41,
+        "mutation_command_result": {
+          "returncode": 0,
+          "duration_ms": 32.8,
+          "diagnostics": "WTL_WRITE_BOUNDARY {\"snapshots\": [{\"phase\": \"before\", \"time_ns\": 1790840074068579182, \"bytes\": 66, \"sha256\": \"eec53a91afd20b45b1b5b8521115d05c2a33c0dc8c56ed258cfc06bdaae90782\"}, {\"phase\": \"final\", \"time_ns\": 1790840074069132544, \"bytes\": 66, \"sha256\": \"cec4b2aa829f12a8bffb2c8f229e927e77bc20175236a995eef539b1145ea71a\"}], \"empty_dom_seen\": false}"
+        },
+        "status": "pass",
+        "latency_ms": 243.5,
+        "samples": 13,
+        "observed_hash": "c9072f81b093ad93fc37f2bdfcfa2d861bc05f0e3c5036ff2f3bedb82995a44f",
+        "observed_bytes": 41
+      }
+    ],
+    "failure_rate": 0.0,
+    "pass_latency": {
+      "median_ms": 228.2,
+      "p95_ms": 243.5
+    },
+    "logs": [
+      "WTL_BROWSER_ENGINE chromium",
+      "WTL_BROWSER_VERSION 151.0.7922.34",
+      "",
+      "  VITE v8.3.1  ready in 359 ms",
+      "",
+      "  \u279c  Local:   http://127.0.0.1:38309/",
+      "WTL_BROWSER_STATE {\"token\":\"seed\",\"session\":\"989db35f-fb3f-4c3b-9eb3-d70e8c0bdf31\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":0,\"updateMetric\":\"observed_dom_changes\"}",
+      "2:34:33 PM [vite] (client) hmr update /src/main.js",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0000-be1cca93e370409e982487322049cccc\",\"session\":\"989db35f-fb3f-4c3b-9eb3-d70e8c0bdf31\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":1,\"updateMetric\":\"observed_dom_changes\"}",
+      "2:34:34 PM [vite] (client) hmr update /src/main.js",
+      "WTL_BROWSER_STATE {\"token\":\"wtl-0001-79094e35597949f391cbe56e677c6557\",\"session\":\"989db35f-fb3f-4c3b-9eb3-d70e8c0bdf31\",\"applicationUpdates\":null,\"retainedState\":\"1\",\"updates\":2,\"updateMetric\":\"observed_dom_changes\"}",
+      "page.evaluate: Target page, context or browser has been closed",
+      "    at <project>/reports/tmpxd03yd_6/browser/browser_probe.mjs:61:30 {",
+      "  log: []",
+      "}"
+    ],
+    "reproduction": {
+      "config": "controlled.json",
+      "rounds": 2,
+      "mutation": "atomic_replace",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "watchmode_truth_lab",
+        "controlled.json",
+        "--rounds",
+        "2",
+        "--mutation",
+        "atomic_replace"
+      ],
+      "cli_shell": "posix",
+      "cli": "/usr/bin/python3 -m watchmode_truth_lab controlled.json --rounds 2 --mutation atomic_replace"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "source": "20261001T074921Z-ci-write-windows-latest-3-14-6b7ea8.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}

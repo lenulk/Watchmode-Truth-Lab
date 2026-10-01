@@ -1,0 +1,41 @@
+{
+  "status": "ready",
+  "config": "scenario.json",
+  "checks": [
+    {
+      "name": "scenario",
+      "status": "pass",
+      "message": "Configuration and fixture paths are valid; watched commands were not started"
+    },
+    {
+      "name": "command.executable",
+      "status": "pass",
+      "message": "Executable found"
+    },
+    {
+      "name": "command.asset.1",
+      "status": "pass",
+      "message": "Referenced asset found"
+    },
+    {
+      "name": "version_command.executable",
+      "status": "pass",
+      "message": "Executable found"
+    },
+    {
+      "name": "version_command.asset.1",
+      "status": "pass",
+      "message": "Referenced asset found"
+    },
+    {
+      "name": "dependency.playwright-core",
+      "status": "pass",
+      "message": "Installed 1.62.1"
+    },
+    {
+      "name": "dependency.vite",
+      "status": "pass",
+      "message": "Installed 8.3.1"
+    }
+  ]
+}

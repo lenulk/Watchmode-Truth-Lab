@@ -1,4 +1,6 @@
 import subprocess
+import os
+import stat
 import sys
 import tempfile
 import time
@@ -15,16 +17,44 @@ class WorkspaceCleanupTests(unittest.TestCase):
         busy = PermissionError("controlled sharing violation")
         busy.winerror = 32
         temporary = Mock()
-        temporary.cleanup.side_effect = busy
         started = time.monotonic()
-        with patch("watchmode_truth_lab.runner.os", SimpleNamespace(name="nt")), self.assertRaises(PermissionError):
+        with patch("watchmode_truth_lab.runner.os", SimpleNamespace(name="nt")), \
+                patch("watchmode_truth_lab.runner.shutil.rmtree", side_effect=busy), self.assertRaises(PermissionError):
             _cleanup_workspace(temporary, timeout=0.05)
         self.assertLess(time.monotonic() - started, 0.5)
         wrong = PermissionError("other controlled permission failure")
         wrong.winerror = 13
-        temporary.cleanup.side_effect = wrong
-        with patch("watchmode_truth_lab.runner.os", SimpleNamespace(name="nt")), self.assertRaises(PermissionError):
+        with patch("watchmode_truth_lab.runner.os", SimpleNamespace(name="nt")), \
+                patch("watchmode_truth_lab.runner.shutil.rmtree", side_effect=wrong), self.assertRaises(PermissionError):
             _cleanup_workspace(temporary, timeout=0.05)
+
+    def test_owned_read_only_file_is_removed_without_recursive_recovery(self):
+        temporary = tempfile.TemporaryDirectory(prefix="cleanup-readonly-")
+        path = Path(temporary.name)
+        target = path / "readonly.txt"
+        target.write_text("owned fixture", encoding="utf-8")
+        os.chmod(target, stat.S_IREAD)
+        try:
+            _cleanup_workspace(temporary)
+            self.assertFalse(path.exists())
+        finally:
+            if target.exists():
+                os.chmod(target, stat.S_IREAD | stat.S_IWRITE)
+            temporary.cleanup()
+
+    def test_persistent_failure_disarms_stdlib_finalizer_and_retains_owned_root(self):
+        temporary = tempfile.TemporaryDirectory(prefix="cleanup-persistent-")
+        path = Path(temporary.name)
+        busy = PermissionError("controlled persistent sharing violation")
+        busy.winerror = 32
+        try:
+            with patch("watchmode_truth_lab.runner.os", SimpleNamespace(name="nt")), \
+                    patch("watchmode_truth_lab.runner.shutil.rmtree", side_effect=busy), self.assertRaises(PermissionError):
+                _cleanup_workspace(temporary, timeout=0.02)
+            self.assertFalse(temporary._finalizer.alive)
+            self.assertTrue(path.is_dir())
+        finally:
+            temporary.cleanup()
 
     def test_owned_workspace_cleanup_waits_for_directory_handle_release(self):
         temporary = tempfile.TemporaryDirectory(prefix="cleanup-held-cwd-")

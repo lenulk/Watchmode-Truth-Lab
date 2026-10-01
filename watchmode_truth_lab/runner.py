@@ -11,6 +11,7 @@ import shutil
 import shlex
 import signal
 import socket
+import stat
 import subprocess
 import sys
 import tempfile
@@ -31,16 +32,34 @@ class ConfigError(ValueError):
 
 
 def _cleanup_workspace(temporary, timeout=2):
+    if os.name != "nt":
+        temporary.cleanup()
+        return
+
+    def onerror(function, path, information):
+        error = information[1]
+        if isinstance(error, FileNotFoundError):
+            return
+        # Reset an owned read-only entry once per attempt. Never follow a link
+        # or recursively call rmtree from an error handler (Python 3.10 does).
+        if isinstance(error, PermissionError) and getattr(error, "winerror", None) == 5 and not Path(path).is_symlink():
+            os.chmod(path, stat.S_IREAD | stat.S_IWRITE)
+        raise error
+
+    # The context owns explicit cleanup, including failure reporting. Disarm
+    # the stdlib finalizer so a persistent lock cannot start its old recursive
+    # permission handler after our bounded failure. Required CI checks the
+    # supported Python versions' finalizer compatibility.
+    temporary._finalizer.detach()
     deadline = time.monotonic() + timeout
     while True:
         try:
-            temporary.cleanup()
+            shutil.rmtree(temporary.name, onerror=onerror)
             return
         except PermissionError as exc:
             if os.name != "nt" or getattr(exc, "winerror", None) not in {5, 32} or time.monotonic() >= deadline:
                 raise
-            # Windows may release terminated descendants' directory handles
-            # asynchronously. Retry only this owned workspace, bounded.
+            # Retry only the owned workspace and the observed Windows boundary.
             time.sleep(min(0.025, max(0, deadline - time.monotonic())))
 
 
