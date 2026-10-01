@@ -1,0 +1,8 @@
+test_persistent_read_failure_is_bounded_and_reported (test_file_worker.FileWorkerTests.test_persistent_read_failure_is_bounded_and_reported) ... ok
+test_transient_source_read_boundary_recovers (test_file_worker.FileWorkerTests.test_transient_source_read_boundary_recovers) ... ok
+test_unrelated_output_error_propagates (test_file_worker.FileWorkerTests.test_unrelated_output_error_propagates) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.880s
+
+OK

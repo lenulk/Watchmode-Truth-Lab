@@ -1,0 +1,15 @@
+test_installed_console_first_run_and_file_mutations (evidence.release_acceptance.final_file_checks.FinalFileChecks.test_installed_console_first_run_and_file_mutations) ... 
+  test_installed_console_first_run_and_file_mutations (evidence.release_acceptance.final_file_checks.FinalFileChecks.test_installed_console_first_run_and_file_mutations) (mutation='atomic_replace') ... FAIL
+
+======================================================================
+FAIL: test_installed_console_first_run_and_file_mutations (evidence.release_acceptance.final_file_checks.FinalFileChecks.test_installed_console_first_run_and_file_mutations) (mutation='atomic_replace')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<project>\evidence\release_acceptance\selected_file_checks.py", line 52, in test_installed_console_first_run_and_file_mutations
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : 
+
+----------------------------------------------------------------------
+Ran 1 test in 15.386s
+
+FAILED (failures=1)

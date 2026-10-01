@@ -1,0 +1,16 @@
+{
+  "oracle": "mutation",
+  "timed_out": false,
+  "elapsed_seconds": 1.1335996509999973,
+  "returncode": 130,
+  "stdout": "",
+  "stderr": "Cancelled.\n",
+  "timeline": "{\"phase\": \"main_start\", \"time\": 245.077381738}\n{\"phase\": \"before_active_children\", \"time\": 246.070141786}\n{\"phase\": \"before_raise_signal\", \"time\": 246.070370445}\n{\"phase\": \"after_raise_signal\", \"time\": 246.070445916}\n{\"phase\": \"main_return\", \"time\": 246.095624162}\n",
+  "published_pids": {
+    "watch.pid": "5405",
+    "descendant.pid": "5409",
+    "mutator.pid": "5410",
+    "mutator-child.pid": "5413",
+    "probe-pids.json": "[]"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "artifacts": [
+    {
+      "file": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+      "sha256": "d2aec6fa987f4f3cf36fed36c099ca67af8b0ff3914410cc81e14d8e3c5f90af",
+      "size_bytes": 29392
+    },
+    {
+      "file": "watchmode_truth_lab-1.0.0.tar.gz",
+      "sha256": "b5f15d2aeedf162256009ec07c3a130ec27a8b90c9ffe2ea8a33e6fded62ee26",
+      "size_bytes": 24345
+    }
+  ],
+  "package_source_sha256": {
+    "LICENSE": "18a4c07f48e8409edbefc56e8a75a36ac113d8e5af7b2b0d28f6e36a01057796",
+    "pyproject.toml": "f9e151d61b8016fb7489b7a7698334e3b62ec681ae1dce7c12a5df7b32592092",
+    "watchmode_truth_lab/__init__.py": "aa1cf472b93ee1f216352aba67f68a508488a7143733124d9429331ea0b50a90",
+    "watchmode_truth_lab/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "watchmode_truth_lab/assets/common/package.json": "751e83880b7d495d57529368b421f1fb8e180d803cc93239ed6e9c6adc554f95",
+    "watchmode_truth_lab/assets/common/pnpm-lock.yaml": "84de04468bf599faaac45ab30e7aecb264d3de410f669ae2fd98f47bd020b145",
+    "watchmode_truth_lab/assets/file/worker.py": "91667ec9547840cd45630af979f5d09b8a293f5894b117c3398b639232f1ce9e",
+    "watchmode_truth_lab/assets/vite/browser_probe.mjs": "03a9457be60aeaa9d06d1c9b805b1bf4561985cebfe7acb792dacf67a47b7b77",
+    "watchmode_truth_lab/assets/vite/fixture/index.html": "bb694c0978644d2a59308f870095d20f2b10c77a5e5aa1f5b94e227a60f7b624",
+    "watchmode_truth_lab/assets/vite/fixture/src/main.js": "30d0987ce721cc6b9af3ec16daa6e9a5671e5ed76fc17606247928195b2b6320",
+    "watchmode_truth_lab/assets/vite/fixture/src/style.css": "6e2553a7851e76c6035249c14f4d08a29f2eb704968c71ac0c5c760f3438ffae",
+    "watchmode_truth_lab/assets/vite/fixture/src/token.js": "2ef0fa636f5390463f762bba0cd4c9aff29353a4385d7a9b88f02199346563c8",
+    "watchmode_truth_lab/assets/vite/fixture/src/view.js": "77255c57551baac4aba005688bb8058d38fd0c9ed9892853fd4f05e5182a098b",
+    "watchmode_truth_lab/assets/vite/fixture/vite.config.mjs": "1f8b6f11c7bfbafedfc176b3cdadea95399f724180a15e956a48441a7faa66c7",
+    "watchmode_truth_lab/cli.py": "287aa55082f4c9b8df06b5acc20b02fb8a87ece370c44e988f03356e6781d4cd",
+    "watchmode_truth_lab/diagnostics.py": "ea084a67b689316a160fe2b793ee7175a1208d212281595493014954feced548",
+    "watchmode_truth_lab/http_probe.py": "7868b565983608f3587dd97c00b8e50cf9e07e47fc508fa8f4a0d3bdcf398f09",
+    "watchmode_truth_lab/process_guard.py": "a2d9c9ee152522e21b28f3e551e529eae96bacdab35e9f814b61d37593632521",
+    "watchmode_truth_lab/reporting.py": "928750db5d5d9a8143fea16b8149edafd1aeae002f339237434bdc3ea857cd32",
+    "watchmode_truth_lab/runner.py": "d99d3445ede0edbd9a526fc820f28191ffe69cd8f9c37b5e86b1f937251bffbb",
+    "watchmode_truth_lab/starter.py": "69ad2493c0af4aeef7036cf24a5e0ae050206649bd469373a657f4e4c610f744"
+  },
+  "build_backend": "BUILD_BACKEND 77.0.3"
+}

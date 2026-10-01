@@ -1,0 +1,6 @@
+{
+  "source": "20261001T131110Z-ci-write-ubuntu-latest-3-12-351a3a.json",
+  "assessment": "pass",
+  "problems": [],
+  "analysis": "Required checks ran without skips/failures and met source/collection gates; this verifies the tested workflow, not absence of all bugs."
+}

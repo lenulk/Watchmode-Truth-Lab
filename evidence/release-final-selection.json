@@ -1,0 +1,27 @@
+{
+  "source_revision": "7937a44fc707a074b577ec1552e5d73376f8de56",
+  "run_id": 36866429596,
+  "artifact_id": 11164745830,
+  "build_job": "verify (ubuntu-latest, 3.12)",
+  "distribution_artifacts": [
+    {
+      "file": "watchmode_truth_lab-1.0.0-py3-none-any.whl",
+      "sha256": "4431f641a7a81fd68c57bcb6fbb25070ce5c95db2267be4daf3859efa132bacf",
+      "size_bytes": 29392
+    },
+    {
+      "file": "watchmode_truth_lab-1.0.0.tar.gz",
+      "sha256": "dca442329d2a29ed16cbb248796aa2b21c57552eb76abb2afc6c474ffc44f0f8",
+      "size_bytes": 24348
+    }
+  ],
+  "download_provenance": {
+    "run_id": 36866429596,
+    "artifact_id": 11164745830,
+    "name": "verification-ubuntu-latest-py3.12",
+    "archive_digest": "sha256:bf37a28feab1899e6db7e2196fe9f045930bf20347e520131337e920e75e1fe2",
+    "digest_verified": true,
+    "source_revision": "7937a44fc707a074b577ec1552e5d73376f8de56"
+  },
+  "purpose": "New selected candidate after product signal repair; complete hosted CI and installed acceptance required"
+}

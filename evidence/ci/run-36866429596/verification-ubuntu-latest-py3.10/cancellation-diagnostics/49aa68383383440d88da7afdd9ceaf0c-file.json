@@ -1,0 +1,14 @@
+{
+  "oracle": "file",
+  "timed_out": false,
+  "elapsed_seconds": 1.187999999994645,
+  "returncode": 130,
+  "stdout": "",
+  "stderr": "Cancelled.\n",
+  "timeline": "{\"phase\": \"main_start\", \"time\": 104295.5}\n{\"phase\": \"before_active_children\", \"time\": 104296.468}\n{\"phase\": \"before_raise_signal\", \"time\": 104296.468}\n{\"phase\": \"after_raise_signal\", \"time\": 104296.468}\n{\"phase\": \"main_return\", \"time\": 104296.484}\n",
+  "published_pids": {
+    "watch.pid": "16132",
+    "descendant.pid": "25920",
+    "probe-pids.json": "[]"
+  }
+}

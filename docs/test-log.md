@@ -1251,3 +1251,57 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T130606Z-native-snapshot-browser-integration-ed94c3.json), [log](../evidence/test-runs/20261001T130606Z-native-snapshot-browser-integration-ed94c3.log), retained birth records under `evidence/cancellation/`.
 - Result: actual installed Chrome/controller integration passed without skips, observed the adapter/Vite/browser tree, returned130 within the unchanged bound and found no matching live process generation afterward. Source endpoints matched.
 - Analysis: verifies the native observer integration using the retained Python3.12 installed workflow. The old wheel is still superseded; this gate does not count as acceptance of the new delivery wheel. Both reviewed repairs can now enter a new required six-job CI before final artifact selection and installed matrices.
+
+## Cycle 192 Windows full repaired source gate
+
+- Evidence: [JSON](../evidence/test-runs/20261001T130914Z-poll-signal-windows-core-541dca.json), [log](../evidence/test-runs/20261001T130914Z-poll-signal-windows-core-541dca.log).
+- Result: all 58 source checks passed without skips, including real Chrome/Vite, native process snapshot, external mutation, output/report/failure boundaries and cleanup. Source start/end identities matched commit7937a44.
+- Analysis: fulfills the local full-source gate after the product wait change; actual installed package gates remain separate. New required hosted run36866429596 targets the same commit. The reviewed 91-file guest source archive SHA256 is `f27f6d2411c39aa09eee9ec13f14c9c9c57d40abb60fd755ebc61d3606d6ad68`; pre-overlay VM inspection found no project processes. Verify backup/overlay and run the Linux source gate next.
+
+## Cycle 193 Debian full repaired source gate
+
+- Evidence: `evidence/test-runs/20261001T131056Z-poll-signal-debian-core-4737b9.json` and `.log` on the guest, pending immutable import.
+- Result: all58 actual Debian source checks passed without skips, including real Vite/Chromium, mutation/failure/report/deadline cases, child birth identity and pidfd cleanup. Source endpoints matched commit7937a44. Verified91-file overlay retained backup `reports/before-verified-7937a44f`.
+- Analysis: completes both local source gates after the product wait repair. Ubuntu3.10/3.12 hosted jobs also passed all required gates. Select the exact artifact from the successful Ubuntu3.12 job for new Windows/Debian installed acceptance while the remaining hosted jobs continue; no release acceptance is declared yet.
+
+## Cycle 194 New selected distribution byte audit
+
+- Evidence: [JSON](../evidence/test-runs/20261001T131738Z-release-final-selected-byte-audit-b6688b.json), [log](../evidence/test-runs/20261001T131738Z-release-final-selected-byte-audit-b6688b.log), downloaded artifact11164745830 from successful Ubuntu3.12 job of run36866429596.
+- Result: one exact wheel/sdist manifest, sums and packaged-source audit passed against committed7937a44, with matching source endpoints. The setup copied the four exact distribution files successfully, then its selection receipt creation failed because it looked for download provenance one parent directory too high. The test audited the copied files and did not depend on that missing receipt.
+- Analysis: correct the receipt path and verify existing copied bytes against the actual downloaded files; do not replace/delete them. This setup bookkeeping failure does not invalidate the package-byte audit, but receipt linkage must complete before installed acceptance and publication. All hosted jobs and final installed gates remain required.
+
+## Cycle 195 New selected Windows file starter atomic failure
+
+- Evidence: [JSON](../evidence/test-runs/20261001T132235Z-release-final-windows-file-76ae32.json), [log](../evidence/test-runs/20261001T132235Z-release-final-windows-file-76ae32.log), [atomic report](../evidence/matrices/release-final-windows-file/atomic_replace.json), [installed payload identity](../evidence/matrices/release-final-windows-file/installed-payload-identity.json), [selection](../evidence/release-final-selection.json).
+- Result: console/version/validate/doctor and every installed package-file hash matched the actual CI wheel4431f641...; overwrite20 and burst20 passed. Atomic replacement failed on update7 after six passes: sample worker source.read_bytes raised PermissionError errno13 and exited1. The runner correctly reported inconclusive/process_exited_1. Source endpoints matched. The exact wheel/manifest/setup/controllers were also transferred to the VM in a verified-hash delivery archive, but that guest environment has not been installed/tested.
+- Analysis: the example file worker lacks recovery for a transient read-sharing/rename boundary. Reproduce with an actual held Windows file handle before changing it; add bounded retry plus persistent/unrelated-error checks. Do not relax oracle/deadline or relabel the failing matrix. Candidate4431... is not accepted and will be superseded if packaged worker changes; the poll/sleep repair remains independently proven.
+
+## Cycle 196 Controlled actual file read-sharing failure before repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T133038Z-file-worker-sharing-before-5eb183.json), [log](../evidence/test-runs/20261001T133038Z-file-worker-sharing-before-5eb183.log).
+- Result: the expected-recovery test failed with the original worker after an actual Windows handle denied source reads temporarily. Its PermissionError crash prevented baseline output, independently reproducing the installed atomic-case boundary. Source endpoints matched.
+- Analysis: repair only sample worker source-read recovery. Strengthen the fixture by recording the actual read error before releasing the handle, so slow child startup cannot bypass the exercised boundary. Windows permission errno13 and missing-source reads may retry for at most one second; persistent reads must still fail and unrelated output errors must propagate. Add three portable source gates and require61 core cases in CI. Current installed4431... acceptance remains failed and retained.
+
+## Cycle 197 Bounded file worker recovery on Windows
+
+- Evidence: [JSON](../evidence/test-runs/20261001T133448Z-file-worker-sharing-repaired-97f0e2.json), [log](../evidence/test-runs/20261001T133448Z-file-worker-sharing-repaired-97f0e2.log).
+- Result: three checks passed without skips: recovery after an actual Windows handle temporarily denied reads, bounded persistent denial with the original error reported, and propagation of an unrelated output error. Source start/end hashes matched; this cycle used Python3.12.14 and the changed source asset.
+- Analysis: the sample worker now retries only temporary missing-source or Windows read-permission boundaries for at most one second, resetting the budget after a successful read. The runner oracle and observation deadline are unchanged. Candidate4431 remains failed and superseded. Verify the fixture on actual Python3.10 and Debian, then rebuild and repeat installed acceptance with a new exact artifact.
+
+## Cycle 198 File worker on actual Python3.10
+
+- Evidence: [JSON](../evidence/test-runs/20261001T134203Z-file-worker-python310-c4bb18.json), [log](../evidence/test-runs/20261001T134203Z-file-worker-python310-c4bb18.log).
+- Result: all three actual Windows read-sharing recovery, persistent denial and output-error checks passed without skips on Python3.10.11. Source endpoints matched.
+- Analysis: current worker asset handles the observed boundary on both tested Windows interpreters. This embedded runtime executes the source asset and is not pip/venv package acceptance. Run the full Windows source gate and retain current hosted-run results before committing this repair.
+
+## Cycle 199 Full Windows source gate and previous CI retention
+
+- Evidence: [JSON](../evidence/test-runs/20261001T134316Z-file-worker-windows-core-7b2ac0.json), [log](../evidence/test-runs/20261001T134316Z-file-worker-windows-core-7b2ac0.log), [previous CI terminal jobs](../evidence/ci/run-36866429596/jobs.json).
+- Result: all61 Windows source checks passed without skips and source endpoints matched. Previous commit7937a44 hosted run36866429596 completed all six jobs successfully; all six artifact archive digests were verified and their text evidence retained. That run covers the poll/signal and native process snapshot repairs, but its wheel failed independent file acceptance in Cycle195.
+- Analysis: do not accept the old distribution merely because CI passed. Read-only review found the new fixture's failure-path timer could outlive its 2s join while retaining a file handle. Add cancellation and guaranteed join before temporary-directory cleanup, then verify the focused fixture again before committing the worker repair. Product source remains unchanged by that fixture cleanup.
+
+## Cycle 200 Cancellation-aware fixture cleanup
+
+- Evidence: [JSON](../evidence/test-runs/20261001T134540Z-file-worker-fixture-cleanup-d20145.json), [log](../evidence/test-runs/20261001T134540Z-file-worker-fixture-cleanup-d20145.log).
+- Result: all three focused actual Windows checks passed without skips; source endpoints matched. Timer waits are now interruptible, its finally block releases the handle, and cleanup joins before temporary-directory deletion, including failed child launch.
+- Analysis: the 61-test gate in Cycle199 verified unchanged product behavior; this focused cycle verifies the subsequent fixture-only cleanup. Commit the bounded worker repair and launch the required six-platform gates, then verify the exact committed source on Debian before selecting the new distribution.

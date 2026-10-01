@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-01T13:22:44.247845+00:00",
+  "status": "inconclusive",
+  "config": "scenario.json",
+  "config_sha256": "ed65ee0237a7fca5f5cfb2d29658dfd3f6ba234f531d86d448b0fe51bb7f12b9",
+  "command": [
+    "{python}",
+    "{config_dir}/worker.py",
+    "{workspace}/input.txt",
+    "{workspace}/output.txt"
+  ],
+  "mutation_command": null,
+  "tool_version": null,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "workspace_device": "C:\\",
+    "filesystem_type": "NTFS"
+  },
+  "oracle": {
+    "type": "file",
+    "path": "output.txt"
+  },
+  "startup": {
+    "status": "pass",
+    "latency_ms": 469.0,
+    "samples": 17,
+    "observed_hash": "19b25856e1c150ca834cffc8b59b23adbd0ec0389e58eb22b3b64768098d002b",
+    "observed_bytes": 4
+  },
+  "attempts": [
+    {
+      "round": 1,
+      "mutation": "atomic_replace",
+      "expected_hash": "f125d79505e774ff9e70b523fe8ca46d24d9a53c6b824dacec61fd4c79445df9",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 187.0,
+      "samples": 6,
+      "observed_hash": "f125d79505e774ff9e70b523fe8ca46d24d9a53c6b824dacec61fd4c79445df9",
+      "observed_bytes": 41
+    },
+    {
+      "round": 2,
+      "mutation": "atomic_replace",
+      "expected_hash": "7df1be180cb4301068cdbd6e7fd8abc94ddf2f2e0dfb1e113344ce95558b1a8a",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 47.0,
+      "samples": 5,
+      "observed_hash": "7df1be180cb4301068cdbd6e7fd8abc94ddf2f2e0dfb1e113344ce95558b1a8a",
+      "observed_bytes": 41
+    },
+    {
+      "round": 3,
+      "mutation": "atomic_replace",
+      "expected_hash": "1e3bb7dd21830b66df5b393c6e87ec73b4c59a2fc4b3d936c5d773bd4c4aa88b",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 78.0,
+      "samples": 6,
+      "observed_hash": "1e3bb7dd21830b66df5b393c6e87ec73b4c59a2fc4b3d936c5d773bd4c4aa88b",
+      "observed_bytes": 41
+    },
+    {
+      "round": 4,
+      "mutation": "atomic_replace",
+      "expected_hash": "a4d9cf905b34b47a1ceba1b55ff2ee06e7c987ac77e66c60c9e39ee90d47b107",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 62.0,
+      "samples": 5,
+      "observed_hash": "a4d9cf905b34b47a1ceba1b55ff2ee06e7c987ac77e66c60c9e39ee90d47b107",
+      "observed_bytes": 41
+    },
+    {
+      "round": 5,
+      "mutation": "atomic_replace",
+      "expected_hash": "fad207d3f681f7f922413995e53cb60826b533d8e1e4aeb7819b4ea48ad0e3a9",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 47.0,
+      "samples": 5,
+      "observed_hash": "fad207d3f681f7f922413995e53cb60826b533d8e1e4aeb7819b4ea48ad0e3a9",
+      "observed_bytes": 41
+    },
+    {
+      "round": 6,
+      "mutation": "atomic_replace",
+      "expected_hash": "0275370b71f0f14856e4bef878bc879a789722fac8dd8fa74c9e6f9f63e02b08",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "pass",
+      "latency_ms": 78.0,
+      "samples": 5,
+      "observed_hash": "0275370b71f0f14856e4bef878bc879a789722fac8dd8fa74c9e6f9f63e02b08",
+      "observed_bytes": 41
+    },
+    {
+      "round": 7,
+      "mutation": "atomic_replace",
+      "expected_hash": "af53543856dcfb96f555aeb8af0b97f10783bd95c63f4d79b87cd4472903d844",
+      "expected_bytes": 41,
+      "mutation_command_result": null,
+      "status": "inconclusive",
+      "reason": "process_exited_1",
+      "elapsed_ms": 125.0,
+      "samples": 4,
+      "observed_hash": "0275370b71f0f14856e4bef878bc879a789722fac8dd8fa74c9e6f9f63e02b08",
+      "observed_bytes": 41,
+      "raw_output_hash": "0275370b71f0f14856e4bef878bc879a789722fac8dd8fa74c9e6f9f63e02b08",
+      "probe_error": null
+    }
+  ],
+  "failure_rate": 0.1429,
+  "pass_latency": {
+    "median_ms": 70.0,
+    "p95_ms": 187.0
+  },
+  "logs": [
+    "Traceback (most recent call last):",
+    "  File \"<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\reports\\release-final-windows-projects\\file/worker.py\", line 11, in <module>",
+    "    content = source.read_bytes()",
+    "              ^^^^^^^^^^^^^^^^^^^",
+    "  File \"<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1019, in read_bytes",
+    "    with self.open(mode='rb') as f:",
+    "         ^^^^^^^^^^^^^^^^^^^^",
+    "  File \"<home>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1013, in open",
+    "    return io.open(self, mode, buffering, encoding, errors, newline)",
+    "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "PermissionError: [Errno 13] Permission denied: '<home>\\\\AppData\\\\Local\\\\Temp\\\\watchmode-truth-lab-298zf1x8\\\\input.txt'"
+  ],
+  "reproduction": {
+    "config": "scenario.json",
+    "rounds": 20,
+    "mutation": "atomic_replace",
+    "argv": [
+      "<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\reports\\release-final-windows-venv\\Scripts\\python.exe",
+      "-m",
+      "watchmode_truth_lab",
+      "scenario.json",
+      "--rounds",
+      "20",
+      "--mutation",
+      "atomic_replace"
+    ],
+    "cli_shell": "powershell",
+    "cli": "& '<home>\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\opensode\\watchmode-truth-lab\\reports\\release-final-windows-venv\\Scripts\\python.exe' '-m' 'watchmode_truth_lab' 'scenario.json' '--rounds' '20' '--mutation' 'atomic_replace'"
+  }
+}
