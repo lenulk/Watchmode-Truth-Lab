@@ -1,9 +1,7 @@
 """Identity-aware process observations for acceptance controllers, not the product."""
 import ctypes
-import json
 import os
 import signal
-import subprocess
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -75,30 +73,70 @@ def select_descendants(parent, rows):
         found = updated
 
 
+def _windows_rows():
+    """Native snapshot; exclude generations born after capture began."""
+    from ctypes import wintypes
+
+    class ProcessEntry(ctypes.Structure):
+        _fields_ = [("dwSize", wintypes.DWORD), ("cntUsage", wintypes.DWORD),
+                    ("th32ProcessID", wintypes.DWORD), ("th32DefaultHeapID", ctypes.c_size_t),
+                    ("th32ModuleID", wintypes.DWORD), ("cntThreads", wintypes.DWORD),
+                    ("th32ParentProcessID", wintypes.DWORD), ("pcPriClassBase", wintypes.LONG),
+                    ("dwFlags", wintypes.DWORD), ("szExeFile", wintypes.WCHAR * 260)]
+
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.GetSystemTimePreciseAsFileTime.argtypes = [ctypes.POINTER(wintypes.FILETIME)]
+    kernel.GetSystemTimePreciseAsFileTime.restype = None
+    kernel.CreateToolhelp32Snapshot.argtypes = [wintypes.DWORD, wintypes.DWORD]
+    kernel.CreateToolhelp32Snapshot.restype = wintypes.HANDLE
+    kernel.Process32FirstW.argtypes = [wintypes.HANDLE, ctypes.POINTER(ProcessEntry)]
+    kernel.Process32FirstW.restype = wintypes.BOOL
+    kernel.Process32NextW.argtypes = [wintypes.HANDLE, ctypes.POINTER(ProcessEntry)]
+    kernel.Process32NextW.restype = wintypes.BOOL
+    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+    stamp = wintypes.FILETIME()
+    kernel.GetSystemTimePreciseAsFileTime(ctypes.byref(stamp))
+    cutoff = (stamp.dwHighDateTime << 32) | stamp.dwLowDateTime
+    snapshot = kernel.CreateToolhelp32Snapshot(2, 0)
+    if snapshot == ctypes.c_void_p(-1).value:
+        raise ctypes.WinError(ctypes.get_last_error())
+    pairs = []
+    try:
+        entry = ProcessEntry()
+        entry.dwSize = ctypes.sizeof(entry)
+        present = kernel.Process32FirstW(snapshot, ctypes.byref(entry))
+        while present:
+            pairs.append((int(entry.th32ProcessID), int(entry.th32ParentProcessID)))
+            present = kernel.Process32NextW(snapshot, ctypes.byref(entry))
+        if ctypes.get_last_error() != 18:  # ERROR_NO_MORE_FILES
+            raise ctypes.WinError(ctypes.get_last_error())
+    finally:
+        kernel.CloseHandle(snapshot)
+    rows = []
+    for pid, parent in pairs:
+        if pid == 0:
+            continue
+        try:
+            current = identity(pid)
+        except PermissionError:
+            # Global protected processes are outside the queryable observation
+            # scope. Errors when checking an observed owned record still fail.
+            continue
+        if current is not None and current["created"] <= cutoff:
+            rows.append(dict(current, parent_pid=parent))
+    return rows
+
+
 def descendants(parent):
     if os.name == "nt":
         root = identity(parent)
         if root is None:
             raise RuntimeError("The snapshot root exited")
-        command = ("Get-CimInstance Win32_Process | ForEach-Object { if ($_.CreationDate) {"
-                   "[pscustomobject]@{pid=[int]$_.ProcessId;parent_pid=[int]$_.ParentProcessId;"
-                   "created=$_.CreationDate.ToUniversalTime().ToFileTimeUtc()} } } | ConvertTo-Json -Compress")
-        result = subprocess.run(["powershell.exe", "-NoProfile", "-NonInteractive", "-Command", command],
-                                capture_output=True, text=True, encoding="utf-8", timeout=10, check=True)
-        rows = json.loads(result.stdout)
-        if isinstance(rows, dict):
-            rows = [rows]
+        rows = _windows_rows()
         recorded_root = next((row for row in rows if row["pid"] == parent), None)
-        # CIM timestamps have microsecond precision; retain exact WinAPI ticks
-        # for liveness and termination after matching the same process generation.
-        if recorded_root is None or recorded_root["created"] // 10 != root["created"] // 10:
+        if recorded_root is None or recorded_root["created"] != root["created"]:
             raise RuntimeError("Snapshot root creation identity changed")
-        observed = []
-        for row in select_descendants(parent, rows):
-            current = identity(row["pid"])
-            if current is not None and current["created"] // 10 == row["created"] // 10:
-                observed.append(dict(row, created=current["created"]))
-        return observed
+        return select_descendants(parent, rows)
     rows = []
     for path in Path("/proc").glob("[0-9]*/stat"):
         current = identity(int(path.parent.name))

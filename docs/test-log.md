@@ -1233,3 +1233,21 @@ The completed [first-run job summaries](../evidence/ci/first-run-36783229577/job
 - Evidence: [JSON](../evidence/test-runs/20261001T125913Z-python310-poll-cancellation-repaired-bc2fa5.json), [log](../evidence/test-runs/20261001T125913Z-python310-poll-cancellation-repaired-bc2fa5.log), [candidate identity](../evidence/python310-poll-diagnostic-distribution.json), new phase records under `evidence/cancellation-diagnostics/`.
 - Result: three tests passed without skips using actual Python3.10.11: controlled SIGINT startup/HTTP/mutation subcases and external mutation noisy/failure/deadline regressions. The new manually unpacked candidate wheel SHA256 is `69277d0716b5c6d67a82ce48263fcf5fc1db987862df2a9db322a36e45b45bcc`; source endpoints matched. Existing cancellation deadlines were not increased.
 - Analysis: product poll/interruptible-sleep repair closes the locally reproduced symptom. This diagnostic embedded installation is not hosted pip/venv acceptance. The previously selected `5ba2e...` wheel is superseded; new required CI and same-byte Windows/Debian full installed matrices must establish the final delivery artifact. The native snapshot repair remains the next separate principal issue.
+
+## Cycle 189 Native Windows process snapshot repair
+
+- Evidence: [JSON](../evidence/test-runs/20261001T130315Z-native-process-snapshot-windows-6f753a.json), [log](../evidence/test-runs/20261001T130315Z-native-process-snapshot-windows-6f753a.log).
+- Result: all four actual child/identity/boundary checks passed using native Toolhelp process enumeration and exact WinAPI creation times. No external PowerShell or CIM query is needed. Source endpoints matched.
+- Analysis: removes the auxiliary external-query deadline without weakening process generation checks. A capture-time cutoff excludes generations created after enumeration begins, preventing replacement PIDs from adopting an old parent row. Protected global processes that cannot be queried are outside the snapshot observation scope; query errors on already-observed owned records still fail liveness/cleanup. The ordinary same-user owned-child boundary is actually tested. Verify the same native ABI on actual Python3.10 and its browser-controller integration before new CI.
+
+## Cycle 190 Native snapshot ABI on actual Python 3.10
+
+- Evidence: [JSON](../evidence/test-runs/20261001T130453Z-native-snapshot-python310-90f247.json), [log](../evidence/test-runs/20261001T130453Z-native-snapshot-python310-90f247.log).
+- Result: four helper checks passed with actual Windows Python3.10.11, including child identity and refusal/termination through a stable matching handle. No skips; source endpoints matched.
+- Analysis: verifies the native ctypes ABI independently of the Python3.12 lead runtime. This is helper execution under the embedded diagnostic runtime, not fresh pip-installed application acceptance. Actual browser integration remains the next auxiliary gate.
+
+## Cycle 191 Native snapshot actual Chrome cancellation integration
+
+- Evidence: [JSON](../evidence/test-runs/20261001T130606Z-native-snapshot-browser-integration-ed94c3.json), [log](../evidence/test-runs/20261001T130606Z-native-snapshot-browser-integration-ed94c3.log), retained birth records under `evidence/cancellation/`.
+- Result: actual installed Chrome/controller integration passed without skips, observed the adapter/Vite/browser tree, returned130 within the unchanged bound and found no matching live process generation afterward. Source endpoints matched.
+- Analysis: verifies the native observer integration using the retained Python3.12 installed workflow. The old wheel is still superseded; this gate does not count as acceptance of the new delivery wheel. Both reviewed repairs can now enter a new required six-job CI before final artifact selection and installed matrices.

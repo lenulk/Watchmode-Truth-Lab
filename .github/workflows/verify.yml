@@ -103,6 +103,7 @@ jobs:
             evidence/test-runs/*ci-*-${{ matrix.os }}-${{ env.WTL_CI_PYTHON_LABEL }}-*
             evidence/matrices/ci-*-${{ matrix.os }}-${{ matrix.python }}/
             evidence/cancellation/
+            evidence/cancellation-diagnostics/
             reports/ci-release/
           retention-days: 14
           if-no-files-found: error
